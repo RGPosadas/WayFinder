@@ -1,3 +1,9 @@
 language: javascript
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install python3
+before_script:
+  - curl https://pre-commit.com/install-local.py | python -
+  - pre-commit install
 script:
-- true
+  - pre-commit run -a
