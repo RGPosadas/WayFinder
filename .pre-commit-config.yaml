@@ -1,0 +1,14 @@
+fail_fast: true
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.3.0
+    hooks:
+      - id: double-quote-string-fixer
+        exclude: .py
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: check-yaml
+  - repo: https://github.com/prettier/prettier
+    rev: "524cd96fee6153259f97b8176c51928dfec21da8"
+    hooks:
+      - id: prettier
