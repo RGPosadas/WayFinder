@@ -1,4 +1,8 @@
-language: javascript
+language: node_js
+node_js:
+  - "12.14.1"
+cache:
+  - npm: false
 before_install:
   - sudo apt-get update
   - sudo apt-get install python3
@@ -7,3 +11,4 @@ before_script:
   - pre-commit install
 script:
   - pre-commit run -a
+  - npm run test
