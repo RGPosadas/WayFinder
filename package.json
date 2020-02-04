@@ -1,0 +1,24 @@
+{
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "name": "SOEN390",
+  "description": "",
+  "version": "1.0.0",
+  "main": "sum.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RGPosadas/SOEN390.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RGPosadas/SOEN390/issues"
+  },
+  "homepage": "https://github.com/RGPosadas/SOEN390#readme"
+}
