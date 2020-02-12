@@ -528,3 +528,19 @@ temp/
 .history
 
 # End of https://www.gitignore.io/api/go,react,python,intellij,reactnative,visualstudiocode
+
+# EXPO CLI GENERATED STUFF
+node_modules/**/*
+.expo/*
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+web-report/
+
+# macOS
+.DS_Store
