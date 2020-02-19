@@ -1,24 +1,33 @@
 {
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
     "test": "jest"
   },
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "dependencies": {
+    "expo": "~36.0.0",
+    "react": "~16.9.0",
+    "react-dom": "^16.12.0",
+    "react-native": "^0.61.5",
+    "react-native-maps": "0.26.1",
+    "react-native-safe-area-context": "0.6.0",
+    "react-native-web": "^0.12.1",
+    "react-navigation": "^4.1.1",
+    "react-navigation-stack": "^2.1.1",
+    "react-native-screens": "2.0.0-alpha.12"
+  },
   "devDependencies": {
-    "jest": "^25.1.0"
+    "@babel/core": "^7.0.0",
+    "babel-preset-expo": "~8.0.0",
+    "jest-expo": "^36.0.1",
+    "react-test-renderer": "^16.12.0"
   },
-  "name": "SOEN390",
-  "description": "",
-  "version": "1.0.0",
-  "main": "sum.js",
-  "dependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RGPosadas/SOEN390.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/RGPosadas/SOEN390/issues"
-  },
-  "homepage": "https://github.com/RGPosadas/SOEN390#readme"
+  "private": true
 }

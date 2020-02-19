@@ -11,4 +11,6 @@ before_script:
   - pre-commit install
 script:
   - pre-commit run -a
-  - npm run test
+  - npm install -g expo-cli
+  - npm install
+  - npm test
