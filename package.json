@@ -9,9 +9,6 @@
     "test": "jest",
     "web": "expo start --web"
   },
-  "jest": {
-    "preset": "jest-expo"
-  },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.0.7",
@@ -38,8 +35,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
+    "babel-jest": "24.9.0",
     "babel-preset-expo": "~8.0.0",
     "jest-expo": "^36.0.1",
+    "jest-fetch-mock": "3.0.1",
     "react-test-renderer": "^16.12.0"
   }
 }
