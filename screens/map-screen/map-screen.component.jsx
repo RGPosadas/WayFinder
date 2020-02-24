@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 
 import Map from "../../components/map/map.component";
-import CampusToggleButtons from "../../components/CampusToggleButtons/CampusToggleButtons.component";
+import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 
 class MapScreen extends React.Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class MapScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Map region={this.state.region} />
-        <CampusToggleButtons regionChange={this.onRegionChange} />
+        <CampusToggle regionChange={this.onRegionChange} />
       </View>
     );
   }

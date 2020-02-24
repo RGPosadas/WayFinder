@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 
-const CampusToggleButtons = props => {
+const CampusToggle = props => {
   /**
    * this hook sets a boolean variable isSGW to know which current
    * button is pressed
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default CampusToggleButtons;
+export default CampusToggle;
