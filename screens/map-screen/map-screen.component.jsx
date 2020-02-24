@@ -1,12 +1,13 @@
 import React from "react";
-import MapView from "react-native-maps";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { StyleSheet, View } from "react-native";
+
+import Map from "../../components/map/map.component";
 
 class MapScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <MapView style={styles.mapStyle} />
+        <Map />
       </View>
     );
   }
@@ -18,10 +19,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center"
-  },
-  mapStyle: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
   }
 });
 
