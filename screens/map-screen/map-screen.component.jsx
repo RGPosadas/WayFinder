@@ -1,6 +1,5 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-
 import Map from "../../components/map/map.component";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 
