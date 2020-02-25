@@ -544,3 +544,5 @@ web-report/
 
 # macOS
 .DS_Store
+
+secrets.js
