@@ -10,15 +10,15 @@ const BuildingHighlights = ({ displayBuilding }) => {
   }, []);
   return (
     <View>
-      {Object.entries(Coordinates).map(([value, key]) => {
+      {Object.entries(Coordinates).map(([id, coordinates]) => {
         return (
           <Polygon
-            key={value}
-            coordinates={key}
+            key={id}
+            coordinates={coordinates}
             tappable={true}
             fillColor={fillColor}
             // onPress={() => displayBuilding(true, value)}
-          ></Polygon>
+          />
         );
       })}
     </View>
