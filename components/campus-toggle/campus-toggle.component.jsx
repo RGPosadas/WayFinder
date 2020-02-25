@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -7,20 +7,22 @@ import {
   TouchableHighlight
 } from "react-native";
 
-const CampusToggle = props => {
+import RegionContext from "../../context/region.context";
+
+const CampusToggle = () => {
   /**
    * this hook sets a boolean variable isSGW to know which current
    * button is pressed
    */
   const [isSGW, setIsSGW] = useState(true);
-
+  const { setRegion } = useContext(RegionContext);
   /**
    * Changes the boolean value and the coordinates that will change
    * the map view
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    props.regionChange({
+    setRegion({
       latitude: 45.495869,
       longitude: -73.578107,
       latitudeDelta: 0.0222,
@@ -30,7 +32,7 @@ const CampusToggle = props => {
 
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    props.regionChange({
+    setRegion({
       latitude: 45.4584,
       longitude: -73.64045,
       latitudeDelta: 0.0222,

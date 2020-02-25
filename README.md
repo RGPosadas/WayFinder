@@ -1,4 +1,21 @@
-# SOEN390
+# WayFinder
+
+## Team Members
+
+- Ritchelle Grace Posadas, @RGPosadas (Team Lead)
+- Cristian Aldea, @TheGreatMarkus (Co-Tech Lead)
+- Jonathan Hsu, @bit172 (Co-Tech Lead)
+- Jimmy Lau, @JimLau49
+- Cindy Lo, @cindyslittleplanet
+- Omar Sahtout, @osahtout
+- Yun Shi Lin, @ys-lin
+- Leo Jr. Silao, @leojrsilao
+- Ragith Sabapathipillai, @r-saba
+
+## Development Guidelines
+
+- We try our best to adhere to the set of rules and guidelines that we've come up as a team in order to have an efficient workflow.
+- To view, refer to our [GitHub Wiki](https://github.com/RGPosadas/WayFinder/wiki).
 
 ## Development Setup
 

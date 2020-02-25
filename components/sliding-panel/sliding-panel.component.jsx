@@ -8,11 +8,11 @@ import {
   ScrollView
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Buildinginformation } from "../data/Buildinginformation";
+import BuildingInformation from "../../constants/building-information.data";
 
 const { height } = Dimensions.get("window");
 
-export class Slidingpanel extends React.Component {
+class SlidingPanel extends React.Component {
   render() {
     const {
       tappedBuilding,
@@ -73,3 +73,5 @@ export class Slidingpanel extends React.Component {
     );
   }
 }
+
+export default SlidingPanel;

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Polygon } from "react-native-maps";
 import { View } from "react-native";
-import { Coordinates } from "../data/Coordinates";
+import { Coordinates } from "../../constants/coordinates.data";
 
-export const Buildinghighlights = ({ displayBuilding }) => {
+const BuildingHighlights = ({ displayBuilding }) => {
   const [fillColor, setFillColor] = useState(null);
   useEffect(() => {
     setFillColor("rgba(128, 0, 32, 0.5)");
-  });
+  }, []);
   return (
     <View>
       {Object.entries(Coordinates).map(([value, key]) => {
@@ -17,10 +17,12 @@ export const Buildinghighlights = ({ displayBuilding }) => {
             coordinates={key}
             tappable={true}
             fillColor={fillColor}
-            onPress={() => displayBuilding(true, value)}
+            // onPress={() => displayBuilding(true, value)}
           ></Polygon>
         );
       })}
     </View>
   );
 };
+
+export default BuildingHighlights;
