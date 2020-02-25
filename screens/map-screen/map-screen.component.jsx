@@ -1,39 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, View } from "react-native";
+
+import { RegionProvider } from "../../context/region.context";
 
 import Map from "../../components/map/map.component";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 
-class MapScreen extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      region: {
-        latitude: 45.495869,
-        longitude: -73.578107,
-        latitudeDelta: 0.0522,
-        longitudeDelta: 0.0421
-      }
-    };
-  }
+const MapScreen = () => {
+  const [region, setRegion] = useState(null);
 
-  /**
-   * this will change the value of the coordinates when a toggle button
-   * is pressed or called by any child
-   */
-  onRegionChange = newRegion => {
-    this.setState({ region: newRegion });
-  };
+  useEffect(() => {
+    setRegion({
+      latitude: 45.495869,
+      longitude: -73.578107,
+      latitudeDelta: 0.0522,
+      longitudeDelta: 0.0421
+    });
+  }, []);
 
-  render() {
-    return (
+  return (
+    <RegionProvider value={{ region, setRegion }}>
       <View style={styles.container}>
-        <Map region={this.state.region} />
-        <CampusToggle regionChange={this.onRegionChange} />
+        <Map />
+        <CampusToggle />
       </View>
-    );
-  }
-}
+    </RegionProvider>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
