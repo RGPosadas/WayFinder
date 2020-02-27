@@ -9,6 +9,7 @@ import {
 
 import RegionContext from "../../context/region.context";
 import { CampusCoordinates } from "../../constants/coordinates.data";
+import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
@@ -71,18 +72,15 @@ const activeColor = "#AA2B45";
 // Color for the inactive button
 const inactiveColor = "#F2F2F2";
 
-// Height of the toggle
-const height = 80;
-
 // Padding required for text to center it in the button
-const padding = height / 2 - 15;
+const padding = CAMPUS_TOGGLE_HEIGHT / 2 - 15;
 
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
     display: "flex",
     flexDirection: "row",
-    height: height,
+    height: CAMPUS_TOGGLE_HEIGHT,
     width: Dimensions.get("window").width,
     bottom: 0,
     zIndex: 0

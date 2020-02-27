@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The BuildingLocation Component renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 110,
+      "position": "absolute",
+      "right": 20,
+    }
+  }
+>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#fff",
+          "borderColor": "rgba(0,0,0,0.2)",
+          "borderRadius": 50,
+          "borderWidth": 1,
+          "height": 60,
+          "justifyContent": "center",
+          "opacity": 1,
+          "width": 60,
+        }
+      }
+    >
+      <Text />
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;

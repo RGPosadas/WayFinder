@@ -16,10 +16,10 @@ import Constants from "expo-constants";
  * getLocationAsync().then(location => {
  *    console.log(location);
  *  });
- *
- * @returns {Promise<LocationData>}
  */
-export const getLocationAsync = async () => {
+export const getCurrentLocationAsync = async (): Promise<
+  Location.LocationData
+> => {
   if (Platform.OS === "android" && !Constants.isDevice) {
     throw "Location services aren't available on Android Emulators.";
   }
