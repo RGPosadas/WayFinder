@@ -75,41 +75,42 @@ const CampusToggle = () => {
 /**
  * TODO: styling might need to be changed @Ragith
  */
+const activeColor = "#AA2B45";
+const inactiveColor = "#F2F2F2";
+const height = 80;
+const padding = height / 2 - 15;
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flexDirection: "row",
-    height: Dimensions.get("window").height / 7,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    marginBottom: 35
+    height: height,
+    width: Dimensions.get("window").width
   },
   buttonSelected: {
     flex: 1,
-    marginBottom: 30,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: "#AA2B45"
+    backgroundColor: activeColor
   },
   buttonNotSelected: {
     flex: 1,
-    marginBottom: 30,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: "#F2F2F2"
+    backgroundColor: inactiveColor
   },
   buttonTextSelected: {
     textAlign: "center",
-    padding: 30,
+    paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#F2F2F2"
+    color: inactiveColor
   },
   buttonTextNotSelected: {
     textAlign: "center",
-    padding: 30,
+    paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#AA2B45"
+    color: activeColor
   }
 });
 
