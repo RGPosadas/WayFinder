@@ -5,21 +5,17 @@ import {
   Button,
   Text,
   Dimensions,
-  ScrollView
+  ScrollView,
+  StyleSheet
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import BuildingInformation from "../../constants/building-information.data";
+import { Buildinginformation } from "../../constants/building-information.data";
 
 const { height } = Dimensions.get("window");
 
 class SlidingPanel extends React.Component {
   render() {
-    const {
-      tappedBuilding,
-      styles,
-      closePanel,
-      showAdditionalInfo
-    } = this.props;
+    const { tappedBuilding, closePanel, showAdditionalInfo } = this.props;
     return (
       <View>
         <SlidingUpPanel
@@ -73,5 +69,25 @@ class SlidingPanel extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "white"
+  },
+  panel: {
+    flex: 1,
+    backgroundColor: "white",
+    position: "relative"
+  },
+  panelHeader: {
+    height: 120,
+    backgroundColor: "white"
+  },
+  text: {
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});
 
 export default SlidingPanel;

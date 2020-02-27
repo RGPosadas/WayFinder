@@ -8,36 +8,29 @@ import {
 } from "react-native";
 
 import RegionContext from "../../context/region.context";
+import { CampusCoordinates } from "../../constants/coordinates.data";
 
+/**
+ * Component for toggling the MapView region between the 2 Concordia Campuses
+ */
 const CampusToggle = () => {
-  /**
-   * this hook sets a boolean variable isSGW to know which current
-   * button is pressed
-   */
   const [isSGW, setIsSGW] = useState(true);
   const { setRegion } = useContext(RegionContext);
+
   /**
-   * Changes the boolean value and the coordinates that will change
-   * the map view
+   * Sets region to the SGW campus
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    setRegion({
-      latitude: 45.495869,
-      longitude: -73.578107,
-      latitudeDelta: 0.0222,
-      longitudeDelta: 0.0121
-    });
+    setRegion(CampusCoordinates.SGW);
   };
 
+  /**
+   * Sets region to the Loyola campus
+   */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    setRegion({
-      latitude: 45.4584,
-      longitude: -73.64045,
-      latitudeDelta: 0.0222,
-      longitudeDelta: 0.0121
-    });
+    setRegion(CampusCoordinates.loyola);
   };
 
   return (
@@ -72,44 +65,50 @@ const CampusToggle = () => {
   );
 };
 
-/**
- * TODO: styling might need to be changed @Ragith
- */
+// Color for the active button
+const activeColor = "#AA2B45";
+
+// Color for the inactive button
+const inactiveColor = "#F2F2F2";
+
+// Height of the toggle
+const height = 80;
+
+// Padding required for text to center it in the button
+const padding = height / 2 - 15;
+
 const styles = StyleSheet.create({
   container: {
+    display: "flex",
     flexDirection: "row",
-    height: Dimensions.get("window").height / 7,
-    alignItems: "center",
-    justifyContent: "flex-end",
-    marginBottom: 35
+    height: height,
+    width: Dimensions.get("window").width
   },
   buttonSelected: {
     flex: 1,
-    marginBottom: 30,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: "#AA2B45"
+    backgroundColor: activeColor
   },
   buttonNotSelected: {
     flex: 1,
-    marginBottom: 30,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: "#F2F2F2"
+    backgroundColor: inactiveColor
   },
   buttonTextSelected: {
     textAlign: "center",
-    padding: 30,
+    paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#F2F2F2"
+    color: inactiveColor
   },
   buttonTextNotSelected: {
     textAlign: "center",
-    padding: 30,
+    paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: "#AA2B45"
+    color: activeColor
   }
 });
 
