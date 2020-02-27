@@ -7,7 +7,11 @@ import CampusToggle from "../../components/campus-toggle/campus-toggle.component
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
 import SlidingPanel from "../../components/sliding-panel/sliding-panel.component";
+import { CampusCoordinates } from "../../constants/coordinates.data";
 
+/**
+ * Screen for the Map and its Overlayed components
+ */
 const MapScreen = () => {
   const [region, setRegion] = useState(null);
   const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
@@ -23,12 +27,7 @@ const MapScreen = () => {
   };
 
   useEffect(() => {
-    setRegion({
-      latitude: 45.495869,
-      longitude: -73.578107,
-      latitudeDelta: 0.0522,
-      longitudeDelta: 0.0421
-    });
+    setRegion(CampusCoordinates.SGW);
   }, []);
 
   return (

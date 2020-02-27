@@ -1,4 +1,19 @@
-export const Coordinates = {
+export const CampusCoordinates = {
+  SGW: {
+    latitude: 45.495869,
+    longitude: -73.578107,
+    latitudeDelta: 0.0222,
+    longitudeDelta: 0.0121
+  },
+  loyola: {
+    latitude: 45.4584,
+    longitude: -73.64045,
+    latitudeDelta: 0.0222,
+    longitudeDelta: 0.0121
+  }
+};
+
+export const BuildingCoordinates = {
   // SGW campus
   Hall: [
     { latitude: 45.49771, longitude: -73.579034 },
