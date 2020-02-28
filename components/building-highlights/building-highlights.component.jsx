@@ -10,7 +10,11 @@ const BuildingHighlights = () => {
   /**
    * Fill color for the Polygons
    */
-  const [fillColor, setFillColor] = useState("rgba(128, 0, 32, 0.5)");
+  const [fillColor, setFillColor] = useState(null);
+
+  useEffect(() => {
+    setFillColor("rgba(128, 0, 32, 0.5)");
+  }, []);
 
   return (
     <View>
