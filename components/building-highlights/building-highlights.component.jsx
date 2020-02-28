@@ -6,7 +6,7 @@ import { BuildingCoordinates } from "../../constants/coordinates.data";
 /**
  * Wrapper Component for Polygons which overlay campus buildings.
  */
-const BuildingHighlights = () => {
+const BuildingHighlights = ({ displayBuilding }) => {
   /**
    * Fill color for the Polygons
    */
@@ -18,16 +18,17 @@ const BuildingHighlights = () => {
 
   return (
     <View>
-      {Object.entries(BuildingCoordinates).map(([id, coordinates]) => {
-        return (
-          <Polygon
-            key={id}
-            coordinates={coordinates}
-            tappable={true}
-            fillColor={fillColor}
-          />
-        );
-      })}
+      {Object.entries(BuildingCoordinates).map(([id, coordinates]) => (
+        <Polygon
+          key={id}
+          coordinates={coordinates}
+          tappable={true}
+          fillColor={fillColor}
+          onPress={() => {
+            displayBuilding(true, id);
+          }}
+        />
+      ))}
     </View>
   );
 };

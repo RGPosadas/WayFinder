@@ -13,7 +13,7 @@ import { CampusCoordinates } from "../../constants/coordinates.data";
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
  */
-const CampusToggle = () => {
+const CampusToggle = ({ campusToggle }) => {
   const [isSGW, setIsSGW] = useState(true);
   const { setRegion } = useContext(RegionContext);
 
@@ -22,7 +22,7 @@ const CampusToggle = () => {
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    setRegion(CampusCoordinates.SGW);
+    campusToggle(CampusCoordinates.SGW);
   };
 
   /**
@@ -30,7 +30,7 @@ const CampusToggle = () => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    setRegion(CampusCoordinates.loyola);
+    campusToggle(CampusCoordinates.loyola);
   };
 
   return (
@@ -79,10 +79,13 @@ const padding = height / 2 - 15;
 
 const styles = StyleSheet.create({
   container: {
+    position: "absolute",
     display: "flex",
     flexDirection: "row",
     height: height,
-    width: Dimensions.get("window").width
+    width: Dimensions.get("window").width,
+    bottom: 0,
+    zIndex: 0
   },
   buttonSelected: {
     flex: 1,

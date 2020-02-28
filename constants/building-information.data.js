@@ -1,4 +1,4 @@
-export const Buildinginformation = [
+export const BuildingInformation = [
   //SGW campus
   {
     building: "Hall",
