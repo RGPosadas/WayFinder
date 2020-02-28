@@ -33,167 +33,28 @@ exports[`Building Highlight Snapshop renders correctly 1`] = `
     coordinates={
       Array [
         Object {
-          "latitude": 45.49577848635891,
-          "longitude": -73.57908877836617,
+          "latitude": 45.49672,
+          "longitude": -73.578627,
         },
         Object {
-          "latitude": 45.49576250528483,
-          "longitude": -73.5791078891054,
+          "latitude": 45.49727,
+          "longitude": -73.578105,
         },
         Object {
-          "latitude": 45.49577966143771,
-          "longitude": -73.57914544003161,
+          "latitude": 45.496894,
+          "longitude": -73.577306,
         },
         Object {
-          "latitude": 45.49612802025848,
-          "longitude": -73.57880671544032,
+          "latitude": 45.496582,
+          "longitude": -73.577612,
         },
         Object {
-          "latitude": 45.4961101591686,
-          "longitude": -73.5787664823051,
+          "latitude": 45.496492,
+          "longitude": -73.577463,
         },
         Object {
-          "latitude": 45.496108044039154,
-          "longitude": -73.57876815868573,
-        },
-        Object {
-          "latitude": 45.495944,
-          "longitude": -73.578434,
-        },
-        Object {
-          "latitude": 45.495617,
-          "longitude": -73.578747,
-        },
-      ]
-    }
-    fillColor={null}
-    onPress={[Function]}
-    strokeColor="#000"
-    strokeWidth={1}
-    tappable={true}
-  />
-  <AIRMapPolygon
-    coordinates={
-      Array [
-        Object {
-          "latitude": 45.49672776379525,
-          "longitude": -73.57857786622326,
-        },
-        Object {
-          "latitude": 45.496704732634115,
-          "longitude": -73.57852925118486,
-        },
-        Object {
-          "latitude": 45.496667365730175,
-          "longitude": -73.57856613155882,
-        },
-        Object {
-          "latitude": 45.49625564751439,
-          "longitude": -73.57769860505215,
-        },
-        Object {
-          "latitude": 45.49649527284175,
-          "longitude": -73.57746436939486,
-        },
-        Object {
-          "latitude": 45.49658675639552,
-          "longitude": -73.57764999039873,
-        },
-        Object {
-          "latitude": 45.49663507112262,
-          "longitude": -73.57760084433879,
-        },
-        Object {
-          "latitude": 45.496615330095416,
-          "longitude": -73.57755591733779,
-        },
-        Object {
-          "latitude": 45.49688977757426,
-          "longitude": -73.57729239901107,
-        },
-        Object {
-          "latitude": 45.497015559948174,
-          "longitude": -73.57753665173557,
-        },
-        Object {
-          "latitude": 45.49698312847616,
-          "longitude": -73.57756380910185,
-        },
-        Object {
-          "latitude": 45.49700216434244,
-          "longitude": -73.5776094066551,
-        },
-        Object {
-          "latitude": 45.496993938968906,
-          "longitude": -73.57761845911052,
-        },
-        Object {
-          "latitude": 45.49699722911846,
-          "longitude": -73.57763086432722,
-        },
-        Object {
-          "latitude": 45.4970397660347,
-          "longitude": -73.5775869431546,
-        },
-        Object {
-          "latitude": 45.49712058607023,
-          "longitude": -73.5777461957665,
-        },
-        Object {
-          "latitude": 45.497077109173674,
-          "longitude": -73.57779179331975,
-        },
-        Object {
-          "latitude": 45.49708227940097,
-          "longitude": -73.57780688074546,
-        },
-        Object {
-          "latitude": 45.49708768463809,
-          "longitude": -73.57779816356616,
-        },
-        Object {
-          "latitude": 45.49711212570382,
-          "longitude": -73.57784644332843,
-        },
-        Object {
-          "latitude": 45.49714079694045,
-          "longitude": -73.57781693902926,
-        },
-        Object {
-          "latitude": 45.49726403029928,
-          "longitude": -73.5780559473552,
-        },
-        Object {
-          "latitude": 45.49701657683179,
-          "longitude": -73.57829458296627,
-        },
-        Object {
-          "latitude": 45.497000126087705,
-          "longitude": -73.57825770259231,
-        },
-        Object {
-          "latitude": 45.49696355463932,
-          "longitude": -73.57829394459444,
-        },
-        Object {
-          "latitude": 45.49693687901673,
-          "longitude": -73.5782460001083,
-        },
-        Object {
-          "latitude": 45.49689575208939,
-          "longitude": -73.57828891545253,
-        },
-        Object {
-          "latitude": 45.49691196785291,
-          "longitude": -73.578327136931,
-        },
-        Object {
-          "latitude": 45.496872485985776,
-          "longitude": -73.57836938172298,
-        },
-        Object {
-          "latitude": 45.496889907674564,
-          "longitude": -73.57841469347477,
+          "latitude": 45.496252,
+          "longitude": -73.577689,
         },
       ]
     }
@@ -305,6 +166,736 @@ exports[`Building Highlight Snapshop renders correctly 1`] = `
         Object {
           "latitude": 45.494191,
           "longitude": -73.57702,
+        },
+        Object {
+          "latitude": 45.493895,
+          "longitude": -73.576409,
+        },
+        Object {
+          "latitude": 45.49355,
+          "longitude": -73.576748,
+        },
+        Object {
+          "latitude": 45.493611,
+          "longitude": -73.576875,
+        },
+        Object {
+          "latitude": 45.493667,
+          "longitude": -73.576822,
+        },
+        Object {
+          "latitude": 45.493724,
+          "longitude": -73.576944,
+        },
+        Object {
+          "latitude": 45.493673,
+          "longitude": -73.576999,
+        },
+        Object {
+          "latitude": 45.493746,
+          "longitude": -73.577156,
+        },
+        Object {
+          "latitude": 45.493633,
+          "longitude": -73.577267,
+        },
+        Object {
+          "latitude": 45.493582,
+          "longitude": -73.577153,
+        },
+        Object {
+          "latitude": 45.493601,
+          "longitude": -73.577132,
+        },
+        Object {
+          "latitude": 45.493573,
+          "longitude": -73.577082,
+        },
+        Object {
+          "latitude": 45.493525,
+          "longitude": -73.577128,
+        },
+        Object {
+          "latitude": 45.493451,
+          "longitude": -73.576963,
+        },
+        Object {
+          "latitude": 45.493475,
+          "longitude": -73.576935,
+        },
+        Object {
+          "latitude": 45.493433,
+          "longitude": -73.576853,
+        },
+        Object {
+          "latitude": 45.493352,
+          "longitude": -73.576938,
+        },
+        Object {
+          "latitude": 45.493363,
+          "longitude": -73.57696,
+        },
+        Object {
+          "latitude": 45.493104,
+          "longitude": -73.577212,
+        },
+        Object {
+          "latitude": 45.493201,
+          "longitude": -73.577402,
+        },
+        Object {
+          "latitude": 45.493089,
+          "longitude": -73.57751,
+        },
+        Object {
+          "latitude": 45.492994,
+          "longitude": -73.577314,
+        },
+        Object {
+          "latitude": 45.492927,
+          "longitude": -73.577379,
+        },
+        Object {
+          "latitude": 45.49284,
+          "longitude": -73.577198,
+        },
+        Object {
+          "latitude": 45.492894,
+          "longitude": -73.577141,
+        },
+        Object {
+          "latitude": 45.49281,
+          "longitude": -73.576963,
+        },
+        Object {
+          "latitude": 45.49279,
+          "longitude": -73.576977,
+        },
+        Object {
+          "latitude": 45.49277,
+          "longitude": -73.576972,
+        },
+        Object {
+          "latitude": 45.492712,
+          "longitude": -73.577032,
+        },
+        Object {
+          "latitude": 45.492675,
+          "longitude": -73.576965,
+        },
+        Object {
+          "latitude": 45.492676,
+          "longitude": -73.576923,
+        },
+        Object {
+          "latitude": 45.492725,
+          "longitude": -73.57687,
+        },
+        Object {
+          "latitude": 45.492751,
+          "longitude": -73.576862,
+        },
+        Object {
+          "latitude": 45.492612,
+          "longitude": -73.576583,
+        },
+        Object {
+          "latitude": 45.49261,
+          "longitude": -73.576578,
+        },
+        Object {
+          "latitude": 45.49649527284175,
+          "longitude": -73.57746436939486,
+        },
+        Object {
+          "latitude": 45.49658675639552,
+          "longitude": -73.57764999039873,
+        },
+        Object {
+          "latitude": 45.49663507112262,
+          "longitude": -73.57760084433879,
+        },
+        Object {
+          "latitude": 45.496615330095416,
+          "longitude": -73.57755591733779,
+        },
+        Object {
+          "latitude": 45.49688977757426,
+          "longitude": -73.57729239901107,
+        },
+        Object {
+          "latitude": 45.497015559948174,
+          "longitude": -73.57753665173557,
+        },
+        Object {
+          "latitude": 45.49698312847616,
+          "longitude": -73.57756380910185,
+        },
+        Object {
+          "latitude": 45.49700216434244,
+          "longitude": -73.5776094066551,
+        },
+        Object {
+          "latitude": 45.496993938968906,
+          "longitude": -73.57761845911052,
+        },
+        Object {
+          "latitude": 45.49699722911846,
+          "longitude": -73.57763086432722,
+        },
+        Object {
+          "latitude": 45.4970397660347,
+          "longitude": -73.5775869431546,
+        },
+        Object {
+          "latitude": 45.49712058607023,
+          "longitude": -73.5777461957665,
+        },
+        Object {
+          "latitude": 45.497077109173674,
+          "longitude": -73.57779179331975,
+        },
+        Object {
+          "latitude": 45.49708227940097,
+          "longitude": -73.57780688074546,
+        },
+        Object {
+          "latitude": 45.49708768463809,
+          "longitude": -73.57779816356616,
+        },
+        Object {
+          "latitude": 45.49711212570382,
+          "longitude": -73.57784644332843,
+        },
+        Object {
+          "latitude": 45.496892,
+          "longitude": -73.579471,
+        },
+        Object {
+          "latitude": 45.496662,
+          "longitude": -73.579697,
+        },
+        Object {
+          "latitude": 45.496699,
+          "longitude": -73.579785,
+        },
+        Object {
+          "latitude": 45.496932,
+          "longitude": -73.579552,
+        },
+        Object {
+          "latitude": 45.49696355463932,
+          "longitude": -73.57829394459444,
+        },
+        Object {
+          "latitude": 45.49693687901673,
+          "longitude": -73.5782460001083,
+        },
+        Object {
+          "latitude": 45.49689575208939,
+          "longitude": -73.57828891545253,
+        },
+        Object {
+          "latitude": 45.49691196785291,
+          "longitude": -73.578327136931,
+        },
+        Object {
+          "latitude": 45.496872485985776,
+          "longitude": -73.57836938172298,
+        },
+        Object {
+          "latitude": 45.496889907674564,
+          "longitude": -73.57841469347477,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.492593,
+          "longitude": -73.576535,
+        },
+        Object {
+          "latitude": 45.492731,
+          "longitude": -73.576392,
+        },
+        Object {
+          "latitude": 45.492901,
+          "longitude": -73.576745,
+        },
+        Object {
+          "latitude": 45.492922,
+          "longitude": -73.576739,
+        },
+        Object {
+          "latitude": 45.492921,
+          "longitude": -73.576741,
+        },
+        Object {
+          "latitude": 45.492948,
+          "longitude": -73.576789,
+        },
+        Object {
+          "latitude": 45.492939,
+          "longitude": -73.576832,
+        },
+        Object {
+          "latitude": 45.493025,
+          "longitude": -73.577005,
+        },
+        Object {
+          "latitude": 45.493363,
+          "longitude": -73.576673,
+        },
+        Object {
+          "latitude": 45.493341,
+          "longitude": -73.576625,
+        },
+        Object {
+          "latitude": 45.496646,
+          "longitude": -73.579029,
+        },
+        Object {
+          "latitude": 45.496551,
+          "longitude": -73.579127,
+        },
+        Object {
+          "latitude": 45.496581,
+          "longitude": -73.579189,
+        },
+        Object {
+          "latitude": 45.496679,
+          "longitude": -73.579082,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496701,
+          "longitude": -73.579114,
+        },
+        Object {
+          "latitude": 45.496601,
+          "longitude": -73.579212,
+        },
+        Object {
+          "latitude": 45.496624,
+          "longitude": -73.579266,
+        },
+        Object {
+          "latitude": 45.496725,
+          "longitude": -73.579168,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496706,
+          "longitude": -73.57918,
+        },
+        Object {
+          "latitude": 45.496622,
+          "longitude": -73.579267,
+        },
+        Object {
+          "latitude": 45.496665,
+          "longitude": -73.579348,
+        },
+        Object {
+          "latitude": 45.496753,
+          "longitude": -73.579269,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496766,
+          "longitude": -73.57925,
+        },
+        Object {
+          "latitude": 45.496611,
+          "longitude": -73.579406,
+        },
+        Object {
+          "latitude": 45.496644,
+          "longitude": -73.579494,
+        },
+        Object {
+          "latitude": 45.496803,
+          "longitude": -73.579344,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496803,
+          "longitude": -73.579331,
+        },
+        Object {
+          "latitude": 45.49671,
+          "longitude": -73.579427,
+        },
+        Object {
+          "latitude": 45.496743,
+          "longitude": -73.5795,
+        },
+        Object {
+          "latitude": 45.496839,
+          "longitude": -73.579403,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496829,
+          "longitude": -73.579406,
+        },
+        Object {
+          "latitude": 45.49673,
+          "longitude": -73.579511,
+        },
+        Object {
+          "latitude": 45.496771,
+          "longitude": -73.579593,
+        },
+        Object {
+          "latitude": 45.496871,
+          "longitude": -73.57949,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496906,
+          "longitude": -73.579579,
+        },
+        Object {
+          "latitude": 45.496812,
+          "longitude": -73.579672,
+        },
+        Object {
+          "latitude": 45.496855,
+          "longitude": -73.579756,
+        },
+        Object {
+          "latitude": 45.496949,
+          "longitude": -73.579667,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496851,
+          "longitude": -73.57976,
+        },
+        Object {
+          "latitude": 45.496889,
+          "longitude": -73.579836,
+        },
+        Object {
+          "latitude": 45.496985,
+          "longitude": -73.579742,
+        },
+        Object {
+          "latitude": 45.496948,
+          "longitude": -73.579671,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496944,
+          "longitude": -73.579942,
+        },
+        Object {
+          "latitude": 45.496984,
+          "longitude": -73.580025,
+        },
+        Object {
+          "latitude": 45.49709,
+          "longitude": -73.579924,
+        },
+        Object {
+          "latitude": 45.497049,
+          "longitude": -73.579838,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.497291,
+          "longitude": -73.579791,
+        },
+        Object {
+          "latitude": 45.497406,
+          "longitude": -73.580035,
+        },
+        Object {
+          "latitude": 45.497584,
+          "longitude": -73.57985,
+        },
+        Object {
+          "latitude": 45.497546,
+          "longitude": -73.579773,
+        },
+        Object {
+          "latitude": 45.497492,
+          "longitude": -73.579826,
+        },
+        Object {
+          "latitude": 45.49746,
+          "longitude": -73.579759,
+        },
+        Object {
+          "latitude": 45.497433,
+          "longitude": -73.579779,
+        },
+        Object {
+          "latitude": 45.497385,
+          "longitude": -73.579692,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.49778,
+          "longitude": -73.579166,
+        },
+        Object {
+          "latitude": 45.497682,
+          "longitude": -73.57926,
+        },
+        Object {
+          "latitude": 45.497694,
+          "longitude": -73.57929,
+        },
+        Object {
+          "latitude": 45.497622,
+          "longitude": -73.57936,
+        },
+        Object {
+          "latitude": 45.497649,
+          "longitude": -73.579407,
+        },
+        Object {
+          "latitude": 45.497819,
+          "longitude": -73.579243,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.497703,
+          "longitude": -73.579555,
+        },
+        Object {
+          "latitude": 45.497741,
+          "longitude": -73.579634,
+        },
+        Object {
+          "latitude": 45.497748,
+          "longitude": -73.57963,
+        },
+        Object {
+          "latitude": 45.497784,
+          "longitude": -73.579706,
+        },
+        Object {
+          "latitude": 45.49797,
+          "longitude": -73.579532,
+        },
+        Object {
+          "latitude": 45.497891,
+          "longitude": -73.57938,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.496114,
+          "longitude": -73.579481,
+        },
+        Object {
+          "latitude": 45.495955,
+          "longitude": -73.579624,
+        },
+        Object {
+          "latitude": 45.496056,
+          "longitude": -73.579864,
+        },
+        Object {
+          "latitude": 45.496191,
+          "longitude": -73.579744,
+        },
+        Object {
+          "latitude": 45.496157,
+          "longitude": -73.579667,
+        },
+        Object {
+          "latitude": 45.496184,
+          "longitude": -73.579642,
+        },
+        Object {
+          "latitude": 45.496113,
+          "longitude": -73.579483,
+        },
+      ]
+    }
+    fillColor={null}
+    onPress={[Function]}
+    strokeColor="#000"
+    strokeWidth={1}
+    tappable={true}
+  />
+  <AIRMapPolygon
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.458468,
+          "longitude": -73.64132,
+        },
+        Object {
+          "latitude": 45.493491,
+          "longitude": -73.576543,
+        },
+        Object {
+          "latitude": 45.493792,
+          "longitude": -73.576245,
+        },
+        Object {
+          "latitude": 45.493568,
+          "longitude": -73.575783,
+        },
+        Object {
+          "latitude": 45.493711,
+          "longitude": -73.575641,
+        },
+        Object {
+          "latitude": 45.493932,
+          "longitude": -73.576094,
+        },
+        Object {
+          "latitude": 45.494034,
+          "longitude": -73.575996,
+        },
+        Object {
+          "latitude": 45.49412,
+          "longitude": -73.576178,
+        },
+        Object {
+          "latitude": 45.49401,
+          "longitude": -73.576283,
+        },
+        Object {
+          "latitude": 45.49439,
+          "longitude": -73.577057,
+        },
+        Object {
+          "latitude": 45.457831,
+          "longitude": -73.640486,
         },
         Object {
           "latitude": 45.493895,

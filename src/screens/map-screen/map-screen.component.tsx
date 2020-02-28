@@ -13,7 +13,7 @@ import { isPointInPolygon } from "geolib";
 import { Location, Region, CampusId } from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { getCampus } from "../../constants/campus.data";
-import { Buildings } from "../../constants/buildings.data";
+import { CampusId } from "../../types/main";
 
 /**
  * Screen for the Map and its Overlayed components

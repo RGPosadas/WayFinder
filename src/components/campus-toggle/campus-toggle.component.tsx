@@ -8,6 +8,11 @@ import {
 } from "react-native";
 
 import RegionContext from "../../context/region.context";
+
+import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import { getCampus } from "../../constants/campus.data";
+import { CampusId } from "../../types/main";
+import { CampusCoordinates } from "../../constants/coordinates.data";
 import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
 import { getCampus } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
