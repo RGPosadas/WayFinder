@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sliding Panel component renders correctly 1`] = `
+<View
+  disableScrollViewPanResponder={true}
+  onMoveShouldSetResponder={[Function]}
+  onMoveShouldSetResponderCapture={[Function]}
+  onResponderEnd={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderReject={[Function]}
+  onResponderRelease={[Function]}
+  onResponderStart={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  onStartShouldSetResponderCapture={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "bottom": -1292,
+      "flex": 1,
+      "height": 1292,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "transform": Array [
+        Object {
+          "translateY": -100,
+        },
+      ],
+    }
+  }
+/>
+`;

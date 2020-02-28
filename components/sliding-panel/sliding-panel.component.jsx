@@ -6,66 +6,74 @@ import {
   Text,
   Dimensions,
   ScrollView,
-  StyleSheet
+  StyleSheet,
+  Image
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { Buildinginformation } from "../../constants/building-information.data";
+import { BuildingInformation } from "../../constants/building-information.data";
 
 const { height } = Dimensions.get("window");
-
+/**
+ * Component for additional information panel
+ */
 class SlidingPanel extends React.Component {
   render() {
     const { tappedBuilding, closePanel, showAdditionalInfo } = this.props;
     return (
-      <View>
-        <SlidingUpPanel
-          draggableRange={{ top: height / 1.75, bottom: 100 }}
-          animatedValue={this._draggedValue}
-          showBackdrop={false}
-          ref={c => (this._panel = c)}
-        >
-          {showAdditionalInfo ? (
-            <TouchableWithoutFeedback
-              style={styles.panel}
-              onPress={() => this._panel.show()}
-            >
-              <View style={styles.container}>
-                <View style={styles.panelHeader}>
-                  {Buildinginformation.filter(
-                    info => info.building == tappedBuilding
-                  ).map((buildingInfo, key) => {
-                    return (
-                      <View key={key}>
-                        <View
-                          style={{
-                            justifyContent: "flex-end",
-                            alignItems: "flex-end"
+      <SlidingUpPanel
+        draggableRange={{ top: height / 2, bottom: 100 }}
+        animatedValue={this._draggedValue}
+        showBackdrop={false}
+        ref={c => (this._panel = c)}
+        // Speed of the panel
+        friction={0.8}
+        // This allows the panel to be on top
+        style={{ zIndex: 1 }}
+      >
+        {showAdditionalInfo ? (
+          <TouchableWithoutFeedback
+            style={styles.panel}
+            onPress={() => this._panel.show()}
+          >
+            <View style={styles.container}>
+              <View style={styles.panelHeader}>
+                {BuildingInformation.filter(
+                  info => info.building == tappedBuilding
+                ).map((buildingInfo, key) => {
+                  return (
+                    <View key={key}>
+                      <View
+                        style={{
+                          justifyContent: "flex-end",
+                          alignItems: "flex-end"
+                        }}
+                      >
+                        <Button
+                          onPress={() => {
+                            closePanel();
+                            this._panel.hide();
                           }}
-                        >
-                          <Button
-                            onPress={() => closePanel(false)}
-                            title="X"
-                          ></Button>
-                        </View>
-                        <View style={styles.text}>
-                          <Text>{buildingInfo.name}</Text>
-                          <Text>{buildingInfo.address}</Text>
-                        </View>
+                          title="X"
+                        ></Button>
                       </View>
-                    );
-                  })}
-                </View>
-
-                <ScrollView>
-                  <View style={styles.text}>
-                    <Text>Here is the content inside panel</Text>
-                  </View>
-                </ScrollView>
+                      <View style={styles.text}>
+                        <Text>{buildingInfo.name}</Text>
+                        <Text>{buildingInfo.address}</Text>
+                      </View>
+                    </View>
+                  );
+                })}
               </View>
-            </TouchableWithoutFeedback>
-          ) : null}
-        </SlidingUpPanel>
-      </View>
+
+              <ScrollView>
+                <View style={styles.text}>
+                  <Text>Here is the content inside panel</Text>
+                </View>
+              </ScrollView>
+            </View>
+          </TouchableWithoutFeedback>
+        ) : null}
+      </SlidingUpPanel>
     );
   }
 }
