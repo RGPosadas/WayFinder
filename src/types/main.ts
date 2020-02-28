@@ -85,6 +85,11 @@ export enum ConnectorType {
   Escalator
 }
 
+export interface IndoorInformation {
+  currentLevel: number;
+  floors: { name: string; index: number }[];
+}
+
 export enum CampusId {
   SGW = "SGW",
   Loyola = "Loyola"

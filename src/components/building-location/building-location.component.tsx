@@ -2,7 +2,10 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
-import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import {
+  BUILDING_LOCATION_HEIGHT,
+  MAP_BUTTON_RIGHT
+} from "../../constants/style";
 
 /**
  * the name and types of the properties types accepted
@@ -31,8 +34,8 @@ const BuildingLocation = ({ onBuildingLocationPress }: IProps) => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: CAMPUS_TOGGLE_HEIGHT + 30,
-    right: 20
+    bottom: BUILDING_LOCATION_HEIGHT,
+    right: MAP_BUTTON_RIGHT
   },
   button: {
     borderWidth: 1,

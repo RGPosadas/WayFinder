@@ -1,20 +1,27 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 
 import { RegionProvider } from "../../context/region.context";
 
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Overlay } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
-import { Location, Region, BuildingId } from "../../types/main";
+import {
+  Location,
+  Region,
+  BuildingId,
+  IndoorInformation
+} from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { getCampus } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
+import FloorPicker from "../../components/floor-picker/floor-picker.component";
+import IndoorFloors from "../../components/indoor-floors/indoor-floors.components";
 
 /**
  * Screen for the Map and its Overlayed components
@@ -24,6 +31,12 @@ const MapScreen = () => {
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
+  const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
+    {
+      currentLevel: 0,
+      floors: []
+    }
+  );
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -100,6 +113,28 @@ const MapScreen = () => {
     });
   };
 
+  const onIndoorViewEntry = event => {
+    const buildingInfo = event.nativeEvent.IndoorBuilding;
+
+    setIndoorInformation({
+      currentLevel: buildingInfo.activeLevelIndex,
+      floors: buildingInfo.levels.map(floor => {
+        return {
+          name: floor.name,
+          index: floor.index
+        };
+      })
+    });
+  };
+
+  const onFloorPickerButtonPress = (index: number) => {
+    mapRef.current.setIndoorActiveLevelIndex(index);
+    setIndoorInformation({
+      currentLevel: index,
+      floors: indoorInformation.floors
+    });
+  };
+
   /**
    * Set the region to the SGW campus when this component mounts
    */
@@ -118,8 +153,10 @@ const MapScreen = () => {
           showsBuildings={true}
           showsUserLocation={true}
           initialRegion={region}
-          onRegionChangeComplete={region => setRegion(region)}
+          onRegionChange={region => setRegion(region)}
+          onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
         >
+          <IndoorFloors region={region} />
           <BuildingHighlights
             onBuildingTap={onBuildingTap}
             tappedBuilding={tappedBuilding}
@@ -129,12 +166,19 @@ const MapScreen = () => {
         <CampusToggle onCampusToggle={onCampusToggle} />
 
         <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
-        <FlashMessage position="top" autoHide={true} floating={true} />
+
         <BuildingInformation
           tappedBuilding={tappedBuilding}
           showBuildingInfo={showBuildingInfo}
           onClosePanel={onClosePanel}
         />
+
+        <FloorPicker
+          indoorInformation={indoorInformation}
+          onFloorPickerButtonPress={onFloorPickerButtonPress}
+        />
+
+        <FlashMessage position="top" autoHide={true} floating={true} />
       </View>
     </RegionProvider>
   );
@@ -149,6 +193,10 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 0
+  },
+  campusToggle: {
+    position: "absolute",
+    bottom: 0
   }
 });
 

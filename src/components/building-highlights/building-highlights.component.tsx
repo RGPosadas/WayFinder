@@ -20,14 +20,15 @@ const BuildingHighlights = ({ onBuildingTap, tappedBuilding }: IProps) => {
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
   useEffect(() => {
-    setFillColor(BUILDING_UNTAPPED);
+    // setFillColor(BUILDING_UNTAPPED); //temp for placing indoor maps
+    setFillColor("rgba(0,0,0,0)");
     setTappedColor(CONCORDIA_RED);
   }, []);
 
   return (
     <View>
-      {Buildings.map(building => (
-        <View key={building.id}>
+      {Buildings.map((building, index) => (
+        <View key={index}>
           {building.boundingBox.length > 0 ? (
             <Polygon
               coordinates={building.boundingBox}

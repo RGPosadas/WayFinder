@@ -14,7 +14,7 @@ import Constants from "expo-constants";
  * Example usage:
  *
  * getLocationAsync().then(location => {
- *    console.log(location);
+ *    // Operations done based on location
  *  });
  */
 export const getCurrentLocationAsync = async (): Promise<
