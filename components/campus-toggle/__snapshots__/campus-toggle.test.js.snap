@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "bottom": 0,
+      "display": "flex",
+      "flexDirection": "row",
+      "height": 80,
+      "position": "absolute",
+      "width": 750,
+      "zIndex": 0,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#AA2B45",
+            "flex": 1,
+            "width": 375,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#F2F2F2",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "paddingTop": 25,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        SGW
+      </Text>
+    </View>
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={null}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#F2F2F2",
+            "flex": 1,
+            "width": 375,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#AA2B45",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "paddingTop": 25,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Loyola
+      </Text>
+    </View>
+  </View>
+</View>
+`;
