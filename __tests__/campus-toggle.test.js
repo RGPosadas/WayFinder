@@ -1,5 +1,5 @@
 import React from "react";
-import CampusToggle from "./campus-toggle.component";
+import CampusToggle from "../components/campus-toggle/campus-toggle.component";
 import renderer from "react-test-renderer";
 
 // Kind: Snapshot + Unit Tests
