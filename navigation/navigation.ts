@@ -1,7 +1,7 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import MapScreen from "./../screens/map-screen/map-screen.component";
+import MapScreen from "../screens/map-screen/map-screen.component";
 
 const screens = {
   Map: {
