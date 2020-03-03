@@ -1,6 +1,6 @@
 import React from "react";
 
-import AppContainer from "./navigation/navigation";
+import AppContainer from "./src/navigation/navigation";
 
 function App() {
   return <AppContainer />;

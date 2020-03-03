@@ -1,5 +1,5 @@
 import React from "react";
-import BuildingHighlights from "../components/building-highlights/building-highlights.component";
+import BuildingHighlights from "../src/components/building-highlights/building-highlights.component";
 import renderer from "react-test-renderer";
 
 // Kind: Snapshot + Unit Tests
