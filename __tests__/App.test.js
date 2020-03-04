@@ -8,7 +8,7 @@ jest.mock("expo", () => ({
   AppLoading: "AppLoading"
 }));
 
-jest.mock("../navigation/navigation", () => "navigation");
+jest.mock("../src/navigation/navigation", () => "navigation");
 
 // Snapshot test
 test("renders correctly", () => {

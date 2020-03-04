@@ -1,5 +1,5 @@
 import React from "react";
-import SlidingPanel from "../components/sliding-panel/sliding-panel.component";
+import SlidingPanel from "../src/components/sliding-panel/sliding-panel.component";
 import renderer from "react-test-renderer";
 
 // Kind: Snapshot + Unit Test
