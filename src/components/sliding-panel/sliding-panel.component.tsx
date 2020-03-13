@@ -22,15 +22,16 @@ class SlidingPanel extends React.Component {
     super(props);
 
     this.state = {
-      displayMoreInfo: "flex",
+      
       allowDragging: true
     };
   }
 
   render() {
-    const { tappedBuilding, closePanel, showAdditionalInfo } = this.props;
-    const { displayMoreInfo } = this.state;
+    const { tappedBuilding, closePanel, showAdditionalInfo, setTappedBuilding } = this.props;
+   
     return (
+      
       <SlidingUpPanel
         allowDragging={this.state.allowDragging}
         draggableRange={{ top: height / 2, bottom: 100 }}
@@ -40,13 +41,10 @@ class SlidingPanel extends React.Component {
         // Speed of the panel
         friction={0.8}
         // This allows the panel to be on top
-        style={{ zIndex: 1, backgroundColor: "white" }}
-        onBottomReached={() => {
-          this.setState({
-            displayMoreInfo: "flex"
-          });
-        }}
+        style={{ backgroundColor: "white" }}
+        
       >
+       
         {showAdditionalInfo ? (
           <View style={styles.container}>
             {BuildingInformation.filter(
@@ -66,9 +64,7 @@ class SlidingPanel extends React.Component {
                       onPress={() => {
                         closePanel();
                         this._panel.hide();
-                        this.setState({
-                          displayMoreInfo: "flex"
-                        });
+                        setTappedBuilding(null);
                       }}
                     >
                       <Text style={{ color: "white", fontSize: 10 }}>X</Text>
@@ -76,20 +72,20 @@ class SlidingPanel extends React.Component {
                   </View>
 
                   <View style={styles.text}>
-                    <Text>{buildingInfo.name}</Text>
-                    <Text>{buildingInfo.address}</Text>
+                    <Text style = {{paddingLeft: 20, paddingRight: 20 }}>{buildingInfo.name}</Text>
+                    <Text style = {{paddingLeft: 20, paddingRight: 20, fontSize:11}} >{buildingInfo.address}</Text>
                     <Text
                       style={{
-                        paddingTop: 20,
+                        paddingTop: 25,
                         color: "grey",
-                        display: displayMoreInfo
+                        
                       }}
                     >
                       Swipe up for more info
                     </Text>
                   </View>
 
-                  <View style={{ height: 220 }}>
+                  <View style={{ height: 220, paddingLeft: 10, paddingRight:10 }}>
                     <ScrollView
                       onTouchStart={() =>
                         this.setState({ allowDragging: false })
@@ -152,6 +148,7 @@ class SlidingPanel extends React.Component {
           </View>
         ) : null}
       </SlidingUpPanel>
+      
     );
   }
 }
@@ -170,7 +167,8 @@ const styles = StyleSheet.create({
 
   text: {
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    
   },
   xButton: {
     alignItems: "center",

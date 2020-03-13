@@ -213,7 +213,7 @@ export const BuildingInformation = [
   },
   {
     building: "EV",
-    name: "Engineering, Computer Science and Visual Arts Integrated Complex",
+    name: "Engineering, CS and VA Integrated Complex",
     address: "1493-1515 Saint-Catherine St W, Montreal, Quebec H3G 2W1",
     departments: [
       {

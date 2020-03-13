@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: CAMPUS_TOGGLE_HEIGHT + 30,
-    right: 20
+    right: 20,
   },
   button: {
     borderWidth: 1,
