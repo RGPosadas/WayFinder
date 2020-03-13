@@ -26,7 +26,9 @@ const BuildingHighlights = ({ displayBuilding, tappedBuilding }) => {
           coordinates={building.boundingBox}
           tappable={true}
           fillColor={
-           tappedBuilding && tappedBuilding === building.id ? tappedColor : fillColor
+            tappedBuilding && tappedBuilding === building.id
+              ? tappedColor
+              : fillColor
           }
           onPress={() => {
             displayBuilding(true, building.id);

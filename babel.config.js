@@ -9,6 +9,5 @@ module.exports = {
       }
     ],
     "babel-preset-expo"
-  ],
-  plugins: ["@babel/plugin-proposal-class-properties"]
+  ]
 };

@@ -99,6 +99,7 @@ export const Buildings: Building[] = [
   {
     id: BuildingId.GM,
     campusId: CampusId.SGW,
+<<<<<<< HEAD
     displayName: "Guy-De Mainsonneuve Building",
     address: "1550 De Maisonneuve W, Montreal, Quebec H3G 1N1",
     departments: [
@@ -218,6 +219,8 @@ export const Buildings: Building[] = [
       }
     ],
     location: { latitude: 0, longitude: 0 },
+=======
+>>>>>>> 0a2e880... Fix sliding panel styling
     boundingBox: [
       { latitude: 45.49577848635891, longitude: -73.57908877836617 },
       { latitude: 45.49576250528483, longitude: -73.5791078891054 },
@@ -1130,10 +1133,17 @@ export const Buildings: Building[] = [
     departments: [],
     location: { latitude: 0, longitude: 0 },
     boundingBox: [
+<<<<<<< HEAD
       { latitude: 45.49770829098716, longitude: -73.57956349505591 },
       { latitude: 45.497741192056665, longitude: -73.57963725580382 },
       { latitude: 45.49792778775876, longitude: -73.57946090056109 },
       { latitude: 45.497890186659454, longitude: -73.57938579870867 }
+=======
+      { latitude: 45.497704233816215, longitude: -73.57955830679413 },
+      { latitude: 45.49773971997152, longitude: -73.57963474975105 },
+      { latitude: 45.49791974255139, longitude: -73.57946039608761 },
+      { latitude: 45.49788190643975, longitude: -73.57938495895907 }
+>>>>>>> 0a2e880... Fix sliding panel styling
     ]
   },
   {

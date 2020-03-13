@@ -6,7 +6,7 @@ import { RegionProvider } from "../../context/region.context";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
-import SlidingPanel from "../../components/sliding-panel/sliding-panel.component";
+import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
@@ -128,17 +128,15 @@ const MapScreen = () => {
 
         <CampusToggle campusToggle={onCampusToggle} />
 
-        
         <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
         <FlashMessage position="top" autoHide={true} floating={true} />
-        <SlidingPanel
+        <BuildingInformation
           tappedBuilding={tappedBuilding}
           setTappedBuilding={setTappedBuilding}
           showAdditionalInfo={showAdditionalInfo}
-          closePanel={onClosePanel}
+          onClosePanel={onClosePanel}
         />
       </View>
-      
     </RegionProvider>
   );
 };

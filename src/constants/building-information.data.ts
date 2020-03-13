@@ -1,5 +1,5 @@
 // TODO: Remove and transfer to buildings.data.ts
-export const BuildingInformation = [
+export const BuildingInformations = [
   //SGW campus
   {
     building: "H",
@@ -643,7 +643,7 @@ export const BuildingInformation = [
   },
 
   {
-    building: "SAM",
+    building: "SB",
     name: "Samuel Bronfman Building",
     address: "1590 Docteur Penfield, Montreal, QC",
     departments: null,
