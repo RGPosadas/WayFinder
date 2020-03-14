@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Polygon } from "react-native-maps";
 import { View } from "react-native";
-import { BuildingCoordinates } from "../../constants/coordinates.data";
+import { Buildings } from "../../constants/buildings.data";
 
 /**
  * Wrapper Component for Polygons which overlay campus buildings.
@@ -18,14 +18,14 @@ const BuildingHighlights = ({ displayBuilding }) => {
 
   return (
     <View>
-      {Object.entries(BuildingCoordinates).map(([id, coordinates]) => (
+      {Buildings.map(building => (
         <Polygon
-          key={id}
-          coordinates={coordinates}
+          key={building.id}
+          coordinates={building.boundingBox}
           tappable={true}
           fillColor={fillColor}
           onPress={() => {
-            displayBuilding(true, id);
+            displayBuilding(true, building.id);
           }}
         />
       ))}

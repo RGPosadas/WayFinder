@@ -7,15 +7,13 @@ import CampusToggle from "../../components/campus-toggle/campus-toggle.component
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
 import SlidingPanel from "../../components/sliding-panel/sliding-panel.component";
-import {
-  CampusCoordinates,
-  BuildingCoordinates
-} from "../../constants/coordinates.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
-import { Location, Region } from "../../types/main";
+import { Location, Region, CampusId } from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
+import { getCampus } from "../../constants/campus.data";
+import { Buildings } from "../../constants/buildings.data";
 
 /**
  * Screen for the Map and its Overlayed components
@@ -81,9 +79,8 @@ const MapScreen = () => {
 
       // Attemp to find the building the user is in.
       let inBuilding = false;
-      Object.keys(BuildingCoordinates).forEach(building => {
-        const coordinates = BuildingCoordinates[building];
-        if (isPointInPolygon(response.coords, coordinates)) {
+      Buildings.forEach(building => {
+        if (isPointInPolygon(response.coords, building.boundingBox)) {
           showMessage({
             message: `You're currently in the ${building} building!`,
             type: "info"
@@ -106,7 +103,7 @@ const MapScreen = () => {
    * Set the region to the SGW campus when this component mounts
    */
   useEffect(() => {
-    setRegion(CampusCoordinates.SGW);
+    setRegion(getCampus(CampusId.SGW).region);
   }, []);
 
   return (
