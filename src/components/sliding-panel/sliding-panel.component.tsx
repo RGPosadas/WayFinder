@@ -10,7 +10,7 @@ import {
   Image
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
-import { BuildingInformation } from "../../constants/building-information.data";
+import { Buildings } from "../../constants/buildings.data";
 
 const { height } = Dimensions.get("window");
 /**
@@ -37,9 +37,9 @@ class SlidingPanel extends React.Component {
           >
             <View style={styles.container}>
               <View style={styles.panelHeader}>
-                {BuildingInformation.filter(
-                  info => info.building == tappedBuilding
-                ).map((buildingInfo, key) => {
+                {Buildings.filter(
+                  building => building.id == tappedBuilding
+                ).map((building, key) => {
                   return (
                     <View key={key}>
                       <View
@@ -57,8 +57,8 @@ class SlidingPanel extends React.Component {
                         ></Button>
                       </View>
                       <View style={styles.text}>
-                        <Text>{buildingInfo.name}</Text>
-                        <Text>{buildingInfo.address}</Text>
+                        <Text>{building.displayName}</Text>
+                        <Text>{building.address}</Text>
                       </View>
                     </View>
                   );

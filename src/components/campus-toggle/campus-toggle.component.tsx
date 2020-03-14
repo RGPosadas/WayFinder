@@ -8,8 +8,9 @@ import {
 } from "react-native";
 
 import RegionContext from "../../context/region.context";
-import { CampusCoordinates } from "../../constants/coordinates.data";
 import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import { getCampus } from "../../constants/campus.data";
+import { CampusId } from "../../types/main";
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
@@ -23,7 +24,7 @@ const CampusToggle = ({ campusToggle }) => {
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    campusToggle(CampusCoordinates.SGW);
+    campusToggle(getCampus(CampusId.SGW).region);
   };
 
   /**
@@ -31,7 +32,7 @@ const CampusToggle = ({ campusToggle }) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    campusToggle(CampusCoordinates.loyola);
+    campusToggle(getCampus(CampusId.Loyola).region);
   };
 
   return (
