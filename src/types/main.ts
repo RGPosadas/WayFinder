@@ -17,7 +17,10 @@ export interface Building {
   address: string;
   departments: LinkItem[];
   services: LinkItem[];
+<<<<<<< HEAD
   location: Location;
+=======
+>>>>>>> 8f39260...  Push changes to data
   boundingBox: Location[];
 }
 
@@ -155,4 +158,10 @@ export enum BuildingId {
   TA,
   VE,
   VL
+}
+
+export interface LinkItem {
+  id: number;
+  title: string;
+  link: string;
 }

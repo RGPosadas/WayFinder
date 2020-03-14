@@ -99,7 +99,6 @@ export const Buildings: Building[] = [
   {
     id: BuildingId.GM,
     campusId: CampusId.SGW,
-<<<<<<< HEAD
     displayName: "Guy-De Mainsonneuve Building",
     address: "1550 De Maisonneuve W, Montreal, Quebec H3G 1N1",
     departments: [
@@ -219,8 +218,6 @@ export const Buildings: Building[] = [
       }
     ],
     location: { latitude: 0, longitude: 0 },
-=======
->>>>>>> 0a2e880... Fix sliding panel styling
     boundingBox: [
       { latitude: 45.49577848635891, longitude: -73.57908877836617 },
       { latitude: 45.49576250528483, longitude: -73.5791078891054 },
@@ -1133,17 +1130,10 @@ export const Buildings: Building[] = [
     departments: [],
     location: { latitude: 0, longitude: 0 },
     boundingBox: [
-<<<<<<< HEAD
       { latitude: 45.49770829098716, longitude: -73.57956349505591 },
       { latitude: 45.497741192056665, longitude: -73.57963725580382 },
       { latitude: 45.49792778775876, longitude: -73.57946090056109 },
       { latitude: 45.497890186659454, longitude: -73.57938579870867 }
-=======
-      { latitude: 45.497704233816215, longitude: -73.57955830679413 },
-      { latitude: 45.49773971997152, longitude: -73.57963474975105 },
-      { latitude: 45.49791974255139, longitude: -73.57946039608761 },
-      { latitude: 45.49788190643975, longitude: -73.57938495895907 }
->>>>>>> 0a2e880... Fix sliding panel styling
     ]
   },
   {
@@ -2028,6 +2018,322 @@ export const Buildings: Building[] = [
     departments: [],
     services: [],
     location: { latitude: 0, longitude: 0 },
+    boundingBox: [
+      { latitude: 45.45763260915711, longitude: -73.64256805241634 },
+      { latitude: 45.45756817119544, longitude: -73.64239840269614 },
+      { latitude: 45.45758651485625, longitude: -73.64238230944206 },
+      { latitude: 45.45762837600859, longitude: -73.64235213459064 },
+      { latitude: 45.45762179111031, longitude: -73.64233201802303 },
+      { latitude: 45.45763825335463, longitude: -73.64231659532119 },
+      { latitude: 45.457634020206555, longitude: -73.64229983151485 },
+      { latitude: 45.45764389755158, longitude: -73.64228977323104 },
+      { latitude: 45.45765424524451, longitude: -73.64229446709682 },
+      { latitude: 45.45768764005881, longitude: -73.64226965666343 },
+      { latitude: 45.457678233070844, longitude: -73.64224283457328 },
+      { latitude: 45.457727619740005, longitude: -73.64220126033355 },
+      { latitude: 45.45772009415512, longitude: -73.64217913210918 },
+      { latitude: 45.457774103050504, longitude: -73.64213408931174 },
+      { latitude: 45.45776469607702, longitude: -73.64210391446032 },
+      { latitude: 45.45783007451046, longitude: -73.64204959972777 },
+      { latitude: 45.45782160824277, longitude: -73.64202344818987 },
+      { latitude: 45.45785688434973, longitude: -73.64199394389071 },
+      { latitude: 45.45788134243762, longitude: -73.64204892917552 },
+      { latitude: 45.45794154691643, longitude: -73.64200601383128 },
+      { latitude: 45.457972589825694, longitude: -73.64207825398802 },
+      { latitude: 45.458008336184896, longitude: -73.64210105276464 },
+      { latitude: 45.45805725221865, longitude: -73.6422365043199 },
+      { latitude: 45.45804549356056, longitude: -73.64226265585779 },
+      { latitude: 45.45809911302153, longitude: -73.64241084790586 },
+      { latitude: 45.45811839720116, longitude: -73.64240078962206 },
+      { latitude: 45.45816890452182, longitude: -73.64252164363852 },
+      { latitude: 45.457968537049666, longitude: -73.64267855286589 },
+      { latitude: 45.457961952191084, longitude: -73.6426812350749 },
+      { latitude: 45.45791585815945, longitude: -73.64255584180346 },
+      { latitude: 45.45793937552724, longitude: -73.6425363957881 },
+      { latitude: 45.45792996858129, longitude: -73.64251225590696 },
+      { latitude: 45.45792573545511, longitude: -73.64251426756373 },
+      { latitude: 45.457909743642205, longitude: -73.64247805774203 },
+      { latitude: 45.45785518330525, longitude: -73.64251963198176 },
+      { latitude: 45.45784389495309, longitude: -73.64249415099611 },
+      { latitude: 45.45779356768883, longitude: -73.64253438413134 },
+      { latitude: 45.45777898688428, longitude: -73.64250353872767 },
+      { latitude: 45.457738066541616, longitude: -73.64253170192232 },
+      { latitude: 45.45772818921305, longitude: -73.64251158535471 },
+      { latitude: 45.45766139961276, longitude: -73.6425638884305 },
+      { latitude: 45.45765622576718, longitude: -73.64256590008726 },
+      { latitude: 45.457654344368684, longitude: -73.64255986511698 },
+      { latitude: 45.45763317863112, longitude: -73.64257662892332 },
+      { latitude: 45.45763035653218, longitude: -73.64257528781881 }
+    ]
+  },
+  {
+    id: BuildingId.FC,
+    campusId: CampusId.Loyola,
+    displayName: "F.C Smith Building",
+    address:
+      "7141 Sherbrooke St. West F.C. Smith Building, Montréal, QC H4B 2B5",
+    departments: [],
+    services: [
+      {
+        id: 1,
+        title: "F.C. Smith Auditorium",
+        link: "http://www.concordia.ca/arts/venues/fc-smith-auditorium.html"
+      },
+      {
+        id: 2,
+        title: "Cazalet Theatre",
+        link: "http://www.concordia.ca/arts/venues/cazalet.html"
+      },
+      {
+        id: 3,
+        title: "Concordia Multi-Faith and Spirituality Centre",
+        link: "http://www.concordia.ca/students/spirituality.html"
+      }
+    ],
+    boundingBox: [
+      { latitude: 45.45838194827393, longitude: -73.6390384691037 },
+      { latitude: 45.45839251355503, longitude: -73.63907076867876 },
+      { latitude: 45.45841485486578, longitude: -73.63905534597693 },
+      { latitude: 45.45842708379005, longitude: -73.6390861913806 },
+      { latitude: 45.45841085694768, longitude: -73.63910060825405 },
+      { latitude: 45.45843061136385, longitude: -73.6391549229866 },
+      { latitude: 45.45842520241727, longitude: -73.63916028740464 },
+      { latitude: 45.45843155205017, longitude: -73.6391810745245 },
+      { latitude: 45.45841838244038, longitude: -73.63919180336056 },
+      { latitude: 45.45844284028471, longitude: -73.63925517054854 },
+      { latitude: 45.45845671540321, longitude: -73.63924779447375 },
+      { latitude: 45.45847247188957, longitude: -73.63928869816122 },
+      { latitude: 45.458469179489796, longitude: -73.63929171564637 },
+      { latitude: 45.458474588432175, longitude: -73.63930445613919 },
+      { latitude: 45.45847835117441, longitude: -73.63930244448242 },
+      { latitude: 45.45849645936782, longitude: -73.6393507242447 },
+      { latitude: 45.45849340214078, longitude: -73.63935374172983 },
+      { latitude: 45.45849740005303, longitude: -73.63936514111815 },
+      { latitude: 45.458501397965016, longitude: -73.63936279418526 },
+      { latitude: 45.458518095123765, longitude: -73.63940604480563 },
+      { latitude: 45.458510569644375, longitude: -73.6394107386714 },
+      { latitude: 45.45851409721296, longitude: -73.63942213805971 },
+      { latitude: 45.458486582172135, longitude: -73.63944225462733 },
+      { latitude: 45.45849951659471, longitude: -73.63947980555353 },
+      { latitude: 45.45849763522433, longitude: -73.63948215248642 },
+      { latitude: 45.45851154981018, longitude: -73.63951942442304 },
+      { latitude: 45.45852189734389, longitude: -73.63951808331853 },
+      { latitude: 45.458526835938876, longitude: -73.63951372472889 },
+      { latitude: 45.458535302100664, longitude: -73.63953954099065 },
+      { latitude: 45.45852989316411, longitude: -73.63956066338665 },
+      { latitude: 45.45853906483884, longitude: -73.63958647964841 },
+      { latitude: 45.45855717301275, longitude: -73.6395938557232 },
+      { latitude: 45.45858186596782, longitude: -73.63957843302137 },
+      { latitude: 45.458588921095874, longitude: -73.63959586737997 },
+      { latitude: 45.45860020929888, longitude: -73.63959318517095 },
+      { latitude: 45.458626709299864, longitude: -73.63966482833277 },
+      { latitude: 45.45866433660923, longitude: -73.63968192741524 },
+      { latitude: 45.45874717642955, longitude: -73.63962358936917 },
+      { latitude: 45.45875728874981, longitude: -73.63956960991274 },
+      { latitude: 45.45872977382764, longitude: -73.6394955138887 },
+      { latitude: 45.45873565308567, longitude: -73.63948947891842 },
+      { latitude: 45.458740826832184, longitude: -73.63948411450039 },
+      { latitude: 45.45871683945788, longitude: -73.63941986960529 },
+      { latitude: 45.45872554076151, longitude: -73.63941148770212 },
+      { latitude: 45.45871354707237, longitude: -73.63936890763401 },
+      { latitude: 45.458724129739394, longitude: -73.63935918462633 },
+      { latitude: 45.458722953887595, longitude: -73.63935080272316 },
+      { latitude: 45.458745364360475, longitude: -73.63933364375971 },
+      { latitude: 45.45872937278005, longitude: -73.63929441645287 },
+      { latitude: 45.458707031593875, longitude: -73.63931084498309 },
+      { latitude: 45.45870397437825, longitude: -73.63930413946055 },
+      { latitude: 45.45869809511695, longitude: -73.63930246307991 },
+      { latitude: 45.458688923468074, longitude: -73.6393098391547 },
+      { latitude: 45.45867951664718, longitude: -73.6392897225871 },
+      { latitude: 45.45866987465414, longitude: -73.63928871675871 },
+      { latitude: 45.458667522948296, longitude: -73.63929072841547 },
+      { latitude: 45.45860932668896, longitude: -73.63913580321548 },
+      { latitude: 45.45861920386316, longitude: -73.63912708603618 },
+      { latitude: 45.45862508313269, longitude: -73.63909523480413 },
+      { latitude: 45.45861285425136, longitude: -73.63906640105722 },
+      { latitude: 45.45859051301906, longitude: -73.6390573486018 },
+      { latitude: 45.45858204686556, longitude: -73.63905801915405 },
+      { latitude: 45.45857616759153, longitude: -73.63904896669862 },
+      { latitude: 45.45856887729091, longitude: -73.6390486314225 },
+      { latitude: 45.45856064630518, longitude: -73.63905433111665 },
+      { latitude: 45.45854042159232, longitude: -73.63900269859312 },
+      { latitude: 45.458536894025386, longitude: -73.63900169276474 },
+      { latitude: 45.4585220782418, longitude: -73.63901342742918 },
+      { latitude: 45.45850927765965, longitude: -73.63898268782555 },
+      { latitude: 45.45852973755486, longitude: -73.63896491819082 },
+      { latitude: 45.45851844933774, longitude: -73.6389347433394 }
+    ]
+  },
+  {
+    id: BuildingId.RF,
+    campusId: CampusId.Loyola,
+    displayName: "Loyola Jesuit Hall and Conference Centre",
+    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    departments: [],
+    services: [
+      {
+        id: 1,
+        title: "Loyola Jesuit Hall and Conference Centre",
+        link:
+          "http://www.concordia.ca/hospitality/hospitality-venues/loyola-jesuit-hall-conference-centre.html"
+      },
+      {
+        id: 2,
+        title: "Conference services",
+        link: "http://www.concordia.ca/hospitality.html"
+      }
+    ],
+    boundingBox: [
+      { latitude: 45.45853928680728, longitude: -73.64075583610408 },
+      { latitude: 45.45841323494242, longitude: -73.64085373673312 },
+      { latitude: 45.45847155748208, longitude: -73.64100528154246 },
+      { latitude: 45.45838313296287, longitude: -73.64108172449939 },
+      { latitude: 45.45843110798517, longitude: -73.64120108280055 },
+      { latitude: 45.458510125579984, longitude: -73.64114073309771 },
+      { latitude: 45.4585439902296, longitude: -73.6412292459952 },
+      { latitude: 45.45852564688026, longitude: -73.64124600980155 },
+      { latitude: 45.458537170267086, longitude: -73.6412765199291 },
+      { latitude: 45.45848496225082, longitude: -73.64131675306432 },
+      { latitude: 45.4585086798428, longitude: -73.64137519953323 },
+      { latitude: 45.458640845932905, longitude: -73.64127159921003 },
+      { latitude: 45.45864625485882, longitude: -73.6412836691506 },
+      { latitude: 45.458808287224976, longitude: -73.64115827587915 },
+      { latitude: 45.458804524504764, longitude: -73.64114486483408 },
+      { latitude: 45.458822632593446, longitude: -73.64112910685611 },
+      { latitude: 45.45878500538969, longitude: -73.64103355315996 },
+      { latitude: 45.45876642694858, longitude: -73.64104763475729 },
+      { latitude: 45.45873514930604, longitude: -73.64096626673762 },
+      { latitude: 45.45874008788232, longitude: -73.64096157287184 },
+      { latitude: 45.458728930408405, longitude: -73.64093024390623 },
+      { latitude: 45.458719523594176, longitude: -73.6409024159877 },
+      { latitude: 45.45871199814169, longitude: -73.64088364052459 },
+      { latitude: 45.45870635405163, longitude: -73.64087425279304 },
+      { latitude: 45.45869976927923, longitude: -73.64085447150156 },
+      { latitude: 45.45870329683596, longitude: -73.64085145401641 },
+      { latitude: 45.4586875404141, longitude: -73.64080652701541 },
+      { latitude: 45.45868330734479, longitude: -73.64080585646316 },
+      { latitude: 45.458590715668585, longitude: -73.64087671513522 },
+      { latitude: 45.45851564151699, longitude: -73.6407728821921 },
+      { latitude: 45.458464138995126, longitude: -73.64081345060345 }
+    ]
+  },
+  {
+    id: BuildingId.PY,
+    campusId: CampusId.Loyola,
+    displayName: "Psychology Building",
+    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    departments: [
+      {
+        id: 1,
+        title: "Psychology",
+        link: "http://www.concordia.ca/artsci/psychology.html"
+      },
+      {
+        id: 2,
+        title: "Centre for Clinical Research in Health (CCRH)",
+        link: "http://www.concordia.ca/research/clinical-research-health.html"
+      }
+    ],
+    services: [],
+    boundingBox: [
+      { latitude: 45.45884699152768, longitude: -73.64083336928228 },
+      { latitude: 45.45918093171645, longitude: -73.64057855942586 },
+      { latitude: 45.459198931638056, longitude: -73.64062421143421 },
+      { latitude: 45.45920951421393, longitude: -73.64062287032971 },
+      { latitude: 45.459240936889756, longitude: -73.64060022602146 },
+      { latitude: 45.4592685719661, longitude: -73.64057846579686 },
+      { latitude: 45.45928479856165, longitude: -73.64056471947566 },
+      { latitude: 45.45928973708979, longitude: -73.64055868450538 },
+      { latitude: 45.45924223313443, longitude: -73.64043326276477 },
+      { latitude: 45.459247406834464, longitude: -73.64042789834674 },
+      { latitude: 45.45922530102183, longitude: -73.6403712366813 },
+      { latitude: 45.459218951478306, longitude: -73.64037157195743 },
+      { latitude: 45.45912653026379, longitude: -73.64013352590736 },
+      { latitude: 45.459119710371716, longitude: -73.64013319063123 },
+      { latitude: 45.4590961934962, longitude: -73.64015196609434 },
+      { latitude: 45.45909243079524, longitude: -73.64014559584793 },
+      { latitude: 45.459055038940505, longitude: -73.64017476487096 },
+      { latitude: 45.459056920292284, longitude: -73.6401814703935 },
+      { latitude: 45.45902493730357, longitude: -73.64020695137914 },
+      { latitude: 45.45902964068539, longitude: -73.64022170352872 },
+      { latitude: 45.459001792287836, longitude: -73.64024296107387 },
+      { latitude: 45.45899168001142, longitude: -73.64022016229724 },
+      { latitude: 45.45898486010305, longitude: -73.64021982702111 },
+      { latitude: 45.458756852066955, longitude: -73.640396832665 },
+      { latitude: 45.45876390717309, longitude: -73.640417955061 },
+      { latitude: 45.45873027782589, longitude: -73.64044611825565 },
+      { latitude: 45.45879800684033, longitude: -73.64062475766991 },
+      { latitude: 45.45879636064996, longitude: -73.64062676932667 },
+      { latitude: 45.458821994180084, longitude: -73.64069428769645 },
+      { latitude: 45.45880059371079, longitude: -73.64071105150279 },
+      { latitude: 45.45881776112088, longitude: -73.64075597850379 },
+      { latitude: 45.45883657471496, longitude: -73.64080291716155 }
+    ]
+  },
+  {
+    id: BuildingId.HA,
+    campusId: CampusId.Loyola,
+    displayName: "Hingston Hall, wing HA",
+    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    departments: [],
+    services: [
+      {
+        id: 1,
+        title: "Student Residence",
+        link:
+          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
+      }
+    ],
+    boundingBox: [
+      { latitude: 45.45936746176055, longitude: -73.64149555898814 },
+      { latitude: 45.45955622623087, longitude: -73.64197768605857 },
+      { latitude: 45.459525654527496, longitude: -73.6420018259397 },
+      { latitude: 45.45950025648438, longitude: -73.64194482899813 },
+      { latitude: 45.45935962637198, longitude: -73.64205748177676 },
+      { latitude: 45.45936244838437, longitude: -73.64206821061282 },
+      { latitude: 45.45934034261684, longitude: -73.64208832718043 },
+      { latitude: 45.45935962637198, longitude: -73.64214331246524 },
+      { latitude: 45.45916114447931, longitude: -73.64230089224486 },
+      { latitude: 45.45913762762112, longitude: -73.64224657751231 },
+      { latitude: 45.459103763328045, longitude: -73.64227205849795 },
+      { latitude: 45.45896258468963, longitude: -73.64190649745953 },
+      { latitude: 45.45899503805213, longitude: -73.64187900481713 },
+      { latitude: 45.45896916943134, longitude: -73.64181060848725 },
+      { latitude: 45.45918928749818, longitude: -73.64163425324452 }
+    ]
+  },
+  {
+    id: BuildingId.HC,
+    campusId: CampusId.Loyola,
+    displayName: "Hingston Hall, wing HC",
+    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    departments: [],
+    services: [
+      {
+        id: 1,
+        title: "Student Residence",
+        link:
+          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
+      }
+    ],
+    boundingBox: [
+      { latitude: 45.459523959498206, longitude: -73.64202462121388 },
+      { latitude: 45.45970080481985, longitude: -73.64188246413609 },
+      { latitude: 45.459717736789635, longitude: -73.64191465064427 },
+      { latitude: 45.45982591314328, longitude: -73.6418301610603 },
+      { latitude: 45.45989646282729, longitude: -73.64200584575077 },
+      { latitude: 45.45978640528163, longitude: -73.6421010641708 },
+      { latitude: 45.459796752581404, longitude: -73.64213325067898 },
+      { latitude: 45.459619907560686, longitude: -73.64227406665226 }
+    ]
+  },
+  {
+    id: BuildingId.SI,
+    campusId: CampusId.Loyola,
+    displayName: "St. Ignatius of Loyola Church",
+    address: "4455 Rue West Broadway, Montréal, QC H4B 2A7",
+    departments: [],
+    services: [],
     boundingBox: [
       { latitude: 45.45763260915711, longitude: -73.64256805241634 },
       { latitude: 45.45756817119544, longitude: -73.64239840269614 },
