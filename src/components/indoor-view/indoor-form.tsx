@@ -41,24 +41,26 @@ export default function IndoorForm() {
 
   return (
     <View style={styles.container}>
-      <SafeAreaView style={styles.view}>
-        <View style={styles.view}>
-          <Image source={require("../../../assets/hamburger_icon.png")}></Image>
-          <Image
-            style={styles.lineSeperator}
-            source={require("../../../assets/line-separator.png")}
-          ></Image>
-          <Image source={require("../../../assets/search.png")}></Image>
-          <TextInput
-            // key={autocomplete}
-            style={styles.input}
-            onChangeText={text => queryText({ text, poi })}
-            value={value}
-          />
-        </View>
-        <Image source={require("../../../assets/mic.png")}></Image>
-      </SafeAreaView>
-      <Autocomplete autoCompleteValues={autoCompleteValues}></Autocomplete>
+      <View style={styles.parent}>
+        <SafeAreaView style={styles.view}>
+          <View style={styles.view}>
+            <Image source={require("../../../assets/hamburger_icon.png")}></Image>
+            <Image
+              style={styles.lineSeperator}
+              source={require("../../../assets/line-separator.png")}
+            ></Image>
+            <Image source={require("../../../assets/search.png")}></Image>
+            <TextInput
+              // key={autocomplete}
+              style={styles.input}
+              onChangeText={text => queryText({ text, poi })}
+              value={value}
+            />
+          </View>
+          <Image source={require("../../../assets/mic.png")}></Image>
+        </SafeAreaView>
+        <Autocomplete style={styles.autocomplete} autoCompleteValues={autoCompleteValues}></Autocomplete>
+      </View>
     </View>
   );
 }
@@ -70,6 +72,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: Platform.OS === "android" ? 25 + 48 : 0 + 48,
     width: Dimensions.get("window").width - 30,
+    zIndex: 500
+  },
+  parent: {
+    position: "relative",
+    flex: 1,
     borderWidth: 2,
     borderColor: "#AA2B45",
     height: 48,
@@ -79,7 +86,6 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     justifyContent: "space-between",
-    zIndex: 500
   },
   safeArea: {
     flex: 1,
@@ -110,5 +116,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "stretch",
     zIndex: 999
-  }
+  },
 });
