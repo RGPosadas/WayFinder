@@ -26,7 +26,7 @@ module.exports = {
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
-  // An array of regexp pattern strings used to skip coverage collection
+  // An array of reaexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
   //   "/node_modules/"
   // ],
@@ -126,10 +126,10 @@ module.exports = {
   // runner: "jest-runner",
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ["./setupJest.js"],
+  setupFiles: ["./setupJest.js", "enzyme-react-16-adapter-setup"],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
-  // setupFilesAfterEnv: [],
+  setupFilesAfterEnv: ["./node_modules/jest-enzyme/lib/index.js"],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
@@ -171,7 +171,9 @@ module.exports = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.jsx?$": "babel-jest"
+    "^.+\\.jsx?$": "babel-jest",
+    "node_modules/react-native/.+\\.js$":
+      "<rootDir>/node_modules/react-native/jest/preprocessor.js"
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
