@@ -29,8 +29,8 @@ export const POIInfo: POI[] = [
   // LEVEL 8
   // ------------------
   {
-    id: "",
-    name: "Women's Bathroom",
+    id: null,
+    displayName: "Women's Bathroom",
     description: "",
     location: {
       latitude: 45.497239,
@@ -41,8 +41,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: "",
-    name: "Men's Bathroom",
+    id: null,
+    displayName: "Men's Bathroom",
     description: "",
     location: {
       latitude: 45.497109,
@@ -53,8 +53,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: "",
-    name: "Elevator",
+    id: null,
+    displayName: "Elevator",
     description: "",
     location: {
       latitude: 45.497314,
@@ -65,8 +65,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Elevator
   },
   {
-    id: "",
-    name: "Escalators Up",
+    id: null,
+    displayName: "Escalators Up",
     description: "",
     location: {
       latitude: 45.497267,
@@ -77,8 +77,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: "",
-    name: "Escalators Down",
+    id: null,
+    displayName: "Escalators Down",
     description: "",
     location: {
       latitude: 45.49731,
@@ -89,8 +89,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: "",
-    name: "Stairs 1",
+    id: null,
+    displayName: "Stairs 1",
     description: "",
     location: {
       latitude: 45.497354,
@@ -101,8 +101,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: "",
-    name: "Stairs 2",
+    id: null,
+    displayName: "Stairs 2",
     description: "",
     location: {
       latitude: 45.497482,
@@ -113,8 +113,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: "",
-    name: "Stairs 3",
+    id: null,
+    displayName: "Stairs 3",
     description: "",
     location: {
       latitude: 45.497253,
@@ -125,8 +125,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: "",
-    name: "Stairs 4",
+    id: null,
+    displayName: "Stairs 4",
     description: "",
     location: {
       latitude: 45.497055,
@@ -137,8 +137,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: "",
-    name: "H-801",
+    id: null,
+    displayName: "H-801",
     description: "",
     location: {
       latitude: 45.497308,
@@ -149,8 +149,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-803",
+    id: null,
+    displayName: "H-803",
     description: "",
     location: {
       latitude: 45.497257,
@@ -161,8 +161,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-805.01",
+    id: null,
+    displayName: "H-805.01",
     description: "",
     location: {
       latitude: 45.497229,
@@ -173,8 +173,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-805.02",
+    id: null,
+    displayName: "H-805.02",
     description: "",
     location: {
       latitude: 45.497218,
@@ -185,8 +185,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-805.03",
+    id: null,
+    displayName: "H-805.03",
     description: "",
     location: {
       latitude: 45.497218,
@@ -197,8 +197,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-806.01",
+    id: null,
+    displayName: "H-806.01",
     description: "",
     location: {
       latitude: 45.49718,
@@ -209,8 +209,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-806.02",
+    id: null,
+    displayName: "H-806.02",
     description: "",
     location: {
       latitude: 45.497195,
@@ -221,8 +221,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-806.03",
+    id: null,
+    displayName: "H-806.03",
     description: "",
     location: {
       latitude: 45.49721,
@@ -233,8 +233,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-807",
+    id: null,
+    displayName: "H-807",
     description: "",
     location: {
       latitude: 45.497159,
@@ -245,8 +245,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-811",
+    id: null,
+    displayName: "H-811",
     description: "",
     location: {
       latitude: 45.497059,
@@ -257,8 +257,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-813",
+    id: null,
+    displayName: "H-813",
     description: "",
     location: {
       latitude: 45.49701,
@@ -269,8 +269,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-815",
+    id: null,
+    displayName: "H-815",
     description: "",
     location: {
       latitude: 45.496957,
@@ -281,8 +281,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-817",
+    id: null,
+    displayName: "H-817",
     description: "",
     location: {
       latitude: 45.496942,
@@ -293,8 +293,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-818",
+    id: null,
+    displayName: "H-818",
     description: "",
     location: {
       latitude: 45.497018,
@@ -305,8 +305,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-819",
+    id: null,
+    displayName: "H-819",
     description: "",
     location: {
       latitude: 45.496957,
@@ -317,8 +317,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-820",
+    id: null,
+    displayName: "H-820",
     description: "",
     location: {
       latitude: 45.497083,
@@ -329,8 +329,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-821",
+    id: null,
+    displayName: "H-821",
     description: "",
     location: {
       latitude: 45.49701,
@@ -341,8 +341,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-822",
+    id: null,
+    displayName: "H-822",
     description: "",
     location: {
       latitude: 45.497141,
@@ -353,8 +353,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-823",
+    id: null,
+    displayName: "H-823",
     description: "",
     location: {
       latitude: 45.497024,
@@ -365,8 +365,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-825",
+    id: null,
+    displayName: "H-825",
     description: "",
     location: {
       latitude: 45.49708,
@@ -377,8 +377,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-827",
+    id: null,
+    displayName: "H-827",
     description: "",
     location: {
       latitude: 45.497091,
@@ -389,8 +389,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-829",
+    id: null,
+    displayName: "H-829",
     description: "",
     location: {
       latitude: 45.497128,
@@ -401,8 +401,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-831",
+    id: null,
+    displayName: "H-831",
     description: "",
     location: {
       latitude: 45.497179,
@@ -413,8 +413,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-832.02",
+    id: null,
+    displayName: "H-832.02",
     description: "",
     location: {
       latitude: 45.497279,
@@ -425,8 +425,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-832.05",
+    id: null,
+    displayName: "H-832.05",
     description: "",
     location: {
       latitude: 45.497274,
@@ -437,8 +437,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-832.06",
+    id: null,
+    displayName: "H-832.06",
     description: "",
     location: {
       latitude: 45.497258,
@@ -449,8 +449,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-835",
+    id: null,
+    displayName: "H-835",
     description: "",
     location: {
       latitude: 45.497232,
@@ -461,8 +461,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-837",
+    id: null,
+    displayName: "H-837",
     description: "",
     location: {
       latitude: 45.497282,
@@ -473,8 +473,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-839",
+    id: null,
+    displayName: "H-839",
     description: "",
     location: {
       latitude: 45.497298,
@@ -485,8 +485,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-841",
+    id: null,
+    displayName: "H-841",
     description: "",
     location: {
       latitude: 45.497397,
@@ -497,8 +497,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-843",
+    id: null,
+    displayName: "H-843",
     description: "",
     location: {
       latitude: 45.497479,
@@ -509,8 +509,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-845",
+    id: null,
+    displayName: "H-845",
     description: "",
     location: {
       latitude: 45.49753,
@@ -521,8 +521,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-847",
+    id: null,
+    displayName: "H-847",
     description: "",
     location: {
       latitude: 45.497545,
@@ -533,8 +533,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-849",
+    id: null,
+    displayName: "H-849",
     description: "",
     location: {
       latitude: 45.497596,
@@ -545,8 +545,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-851.01",
+    id: null,
+    displayName: "H-851.01",
     description: "",
     location: {
       latitude: 45.497587,
@@ -557,8 +557,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-851.02",
+    id: null,
+    displayName: "H-851.02",
     description: "",
     location: {
       latitude: 45.497599,
@@ -569,8 +569,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-851.03",
+    id: null,
+    displayName: "H-851.03",
     description: "",
     location: {
       latitude: 45.497613,
@@ -581,8 +581,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-853",
+    id: null,
+    displayName: "H-853",
     description: "",
     location: {
       latitude: 45.497548,
@@ -593,8 +593,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-854",
+    id: null,
+    displayName: "H-854",
     description: "",
     location: {
       latitude: 45.497479,
@@ -605,8 +605,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-855",
+    id: null,
+    displayName: "H-855",
     description: "",
     location: {
       latitude: 45.497492,
@@ -617,8 +617,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-857",
+    id: null,
+    displayName: "H-857",
     description: "",
     location: {
       latitude: 45.497458,
@@ -629,8 +629,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-859",
+    id: null,
+    displayName: "H-859",
     description: "",
     location: {
       latitude: 45.497425,
@@ -641,8 +641,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-860.01",
+    id: null,
+    displayName: "H-860.01",
     description: "",
     location: {
       latitude: 45.497382,
@@ -653,8 +653,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-860.03",
+    id: null,
+    displayName: "H-860.03",
     description: "",
     location: {
       latitude: 45.497399,
@@ -665,8 +665,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-860.04",
+    id: null,
+    displayName: "H-860.04",
     description: "",
     location: {
       latitude: 45.497393,
@@ -677,8 +677,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-860.05",
+    id: null,
+    displayName: "H-860.05",
     description: "",
     location: {
       latitude: 45.497412,
@@ -689,8 +689,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-860.06",
+    id: null,
+    displayName: "H-860.06",
     description: "",
     location: {
       latitude: 45.497403,
@@ -701,8 +701,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-861",
+    id: null,
+    displayName: "H-861",
     description: "",
     location: {
       latitude: 45.497413,
@@ -713,8 +713,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-863",
+    id: null,
+    displayName: "H-863",
     description: "",
     location: {
       latitude: 45.497365,
@@ -725,8 +725,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-865",
+    id: null,
+    displayName: "H-865",
     description: "",
     location: {
       latitude: 45.497358,
@@ -737,8 +737,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H-867",
+    id: null,
+    displayName: "H-867",
     description: "",
     location: {
       latitude: 45.497343,
@@ -753,8 +753,8 @@ export const POIInfo: POI[] = [
   // LEVEL 9
   // ------------------
   {
-    id: "",
-    name: "H961-33",
+    id: null,
+    displayName: "H961-33",
     description: "",
     location: {
       latitude: 45.497513,
@@ -765,8 +765,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-31",
+    id: null,
+    displayName: "H961-31",
     description: "",
     location: {
       latitude: 45.497541,
@@ -777,8 +777,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-29",
+    id: null,
+    displayName: "H961-29",
     description: "",
     location: {
       latitude: 45.497565,
@@ -789,8 +789,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-27",
+    id: null,
+    displayName: "H961-27",
     description: "",
     location: {
       latitude: 45.497589,
@@ -801,8 +801,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-25",
+    id: null,
+    displayName: "H961-25",
     description: "",
     location: {
       latitude: 45.497614,
@@ -813,8 +813,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-23",
+    id: null,
+    displayName: "H961-23",
     description: "",
     location: {
       latitude: 45.497638,
@@ -825,8 +825,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-21",
+    id: null,
+    displayName: "H961-21",
     description: "",
     location: {
       latitude: 45.497659,
@@ -837,8 +837,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-19",
+    id: null,
+    displayName: "H961-19",
     description: "",
     location: {
       latitude: 45.497658,
@@ -849,8 +849,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-17",
+    id: null,
+    displayName: "H961-17",
     description: "",
     location: {
       latitude: 45.497643,
@@ -861,8 +861,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-15",
+    id: null,
+    displayName: "H961-15",
     description: "",
     location: {
       latitude: 45.497629,
@@ -873,8 +873,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-13",
+    id: null,
+    displayName: "H961-13",
     description: "",
     location: {
       latitude: 45.497612,
@@ -885,8 +885,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-11",
+    id: null,
+    displayName: "H961-11",
     description: "",
     location: {
       latitude: 45.497592,
@@ -897,8 +897,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-9",
+    id: null,
+    displayName: "H961-9",
     description: "",
     location: {
       latitude: 45.497575,
@@ -909,8 +909,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-7",
+    id: null,
+    displayName: "H961-7",
     description: "",
     location: {
       latitude: 45.497562,
@@ -921,8 +921,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-3",
+    id: null,
+    displayName: "H961-3",
     description: "",
     location: {
       latitude: 45.497526,
@@ -933,8 +933,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-1",
+    id: null,
+    displayName: "H961-1",
     description: "",
     location: {
       latitude: 45.497508,
@@ -945,8 +945,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-2",
+    id: null,
+    displayName: "H961-2",
     description: "",
     location: {
       latitude: 45.497512,
@@ -957,8 +957,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-4",
+    id: null,
+    displayName: "H961-4",
     description: "",
     location: {
       latitude: 45.497526,
@@ -969,8 +969,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-6",
+    id: null,
+    displayName: "H961-6",
     description: "",
     location: {
       latitude: 45.497544,
@@ -981,8 +981,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-10",
+    id: null,
+    displayName: "H961-10",
     description: "",
     location: {
       latitude: 45.497554,
@@ -993,8 +993,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-8",
+    id: null,
+    displayName: "H961-8",
     description: "",
     location: {
       latitude: 45.497514,
@@ -1005,8 +1005,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-26",
+    id: null,
+    displayName: "H961-26",
     description: "",
     location: {
       latitude: 45.497591,
@@ -1017,8 +1017,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-28",
+    id: null,
+    displayName: "H961-28",
     description: "",
     location: {
       latitude: 45.497565,
@@ -1029,8 +1029,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961-30",
+    id: null,
+    displayName: "H961-30",
     description: "",
     location: {
       latitude: 45.49754,
@@ -1041,8 +1041,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H966",
+    id: null,
+    displayName: "H966",
     description: "",
     location: {
       latitude: 45.497446,
@@ -1053,8 +1053,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H962",
+    id: null,
+    displayName: "H962",
     description: "",
     location: {
       latitude: 45.497386,
@@ -1065,8 +1065,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H959",
+    id: null,
+    displayName: "H959",
     description: "",
     location: {
       latitude: 45.497292,
@@ -1077,8 +1077,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H961",
+    id: null,
+    displayName: "H961",
     description: "",
     location: {
       latitude: 45.49734,
@@ -1089,8 +1089,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H963",
+    id: null,
+    displayName: "H963",
     description: "",
     location: {
       latitude: 45.497426,
@@ -1101,8 +1101,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H967",
+    id: null,
+    displayName: "H967",
     description: "",
     location: {
       latitude: 45.497358,
@@ -1113,8 +1113,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H901-3",
+    id: null,
+    displayName: "H901-3",
     description: "",
     location: {
       latitude: 45.497336,
@@ -1125,8 +1125,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H901-1",
+    id: null,
+    displayName: "H901-1",
     description: "",
     location: {
       latitude: 45.49731,
@@ -1137,8 +1137,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H905",
+    id: null,
+    displayName: "H905",
     description: "",
     location: {
       latitude: 45.497215,
@@ -1149,8 +1149,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H907-1",
+    id: null,
+    displayName: "H907-1",
     description: "",
     location: {
       latitude: 45.4972,
@@ -1161,8 +1161,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H907-2",
+    id: null,
+    displayName: "H907-2",
     description: "",
     location: {
       latitude: 45.497164,
@@ -1173,8 +1173,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H909",
+    id: null,
+    displayName: "H909",
     description: "",
     location: {
       latitude: 45.497112,
@@ -1185,8 +1185,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H911",
+    id: null,
+    displayName: "H911",
     description: "",
     location: {
       latitude: 45.497164,
@@ -1197,8 +1197,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H913",
+    id: null,
+    displayName: "H913",
     description: "",
     location: {
       latitude: 45.49706,
@@ -1209,8 +1209,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H915",
+    id: null,
+    displayName: "H915",
     description: "",
     location: {
       latitude: 45.496957,
@@ -1221,8 +1221,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H917",
+    id: null,
+    displayName: "H917",
     description: "",
     location: {
       latitude: 45.496957,
@@ -1233,8 +1233,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H919",
+    id: null,
+    displayName: "H919",
     description: "",
     location: {
       latitude: 45.496987,
@@ -1245,8 +1245,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H921",
+    id: null,
+    displayName: "H921",
     description: "",
     location: {
       latitude: 45.49702,
@@ -1257,8 +1257,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H923",
+    id: null,
+    displayName: "H923",
     description: "",
     location: {
       latitude: 45.497065,
@@ -1269,8 +1269,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H920",
+    id: null,
+    displayName: "H920",
     description: "",
     location: {
       latitude: 45.497135,
@@ -1281,8 +1281,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H925-2",
+    id: null,
+    displayName: "H925-2",
     description: "",
     location: {
       latitude: 45.497042,
@@ -1293,8 +1293,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H925-1",
+    id: null,
+    displayName: "H925-1",
     description: "",
     location: {
       latitude: 45.497096,
@@ -1305,8 +1305,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H927",
+    id: null,
+    displayName: "H927",
     description: "",
     location: {
       latitude: 45.497156,
@@ -1317,8 +1317,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H929",
+    id: null,
+    displayName: "H929",
     description: "",
     location: {
       latitude: 45.497159,
@@ -1329,8 +1329,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H931",
+    id: null,
+    displayName: "H931",
     description: "",
     location: {
       latitude: 45.497201,
@@ -1341,8 +1341,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H933",
+    id: null,
+    displayName: "H933",
     description: "",
     location: {
       latitude: 45.49723,
@@ -1353,8 +1353,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H937",
+    id: null,
+    displayName: "H937",
     description: "",
     location: {
       latitude: 45.497288,
@@ -1365,8 +1365,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H930",
+    id: null,
+    displayName: "H930",
     description: "",
     location: {
       latitude: 45.497228,
@@ -1377,8 +1377,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H932",
+    id: null,
+    displayName: "H932",
     description: "",
     location: {
       latitude: 45.497255,
@@ -1389,8 +1389,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "H928",
+    id: null,
+    displayName: "H928",
     description: "",
     location: {
       latitude: 45.497169,
@@ -1401,8 +1401,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: "",
-    name: "Women's Bathroom",
+    id: null,
+    displayName: "Women's Bathroom",
     description: "",
     location: {
       latitude: 45.497224,
@@ -1413,8 +1413,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: "",
-    name: "Men's Bathroom",
+    id: null,
+    displayName: "Men's Bathroom",
     description: "",
     location: {
       latitude: 45.497101,
@@ -1425,8 +1425,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: "",
-    name: "Escalator",
+    id: null,
+    displayName: "Escalator",
     description: "",
     location: {
       latitude: 45.497317,
@@ -1437,8 +1437,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: "",
-    name: "Stairs",
+    id: null,
+    displayName: "Stairs",
     description: "",
     location: {
       latitude: 45.49706,
@@ -1449,8 +1449,8 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: "",
-    name: "Elevator",
+    id: null,
+    displayName: "Elevator",
     description: "",
     location: {
       latitude: 45.497264,

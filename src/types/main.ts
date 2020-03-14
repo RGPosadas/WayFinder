@@ -30,7 +30,7 @@ export interface Campus {
 }
 
 export interface IndoorLocation {
-  id: string;
+  id: number;
   displayName: string;
   buildingId: BuildingId;
   level: number;

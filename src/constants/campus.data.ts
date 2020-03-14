@@ -3,8 +3,8 @@ import { Campus, CampusId } from "../types/main";
 const Campuses: Campus[] = [
   {
     id: CampusId.SGW,
-    description: "",
     displayName: "Sir George Williams Campus",
+    description: "",
     region: {
       latitude: 45.495376377001215,
       longitude: -73.5777054168284,
@@ -15,7 +15,7 @@ const Campuses: Campus[] = [
   },
   {
     id: CampusId.Loyola,
-    displayName: "Loyola",
+    displayName: "Loyola Campus",
     description: "",
     region: {
       latitude: 45.45826676273795,
