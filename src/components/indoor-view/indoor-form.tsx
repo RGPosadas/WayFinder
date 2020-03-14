@@ -36,7 +36,7 @@ export default function IndoorForm() {
       location => location.includes(sanitizedText) !== false
     );
     setAutocomplete([...queryResult]);
-    onChangeText(input.text);
+    onChangeText(input.text); 
   };
 
   return (

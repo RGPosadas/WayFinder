@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#F7F7FA",
     backgroundColor: "#F7F7FA",
+    elevation: 5
   },
   list: {
     flexDirection: "row",

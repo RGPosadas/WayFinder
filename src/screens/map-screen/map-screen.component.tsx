@@ -4,6 +4,9 @@ import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { isPointInPolygon } from "geolib";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { RegionProvider } from "../../context/region.context";
+
+import IndoorForm from "../../components/indoor-view/indoor-form";
+import OmniboxDirections from "../../components/indoor-view/omnibox-directions";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
