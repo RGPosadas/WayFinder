@@ -20,9 +20,8 @@ const { height } = Dimensions.get("window");
 
 interface IProps {
   tappedBuilding: BuildingId;
-  showAdditionalInfo: boolean;
+  showBuildingInfo: boolean;
   onClosePanel: () => void;
-  setTappedBuilding: (value: React.SetStateAction<BuildingId>) => void;
 }
 
 interface IState {
@@ -47,8 +46,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
     const {
       tappedBuilding: tappedBuildingId,
       onClosePanel,
-      showAdditionalInfo,
-      setTappedBuilding
+      showBuildingInfo
     } = this.props;
     const draggableRange = { top: height / 2, bottom: 100 };
     const animatedValue = new Animated.Value(draggableRange.bottom); // Initial position is at bottom.
@@ -63,14 +61,13 @@ class BuildingInformation extends React.Component<IProps, IState> {
         // Speed of the panel
         friction={0.8}
       >
-        {showAdditionalInfo ? (
+        {showBuildingInfo ? (
           <View style={styles.container}>
             <TouchableOpacity
               style={styles.xButton}
               onPress={() => {
                 onClosePanel();
                 this._panel.hide();
-                setTappedBuilding(null);
               }}
             >
               <Feather name="x" size={40} color="white" />
@@ -107,7 +104,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                     >
                       <View style={styles.buildingInformation}>
                         <View>
-                          {building.departments ? (
+                          {building.departments.length !== 0 ? (
                             <Text style={styles.headerText}>
                               {" "}
                               Departments:{" "}
@@ -139,7 +136,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                           })}
 
                         <View>
-                          {building.services ? (
+                          {building.services.length !== 0 ? (
                             <Text style={styles.headerText}> Services: </Text>
                           ) : null}
 

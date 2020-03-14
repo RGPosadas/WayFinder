@@ -1,5 +1,5 @@
 import React from "react";
-import BuildingInformation from "../src/components/sliding-panel/sliding-panel.component";
+import BuildingInformation from "../src/components/building-information/building-information.component";
 import renderer from "react-test-renderer";
 
 // Kind: Snapshot + Unit Test

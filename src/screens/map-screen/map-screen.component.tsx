@@ -21,7 +21,7 @@ import { CampusId } from "../../types/main";
  */
 const MapScreen = () => {
   const [region, setRegion] = useState<Region>(null);
-  const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
+  const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
 
@@ -33,11 +33,10 @@ const MapScreen = () => {
 
   /**
    * Displays the additional information for a building when tapped
-   * @param {boolean} showAdditionalInfo
    * @param {string buildingId} tappedBuilding
    */
-  const onDisplayBuilding = (showAdditionalInfo, tappedBuilding) => {
-    setShowAdditionalInfo(showAdditionalInfo);
+  const onTapBuilding = (tappedBuilding: BuildingId) => {
+    setShowBuildingInfo(true);
     setTappedBuilding(tappedBuilding);
   };
 
@@ -45,7 +44,8 @@ const MapScreen = () => {
    * This function closes the additional info panel
    */
   const onClosePanel = () => {
-    setShowAdditionalInfo(false);
+    setShowBuildingInfo(false);
+    setTappedBuilding(null);
   };
 
   /**
@@ -86,7 +86,7 @@ const MapScreen = () => {
             message: `You're currently in the ${building} building!`,
             type: "info"
           });
-          onDisplayBuilding(true, building);
+          onTapBuilding(building.id);
           inBuilding = true;
         }
       });
@@ -121,7 +121,7 @@ const MapScreen = () => {
           onRegionChangeComplete={region => setRegion(region)}
         >
           <BuildingHighlights
-            displayBuilding={onDisplayBuilding}
+            onTapBuilding={onTapBuilding}
             tappedBuilding={tappedBuilding}
           />
         </MapView>
@@ -132,8 +132,7 @@ const MapScreen = () => {
         <FlashMessage position="top" autoHide={true} floating={true} />
         <BuildingInformation
           tappedBuilding={tappedBuilding}
-          setTappedBuilding={setTappedBuilding}
-          showAdditionalInfo={showAdditionalInfo}
+          showBuildingInfo={showBuildingInfo}
           onClosePanel={onClosePanel}
         />
       </View>
