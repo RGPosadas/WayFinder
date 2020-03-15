@@ -9,12 +9,16 @@ import {
 
 import { CAMPUS_TOGGLE_HEIGHT, CONCORDIA_RED } from "../../constants/style";
 import { getCampus } from "../../constants/campus.data";
-import { CampusId } from "../../types/main";
+import { CampusId, Region } from "../../types/main";
+
+interface IProps {
+  onCampusToggle: (region: Region) => void;
+}
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
  */
-const CampusToggle = ({ onCampusToggle }) => {
+const CampusToggle = ({ onCampusToggle }: IProps) => {
   const [isSGW, setIsSGW] = useState(true);
 
   /**
