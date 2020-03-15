@@ -21,12 +21,22 @@ export const floorOverlays: FloorOverlay[] = [
       [45.494916, -73.57846]
     ],
     image: require("../../assets/floors/MB-1.png")
+  },
+  {
+    id: 3,
+    buildingId: BuildingId.CC,
+    level: 1,
+    bounds: [
+      [45.458639, -73.640921],
+      [45.457962, -73.639775]
+    ],
+    image: require("../../assets/floors/CC1.png")
   }
 ];
 
 export const POIInfo: POI[] = [
   // ------------------
-  // LEVEL 8
+  // HALL LEVEL 8
   // ------------------
   {
     id: null,
@@ -750,7 +760,7 @@ export const POIInfo: POI[] = [
   },
 
   // ------------------
-  // LEVEL 9
+  // HALL LEVEL 9
   // ------------------
   {
     id: null,
@@ -1518,5 +1528,190 @@ export const POIInfo: POI[] = [
     buildingId: BuildingId.H,
     level: 9,
     category: POICategory.Elevator
+  },
+  // ------------------
+  // LOYOLA CC1
+  // ------------------
+  {
+    id: null,
+    displayName: "119",
+
+    description: "",
+    location: {
+      latitude: 45.458403,
+      longitude: -73.640648
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "122",
+
+    description: "",
+    location: {
+      latitude: 45.458421,
+      longitude: -73.640639
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "120",
+
+    description: "",
+    location: {
+      latitude: 45.458413,
+      longitude: -73.640617
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "118",
+
+    description: "",
+    location: {
+      latitude: 45.458382,
+      longitude: -73.640523
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "117",
+
+    description: "",
+    location: {
+      latitude: 45.458358,
+      longitude: -73.640537
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "116",
+
+    description: "",
+    location: {
+      latitude: 45.458365,
+      longitude: -73.640458
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "115",
+
+    description: "",
+    location: {
+      latitude: 45.45834,
+      longitude: -73.640472
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "112",
+
+    description: "",
+    location: {
+      latitude: 45.458265,
+      longitude: -73.640212
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "111",
+
+    description: "",
+    location: {
+      latitude: 45.458241,
+      longitude: -73.640234
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "109",
+
+    description: "",
+    location: {
+      latitude: 45.45822,
+      longitude: -73.640191
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "107",
+
+    description: "",
+    location: {
+      latitude: 45.458207,
+      longitude: -73.640155
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "106",
+
+    description: "",
+    location: {
+      latitude: 45.458213,
+      longitude: -73.640096
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "101",
+
+    description: "",
+    location: {
+      latitude: 45.458174,
+      longitude: -73.640072
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "104",
+
+    description: "",
+    location: {
+      latitude: 45.458182,
+      longitude: -73.639984
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Classroom
   }
 ];
