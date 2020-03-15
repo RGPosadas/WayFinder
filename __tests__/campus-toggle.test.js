@@ -1,7 +1,10 @@
 import React from "react";
 import CampusToggle from "../src/components/campus-toggle/campus-toggle.component";
+import { CONCORDIA_RED, INACTIVE_BUTTON_COLOR } from "../src/constants/style";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
+import { getCampus } from "../src/constants/campus.data";
+import { CampusId } from "../src/types/main";
 
 describe("CampusToggle component", () => {
   it("CampusToggle: snapshot renders correctly", () => {
@@ -19,6 +22,9 @@ describe("CampusToggle component", () => {
     const button = wrapper.find("View TouchableHighlight").at(0);
     button.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
+    expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
+      getCampus(CampusId.SGW).region
+    );
 
     // Since we cannot directly check the state of react hooks, we test side effects instead
     // In this case, the styling changes of the buttons are the side effect
@@ -28,7 +34,7 @@ describe("CampusToggle component", () => {
       .props();
     expect(viewSGWStyling).toHaveProperty(
       ["style", 0, "backgroundColor"],
-      "#AA2B45"
+      CONCORDIA_RED
     );
     const ViewLoyolaStyling = wrapper
       .find("View TouchableHighlight View")
@@ -36,7 +42,7 @@ describe("CampusToggle component", () => {
       .props();
     expect(ViewLoyolaStyling).toHaveProperty(
       ["style", 0, "backgroundColor"],
-      "#F2F2F2"
+      INACTIVE_BUTTON_COLOR
     );
   });
 
@@ -48,6 +54,9 @@ describe("CampusToggle component", () => {
     const button = wrapper.find("View TouchableHighlight").at(1);
     button.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
+    expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
+      getCampus(CampusId.Loyola).region
+    );
 
     // Since we cannot directly check the state of react hooks, we test side effects instead
     // In this case, the styling changes of the buttons are the side effect
@@ -57,7 +66,7 @@ describe("CampusToggle component", () => {
       .props();
     expect(viewSGWStyling).toHaveProperty(
       ["style", 0, "backgroundColor"],
-      "#F2F2F2"
+      INACTIVE_BUTTON_COLOR
     );
     const ViewLoyolaStyling = wrapper
       .find("View TouchableHighlight View")
@@ -65,7 +74,7 @@ describe("CampusToggle component", () => {
       .props();
     expect(ViewLoyolaStyling).toHaveProperty(
       ["style", 0, "backgroundColor"],
-      "#AA2B45"
+      CONCORDIA_RED
     );
   });
 });
