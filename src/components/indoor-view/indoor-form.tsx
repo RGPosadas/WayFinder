@@ -12,6 +12,8 @@ import {
 } from "react-native";
 import SafeAreaView from "react-native-safe-area-view";
 import Autocomplete from "./autocomplete";
+import { POI } from "../../types/main";
+import { POIInfo } from "../../constants/poi.data";
 
 //make a function for auto complete
 //make component to show results of auto complete
@@ -20,31 +22,44 @@ import Autocomplete from "./autocomplete";
 
 export interface queryTextInput {
   text: string;
-  poi: string[];
 }
 
-export default function IndoorForm() {
-  const poi: string[] = ["test1", "test2", "test3", "walmart"];
-
+interface iProps {
+  getDestination: (poi: POI) => void;
+  getInitialLocation: (poi: POI) => void;
+  destination : POI;
+  initialLocation: POI;
+}
+export default function IndoorForm(props: iProps) {
+  let x: POI = {};
   const [value, onChangeText] = React.useState("");
-  const [autoCompleteValues, setAutocomplete] = React.useState([...poi]);
+  const [autoCompleteValues, setAutocomplete] = React.useState(null);
   const [query, setQuery] = React.useState("");
 
+  //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
+  let autocompleteHeight = autoCompleteValues ? autoCompleteValues.length * 51 + 50 : 48
+
   const queryText = (input: queryTextInput) => {
-    let sanitizedText = input.text.toLowerCase();
-    const queryResult: string[] = input.poi.filter(
-      location => location.includes(sanitizedText) !== false
-    );
-    setAutocomplete([...queryResult]);
-    onChangeText(input.text); 
+    let classes: POI[] = POIInfo.filter(poi => {
+      return (
+        poi.displayName.toUpperCase().search(input.text.toUpperCase()) !== -1
+      );
+    });
+
+    let narrowedClasses: POI[] = classes.slice(0, 5);
+
+    setAutocomplete([...narrowedClasses]);
+    onChangeText(input.text);
   };
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height: autocompleteHeight}]}>
       <View style={styles.parent}>
-        <SafeAreaView style={styles.view}>
+        <View style={styles.view}>
           <View style={styles.view}>
-            <Image source={require("../../../assets/hamburger_icon.png")}></Image>
+            <Image
+              source={require("../../../assets/hamburger_icon.png")}
+            ></Image>
             <Image
               style={styles.lineSeperator}
               source={require("../../../assets/line-separator.png")}
@@ -53,14 +68,21 @@ export default function IndoorForm() {
             <TextInput
               // key={autocomplete}
               style={styles.input}
-              onChangeText={text => queryText({ text, poi })}
+              onChangeText={text => queryText({ text})}
               value={value}
             />
           </View>
           <Image source={require("../../../assets/mic.png")}></Image>
-        </SafeAreaView>
-        <Autocomplete style={styles.autocomplete} autoCompleteValues={autoCompleteValues}></Autocomplete>
+        </View>
+
       </View>
+      {autoCompleteValues && value != "" &&
+        <Autocomplete
+            style={styles.autocomplete}
+            autoCompleteValues={autoCompleteValues}
+            selectedLocation={props.getDestination}
+        ></Autocomplete>
+      }
     </View>
   );
 }
@@ -72,11 +94,12 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: Platform.OS === "android" ? 25 + 48 : 0 + 48,
     width: Dimensions.get("window").width - 30,
-    zIndex: 500
+    zIndex: 1,
+    height: 48,
+    elevation: 5
   },
   parent: {
     position: "relative",
-    flex: 1,
     borderWidth: 2,
     borderColor: "#AA2B45",
     height: 48,
@@ -86,11 +109,11 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     justifyContent: "space-between",
+    zIndex: 2,
   },
   safeArea: {
     flex: 1,
     alignSelf: "center",
-    position: "absolute",
     top: Platform.OS === "android" ? 25 + 48 : 0 + 48,
     width: Dimensions.get("window").width - 30,
     borderWidth: 2,
@@ -115,6 +138,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     alignSelf: "stretch",
-    zIndex: 999
   },
+  autocomplete: {
+  }
 });

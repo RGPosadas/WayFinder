@@ -20,7 +20,8 @@ import {
   IndoorInformation,
   ZoomLevel,
   IndoorFloor,
-  CampusId
+  CampusId,
+  POI
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 
@@ -52,6 +53,8 @@ const MapScreen = () => {
       floors: []
     }
   );
+  const [destination, setDestination] = useState<POI>(null);
+  const [initialLocaiton, setInitialLocaiton] = useState<POI>({displayName: "Current Location", ...currentLocation});
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -194,9 +197,43 @@ const MapScreen = () => {
     setCurrentRegion(getCampusById(CampusId.SGW).region);
   }, []);
 
+  /**
+   *
+   * @param poi
+   */
+  const getDestination = (poi: POI) => {
+    setDestination(poi);
+  };
+
+  /**
+   *
+   * @param poi
+   */
+  const getInitialLocation = (poi: POI | null) => {
+    setInitialLocaiton(poi);
+  };
+  let search;
+  if(destination) {
+    search = <OmniboxDirections
+        destination={destination}
+        getDestination={getDestination}
+        getInitialLocation={getInitialLocation}
+        currentLocation={currentLocation}
+        initialLocaiton={initialLocaiton}
+    />
+  }
+  else {
+    search = <IndoorForm
+        getDestination={getDestination}
+        getInitialLocation={getInitialLocation}
+        destination={destination}
+        initialLocation={initialLocaiton}
+    />
+  }
   return (
     <RegionProvider value={currentRegion}>
       <View style={styles.container}>
+        {search}
         <MapView
           testID="mapView"
           accessibilityLabel="mapView"
@@ -223,7 +260,7 @@ const MapScreen = () => {
           </View>
         </MapView>
 
-        <CampusToggle onCampusToggle={onCampusToggle} />
+       {!destination && <CampusToggle onCampusToggle={onCampusToggle} />}
 
         <LocationButton onLocationButtonPress={onLocationButtonPress} />
 
