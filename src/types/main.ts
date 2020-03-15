@@ -1,3 +1,5 @@
+import { LatLng } from "react-native-maps";
+
 export interface Location {
   latitude: number;
   longitude: number;
@@ -15,9 +17,9 @@ export interface Building {
   campusId: CampusId;
   displayName: string;
   address: string;
+  location: Location;
   departments: LinkItem[];
   services: LinkItem[];
-  location: Location;
   boundingBox: Location[];
 }
 
@@ -155,4 +157,10 @@ export enum BuildingId {
   TA,
   VE,
   VL
+}
+
+export interface LinkItem {
+  id: number;
+  title: string;
+  link: string;
 }

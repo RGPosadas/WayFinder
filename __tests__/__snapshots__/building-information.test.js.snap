@@ -27,7 +27,7 @@ exports[`Sliding Panel component renders correctly 1`] = `
       "right": 0,
       "transform": Array [
         Object {
-          "translateY": -100,
+          "translateY": -105,
         },
       ],
     }

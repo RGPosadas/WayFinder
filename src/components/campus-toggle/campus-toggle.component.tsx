@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,24 +7,22 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import RegionContext from "../../context/region.context";
-import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import { CAMPUS_TOGGLE_HEIGHT, CONCORDIA_RED } from "../../constants/style";
 import { getCampus } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
  */
-const CampusToggle = ({ campusToggle }) => {
+const CampusToggle = ({ onCampusToggle }) => {
   const [isSGW, setIsSGW] = useState(true);
-  const { setRegion } = useContext(RegionContext);
 
   /**
    * Sets region to the SGW campus
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    campusToggle(getCampus(CampusId.SGW).region);
+    onCampusToggle(getCampus(CampusId.SGW).region);
   };
 
   /**
@@ -32,7 +30,7 @@ const CampusToggle = ({ campusToggle }) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    campusToggle(getCampus(CampusId.Loyola).region);
+    onCampusToggle(getCampus(CampusId.Loyola).region);
   };
 
   return (
@@ -67,9 +65,6 @@ const CampusToggle = ({ campusToggle }) => {
   );
 };
 
-// Color for the active button
-const activeColor = "#AA2B45";
-
 // Color for the inactive button
 const inactiveColor = "#F2F2F2";
 
@@ -90,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: activeColor
+    backgroundColor: CONCORDIA_RED
   },
   buttonNotSelected: {
     flex: 1,
@@ -110,7 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: activeColor
+    color: CONCORDIA_RED
   }
 });
 

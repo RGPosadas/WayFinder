@@ -8,7 +8,7 @@ import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
  * the name and types of the properties types accepted
  * by the BuildingLocation component
  */
-export interface BuildingLocationProps {
+export interface IProps {
   onBuildingLocationPress: () => void;
 }
 
@@ -18,9 +18,7 @@ export interface BuildingLocationProps {
  *
  * @param onBuildingLocationPress Function called when the building location button is pressed.
  */
-const BuildingLocation = ({
-  onBuildingLocationPress
-}: BuildingLocationProps) => {
+const BuildingLocation = ({ onBuildingLocationPress }: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onBuildingLocationPress}>

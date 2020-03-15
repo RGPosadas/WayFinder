@@ -6,22 +6,23 @@ import { RegionProvider } from "../../context/region.context";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
-import SlidingPanel from "../../components/sliding-panel/sliding-panel.component";
+import BuildingInformation from "../../components/building-information/building-information.component";
+import { Buildings } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
-import { Location, Region, CampusId } from "../../types/main";
+import { Location, Region, BuildingId } from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { getCampus } from "../../constants/campus.data";
-import { Buildings } from "../../constants/buildings.data";
+import { CampusId } from "../../types/main";
 
 /**
  * Screen for the Map and its Overlayed components
  */
 const MapScreen = () => {
   const [region, setRegion] = useState<Region>(null);
-  const [showAdditionalInfo, setShowAdditionalInfo] = useState(false);
-  const [tappedBuilding, setTappedBuilding] = useState("");
+  const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
+  const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
 
   /**
@@ -31,12 +32,11 @@ const MapScreen = () => {
   const mapRef = useRef<MapView>();
 
   /**
-   * Displays the additional information for a building when tapped
-   * @param {boolean} showAdditionalInfo
+   * Handle
    * @param {string buildingId} tappedBuilding
    */
-  const onDisplayBuilding = (showAdditionalInfo, tappedBuilding) => {
-    setShowAdditionalInfo(showAdditionalInfo);
+  const onBuildingTap = (tappedBuilding: BuildingId) => {
+    setShowBuildingInfo(true);
     setTappedBuilding(tappedBuilding);
   };
 
@@ -44,7 +44,8 @@ const MapScreen = () => {
    * This function closes the additional info panel
    */
   const onClosePanel = () => {
-    setShowAdditionalInfo(false);
+    setShowBuildingInfo(false);
+    setTappedBuilding(null);
   };
 
   /**
@@ -85,7 +86,7 @@ const MapScreen = () => {
             message: `You're currently in the ${building} building!`,
             type: "info"
           });
-          onDisplayBuilding(true, building);
+          onBuildingTap(building.id);
           inBuilding = true;
         }
       });
@@ -107,7 +108,7 @@ const MapScreen = () => {
   }, []);
 
   return (
-    <RegionProvider value={{ region, setRegion }}>
+    <RegionProvider value={region}>
       <View style={styles.container}>
         <MapView
           ref={mapRef}
@@ -119,18 +120,21 @@ const MapScreen = () => {
           initialRegion={region}
           onRegionChangeComplete={region => setRegion(region)}
         >
-          <BuildingHighlights displayBuilding={onDisplayBuilding} />
+          <BuildingHighlights
+            onBuildingTap={onBuildingTap}
+            tappedBuilding={tappedBuilding}
+          />
         </MapView>
 
-        <CampusToggle campusToggle={onCampusToggle} />
+        <CampusToggle onCampusToggle={onCampusToggle} />
 
-        <SlidingPanel
-          tappedBuilding={tappedBuilding}
-          showAdditionalInfo={showAdditionalInfo}
-          closePanel={onClosePanel}
-        />
         <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
         <FlashMessage position="top" autoHide={true} floating={true} />
+        <BuildingInformation
+          tappedBuilding={tappedBuilding}
+          showBuildingInfo={showBuildingInfo}
+          onClosePanel={onClosePanel}
+        />
       </View>
     </RegionProvider>
   );
