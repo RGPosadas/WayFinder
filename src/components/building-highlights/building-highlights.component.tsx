@@ -3,6 +3,7 @@ import { Polygon, Marker } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
 import { View, Text, StyleSheet } from "react-native";
+import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 
 interface IProps {
   onBuildingTap: (id: BuildingId) => void;
@@ -19,8 +20,8 @@ const BuildingHighlights = ({ onBuildingTap, tappedBuilding }: IProps) => {
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
   useEffect(() => {
-    setFillColor("rgba(128, 0, 32, 0.5)");
-    setTappedColor("rgba(170,43,69,1)");
+    setFillColor(BUILDING_UNTAPPED);
+    setTappedColor(CONCORDIA_RED);
   }, []);
 
   return (

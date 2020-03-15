@@ -7,7 +7,7 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import { CAMPUS_TOGGLE_HEIGHT, CONCORDIA_RED } from "../../constants/style";
 import { getCampus } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 
@@ -65,9 +65,6 @@ const CampusToggle = ({ onCampusToggle }) => {
   );
 };
 
-// Color for the active button
-const activeColor = "#AA2B45";
-
 // Color for the inactive button
 const inactiveColor = "#F2F2F2";
 
@@ -88,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: Dimensions.get("window").width / 2,
     alignItems: "center",
-    backgroundColor: activeColor
+    backgroundColor: CONCORDIA_RED
   },
   buttonNotSelected: {
     flex: 1,
@@ -108,7 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: activeColor
+    color: CONCORDIA_RED
   }
 });
 

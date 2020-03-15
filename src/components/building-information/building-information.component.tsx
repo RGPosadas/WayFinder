@@ -13,6 +13,7 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
 import { AntDesign, Feather } from "@expo/vector-icons";
+import { CONCORDIA_RED, BUILDING_HIGHLIGHT_RED } from "../../constants/style";
 
 const { height } = Dimensions.get("window");
 
@@ -46,7 +47,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
       onClosePanel,
       showBuildingInfo
     } = this.props;
-    const draggableRange = { top: height / 2, bottom: 100 };
+    const draggableRange = { top: height / 2, bottom: 105 };
 
     return (
       <SlidingUpPanel
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
     top: 0,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#AA2B45",
+    backgroundColor: CONCORDIA_RED,
     display: "flex",
     zIndex: 1
   },
