@@ -48,6 +48,8 @@ const BuildingHighlights = ({ onBuildingTap, tappedBuilding }: IProps) => {
             onPress={() => {
               onBuildingTap(building.id);
             }}
+            tracksViewChanges={false}
+            tracksInfoWindowChanges={false}
           >
             <Text style={styles.marker}>{BuildingId[building.id]}</Text>
           </Marker>
