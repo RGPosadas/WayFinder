@@ -18,10 +18,10 @@ const Campuses: Campus[] = [
     displayName: "Loyola Campus",
     description: "",
     region: {
-      latitude: 45.45826676273795,
-      longitude: -73.63963862881064,
-      latitudeDelta: 0.011306376851507594,
-      longitudeDelta: 0.007863231003298665
+      latitude: 45.45840118394234,
+      latitudeDelta: 0.013102120988982335,
+      longitude: -73.63942572847009,
+      longitudeDelta: 0.009821243584156036
     },
     buildings: []
   }

@@ -28,18 +28,21 @@ const BuildingHighlights = ({ onTapBuilding, tappedBuilding }: IProps) => {
     <View>
       {Buildings.map(building => (
         <View key={building.id}>
-          <Polygon
-            coordinates={building.boundingBox}
-            tappable={true}
-            fillColor={
-              tappedBuilding != null && tappedBuilding === building.id
-                ? tappedColor
-                : fillColor
-            }
-            onPress={() => {
-              onTapBuilding(building.id);
-            }}
-          />
+          {building.boundingBox.length > 0 ? (
+            <Polygon
+              coordinates={building.boundingBox}
+              tappable={true}
+              fillColor={
+                tappedBuilding != null && tappedBuilding === building.id
+                  ? tappedColor
+                  : fillColor
+              }
+              onPress={() => {
+                onTapBuilding(building.id);
+              }}
+            />
+          ) : null}
+
           <Marker
             coordinate={building.location}
             onPress={() => {

@@ -114,18 +114,15 @@ class BuildingInformation extends React.Component<IProps, IState> {
                           building.departments.map(department => {
                             return (
                               <View key={department.id} style={styles.listItem}>
-                                <Text
-                                  style={styles.normalText}
-                                  onPress={() => {
-                                    Linking.openURL(department.link);
-                                  }}
-                                >
+                                <Text style={styles.normalText}>
                                   {"\u2022  "}
                                 </Text>
                                 <Text
                                   style={styles.linkText}
                                   onPress={() => {
-                                    Linking.openURL(department.link);
+                                    if (department.link) {
+                                      Linking.openURL(department.link);
+                                    }
                                   }}
                                 >
                                   {department.title}
@@ -143,18 +140,15 @@ class BuildingInformation extends React.Component<IProps, IState> {
                             building.services.map(service => {
                               return (
                                 <View key={service.id} style={styles.listItem}>
-                                  <Text
-                                    style={styles.normalText}
-                                    onPress={() => {
-                                      Linking.openURL(service.link);
-                                    }}
-                                  >
+                                  <Text style={styles.normalText}>
                                     {"\u2022  "}
                                   </Text>
                                   <Text
                                     style={styles.linkText}
                                     onPress={() => {
-                                      Linking.openURL(service.link);
+                                      if (service.link) {
+                                        Linking.openURL(service.link);
+                                      }
                                     }}
                                   >
                                     {service.title}
