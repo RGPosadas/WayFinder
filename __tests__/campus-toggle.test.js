@@ -9,14 +9,16 @@ describe("CampusToggle component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("onSGWPressButton: isSGW state hook is set to true", () => {
+  it("onSGWPressButton: on button press, check if isSGW state hook is true", () => {
     // Allows to render a react component as an object in memory instead of the DOM (makes it faster)
     // wrapper allows us to easily examine the rendered components
-    const mockFn = jest.fn();
-    const wrapper = shallow(<CampusToggle onCampusToggle={mockFn} />);
+    const mockOnCampusToggle = jest.fn();
+    const wrapper = shallow(
+      <CampusToggle onCampusToggle={mockOnCampusToggle} />
+    );
     const button = wrapper.find("View TouchableHighlight").at(0);
     button.simulate("press");
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
 
     // Since we cannot directly check the state of react hooks, we test side effects instead
     // In this case, the styling changes of the buttons are the side effect
@@ -38,12 +40,14 @@ describe("CampusToggle component", () => {
     );
   });
 
-  it("onLoyolaPressButton: isSGW state hook is set to false", () => {
-    const mockFn = jest.fn();
-    const wrapper = shallow(<CampusToggle onCampusToggle={mockFn} />);
+  it("onLoyolaPressButton: on button press, check if isSGW state hook is false", () => {
+    const mockOnCampusToggle = jest.fn();
+    const wrapper = shallow(
+      <CampusToggle onCampusToggle={mockOnCampusToggle} />
+    );
     const button = wrapper.find("View TouchableHighlight").at(1);
     button.simulate("press");
-    expect(mockFn).toHaveBeenCalledTimes(1);
+    expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
 
     // Since we cannot directly check the state of react hooks, we test side effects instead
     // In this case, the styling changes of the buttons are the side effect
