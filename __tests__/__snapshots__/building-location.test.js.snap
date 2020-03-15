@@ -6,7 +6,7 @@ exports[`BuildingLocation component should match snapshot 1`] = `
     Object {
       "bottom": 110,
       "position": "absolute",
-      "right": 20,
+      "right": 10,
     }
   }
 >
