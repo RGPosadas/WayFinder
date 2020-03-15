@@ -40,7 +40,12 @@ const BuildingHighlights = ({ onTapBuilding, tappedBuilding }: IProps) => {
               onTapBuilding(building.id);
             }}
           />
-          <Marker coordinate={building.center}>
+          <Marker
+            coordinate={building.location}
+            onPress={() => {
+              onTapBuilding(building.id);
+            }}
+          >
             <Text style={styles.marker}>{BuildingId[building.id]}</Text>
           </Marker>
         </View>

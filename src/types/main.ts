@@ -17,13 +17,9 @@ export interface Building {
   campusId: CampusId;
   displayName: string;
   address: string;
-  center: LatLng;
+  location: Location;
   departments: LinkItem[];
   services: LinkItem[];
-<<<<<<< HEAD
-  location: Location;
-=======
->>>>>>> 8f39260...  Push changes to data
   boundingBox: Location[];
 }
 

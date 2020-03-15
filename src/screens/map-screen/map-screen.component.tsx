@@ -7,7 +7,7 @@ import CampusToggle from "../../components/campus-toggle/campus-toggle.component
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings } from "../../constants/buildings.data";
+import { Buildings, getBuildingById } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";

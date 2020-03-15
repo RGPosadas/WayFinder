@@ -14,7 +14,6 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import { Buildings } from "../../constants/buildings.data";
 
 const { height } = Dimensions.get("window");
 

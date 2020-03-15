@@ -6,7 +6,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Henry F. Hall Building",
     address: "1455 De Maisonneuve Blvd O., Montreal, QC, H3G 1M8",
-    center: { latitude: 45.49729998360628, longitude: -73.57890789359567 },
+    location: { latitude: 45.49729998360628, longitude: -73.57890789359567 },
     departments: [
       {
         id: 1,
@@ -89,7 +89,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/conduct/sexual-assault.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49682818364492, longitude: -73.57884845912251 },
       { latitude: 45.497163503733475, longitude: -73.57954223351966 },
@@ -98,11 +98,34 @@ export const Buildings: Building[] = [
     ]
   },
   {
+    id: BuildingId.CB,
+    campusId: CampusId.SGW,
+    displayName: "CB Building",
+    address: "1425 René-Lévesque Blvd W, Montreal, QC H3G 1T7",
+    location: { latitude: 45.495178215575926, longitude: -73.57420033586945 },
+    departments: [],
+    services: [],
+    boundingBox: [
+      { latitude: 45.49516317440483, longitude: -73.57393479717697 },
+      { latitude: 45.49524402065233, longitude: -73.57385701311554 },
+      { latitude: 45.49540383266057, longitude: -73.5741909481379 },
+      { latitude: 45.49506070631968, longitude: -73.57452085984673 },
+      { latitude: 45.4949413166642, longitude: -73.57426873219933 },
+      { latitude: 45.49500900216924, longitude: -73.57420167697396 },
+      { latitude: 45.49500054148556, longitude: -73.57418558371987 },
+      { latitude: 45.49505788609451, longitude: -73.57412791622605 },
+      { latitude: 45.495030623910644, longitude: -73.5740648843142 },
+      { latitude: 45.495105829903075, longitude: -73.57398844135727 },
+      { latitude: 45.495135912271934, longitude: -73.57405147326912 },
+      { latitude: 45.49519513688863, longitude: -73.57399782908882 }
+    ]
+  },
+  {
     id: BuildingId.GM,
     campusId: CampusId.SGW,
     displayName: "Guy-De Mainsonneuve Building",
     address: "1550 De Maisonneuve W, Montreal, Quebec H3G 1N1",
-    center: { latitude: 45.49587878455714, longitude: -73.57879812345455 },
+    location: { latitude: 45.49587878455714, longitude: -73.57879812345455 },
     departments: [
       {
         id: 1,
@@ -219,7 +242,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/about/administration-governance/office-chief-communications-officer.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49577848635891, longitude: -73.57908877836617 },
       { latitude: 45.49576250528483, longitude: -73.5791078891054 },
@@ -236,7 +259,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "JW McConnell Building",
     address: "1400 De Maisonneuve Blvd. O. Montreal, QC, H3G 1M8",
-    center: { latitude: 45.49682594904578, longitude: -73.57795364783972 },
+    location: { latitude: 45.49682594904578, longitude: -73.57795364783972 },
     departments: [
       {
         id: 1,
@@ -318,7 +341,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/next-gen/4th-space.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49672776379525, longitude: -73.57857786622326 },
       { latitude: 45.496704732634115, longitude: -73.57852925118486 },
@@ -357,7 +380,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Grey Nuns Building",
     address: "1190 Guy St, Montreal, Quebec H3H 2L4",
-    center: { latitude: 45.4935790877303, longitude: -73.5766034018584 },
+    location: { latitude: 45.4935790877303, longitude: -73.5766034018584 },
     departments: [],
     services: [
       {
@@ -383,7 +406,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/summer/accommodations.html/greynunsresidence/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.492593, longitude: -73.576535 },
       { latitude: 45.492731, longitude: -73.576392 },
@@ -451,7 +474,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Engineering, CS and VA Integrated Complex",
     address: "1493-1515 Saint-Catherine St W, Montreal, Quebec H3G 2W1",
-    center: { latitude: 45.495623662025984, longitude: -73.57799479498047 },
+    location: { latitude: 45.49560209617705, longitude: -73.57824742999644 },
     departments: [
       {
         id: 1,
@@ -546,7 +569,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/finearts/facilities/fofa-gallery.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.495445036068375, longitude: -73.5776085991036 },
       { latitude: 45.495354319373966, longitude: -73.57769711200109 },
@@ -565,7 +588,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "John Molson School of Buisness",
     address: "1450 Guy St, Montreal, Quebec H3H 0A1",
-    center: { latitude: 45.49529042487793, longitude: -73.5789511712376 },
+    location: { latitude: 45.49529042487793, longitude: -73.5789511712376 },
     departments: [
       {
         id: 1,
@@ -636,7 +659,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/finearts/facilities/performing-arts.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49518543255166, longitude: -73.57852445432236 },
       { latitude: 45.495004111766896, longitude: -73.5787366533723 },
@@ -654,7 +677,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Faubourg Sainte-Catherine Building",
     address: "1616 Saint-Catherine St W, Montreal, Quebec H3H 1L7",
-    center: { latitude: 45.494213251967885, longitude: -73.57831280549206 },
+    location: { latitude: 45.494213251967885, longitude: -73.57831280549206 },
     departments: [
       {
         id: 1,
@@ -669,7 +692,7 @@ export const Buildings: Building[] = [
         link: ""
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49445147189703, longitude: -73.57761729432568 },
       { latitude: 45.49438746461633, longitude: -73.57769189706683 },
@@ -712,10 +735,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "GS Building",
     address: "1538 Sherbrooke St W, Montreal, Quebec H3G 1L5",
-    center: { latitude: 45.49657824810454, longitude: -73.58119512804483 },
+    location: { latitude: 45.49657824810454, longitude: -73.58119512804483 },
     departments: [],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49657694046067, longitude: -73.58143535844584 },
       { latitude: 45.49662535300043, longitude: -73.58145279280444 },
@@ -733,7 +756,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "LD Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49682307108003, longitude: -73.5796154845045 },
+    location: { latitude: 45.49682307108003, longitude: -73.5796154845045 },
     departments: [],
     services: [
       {
@@ -742,7 +765,7 @@ export const Buildings: Building[] = [
         link: "https://www.csudaycarenursery.com/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49678990248897, longitude: -73.57957951011035 },
       { latitude: 45.49680212308779, longitude: -73.5796063322005 },
@@ -757,7 +780,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Toronto-Dominion Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.495012196206346, longitude: -73.57820970513383 },
+    location: { latitude: 45.49499113845426, longitude: -73.57820327918739 },
     departments: [],
     services: [
       {
@@ -766,7 +789,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/students/parenthood.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.495057, longitude: -73.57828 },
       { latitude: 45.494978, longitude: -73.578139 },
@@ -779,7 +802,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Visual Arts Building",
     address: "1395 René-Lévesque Blvd W, Montreal, QC H3G 2M5",
-    center: { latitude: 45.49567046189002, longitude: -73.57395159813642 },
+    location: { latitude: 45.49567046189002, longitude: -73.57395159813642 },
     departments: [
       {
         id: 1,
@@ -815,7 +838,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/finearts/facilities/art-supply-store.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496192, longitude: -73.573781 },
       { latitude: 45.495667, longitude: -73.574304 },
@@ -830,7 +853,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Samuel Bronfman Building",
     address: "1590 Docteur Penfield, Montreal, QC",
-    center: { latitude: 45.496543304992564, longitude: -73.5859904898029 },
+    location: { latitude: 45.496543304992564, longitude: -73.5859904898029 },
     departments: [],
     services: [
       {
@@ -839,7 +862,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/artsci/research/centres.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496436802590246, longitude: -73.58620662612847 },
       { latitude: 45.49650134091714, longitude: -73.58620724019713 },
@@ -864,10 +887,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Q annex",
     address: "2012 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49662551352863, longitude: -73.57910668548298 },
+    location: { latitude: 45.49662551352863, longitude: -73.57910668548298 },
     departments: [],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49655514271302, longitude: -73.57912355345123 },
       { latitude: 45.49658616435723, longitude: -73.5791832326018 },
@@ -880,10 +903,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "P annex",
     address: "2020 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49666311547241, longitude: -73.57917709346962 },
+    location: { latitude: 45.49666311547241, longitude: -73.57917709346962 },
     departments: [],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49668439945111, longitude: -73.57908130865924 },
       { latitude: 45.49658804445633, longitude: -73.57918390315406 },
@@ -896,7 +919,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "T annex",
     address: "2030 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.496690617889044, longitude: -73.57926428318024 },
+    location: { latitude: 45.496690617889044, longitude: -73.57926428318024 },
     departments: [],
     services: [
       {
@@ -905,7 +928,7 @@ export const Buildings: Building[] = [
         link: "https://gsaconcordia.ca/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49671824116626, longitude: -73.57918725591533 },
       { latitude: 45.496633636840265, longitude: -73.57927107494704 },
@@ -918,7 +941,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "RR annex",
     address: "2040 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49672515862477, longitude: -73.57935478981686 },
+    location: { latitude: 45.49672515862477, longitude: -73.57935478981686 },
     departments: [
       {
         id: 1,
@@ -927,7 +950,7 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496756323648604, longitude: -73.57925709579087 },
       { latitude: 45.496759848823714, longitude: -73.57925307247734 },
@@ -941,7 +964,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "R annex",
     address: "2050 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49678180245391, longitude: -73.57940711081028 },
+    location: { latitude: 45.49678180245391, longitude: -73.57940711081028 },
     departments: [
       {
         id: 1,
@@ -950,7 +973,7 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496713758698185, longitude: -73.57942461253974 },
       { latitude: 45.496804943225605, longitude: -73.5793280530152 },
@@ -963,7 +986,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "FA annex",
     address: "2060 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.496810795776746, longitude: -73.57948318464595 },
+    location: { latitude: 45.496810795776746, longitude: -73.57948318464595 },
     departments: [
       {
         id: 1,
@@ -972,7 +995,7 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.4968712164235, longitude: -73.57948362113807 },
       { latitude: 45.49683831484563, longitude: -73.57940717818114 },
@@ -985,7 +1008,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "X annex",
     address: "2080 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49688275638995, longitude: -73.5796641097756 },
+    location: { latitude: 45.49688275638995, longitude: -73.5796641097756 },
     departments: [],
     services: [
       {
@@ -994,7 +1017,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/offices/ci.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496906, longitude: -73.579579 },
       { latitude: 45.496812, longitude: -73.579672 },
@@ -1007,7 +1030,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Z annex",
     address: "2090 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.4969250583817, longitude: -73.57974457604605 },
+    location: { latitude: 45.4969250583817, longitude: -73.57974457604605 },
     departments: [],
     services: [
       {
@@ -1022,7 +1045,7 @@ export const Buildings: Building[] = [
         link: "http://sustainableconcordia.ca/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496851, longitude: -73.57976 },
       { latitude: 45.496889, longitude: -73.579836 },
@@ -1035,7 +1058,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "V annex",
     address: "2100 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49701859267284, longitude: -73.5799323306771 },
+    location: { latitude: 45.49701859267284, longitude: -73.5799323306771 },
     departments: [],
     services: [
       {
@@ -1044,7 +1067,7 @@ export const Buildings: Building[] = [
         link: "https://genderadvocacy.org/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.496944, longitude: -73.579942 },
       { latitude: 45.496984, longitude: -73.580025 },
@@ -1057,7 +1080,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "S annex",
     address: "2145 Mackay St, Montreal, QC H3G 2J1",
-    center: { latitude: 45.49742318476822, longitude: -73.57984249134424 },
+    location: { latitude: 45.49742318476822, longitude: -73.57984249134424 },
     departments: [
       {
         id: 1,
@@ -1066,7 +1089,7 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.497291, longitude: -73.579791 },
       { latitude: 45.497406, longitude: -73.580035 },
@@ -1083,10 +1106,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "MI Annex",
     address: "2130 Bishop St, Montreal, Quebec H3G 1M8",
-    center: { latitude: 45.49774135307369, longitude: -73.57926313419702 },
+    location: { latitude: 45.49774135307369, longitude: -73.57926313419702 },
     departments: [],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49764671893396, longitude: -73.57940390361952 },
       { latitude: 45.49762227810028, longitude: -73.57935696496176 },
@@ -1101,7 +1124,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "MU Annex",
     address: "2170 Bishop St, Montreal, QC H3G 2E9 ",
-    center: { latitude: 45.49786402689169, longitude: -73.57957963486078 },
+    location: { latitude: 45.49786402689169, longitude: -73.57957963486078 },
     departments: [],
     services: [
       {
@@ -1110,7 +1133,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/artsci/sdbi.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49792714005294, longitude: -73.57946173647333 },
       { latitude: 45.497750414665965, longitude: -73.5796347389548 },
@@ -1123,7 +1146,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "D annex",
     address: "2140 Bishop St, Montreal, QC H3G 2E9",
-    center: { latitude: 45.49778540374952, longitude: -73.5793283972144 },
+    location: { latitude: 45.49778540374952, longitude: -73.5793283972144 },
     departments: [
       {
         id: 1,
@@ -1132,7 +1155,7 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.49771163062695, longitude: -73.57934759842982 },
       { latitude: 45.4977431216492, longitude: -73.57941465365519 },
@@ -1145,7 +1168,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "B annex",
     address: "2160 Bishop St, Montreal, QC H3G 2E9",
-    center: { latitude: 45.49783475527905, longitude: -73.5794920119643 },
+    location: { latitude: 45.49783475527905, longitude: -73.5794920119643 },
     services: [
       {
         id: 1,
@@ -1154,7 +1177,6 @@ export const Buildings: Building[] = [
       }
     ],
     departments: [],
-    location: { latitude: 0, longitude: 0 },
     boundingBox: [
       { latitude: 45.49770829098716, longitude: -73.57956349505591 },
       { latitude: 45.497741192056665, longitude: -73.57963725580382 },
@@ -1167,7 +1189,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Learning Square Building",
     address: "1535 Boulevard de Maisonneuve O, Montréal, QC H3G 1M9",
-    center: { latitude: 45.49609534540999, longitude: -73.57967431042336 },
+    location: { latitude: 45.49609534540999, longitude: -73.57967431042336 },
     services: [
       {
         id: 1,
@@ -1184,7 +1206,6 @@ export const Buildings: Building[] = [
       }
     ],
     departments: [],
-    location: { latitude: 0, longitude: 0 },
     boundingBox: [
       { latitude: 45.496114, longitude: -73.579481 },
       { latitude: 45.495955, longitude: -73.579624 },
@@ -1200,6 +1221,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Richard J. Renaud Science Complex",
     address: "3475 Rue West Broadway, Montreal, QC H4B 2A7",
+    location: { latitude: 45.45758246587577, longitude: -73.64167110725224 },
     departments: [
       {
         id: 1,
@@ -1275,7 +1297,7 @@ export const Buildings: Building[] = [
         link: ""
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45698150789547, longitude: -73.64083076197447 },
       { latitude: 45.45702101772243, longitude: -73.64093536812605 },
@@ -1314,9 +1336,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Terrebonne Building",
     address: "7079 Terrebonne, Montreal, QC H4B 1E1",
+    location: { latitude: 45.46000780768472, longitude: -73.64087629020517 },
     departments: [],
     services: [],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.460082, longitude: -73.640892 },
       { latitude: 45.459977, longitude: -73.640967 },
@@ -1329,6 +1352,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Communications & Journalism Building",
     address: "Notre-Dame-de-Grâce, Montreal, QC H4B 1R6",
+    location: { latitude: 45.45753745751893, longitude: -73.64035934741423 },
     departments: [
       {
         id: 1,
@@ -1348,7 +1372,7 @@ export const Buildings: Building[] = [
         link: "https://stores.concordia.ca/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45717459096273, longitude: -73.64039358679253 },
       { latitude: 45.4574064756653, longitude: -73.6402075067537 },
@@ -1385,6 +1409,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Central Building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
+    location: { latitude: 45.458331403759495, longitude: -73.64041030938552 },
     departments: [],
     services: [
       {
@@ -1399,7 +1424,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/artsci/loyola-college-diversity-sustainability.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45837846246661, longitude: -73.6407936233295 },
       { latitude: 45.45838881002474, longitude: -73.64079261750112 },
@@ -1423,6 +1448,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Administration Building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
+    location: { latitude: 45.45810375680996, longitude: -73.63979876573012 },
     departments: [
       {
         id: 1,
@@ -1488,7 +1514,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/students/health.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.457798967810064, longitude: -73.63982640602099 },
       { latitude: 45.45782083900776, longitude: -73.63980930693852 },
@@ -1542,6 +1568,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Physical Services building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
+    location: { latitude: 45.45967754256575, longitude: -73.63982368883055 },
     departments: [],
     services: [
       {
@@ -1555,7 +1582,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/content/concordia/en/offices/facilities"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.459286134448504, longitude: -73.63945527416735 },
       { latitude: 45.45957970516812, longitude: -73.63922716977262 },
@@ -1578,6 +1605,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Recreation and Athletic Complex",
     address: "7200 Sherbrooke St W, Montreal, QC, H4B 1R6",
+    location: { latitude: 45.456705108736394, longitude: -73.63754686217693 },
     departments: [],
     services: [
       {
@@ -1593,7 +1621,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/athletic-complex.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45672955099704, longitude: -73.63710111804322 },
       { latitude: 45.457032460316356, longitude: -73.6378709120305 },
@@ -1610,6 +1638,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "PERFORM Centre",
     address: "7200 Sherbrooke St W Montreal, QC H4B 1R2",
+    location: { latitude: 45.45699484824472, longitude: -73.63732692103771 },
     departments: [],
     services: [
       {
@@ -1619,7 +1648,7 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/research/perform.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45668234663006, longitude: -73.63698552999276 },
       { latitude: 45.45702100318805, longitude: -73.637839813564 },
@@ -1632,6 +1661,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Centre for Structural and Functional Genomics",
     address: "7141 Rue Sherbrooke Ouest, Montréal, H4B 1R6",
+    location: { latitude: 45.45701687615203, longitude: -73.6404512594209 },
     departments: [],
     services: [
       {
@@ -1640,7 +1670,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/content/concordia/en/research/genomics"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45687108538196, longitude: -73.64062720780782 },
       { latitude: 45.45689366247353, longitude: -73.64060977344923 },
@@ -1659,6 +1689,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Vanier Library Building",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    location: { latitude: 45.45904369015678, longitude: -73.63835293602031 },
     departments: [],
     services: [
       {
@@ -1667,7 +1698,7 @@ export const Buildings: Building[] = [
         link: "https://library.concordia.ca/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.459105293193936, longitude: -73.63784475202735 },
       { latitude: 45.45907352552345, longitude: -73.63786745678321 },
@@ -1721,6 +1752,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "BH Annex",
     address: "3500 Avenue BelmoreMontréal, QC H4B 2B9",
+    location: { latitude: 45.45974814796602, longitude: -73.63912683825797 },
     departments: [],
     services: [
       {
@@ -1729,7 +1761,7 @@ export const Buildings: Building[] = [
         link: "https://lesptitsprofs.wordpress.com/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.45982068669079, longitude: -73.63916645247663 },
       { latitude: 45.459758628539575, longitude: -73.6390162122033 },
@@ -1742,6 +1774,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "BB Annex",
     address: "3502 Avenue BelmoreMontréal, QC H4B 2B9",
+    location: { latitude: 45.459824341726055, longitude: -73.63932129841155 },
     departments: [],
     services: [
       {
@@ -1750,7 +1783,7 @@ export const Buildings: Building[] = [
         link: "https://lesptitsprofs.wordpress.com/"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+
     boundingBox: [
       { latitude: 45.459847629799036, longitude: -73.63923764922974 },
       { latitude: 45.45975826677363, longitude: -73.63931878605244 },
@@ -1758,12 +1791,14 @@ export const Buildings: Building[] = [
       { latitude: 45.45990030688451, longitude: -73.63937578299401 }
     ]
   },
+
   {
     id: BuildingId.FC,
     campusId: CampusId.Loyola,
     displayName: "F.C Smith Building",
     address:
       "7141 Sherbrooke St. West F.C. Smith Building, Montréal, QC H4B 2B5",
+
     departments: [],
     services: [
       {
@@ -1782,7 +1817,7 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/students/spirituality.html"
       }
     ],
-    location: { latitude: 0, longitude: 0 },
+    location: { latitude: 45.45857915168717, longitude: -73.63933284169326 },
     boundingBox: [
       { latitude: 45.45838194827393, longitude: -73.6390384691037 },
       { latitude: 45.45839251355503, longitude: -73.63907076867876 },
@@ -1862,327 +1897,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Loyola Jesuit Hall and Conference Centre",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
-    departments: [],
-    services: [
-      {
-        id: 1,
-        title: "Loyola Jesuit Hall and Conference Centre",
-        link:
-          "http://www.concordia.ca/hospitality/hospitality-venues/loyola-jesuit-hall-conference-centre.html"
-      },
-      {
-        id: 2,
-        title: "Conference services",
-        link: "http://www.concordia.ca/hospitality.html"
-      }
-    ],
-    location: { latitude: 0, longitude: 0 },
-    boundingBox: [
-      { latitude: 45.45851577362767, longitude: -73.64077321086462 },
-      { latitude: 45.45841441473864, longitude: -73.64085300658282 },
-      { latitude: 45.45847273727709, longitude: -73.64100656304892 },
-      { latitude: 45.45838219621374, longitude: -73.64107831214007 },
-      { latitude: 45.45842828986416, longitude: -73.64119943031822 },
-      { latitude: 45.45851154054546, longitude: -73.64114075699602 },
-      { latitude: 45.4585461107075, longitude: -73.64122926989351 },
-      { latitude: 45.45852541564707, longitude: -73.64124603369986 },
-      { latitude: 45.45853646869166, longitude: -73.6412765438274 },
-      { latitude: 45.45848473101745, longitude: -73.6413164416865 },
-      { latitude: 45.458508248147965, longitude: -73.64137444445645 },
-      { latitude: 45.45864148218068, longitude: -73.64127095796422 },
-      { latitude: 45.458646420765184, longitude: -73.64128336318092 },
-      { latitude: 45.45880838047977, longitude: -73.64115888621542 },
-      { latitude: 45.45880414741952, longitude: -73.6411448046181 },
-      { latitude: 45.45882296101818, longitude: -73.64112804081175 },
-      { latitude: 45.4587867448352, longitude: -73.6410338282201 },
-      { latitude: 45.458765814692896, longitude: -73.6410475745413 },
-      { latitude: 45.45873497138751, longitude: -73.64096703127777 },
-      { latitude: 45.45873967479353, longitude: -73.64096133158361 },
-      { latitude: 45.458728170087646, longitude: -73.64093074512922 },
-      { latitude: 45.458719939125146, longitude: -73.64090157610619 },
-      { latitude: 45.458706769582726, longitude: -73.64087408346379 },
-      { latitude: 45.45869994963988, longitude: -73.6408543021723 },
-      { latitude: 45.458703006855735, longitude: -73.64085128468716 },
-      { latitude: 45.45868348770552, longitude: -73.64080501658165 },
-      { latitude: 45.458591300784214, longitude: -73.6408767656728 },
-      { latitude: 45.45853875633943, longitude: -73.64075525128395 },
-      { latitude: 45.45849125175137, longitude: -73.64079380803854 },
-      { latitude: 45.45846350152795, longitude: -73.64081358933002 },
-      { latitude: 45.4584430416087, longitude: -73.64083001786024 }
-    ]
-  },
-  {
-    id: BuildingId.PY,
-    campusId: CampusId.Loyola,
-    displayName: "Psychology Building",
-    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
-    departments: [
-      {
-        id: 1,
-        title: "Psychology",
-        link: "http://www.concordia.ca/artsci/psychology.html"
-      },
-      {
-        id: 2,
-        title: "Centre for Clinical Research in Health (CCRH)",
-        link: "http://www.concordia.ca/research/clinical-research-health.html"
-      }
-    ],
-    services: [],
-    location: { latitude: 0, longitude: 0 },
-    boundingBox: [
-      { latitude: 45.45884699152768, longitude: -73.64083336928228 },
-      { latitude: 45.45918093171645, longitude: -73.64057855942586 },
-      { latitude: 45.459198931638056, longitude: -73.64062421143421 },
-      { latitude: 45.45920951421393, longitude: -73.64062287032971 },
-      { latitude: 45.459240936889756, longitude: -73.64060022602146 },
-      { latitude: 45.4592685719661, longitude: -73.64057846579686 },
-      { latitude: 45.45928479856165, longitude: -73.64056471947566 },
-      { latitude: 45.45928973708979, longitude: -73.64055868450538 },
-      { latitude: 45.45924223313443, longitude: -73.64043326276477 },
-      { latitude: 45.459247406834464, longitude: -73.64042789834674 },
-      { latitude: 45.45922530102183, longitude: -73.6403712366813 },
-      { latitude: 45.459218951478306, longitude: -73.64037157195743 },
-      { latitude: 45.45912653026379, longitude: -73.64013352590736 },
-      { latitude: 45.459119710371716, longitude: -73.64013319063123 },
-      { latitude: 45.4590961934962, longitude: -73.64015196609434 },
-      { latitude: 45.45909243079524, longitude: -73.64014559584793 },
-      { latitude: 45.459055038940505, longitude: -73.64017476487096 },
-      { latitude: 45.459056920292284, longitude: -73.6401814703935 },
-      { latitude: 45.45902493730357, longitude: -73.64020695137914 },
-      { latitude: 45.45902964068539, longitude: -73.64022170352872 },
-      { latitude: 45.459001792287836, longitude: -73.64024296107387 },
-      { latitude: 45.45899168001142, longitude: -73.64022016229724 },
-      { latitude: 45.45898486010305, longitude: -73.64021982702111 },
-      { latitude: 45.458756852066955, longitude: -73.640396832665 },
-      { latitude: 45.45876390717309, longitude: -73.640417955061 },
-      { latitude: 45.45873027782589, longitude: -73.64044611825565 },
-      { latitude: 45.45879800684033, longitude: -73.64062475766991 },
-      { latitude: 45.45879636064996, longitude: -73.64062676932667 },
-      { latitude: 45.458821994180084, longitude: -73.64069428769645 },
-      { latitude: 45.45880059371079, longitude: -73.64071105150279 },
-      { latitude: 45.45881776112088, longitude: -73.64075597850379 },
-      { latitude: 45.45883657471496, longitude: -73.64080291716155 }
-    ]
-  },
-  {
-    id: BuildingId.HA,
-    campusId: CampusId.Loyola,
-    displayName: "Hingston Hall, wing HA",
-    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
-    departments: [],
-    services: [
-      {
-        id: 1,
-        title: "Student Residence",
-        link:
-          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
-      }
-    ],
-    location: { latitude: 0, longitude: 0 },
-    boundingBox: [
-      { latitude: 45.45936746176055, longitude: -73.64149555898814 },
-      { latitude: 45.45955622623087, longitude: -73.64197768605857 },
-      { latitude: 45.459525654527496, longitude: -73.6420018259397 },
-      { latitude: 45.45950025648438, longitude: -73.64194482899813 },
-      { latitude: 45.45935962637198, longitude: -73.64205748177676 },
-      { latitude: 45.45936244838437, longitude: -73.64206821061282 },
-      { latitude: 45.45934034261684, longitude: -73.64208832718043 },
-      { latitude: 45.45935962637198, longitude: -73.64214331246524 },
-      { latitude: 45.45916114447931, longitude: -73.64230089224486 },
-      { latitude: 45.45913762762112, longitude: -73.64224657751231 },
-      { latitude: 45.459103763328045, longitude: -73.64227205849795 },
-      { latitude: 45.45896258468963, longitude: -73.64190649745953 },
-      { latitude: 45.45899503805213, longitude: -73.64187900481713 },
-      { latitude: 45.45896916943134, longitude: -73.64181060848725 },
-      { latitude: 45.45918928749818, longitude: -73.64163425324452 }
-    ]
-  },
-  {
-    id: BuildingId.HC,
-    campusId: CampusId.Loyola,
-    displayName: "Hingston Hall, wing HC",
-    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
-    departments: [],
-    services: [
-      {
-        id: 1,
-        title: "Student Residence",
-        link:
-          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
-      }
-    ],
-    location: { latitude: 0, longitude: 0 },
-    boundingBox: [
-      { latitude: 45.459523959498206, longitude: -73.64202462121388 },
-      { latitude: 45.45970080481985, longitude: -73.64188246413609 },
-      { latitude: 45.459717736789635, longitude: -73.64191465064427 },
-      { latitude: 45.45982591314328, longitude: -73.6418301610603 },
-      { latitude: 45.45989646282729, longitude: -73.64200584575077 },
-      { latitude: 45.45978640528163, longitude: -73.6421010641708 },
-      { latitude: 45.459796752581404, longitude: -73.64213325067898 },
-      { latitude: 45.459619907560686, longitude: -73.64227406665226 }
-    ]
-  },
-  {
-    id: BuildingId.SI,
-    campusId: CampusId.Loyola,
-    displayName: "St. Ignatius of Loyola Church",
-    address: "4455 Rue West Broadway, Montréal, QC H4B 2A7",
-    departments: [],
-    services: [],
-    location: { latitude: 0, longitude: 0 },
-    boundingBox: [
-      { latitude: 45.45763260915711, longitude: -73.64256805241634 },
-      { latitude: 45.45756817119544, longitude: -73.64239840269614 },
-      { latitude: 45.45758651485625, longitude: -73.64238230944206 },
-      { latitude: 45.45762837600859, longitude: -73.64235213459064 },
-      { latitude: 45.45762179111031, longitude: -73.64233201802303 },
-      { latitude: 45.45763825335463, longitude: -73.64231659532119 },
-      { latitude: 45.457634020206555, longitude: -73.64229983151485 },
-      { latitude: 45.45764389755158, longitude: -73.64228977323104 },
-      { latitude: 45.45765424524451, longitude: -73.64229446709682 },
-      { latitude: 45.45768764005881, longitude: -73.64226965666343 },
-      { latitude: 45.457678233070844, longitude: -73.64224283457328 },
-      { latitude: 45.457727619740005, longitude: -73.64220126033355 },
-      { latitude: 45.45772009415512, longitude: -73.64217913210918 },
-      { latitude: 45.457774103050504, longitude: -73.64213408931174 },
-      { latitude: 45.45776469607702, longitude: -73.64210391446032 },
-      { latitude: 45.45783007451046, longitude: -73.64204959972777 },
-      { latitude: 45.45782160824277, longitude: -73.64202344818987 },
-      { latitude: 45.45785688434973, longitude: -73.64199394389071 },
-      { latitude: 45.45788134243762, longitude: -73.64204892917552 },
-      { latitude: 45.45794154691643, longitude: -73.64200601383128 },
-      { latitude: 45.457972589825694, longitude: -73.64207825398802 },
-      { latitude: 45.458008336184896, longitude: -73.64210105276464 },
-      { latitude: 45.45805725221865, longitude: -73.6422365043199 },
-      { latitude: 45.45804549356056, longitude: -73.64226265585779 },
-      { latitude: 45.45809911302153, longitude: -73.64241084790586 },
-      { latitude: 45.45811839720116, longitude: -73.64240078962206 },
-      { latitude: 45.45816890452182, longitude: -73.64252164363852 },
-      { latitude: 45.457968537049666, longitude: -73.64267855286589 },
-      { latitude: 45.457961952191084, longitude: -73.6426812350749 },
-      { latitude: 45.45791585815945, longitude: -73.64255584180346 },
-      { latitude: 45.45793937552724, longitude: -73.6425363957881 },
-      { latitude: 45.45792996858129, longitude: -73.64251225590696 },
-      { latitude: 45.45792573545511, longitude: -73.64251426756373 },
-      { latitude: 45.457909743642205, longitude: -73.64247805774203 },
-      { latitude: 45.45785518330525, longitude: -73.64251963198176 },
-      { latitude: 45.45784389495309, longitude: -73.64249415099611 },
-      { latitude: 45.45779356768883, longitude: -73.64253438413134 },
-      { latitude: 45.45777898688428, longitude: -73.64250353872767 },
-      { latitude: 45.457738066541616, longitude: -73.64253170192232 },
-      { latitude: 45.45772818921305, longitude: -73.64251158535471 },
-      { latitude: 45.45766139961276, longitude: -73.6425638884305 },
-      { latitude: 45.45765622576718, longitude: -73.64256590008726 },
-      { latitude: 45.457654344368684, longitude: -73.64255986511698 },
-      { latitude: 45.45763317863112, longitude: -73.64257662892332 },
-      { latitude: 45.45763035653218, longitude: -73.64257528781881 }
-    ]
-  },
-  {
-    id: BuildingId.FC,
-    campusId: CampusId.Loyola,
-    displayName: "F.C Smith Building",
-    address:
-      "7141 Sherbrooke St. West F.C. Smith Building, Montréal, QC H4B 2B5",
-    departments: [],
-    services: [
-      {
-        id: 1,
-        title: "F.C. Smith Auditorium",
-        link: "http://www.concordia.ca/arts/venues/fc-smith-auditorium.html"
-      },
-      {
-        id: 2,
-        title: "Cazalet Theatre",
-        link: "http://www.concordia.ca/arts/venues/cazalet.html"
-      },
-      {
-        id: 3,
-        title: "Concordia Multi-Faith and Spirituality Centre",
-        link: "http://www.concordia.ca/students/spirituality.html"
-      }
-    ],
-    boundingBox: [
-      { latitude: 45.45838194827393, longitude: -73.6390384691037 },
-      { latitude: 45.45839251355503, longitude: -73.63907076867876 },
-      { latitude: 45.45841485486578, longitude: -73.63905534597693 },
-      { latitude: 45.45842708379005, longitude: -73.6390861913806 },
-      { latitude: 45.45841085694768, longitude: -73.63910060825405 },
-      { latitude: 45.45843061136385, longitude: -73.6391549229866 },
-      { latitude: 45.45842520241727, longitude: -73.63916028740464 },
-      { latitude: 45.45843155205017, longitude: -73.6391810745245 },
-      { latitude: 45.45841838244038, longitude: -73.63919180336056 },
-      { latitude: 45.45844284028471, longitude: -73.63925517054854 },
-      { latitude: 45.45845671540321, longitude: -73.63924779447375 },
-      { latitude: 45.45847247188957, longitude: -73.63928869816122 },
-      { latitude: 45.458469179489796, longitude: -73.63929171564637 },
-      { latitude: 45.458474588432175, longitude: -73.63930445613919 },
-      { latitude: 45.45847835117441, longitude: -73.63930244448242 },
-      { latitude: 45.45849645936782, longitude: -73.6393507242447 },
-      { latitude: 45.45849340214078, longitude: -73.63935374172983 },
-      { latitude: 45.45849740005303, longitude: -73.63936514111815 },
-      { latitude: 45.458501397965016, longitude: -73.63936279418526 },
-      { latitude: 45.458518095123765, longitude: -73.63940604480563 },
-      { latitude: 45.458510569644375, longitude: -73.6394107386714 },
-      { latitude: 45.45851409721296, longitude: -73.63942213805971 },
-      { latitude: 45.458486582172135, longitude: -73.63944225462733 },
-      { latitude: 45.45849951659471, longitude: -73.63947980555353 },
-      { latitude: 45.45849763522433, longitude: -73.63948215248642 },
-      { latitude: 45.45851154981018, longitude: -73.63951942442304 },
-      { latitude: 45.45852189734389, longitude: -73.63951808331853 },
-      { latitude: 45.458526835938876, longitude: -73.63951372472889 },
-      { latitude: 45.458535302100664, longitude: -73.63953954099065 },
-      { latitude: 45.45852989316411, longitude: -73.63956066338665 },
-      { latitude: 45.45853906483884, longitude: -73.63958647964841 },
-      { latitude: 45.45855717301275, longitude: -73.6395938557232 },
-      { latitude: 45.45858186596782, longitude: -73.63957843302137 },
-      { latitude: 45.458588921095874, longitude: -73.63959586737997 },
-      { latitude: 45.45860020929888, longitude: -73.63959318517095 },
-      { latitude: 45.458626709299864, longitude: -73.63966482833277 },
-      { latitude: 45.45866433660923, longitude: -73.63968192741524 },
-      { latitude: 45.45874717642955, longitude: -73.63962358936917 },
-      { latitude: 45.45875728874981, longitude: -73.63956960991274 },
-      { latitude: 45.45872977382764, longitude: -73.6394955138887 },
-      { latitude: 45.45873565308567, longitude: -73.63948947891842 },
-      { latitude: 45.458740826832184, longitude: -73.63948411450039 },
-      { latitude: 45.45871683945788, longitude: -73.63941986960529 },
-      { latitude: 45.45872554076151, longitude: -73.63941148770212 },
-      { latitude: 45.45871354707237, longitude: -73.63936890763401 },
-      { latitude: 45.458724129739394, longitude: -73.63935918462633 },
-      { latitude: 45.458722953887595, longitude: -73.63935080272316 },
-      { latitude: 45.458745364360475, longitude: -73.63933364375971 },
-      { latitude: 45.45872937278005, longitude: -73.63929441645287 },
-      { latitude: 45.458707031593875, longitude: -73.63931084498309 },
-      { latitude: 45.45870397437825, longitude: -73.63930413946055 },
-      { latitude: 45.45869809511695, longitude: -73.63930246307991 },
-      { latitude: 45.458688923468074, longitude: -73.6393098391547 },
-      { latitude: 45.45867951664718, longitude: -73.6392897225871 },
-      { latitude: 45.45866987465414, longitude: -73.63928871675871 },
-      { latitude: 45.458667522948296, longitude: -73.63929072841547 },
-      { latitude: 45.45860932668896, longitude: -73.63913580321548 },
-      { latitude: 45.45861920386316, longitude: -73.63912708603618 },
-      { latitude: 45.45862508313269, longitude: -73.63909523480413 },
-      { latitude: 45.45861285425136, longitude: -73.63906640105722 },
-      { latitude: 45.45859051301906, longitude: -73.6390573486018 },
-      { latitude: 45.45858204686556, longitude: -73.63905801915405 },
-      { latitude: 45.45857616759153, longitude: -73.63904896669862 },
-      { latitude: 45.45856887729091, longitude: -73.6390486314225 },
-      { latitude: 45.45856064630518, longitude: -73.63905433111665 },
-      { latitude: 45.45854042159232, longitude: -73.63900269859312 },
-      { latitude: 45.458536894025386, longitude: -73.63900169276474 },
-      { latitude: 45.4585220782418, longitude: -73.63901342742918 },
-      { latitude: 45.45850927765965, longitude: -73.63898268782555 },
-      { latitude: 45.45852973755486, longitude: -73.63896491819082 },
-      { latitude: 45.45851844933774, longitude: -73.6389347433394 }
-    ]
-  },
-  {
-    id: BuildingId.RF,
-    campusId: CampusId.Loyola,
-    displayName: "Loyola Jesuit Hall and Conference Centre",
-    address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    location: { latitude: 45.458637354307285, longitude: -73.6410877337058 },
     departments: [],
     services: [
       {
@@ -2236,6 +1951,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Psychology Building",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    location: { latitude: 45.45900554313173, longitude: -73.64044802685575 },
     departments: [
       {
         id: 1,
@@ -2289,6 +2005,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Hingston Hall, wing HA",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    location: { latitude: 45.45925103747652, longitude: -73.6418853022495 },
     departments: [],
     services: [
       {
@@ -2321,6 +2038,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "Hingston Hall, wing HC",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
+    location: { latitude: 45.45969590594231, longitude: -73.64206702191026 },
     departments: [],
     services: [
       {
@@ -2346,6 +2064,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.Loyola,
     displayName: "St. Ignatius of Loyola Church",
     address: "4455 Rue West Broadway, Montréal, QC H4B 2A7",
+    location: { latitude: 45.45788647989946, longitude: -73.64227010232766 },
     departments: [],
     services: [],
     boundingBox: [
