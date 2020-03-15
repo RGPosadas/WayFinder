@@ -6,7 +6,6 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-  PanResponder,
   Linking,
   Animated
 } from "react-native";
@@ -48,7 +47,6 @@ class BuildingInformation extends React.Component<IProps, IState> {
       showBuildingInfo
     } = this.props;
     const draggableRange = { top: height / 2, bottom: 100 };
-    const animatedValue = new Animated.Value(draggableRange.bottom); // Initial position is at bottom.
 
     return (
       <SlidingUpPanel

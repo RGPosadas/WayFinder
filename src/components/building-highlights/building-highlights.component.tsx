@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Polygon, Marker, LatLng } from "react-native-maps";
+import { Polygon, Marker } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId, Location } from "../../types/main";
+import { BuildingId } from "../../types/main";
 import { View, Text, StyleSheet } from "react-native";
-import { getCenter } from "geolib";
 
 interface IProps {
-  onTapBuilding: (BuildingId) => void;
+  onBuildingTap: (id: BuildingId) => void;
   tappedBuilding: BuildingId;
 }
 
 /**
- * Wrapper Component for Polygons which overlay campus buildings.
+ * Wrapper Component for Polygons and Markers which overlay campus buildings.
  */
-const BuildingHighlights = ({ onTapBuilding, tappedBuilding }: IProps) => {
+const BuildingHighlights = ({ onBuildingTap, tappedBuilding }: IProps) => {
   /**
    * Fill color for the Polygons
    */
@@ -38,7 +37,7 @@ const BuildingHighlights = ({ onTapBuilding, tappedBuilding }: IProps) => {
                   : fillColor
               }
               onPress={() => {
-                onTapBuilding(building.id);
+                onBuildingTap(building.id);
               }}
             />
           ) : null}
@@ -46,7 +45,7 @@ const BuildingHighlights = ({ onTapBuilding, tappedBuilding }: IProps) => {
           <Marker
             coordinate={building.location}
             onPress={() => {
-              onTapBuilding(building.id);
+              onBuildingTap(building.id);
             }}
           >
             <Text style={styles.marker}>{BuildingId[building.id]}</Text>

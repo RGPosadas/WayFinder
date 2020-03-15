@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   View,
@@ -7,9 +7,6 @@ import {
   TouchableHighlight
 } from "react-native";
 
-import RegionContext from "../../context/region.context";
-
-import { CampusCoordinates } from "../../constants/coordinates.data";
 import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
 import { getCampus } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
@@ -17,16 +14,15 @@ import { CampusId } from "../../types/main";
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
  */
-const CampusToggle = ({ campusToggle }) => {
+const CampusToggle = ({ onCampusToggle }) => {
   const [isSGW, setIsSGW] = useState(true);
-  const { setRegion } = useContext(RegionContext);
 
   /**
    * Sets region to the SGW campus
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    campusToggle(getCampus(CampusId.SGW).region);
+    onCampusToggle(getCampus(CampusId.SGW).region);
   };
 
   /**
@@ -34,7 +30,7 @@ const CampusToggle = ({ campusToggle }) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    campusToggle(getCampus(CampusId.Loyola).region);
+    onCampusToggle(getCampus(CampusId.Loyola).region);
   };
 
   return (
