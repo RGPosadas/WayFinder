@@ -103,11 +103,12 @@ class BuildingInformation extends React.Component<IProps, IState> {
                       <View style={styles.buildingInformation}>
                         <View>
                           {building.departments.length !== 0 ? (
+                            <Text style={styles.headerText}>Departments:</Text>
+                          ) : (
                             <Text style={styles.headerText}>
-                              {" "}
-                              Departments:{" "}
+                              No departments available.
                             </Text>
-                          ) : null}
+                          )}
                         </View>
                         {building.departments &&
                           building.departments.map(department => {
@@ -132,8 +133,12 @@ class BuildingInformation extends React.Component<IProps, IState> {
 
                         <View>
                           {building.services.length !== 0 ? (
-                            <Text style={styles.headerText}> Services: </Text>
-                          ) : null}
+                            <Text style={styles.headerText}>Services:</Text>
+                          ) : (
+                            <Text style={styles.headerText}>
+                              No services available.
+                            </Text>
+                          )}
 
                           {building.services &&
                             building.services.map(service => {
