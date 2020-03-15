@@ -6,6 +6,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Henry F. Hall Building",
     address: "1455 De Maisonneuve Blvd O., Montreal, QC, H3G 1M8",
+    center: { latitude: 45.49729998360628, longitude: -73.57890789359567 },
     departments: [
       {
         id: 1,
@@ -101,6 +102,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Guy-De Mainsonneuve Building",
     address: "1550 De Maisonneuve W, Montreal, Quebec H3G 1N1",
+    center: { latitude: 45.49587878455714, longitude: -73.57879812345455 },
     departments: [
       {
         id: 1,
@@ -234,6 +236,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "JW McConnell Building",
     address: "1400 De Maisonneuve Blvd. O. Montreal, QC, H3G 1M8",
+    center: { latitude: 45.49682594904578, longitude: -73.57795364783972 },
     departments: [
       {
         id: 1,
@@ -354,6 +357,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Grey Nuns Building",
     address: "1190 Guy St, Montreal, Quebec H3H 2L4",
+    center: { latitude: 45.4935790877303, longitude: -73.5766034018584 },
     departments: [],
     services: [
       {
@@ -447,6 +451,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Engineering, CS and VA Integrated Complex",
     address: "1493-1515 Saint-Catherine St W, Montreal, Quebec H3G 2W1",
+    center: { latitude: 45.495623662025984, longitude: -73.57799479498047 },
     departments: [
       {
         id: 1,
@@ -560,6 +565,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "John Molson School of Buisness",
     address: "1450 Guy St, Montreal, Quebec H3H 0A1",
+    center: { latitude: 45.49529042487793, longitude: -73.5789511712376 },
     departments: [
       {
         id: 1,
@@ -648,6 +654,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Faubourg Sainte-Catherine Building",
     address: "1616 Saint-Catherine St W, Montreal, Quebec H3H 1L7",
+    center: { latitude: 45.494213251967885, longitude: -73.57831280549206 },
     departments: [
       {
         id: 1,
@@ -705,6 +712,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "GS Building",
     address: "1538 Sherbrooke St W, Montreal, Quebec H3G 1L5",
+    center: { latitude: 45.49657824810454, longitude: -73.58119512804483 },
     departments: [],
     services: [],
     location: { latitude: 0, longitude: 0 },
@@ -725,6 +733,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "LD Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49682307108003, longitude: -73.5796154845045 },
     departments: [],
     services: [
       {
@@ -748,6 +757,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Toronto-Dominion Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.495012196206346, longitude: -73.57820970513383 },
     departments: [],
     services: [
       {
@@ -769,6 +779,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Visual Arts Building",
     address: "1395 René-Lévesque Blvd W, Montreal, QC H3G 2M5",
+    center: { latitude: 45.49567046189002, longitude: -73.57395159813642 },
     departments: [
       {
         id: 1,
@@ -819,6 +830,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Samuel Bronfman Building",
     address: "1590 Docteur Penfield, Montreal, QC",
+    center: { latitude: 45.496543304992564, longitude: -73.5859904898029 },
     departments: [],
     services: [
       {
@@ -852,6 +864,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Q annex",
     address: "2012 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49662551352863, longitude: -73.57910668548298 },
     departments: [],
     services: [],
     location: { latitude: 0, longitude: 0 },
@@ -867,6 +880,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "P annex",
     address: "2020 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49666311547241, longitude: -73.57917709346962 },
     departments: [],
     services: [],
     location: { latitude: 0, longitude: 0 },
@@ -882,6 +896,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "T annex",
     address: "2030 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.496690617889044, longitude: -73.57926428318024 },
     departments: [],
     services: [
       {
@@ -903,6 +918,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "RR annex",
     address: "2040 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49672515862477, longitude: -73.57935478981686 },
     departments: [
       {
         id: 1,
@@ -925,6 +941,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "R annex",
     address: "2050 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49678180245391, longitude: -73.57940711081028 },
     departments: [
       {
         id: 1,
@@ -946,6 +963,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "FA annex",
     address: "2060 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.496810795776746, longitude: -73.57948318464595 },
     departments: [
       {
         id: 1,
@@ -967,6 +985,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "X annex",
     address: "2080 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49688275638995, longitude: -73.5796641097756 },
     departments: [],
     services: [
       {
@@ -988,6 +1007,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Z annex",
     address: "2090 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.4969250583817, longitude: -73.57974457604605 },
     departments: [],
     services: [
       {
@@ -1015,6 +1035,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "V annex",
     address: "2100 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49701859267284, longitude: -73.5799323306771 },
     departments: [],
     services: [
       {
@@ -1036,6 +1057,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "S annex",
     address: "2145 Mackay St, Montreal, QC H3G 2J1",
+    center: { latitude: 45.49742318476822, longitude: -73.57984249134424 },
     departments: [
       {
         id: 1,
@@ -1061,6 +1083,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "MI Annex",
     address: "2130 Bishop St, Montreal, Quebec H3G 1M8",
+    center: { latitude: 45.49774135307369, longitude: -73.57926313419702 },
     departments: [],
     services: [],
     location: { latitude: 0, longitude: 0 },
@@ -1078,6 +1101,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "MU Annex",
     address: "2170 Bishop St, Montreal, QC H3G 2E9 ",
+    center: { latitude: 45.49786402689169, longitude: -73.57957963486078 },
     departments: [],
     services: [
       {
@@ -1099,6 +1123,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "D annex",
     address: "2140 Bishop St, Montreal, QC H3G 2E9",
+    center: { latitude: 45.49778540374952, longitude: -73.5793283972144 },
     departments: [
       {
         id: 1,
@@ -1120,6 +1145,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "B annex",
     address: "2160 Bishop St, Montreal, QC H3G 2E9",
+    center: { latitude: 45.49783475527905, longitude: -73.5794920119643 },
     services: [
       {
         id: 1,
@@ -1141,6 +1167,7 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Learning Square Building",
     address: "1535 Boulevard de Maisonneuve O, Montréal, QC H3G 1M9",
+    center: { latitude: 45.49609534540999, longitude: -73.57967431042336 },
     services: [
       {
         id: 1,
