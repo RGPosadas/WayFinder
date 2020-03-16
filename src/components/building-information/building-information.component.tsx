@@ -6,14 +6,13 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-  Linking,
-  Animated
+  Linking
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import { CONCORDIA_RED, BUILDING_HIGHLIGHT_RED } from "../../constants/style";
+import { CONCORDIA_RED } from "../../constants/style";
 
 const { height } = Dimensions.get("window");
 
@@ -32,6 +31,7 @@ interface IState {
  * Component for additional information panel
  */
 class BuildingInformation extends React.Component<IProps, IState> {
+  _panel: SlidingUpPanel;
   constructor(props) {
     super(props);
 
@@ -118,6 +118,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                                   {"\u2022  "}
                                 </Text>
                                 <Text
+                                  nativeID="departments"
                                   style={styles.linkText}
                                   onPress={() => {
                                     if (department.link) {
@@ -148,6 +149,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                                     {"\u2022  "}
                                   </Text>
                                   <Text
+                                    nativeID="services"
                                     style={styles.linkText}
                                     onPress={() => {
                                       if (service.link) {

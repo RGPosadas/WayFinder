@@ -13,8 +13,6 @@ describe("CampusToggle component", () => {
   });
 
   it("onSGWPressButton: on button press, check if isSGW state hook is true", () => {
-    // Allows to render a react component as an object in memory instead of the DOM (makes it faster)
-    // wrapper allows us to easily examine the rendered components
     const mockOnCampusToggle = jest.fn();
     const wrapper = shallow(
       <CampusToggle onCampusToggle={mockOnCampusToggle} />

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sliding Panel component renders correctly 1`] = `
+exports[`BuildingInformation component BuildingInformation: snapshot renders correctly 1`] = `
 <View
   disableScrollViewPanResponder={true}
   onMoveShouldSetResponder={[Function]}
