@@ -10,7 +10,7 @@ export const floorOverlays: FloorOverlay[] = [
       [45.49772, -73.579507],
       [45.49679, -73.578391]
     ],
-    image: require("../../assets/floors/H-1.png")
+    image: require("../../assets/floors/H1.png")
   },
   {
     id: 2,
@@ -138,7 +138,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-801",
+    displayName: "H801",
     description: "",
     location: {
       latitude: 45.497308,
@@ -150,7 +150,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-803",
+    displayName: "H803",
     description: "",
     location: {
       latitude: 45.497257,
@@ -162,7 +162,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-805.01",
+    displayName: "H805.01",
     description: "",
     location: {
       latitude: 45.497229,
@@ -174,7 +174,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-805.02",
+    displayName: "H805.02",
     description: "",
     location: {
       latitude: 45.497218,
@@ -186,7 +186,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-805.03",
+    displayName: "H805.03",
     description: "",
     location: {
       latitude: 45.497218,
@@ -198,7 +198,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-806.01",
+    displayName: "H806.01",
     description: "",
     location: {
       latitude: 45.49718,
@@ -210,7 +210,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-806.02",
+    displayName: "H806.02",
     description: "",
     location: {
       latitude: 45.497195,
@@ -222,7 +222,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-806.03",
+    displayName: "H806.03",
     description: "",
     location: {
       latitude: 45.49721,
@@ -234,7 +234,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-807",
+    displayName: "H807",
     description: "",
     location: {
       latitude: 45.497159,
@@ -246,7 +246,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-811",
+    displayName: "H811",
     description: "",
     location: {
       latitude: 45.497059,
@@ -258,7 +258,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-813",
+    displayName: "H813",
     description: "",
     location: {
       latitude: 45.49701,
@@ -270,7 +270,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-815",
+    displayName: "H815",
     description: "",
     location: {
       latitude: 45.496957,
@@ -282,7 +282,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-817",
+    displayName: "H817",
     description: "",
     location: {
       latitude: 45.496942,
@@ -294,7 +294,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-818",
+    displayName: "H818",
     description: "",
     location: {
       latitude: 45.497018,
@@ -306,7 +306,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-819",
+    displayName: "H819",
     description: "",
     location: {
       latitude: 45.496957,
@@ -318,7 +318,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-820",
+    displayName: "H820",
     description: "",
     location: {
       latitude: 45.497083,
@@ -330,7 +330,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-821",
+    displayName: "H821",
     description: "",
     location: {
       latitude: 45.49701,
@@ -342,7 +342,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-822",
+    displayName: "H822",
     description: "",
     location: {
       latitude: 45.497141,
@@ -354,7 +354,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-823",
+    displayName: "H823",
     description: "",
     location: {
       latitude: 45.497024,
@@ -366,7 +366,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-825",
+    displayName: "H825",
     description: "",
     location: {
       latitude: 45.49708,
@@ -378,7 +378,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-827",
+    displayName: "H827",
     description: "",
     location: {
       latitude: 45.497091,
@@ -390,7 +390,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-829",
+    displayName: "H829",
     description: "",
     location: {
       latitude: 45.497128,
@@ -402,7 +402,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-831",
+    displayName: "H831",
     description: "",
     location: {
       latitude: 45.497179,
@@ -414,7 +414,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-832.02",
+    displayName: "H832.02",
     description: "",
     location: {
       latitude: 45.497279,
@@ -426,7 +426,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-832.05",
+    displayName: "H832.05",
     description: "",
     location: {
       latitude: 45.497274,
@@ -438,7 +438,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-832.06",
+    displayName: "H832.06",
     description: "",
     location: {
       latitude: 45.497258,
@@ -450,7 +450,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-835",
+    displayName: "H835",
     description: "",
     location: {
       latitude: 45.497232,
@@ -462,7 +462,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-837",
+    displayName: "H837",
     description: "",
     location: {
       latitude: 45.497282,
@@ -474,7 +474,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-839",
+    displayName: "H839",
     description: "",
     location: {
       latitude: 45.497298,
@@ -486,7 +486,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-841",
+    displayName: "H841",
     description: "",
     location: {
       latitude: 45.497397,
@@ -498,7 +498,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-843",
+    displayName: "H843",
     description: "",
     location: {
       latitude: 45.497479,
@@ -510,7 +510,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-845",
+    displayName: "H845",
     description: "",
     location: {
       latitude: 45.49753,
@@ -522,7 +522,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-847",
+    displayName: "H847",
     description: "",
     location: {
       latitude: 45.497545,
@@ -534,7 +534,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-849",
+    displayName: "H849",
     description: "",
     location: {
       latitude: 45.497596,
@@ -546,7 +546,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-851.01",
+    displayName: "H851.01",
     description: "",
     location: {
       latitude: 45.497587,
@@ -558,7 +558,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-851.02",
+    displayName: "H851.02",
     description: "",
     location: {
       latitude: 45.497599,
@@ -570,7 +570,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-851.03",
+    displayName: "H851.03",
     description: "",
     location: {
       latitude: 45.497613,
@@ -582,7 +582,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-853",
+    displayName: "H853",
     description: "",
     location: {
       latitude: 45.497548,
@@ -594,7 +594,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-854",
+    displayName: "H854",
     description: "",
     location: {
       latitude: 45.497479,
@@ -606,7 +606,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-855",
+    displayName: "H855",
     description: "",
     location: {
       latitude: 45.497492,
@@ -618,7 +618,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-857",
+    displayName: "H857",
     description: "",
     location: {
       latitude: 45.497458,
@@ -630,7 +630,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-859",
+    displayName: "H859",
     description: "",
     location: {
       latitude: 45.497425,
@@ -642,7 +642,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-860.01",
+    displayName: "H860.01",
     description: "",
     location: {
       latitude: 45.497382,
@@ -654,7 +654,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-860.03",
+    displayName: "H860.03",
     description: "",
     location: {
       latitude: 45.497399,
@@ -666,7 +666,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-860.04",
+    displayName: "H860.04",
     description: "",
     location: {
       latitude: 45.497393,
@@ -678,7 +678,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-860.05",
+    displayName: "H860.05",
     description: "",
     location: {
       latitude: 45.497412,
@@ -690,7 +690,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-860.06",
+    displayName: "H860.06",
     description: "",
     location: {
       latitude: 45.497403,
@@ -702,7 +702,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-861",
+    displayName: "H861",
     description: "",
     location: {
       latitude: 45.497413,
@@ -714,7 +714,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-863",
+    displayName: "H863",
     description: "",
     location: {
       latitude: 45.497365,
@@ -726,7 +726,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-865",
+    displayName: "H865",
     description: "",
     location: {
       latitude: 45.497358,
@@ -738,7 +738,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "H-867",
+    displayName: "H867",
     description: "",
     location: {
       latitude: 45.497343,
