@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Polygon, Marker, Overlay } from "react-native-maps";
+import { Polygon, Overlay } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId, CampusId, Region, ZoomLevel } from "../../types/main";
-import { View, Text, StyleSheet } from "react-native";
+import { BuildingId, CampusId, ZoomLevel } from "../../types/main";
+import { View, StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { floorOverlays } from "../../constants/floors.data";

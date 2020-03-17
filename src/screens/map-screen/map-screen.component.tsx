@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Alert } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import { RegionProvider } from "../../context/region.context";
 
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE, Overlay, Marker } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
@@ -22,8 +22,6 @@ import FlashMessage, { showMessage } from "react-native-flash-message";
 import { getCampusById, getAllCampuses } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
-import IndoorFloors from "../../components/indoor-floors/indoor-floors.components";
-import { POIInfo, getAllPOI } from "../../constants/poi.data";
 
 /**
  * Screen for the Map and its Overlayed components
