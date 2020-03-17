@@ -75,7 +75,9 @@ export enum POICategory {
   Association,
   Elevator,
   Escalator,
-  Stairs
+  Stairs,
+  Exit,
+  Service
 }
 
 export enum ConnectorType {

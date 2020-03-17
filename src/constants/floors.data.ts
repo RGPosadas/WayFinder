@@ -6,8 +6,8 @@ export const floorOverlays: FloorOverlay[] = [
     buildingId: BuildingId.MB,
     level: 1,
     bounds: [
-      [45.4956, -73.57953],
-      [45.494916, -73.57846]
+      [45.495778, -73.5797],
+      [45.494802, -73.578297]
     ],
     image: require("../../assets/floors/MB-1.png")
   },

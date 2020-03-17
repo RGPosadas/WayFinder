@@ -1679,6 +1679,217 @@ export const POIInfo: POI[] = [
     buildingId: BuildingId.CC,
     level: 1,
     category: POICategory.Classroom
+  },
+  // ------------------
+  // SGW JMSB
+  // ------------------
+  {
+    id: null,
+    displayName: "Mainsonneuve Exist",
+
+    description: "Exit/Entrance to JMSB and the corner of dM and Guy",
+    location: {
+      latitude: 45.49554740223838,
+      longitude: -73.57927136202986
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Exit
+  },
+  {
+    id: null,
+    displayName: "Police St. Exist",
+
+    description: "Exit/Entrance to JMSB and the corner of Police St. and Guy",
+    location: {
+      latitude: 45.495216991097614,
+      longitude: -73.5785603480603
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Exit
+  },
+  {
+    id: null,
+    displayName: "Stairs dM",
+
+    description: "non-accessible stairs that can only go to higher floors",
+    location: {
+      latitude: 45.49533747193755,
+      longitude: -73.57944214004628
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Stairs
+  },
+  {
+    id: null,
+    displayName: "Men's",
+
+    description: "JMBS first 1st floor men's washroom",
+    location: {
+      latitude: 45.49533465172625,
+      longitude: -73.57934289831273
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Washroom
+  },
+  {
+    id: null,
+    displayName: "Women's",
+
+    description: "JMBS first 1st floor women's washroom",
+    location: {
+      latitude: 45.49536097369291,
+      longitude: -73.5793187584316
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Washroom
+  },
+  {
+    id: null,
+    displayName: "Security",
+
+    description: "Lost and founc and other related security services",
+    location: {
+      latitude: 45.4954328890034,
+      longitude: -73.57924164492242
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Service
+  },
+  {
+    id: null,
+    displayName: "Elevators",
+
+    description: "Fist 1st floor elevators",
+    location: {
+      latitude: 45.49529657885985,
+      longitude: -73.57910082894914
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Elevator
+  },
+  {
+    id: null,
+    displayName: "Escalators",
+
+    description: "Escalators that leads to tunnel",
+    location: {
+      latitude: 45.49547821216783,
+      longitude: -73.57911271713982
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Escalator
+  },
+  {
+    id: null,
+    displayName: "Stars to second floor",
+
+    description: "Stairs that only leads to second floor",
+    location: {
+      latitude: 45.49533532164122,
+      longitude: -73.57893166803132
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Stairs
+  },
+  {
+    id: null,
+    displayName: "Stars underground",
+
+    description: "Stairs that can lead to S1 and the tunnel",
+    location: {
+      latitude: 45.495277037243376,
+      longitude: -73.57859236859093
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Stairs
+  },
+  {
+    id: null,
+    displayName: "Stars Police St, side",
+
+    description: "Stairs that leads to any higher floor",
+    location: {
+      latitude: 45.49517268921914,
+      longitude: -73.57866881154786
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Stairs
+  },
+  {
+    id: null,
+    displayName: "MB1.210 non-accessible",
+
+    description: "Non-accessible Exit/Entrance to atrium",
+    location: {
+      latitude: 45.49517832965781,
+      longitude: -73.5787479367138
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "MB1.210",
+
+    description: "Exit/Entrance to atrium",
+    location: {
+      latitude: 45.49531181987517,
+      longitude: -73.57897190116654
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "MB1.333", //Need verification
+
+    description: "Exit/Entrance to classroom",
+    location: {
+      latitude: 45.49527233688608,
+      longitude: -73.57920391224633
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "MB1.666", //Need verification
+
+    description: "Exit/Entrance to classroom",
+    location: {
+      latitude: 45.49528079752893,
+      longitude: -73.57941178344498
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Classroom
+  },
+  {
+    id: null,
+    displayName: "Coffee Shop", //Need verification
+
+    description: "Restaurent to buy coffee an bakery",
+    location: {
+      latitude: 45.495424628262846,
+      longitude: -73.57943055890809
+    },
+    buildingId: BuildingId.MB,
+    level: 1,
+    category: POICategory.Restaurant
   }
 ];
 

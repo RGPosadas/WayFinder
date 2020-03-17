@@ -655,15 +655,12 @@ export const Buildings: Building[] = [
     ],
     location: { latitude: 45.49529042487793, longitude: -73.5789511712376 },
     boundingBox: [
-      { latitude: 45.49518543255166, longitude: -73.57852445432236 },
-      { latitude: 45.495004111766896, longitude: -73.5787366533723 },
-      { latitude: 45.495037014416425, longitude: -73.5787902975526 },
-      { latitude: 45.49500505184288, longitude: -73.57882348988916 },
-      { latitude: 45.495165745745325, longitude: -73.57917085290943 },
-      { latitude: 45.49521983908429, longitude: -73.57911278758203 },
-      { latitude: 45.49535696496049, longitude: -73.579366419574 },
-      { latitude: 45.495517667631276, longitude: -73.5791999682051 },
-      { latitude: 45.495438071102875, longitude: -73.57896105061232 }
+      { latitude: 45.49511782033129, longitude: -73.57929809900001 },
+      { latitude: 45.49524379011677, longitude: -73.57916667075828 },
+      { latitude: 45.495026633071944, longitude: -73.57869996638969 },
+      { latitude: 45.49523626954047, longitude: -73.57847600193695 },
+      { latitude: 45.495597256069885, longitude: -73.57931821556762 },
+      { latitude: 45.495296434122736, longitude: -73.57962398739532 }
     ]
   },
   {
