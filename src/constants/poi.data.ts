@@ -1681,3 +1681,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   }
 ];
+
+export const getAllPOI = (): POI[] => {
+  return POIInfo;
+};
