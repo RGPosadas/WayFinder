@@ -6,12 +6,12 @@ import { BuildingId } from "../src/types/main";
 import { Buildings } from "../src/constants/buildings.data";
 
 describe("BuildingInformation component", () => {
-  it("BuildingInformation: snapshot renders correctly", () => {
+  it("should match snapshot", () => {
     const tree = renderer.create(<BuildingInformation />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("showBuildingInfo: check if department links are clickable", () => {
+  it("should check if clicking department links is functional", () => {
     const wrapper = shallow(
       <BuildingInformation
         tappedBuilding={BuildingId.H}
@@ -27,7 +27,7 @@ describe("BuildingInformation component", () => {
     }
   });
 
-  it("showBuildingInfo: check if service links are clickable", () => {
+  it("should check if clicking service links is functional", () => {
     const wrapper = shallow(
       <BuildingInformation
         tappedBuilding={BuildingId.H}
@@ -41,7 +41,7 @@ describe("BuildingInformation component", () => {
     }
   });
 
-  it("onClosePanel: check if x button is pressed", () => {
+  it("should call onClosePanel on 'x' button press", () => {
     mockOnClosePanel = jest.fn();
     const wrapper = shallow(
       <BuildingInformation

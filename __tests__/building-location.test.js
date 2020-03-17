@@ -4,12 +4,12 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
 describe("BuildingLocation component", () => {
-  it("BuildingLocation: snapshot renders correctly", () => {
+  it("should match snapshot", () => {
     const tree = renderer.create(<BuildingLocation />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("onBuildingLocationPress: check if button is pressed", () => {
+  it("should call onBuildingLocationPress after button press", () => {
     const mockOnBuildingLocationPress = jest.fn();
     const wrapper = shallow(
       <BuildingLocation onBuildingLocationPress={mockOnBuildingLocationPress} />

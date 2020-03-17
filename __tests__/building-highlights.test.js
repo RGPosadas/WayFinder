@@ -7,12 +7,12 @@ import { Buildings } from "../src/constants/buildings.data";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../src/constants/style";
 
 describe("BuildingHighlights component", () => {
-  it("BuildingHighlights: snapshot renders correctly", () => {
+  it("should match snapshot", () => {
     const tree = renderer.create(<BuildingHighlights />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("onBuildingTap: For Hall, before and after polygon press, check for polygon color and if function is called", () => {
+  it("should change the polygon color and call onBuildingTap after polygon press", () => {
     const mockOnBuildingTap = jest.fn();
     const wrapper = shallow(
       <BuildingHighlights onBuildingTap={mockOnBuildingTap} />
@@ -25,7 +25,7 @@ describe("BuildingHighlights component", () => {
     expect(mockOnBuildingTap.mock.calls[0][0]).toBe(BuildingId.H);
   });
 
-  it("onBuildingTap: For Hall, on marker press, check if function is called", () => {
+  it("should call onBuildingTap after marker press", () => {
     const mockOnBuildingTap = jest.fn();
     const wrapper = shallow(
       <BuildingHighlights onBuildingTap={mockOnBuildingTap} />

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BuildingHighlights component BuildingHighlights: snapshot renders correctly 1`] = `
+exports[`BuildingHighlights component should match snapshot 1`] = `
 <View>
   <View>
     <AIRMapPolygon

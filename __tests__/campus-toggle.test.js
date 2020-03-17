@@ -7,18 +7,18 @@ import { getCampus } from "../src/constants/campus.data";
 import { CampusId } from "../src/types/main";
 
 describe("CampusToggle component", () => {
-  it("CampusToggle: snapshot renders correctly", () => {
+  it("should match snapshot", () => {
     const tree = renderer.create(<CampusToggle />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("onSGWPressButton: on button press, check if isSGW state hook is true", () => {
+  it("should check for campus toggle button styling changes and calls onCampusToggle after SGW toggle press", () => {
     const mockOnCampusToggle = jest.fn();
     const wrapper = shallow(
       <CampusToggle onCampusToggle={mockOnCampusToggle} />
     );
-    const button = wrapper.find("View TouchableHighlight").at(0);
-    button.simulate("press");
+    const SGWButton = wrapper.find("View TouchableHighlight").at(0);
+    SGWButton.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
     expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
       getCampus(CampusId.SGW).region
@@ -44,13 +44,13 @@ describe("CampusToggle component", () => {
     );
   });
 
-  it("onLoyolaPressButton: on button press, check if isSGW state hook is false", () => {
+  it("should check for campus toggle button styling changes and calls onCampusToggle after Loyola toggle press", () => {
     const mockOnCampusToggle = jest.fn();
     const wrapper = shallow(
       <CampusToggle onCampusToggle={mockOnCampusToggle} />
     );
-    const button = wrapper.find("View TouchableHighlight").at(1);
-    button.simulate("press");
+    const loyolaButton = wrapper.find("View TouchableHighlight").at(1);
+    loyolaButton.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
     expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
       getCampus(CampusId.Loyola).region
