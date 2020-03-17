@@ -15,10 +15,11 @@ import {
   Location,
   Region,
   BuildingId,
-  IndoorInformation
+  IndoorInformation,
+  ZoomLevel
 } from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import { getCampus } from "../../constants/campus.data";
+import { getCampusById } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import IndoorFloors from "../../components/indoor-floors/indoor-floors.components";
@@ -27,10 +28,13 @@ import IndoorFloors from "../../components/indoor-floors/indoor-floors.component
  * Screen for the Map and its Overlayed components
  */
 const MapScreen = () => {
-  const [region, setRegion] = useState<Region>(null);
+  const [currentRegion, setCurrentRegion] = useState<Region>(null);
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
+  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(
+    ZoomLevel.CAMPUS_MARKERS
+  );
   const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
     {
       currentLevel: 0,
@@ -87,8 +91,8 @@ const MapScreen = () => {
       mapRef.current.animateToRegion({
         latitude: response.coords.latitude,
         longitude: response.coords.longitude,
-        latitudeDelta: region.latitudeDelta,
-        longitudeDelta: region.longitudeDelta
+        latitudeDelta: currentRegion.latitudeDelta,
+        longitudeDelta: currentRegion.longitudeDelta
       });
 
       // Attemp to find the building the user is in.
@@ -135,15 +139,25 @@ const MapScreen = () => {
     });
   };
 
+  const handleOnRegionChange = (region: Region) => {
+    console.log(region);
+    setCurrentRegion(region);
+
+    if (region.latitudeDelta > 1) {
+      // console.log("ZoomLevel.CAMPUS_MARKERS");
+      setZoomLevel(ZoomLevel.CAMPUS_MARKERS);
+    }
+  };
+
   /**
    * Set the region to the SGW campus when this component mounts
    */
   useEffect(() => {
-    setRegion(getCampus(CampusId.SGW).region);
+    setCurrentRegion(getCampusById(CampusId.SGW).region);
   }, []);
 
   return (
-    <RegionProvider value={region}>
+    <RegionProvider value={currentRegion}>
       <View style={styles.container}>
         <MapView
           ref={mapRef}
@@ -152,11 +166,11 @@ const MapScreen = () => {
           showsCompass={true}
           showsBuildings={true}
           showsUserLocation={true}
-          initialRegion={region}
-          onRegionChange={region => setRegion(region)}
+          initialRegion={currentRegion}
+          onRegionChangeComplete={region => handleOnRegionChange(region)}
           onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
         >
-          <IndoorFloors region={region} />
+          <IndoorFloors region={currentRegion} />
           <BuildingHighlights
             onBuildingTap={onBuildingTap}
             tappedBuilding={tappedBuilding}

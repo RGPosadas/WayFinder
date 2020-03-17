@@ -90,6 +90,12 @@ export interface IndoorInformation {
   floors: { name: string; index: number }[];
 }
 
+export interface LinkItem {
+  id: number;
+  title: string;
+  link: string;
+}
+
 export enum CampusId {
   SGW = "SGW",
   Loyola = "Loyola"
@@ -164,8 +170,11 @@ export enum BuildingId {
   VL
 }
 
-export interface LinkItem {
-  id: number;
-  title: string;
-  link: string;
+export enum ZoomLevel {
+  // Really zoomed out
+  CAMPUS_MARKERS,
+  // Medium
+  BUILDING_MARKERS_AND_POLYGONS,
+  // Close
+  INDOOR_FLOORS_AND_POI
 }

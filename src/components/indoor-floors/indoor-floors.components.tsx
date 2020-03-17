@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
-import MapView, { Overlay, Marker } from "react-native-maps";
-import { POIInfo, floorOverlays } from "../../constants/poi.data";
+import { View } from "react-native";
+import { Overlay } from "react-native-maps";
 import { Region } from "../../types/main";
+import { floorOverlays } from "../../constants/floors.data";
 
 export interface IndoorFloorsProps {
   region: Region;
@@ -11,13 +11,6 @@ export interface IndoorFloorsProps {
 const IndoorFloors = (props: IndoorFloorsProps) => {
   const { region } = props;
 
-  const shouldShowFloor = () => {
-    return true;
-  };
-
-  const shouldShowPOI = () => {
-    return true;
-  };
   return (
     <View style={{ zIndex: 1 }}>
       {floorOverlays.map(floorOverlay => (

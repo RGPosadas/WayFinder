@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Polygon, Marker } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId } from "../../types/main";
+import { BuildingId, CampusId } from "../../types/main";
 import { View, Text, StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
+import { getAllCampuses } from "../../constants/campus.data";
 
 interface IProps {
   onBuildingTap: (id: BuildingId) => void;
@@ -55,6 +56,16 @@ const BuildingHighlights = ({ onBuildingTap, tappedBuilding }: IProps) => {
             <Text style={styles.marker}>{BuildingId[building.id]}</Text>
           </Marker>
         </View>
+      ))}
+      {getAllCampuses().map((campus, index) => (
+        <Marker
+          key={index}
+          coordinate={campus.region}
+          tracksViewChanges={false}
+          tracksInfoWindowChanges={false}
+        >
+          <Text style={styles.marker}>{CampusId[campus.id]}</Text>
+        </Marker>
       ))}
     </View>
   );

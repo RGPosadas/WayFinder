@@ -12,12 +12,12 @@ import {
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR
 } from "../../constants/style";
-import { getCampus } from "../../constants/campus.data";
 import { CampusId, Region } from "../../types/main";
 
 interface IProps {
   onCampusToggle: (region: Region) => void;
 }
+import { getCampusById } from "../../constants/campus.data";
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
@@ -30,7 +30,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    onCampusToggle(getCampus(CampusId.SGW).region);
+    onCampusToggle(getCampusById(CampusId.SGW).region);
   };
 
   /**
@@ -38,7 +38,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    onCampusToggle(getCampus(CampusId.Loyola).region);
+    onCampusToggle(getCampusById(CampusId.Loyola).region);
   };
 
   return (
