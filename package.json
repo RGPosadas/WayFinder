@@ -9,7 +9,8 @@
     "test": "jest --verbose --coverage",
     "web": "expo start --web",
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
-    "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./"
+    "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
+    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
@@ -48,21 +49,43 @@
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "babel-jest": "25.1.0",
     "babel-preset-expo": "^8.0.0",
+    "bunyan-debug-stream": "^2.0.0",
+    "detox": "^16.0.0",
+    "detox-cli": "^10.0.7",
+    "detox-expo-helpers": "^0.6.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",
+<<<<<<< HEAD
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.2.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
+=======
+    "expo-detox-hook": "^1.0.10",
+>>>>>>> f853ff4... setup initial detox config #31
     "jest-cli": "^25.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^36.0.0",
     "jest-fetch-mock": "3.0.2",
+<<<<<<< HEAD
     "prettier": "^1.19.1",
+=======
+    "mkdirp": "^1.0.3",
+>>>>>>> f853ff4... setup initial detox config #31
     "react-test-renderer": "^16.13.0",
     "typescript": "^3.7.2"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim": {
+        "binaryPath": "bin/Exponent.app",
+        "type": "ios.simulator",
+        "name": "iPhone 8"
+      }
+    }
   }
 }
