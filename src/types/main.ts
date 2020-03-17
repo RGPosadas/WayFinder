@@ -171,6 +171,8 @@ export enum BuildingId {
 }
 
 export enum ZoomLevel {
+  // Too far
+  NONE,
   // Really zoomed out
   CAMPUS_MARKERS,
   // Medium

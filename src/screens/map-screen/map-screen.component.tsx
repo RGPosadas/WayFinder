@@ -5,7 +5,7 @@ import { RegionProvider } from "../../context/region.context";
 
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapView, { PROVIDER_GOOGLE, Overlay, Marker } from "react-native-maps";
-import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
+import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
@@ -24,7 +24,6 @@ import { CampusId } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import IndoorFloors from "../../components/indoor-floors/indoor-floors.components";
 import { POIInfo, getAllPOI } from "../../constants/poi.data";
-import { Markers } from "react-native-maps";
 
 /**
  * Screen for the Map and its Overlayed components
@@ -145,17 +144,18 @@ const MapScreen = () => {
     console.log(region);
     setCurrentRegion(region);
 
-    if (region.latitudeDelta <= 0.002) {
+    if (region.latitudeDelta <= 0.0025) {
       console.log("ZoomLevel.INDOOR_FLOORS_AND_POI");
       setZoomLevel(ZoomLevel.INDOOR_FLOORS_AND_POI);
-      // getAllPOI;
-    } else if (region.latitudeDelta <= 0.02 && region.latitudeDelta > 0.002) {
+    } else if (region.latitudeDelta <= 0.02 && region.latitudeDelta > 0.0025) {
       console.log("ZoomLevel.BUILDING_MARKERS_AND_POLYGONS");
       setZoomLevel(ZoomLevel.BUILDING_MARKERS_AND_POLYGONS);
     } else if (region.latitudeDelta <= 0.09 && region.latitudeDelta > 0.02) {
       console.log("ZoomLevel.CAMPUS_MARKERS");
       setZoomLevel(ZoomLevel.CAMPUS_MARKERS);
-      // getAllCampuses;
+    } else {
+      console.log("ZoomLevel.NONE");
+      setZoomLevel(ZoomLevel.NONE);
     }
   };
 
@@ -180,10 +180,10 @@ const MapScreen = () => {
           onRegionChangeComplete={region => handleOnRegionChange(region)}
           onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
         >
-          <IndoorFloors region={currentRegion} />
-          <BuildingHighlights
+          <MapOverlays
             onBuildingTap={onBuildingTap}
             tappedBuilding={tappedBuilding}
+            zoomLevel={zoomLevel}
           />
         </MapView>
 

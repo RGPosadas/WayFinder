@@ -1,5 +1,5 @@
 import React from "react";
-import BuildingHighlights from "../src/components/building-highlights/building-highlights.component";
+import MapOverlays from "../src/components/map-overlays/map-overlays.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { BuildingId } from "../src/types/main";

@@ -1,17 +1,6 @@
 import { FloorOverlay, BuildingId } from "../types/main";
 
 export const floorOverlays: FloorOverlay[] = [
-  // Test floor, will be deleted
-  {
-    id: 1,
-    buildingId: BuildingId.H,
-    level: 1,
-    bounds: [
-      [45.49772, -73.579507],
-      [45.49679, -73.578391]
-    ],
-    image: require("../../assets/floors/H-1.png")
-  },
   {
     id: 2,
     buildingId: BuildingId.MB,
