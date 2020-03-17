@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The BuildingLocation Component renders correctly 1`] = `
+exports[`BuildingLocation component should match snapshot 1`] = `
 <View
   style={
     Object {

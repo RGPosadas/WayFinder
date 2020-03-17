@@ -1,5 +1,7 @@
 # WayFinder
 
+[![Build Status](https://travis-ci.com/RGPosadas/WayFinder.svg?branch=develop)](https://travis-ci.com/RGPosadas/WayFinder)
+
 ## Team Members
 
 - Ritchelle Grace Posadas, @RGPosadas (Team Lead)

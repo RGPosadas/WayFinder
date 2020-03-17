@@ -6,7 +6,7 @@
     "eject": "expo eject",
     "ios": "expo start --ios",
     "start": "expo start",
-    "test": "jest",
+    "test": "jest --verbose --coverage",
     "web": "expo start --web"
   },
   "dependencies": {
@@ -42,6 +42,11 @@
     "@types/react-native": "^0.60.15",
     "babel-jest": "25.1.0",
     "babel-preset-expo": "^8.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-react-16-adapter-setup": "^0.1.0",
+    "jest-cli": "^25.1.0",
+    "jest-enzyme": "^7.1.2",
     "jest-expo": "^36.0.0",
     "jest-fetch-mock": "3.0.2",
     "react-test-renderer": "^16.13.0",

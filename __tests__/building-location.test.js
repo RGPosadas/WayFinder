@@ -1,29 +1,21 @@
 import React from "react";
 import BuildingLocation from "../src/components/building-location/building-location.component";
 import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
 
-describe("The BuildingLocation Component", () => {
-  /**
-   * Snapshot Test
-   */
-  it("renders correctly", () => {
+describe("BuildingLocation component", () => {
+  it("should match snapshot", () => {
     const tree = renderer.create(<BuildingLocation />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  /*
-  TODO: Implement unit test after TASK-12 is merged.
-  
-  Mock an empty function, pass it to the component, 
-  simulate a button press, and the nmake sure function was called.
-  
-  */
-  it("Trigger location search succesfully", () => {
-    const mockOnBuildingLocationPress = jest.fn(() => {});
-    // Create Component
-    // Simulate click
-    mockOnBuildingLocationPress();
-    // Expect function to be triggered once
-    expect(mockOnBuildingLocationPress.mock.calls.length).toBe(1);
+  it("should call onBuildingLocationPress after button press", () => {
+    const mockOnBuildingLocationPress = jest.fn();
+    const wrapper = shallow(
+      <BuildingLocation onBuildingLocationPress={mockOnBuildingLocationPress} />
+    );
+    const button = wrapper.find("View TouchableOpacity");
+    button.simulate("press");
+    expect(mockOnBuildingLocationPress).toHaveBeenCalledTimes(1);
   });
 });

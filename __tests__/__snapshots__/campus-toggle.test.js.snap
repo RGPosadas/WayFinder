@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`CampusToggle component should match snapshot 1`] = `
 <View
   style={
     Object {

@@ -11,7 +11,7 @@ jest.mock("expo", () => ({
 jest.mock("../src/navigation/navigation", () => "navigation");
 
 // Snapshot test
-test("renders correctly", () => {
+it("should match snapshot", () => {
   const tree = renderer.create(<App />).toJSON();
   expect(tree).toMatchSnapshot();
 });
