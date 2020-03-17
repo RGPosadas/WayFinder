@@ -6,56 +6,50 @@ import {
   Dimensions,
   View,
   Platform,
-  Picker,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import SafeAreaView from "react-native-safe-area-view";
 import { POI } from "../../types/main";
-import { POIInfo } from "../../constants/poi.data";
-import Autocomplete from "./autocomplete";
+import Autocomplete from "./autocomplete.component";
 import SelectInput from "react-native-select-input-ios";
 
+/**
+ * the name and types of the properties types accepted
+ * by the OmniboxDirectionsProps component
+ */
 export interface OmniboxDirectionsProps {
   destination: POI;
-  initialLocaiton: POI;
-  currentLocation: { latitude; longitude };
-  getDestination: (poi: POI) => void;
-  getInitialLocation: (poi: POI) => void;
+  initialLocation: POI | {displayName: string, latitude: number, longitude: number };
+  setDestination: (poi: POI) => void;
+  setInitialLocation: (poi: POI | null) => void;
+  queryText: (userInput: string, setAutocomplete: ([]) => void, onChangeText: (string) => void ) => void;
 }
 
-export interface queryTextInput {
-  text: string;
-}
-
-export default function OmniboxDirections(props: OmniboxDirectionsProps) {
+/**
+ * 
+ * @param destination 
+ * @param initialLocation
+ * @param setDestination Function called to update destination
+ * @param setInitialLocation Function called to update initial Location
+ * @param queryText Function to query POI based on user input
+ */
+const OmniboxDirections = ({destination, initialLocation, setDestination, setInitialLocation, queryText }: OmniboxDirectionsProps) => {
   const [value, onChangeText] = React.useState(
-    props.initialLocaiton.displayName
+    initialLocation.displayName
   );
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
+  
   useEffect(() => {
-    onChangeText(props.initialLocaiton.displayName);
+    onChangeText(initialLocation.displayName);
     setAutocomplete(null);
-  }, [props.initialLocaiton]);
+  }, [initialLocation]);
 
   //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
-  let autocompleteHeight = autoCompleteValues
+  let autocompleteHeight = (autoCompleteValues && value != "")
     ? autoCompleteValues.length * 51 + 235
-    : 235;
-
-  const queryText = (input: queryTextInput) => {
-    let classes: POI[] = POIInfo.filter(poi => {
-      return (
-        poi.displayName.toUpperCase().search(input.text.toUpperCase()) !== -1
-      );
-    });
-
-    let narrowedClasses: POI[] = classes.slice(0, 5);
-
-    setAutocomplete([...narrowedClasses]);
-    onChangeText(input.text);
-  };
+    : 260;
 
   const options = [
     { value: 0, label: "Departure time 9AM" },
@@ -66,13 +60,12 @@ export default function OmniboxDirections(props: OmniboxDirectionsProps) {
     { value: 5, label: "bijsdfa lsdkfthc" },
     { value: 6, label: "biasjdk fdsthc" }
   ];
-
   return (
     <SafeAreaView
       style={[styles.safeAreaView, , { height: autocompleteHeight }]}
     >
       <View style={styles.contentContainer}>
-        <TouchableOpacity onPress={() => props.getDestination(null)}>
+        <TouchableOpacity onPress={() => setDestination(null)}>
           <AntDesign
             name={"arrowleft"}
             color={"#AA2B45"}
@@ -84,23 +77,17 @@ export default function OmniboxDirections(props: OmniboxDirectionsProps) {
           <Image source={require("../../../assets/route.png")}></Image>
           <View style={styles.searchContainer}>
             <TextInput
-              // key={autocomplete}
               style={styles.input}
-              onChangeText={text => queryText({ text })}
+              onChangeText={text => queryText(text, setAutocomplete, onChangeText)}
               value={value}
             />
             <TextInput
-              // key={autocomplete}
               style={styles.input}
-              value={props.destination.displayName}
-              onFocus={() => props.getDestination(null)}
+              value={destination.displayName}
+              onFocus={() =>setDestination(null)}
             />
           </View>
         </View>
-        {/* <Picker style={styles.picker} prompt={"Select Departure Time"}>
-                <Picker.Item label="Depart at 9am" value="java"/>
-                <Picker.Item label="JavaScript" value="js"/>
-            </Picker > */}
         <SelectInput style={styles.picker} value={0} options={options} />
         <View style={styles.travelModeSwitcher}>
           <FontAwesome name={"car"} size={24} style={{ marginLeft: 15 }} />
@@ -129,12 +116,15 @@ export default function OmniboxDirections(props: OmniboxDirectionsProps) {
         <Autocomplete
           style={styles.autocomplete}
           autoCompleteValues={autoCompleteValues}
-          selectedLocation={props.getInitialLocation}
+          selectedLocation={setInitialLocation}
         ></Autocomplete>
       )}
     </SafeAreaView>
   );
 }
+
+export default OmniboxDirections;
+
 const styles = StyleSheet.create({
   safeAreaView: {
     position: "absolute",
@@ -182,7 +172,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   autocomplete: {
-    top: 230,
-    width: Dimensions.get("window").width - 30
+    top: 260,
+    width: Dimensions.get("window").width
   }
 });

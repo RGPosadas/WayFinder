@@ -1,9 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   FlatList,
-  Image,
-  TextInput,
-  Button,
   StyleSheet,
   Dimensions,
   View,
@@ -13,26 +10,34 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { POI } from "../../types/main";
 
-
 /**
- *
+ * the name and types of the properties types accepted
+ * by the AutoComplete component
  */
-export interface AutoCompleteProps {
+export interface IProps {
   autoCompleteValues: POI[];
   selectedLocation: (poi: POI) => void;
   style: object;
 }
 
-export default function AutoComplete(props: AutoCompleteProps) {
-  const { autoCompleteValues } = props;
-
+/**
+ * Displays the names of provided points of interest's
+ * @param autoCompleteValues Array of POI's
+ * @param style Styles to reposition or resize
+ * @param selectedLocation 
+ */
+const AutoComplete = ({ autoCompleteValues, style, selectedLocation } : IProps) => {
   return (
-    <View style={[styles.container, {...props.style}]}>
+    <View style={[styles.container, { ...style }]}>
       <FlatList
-        keyboardShouldPersistTaps={'handled'}
+        keyboardShouldPersistTaps={"handled"}
         data={autoCompleteValues}
         renderItem={({ item }: { item: POI }) => (
-          <TouchableOpacity onPress={() => props.selectedLocation(item)} key={item.displayName} style={styles.list}>
+          <TouchableOpacity
+            onPress={() => selectedLocation(item)}
+            key={item.displayName}
+            style={styles.list}
+          >
             <Text style={styles.text}>{item.displayName}</Text>
             <Entypo name={"chevron-thin-right"} size={24} color={"#454F63"} />
           </TouchableOpacity>
@@ -50,7 +55,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#F7F7FA",
     backgroundColor: "#F7F7FA",
-    zIndex: 3,
+    zIndex: 3
   },
   list: {
     flexDirection: "row",
@@ -61,10 +66,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomColor: "rgba(120, 132, 158, 0.08)",
     borderBottomWidth: 1.4,
-    zIndex: 4,
-   },
+    zIndex: 4
+  },
   text: {
     fontSize: 16,
     color: "#454F63"
   }
 });
+
+export default AutoComplete;

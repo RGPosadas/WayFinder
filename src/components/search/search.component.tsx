@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import {
   Platform,
   Image,
@@ -6,54 +6,34 @@ import {
   StyleSheet,
   Dimensions,
   View,
-  TouchableOpacity,
-  Text,
-  FlatList
 } from "react-native";
-import SafeAreaView from "react-native-safe-area-view";
-import Autocomplete from "./autocomplete";
+import Autocomplete from "./autocomplete.component";
 import { POI } from "../../types/main";
-import { POIInfo } from "../../constants/poi.data";
 
-//make a function for auto complete
-//make component to show results of auto complete
-//position component on view
-//show component only when auto complete results are available.
-
-export interface queryTextInput {
-  text: string;
+/**
+ * the name and types of the properties types accepted
+ * by the Search component
+ */
+interface IProps {
+  setDestination: (poi: POI) => void;
+  queryText: (userInput: string, setAutocomplete: ([]) => void, onChangeText: (string) => void ) => void;
 }
 
-interface iProps {
-  getDestination: (poi: POI) => void;
-  getInitialLocation: (poi: POI) => void;
-  destination : POI;
-  initialLocation: POI;
-}
-export default function IndoorForm(props: iProps) {
-  let x: POI = {};
+/**
+ * Search component for indoor points of interest's
+ * @param getDestination Function called to update destination 
+ * @param queryText Function to query POI based on user input
+ */
+const Search = ({setDestination, queryText}: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
-  const [query, setQuery] = React.useState("");
 
-  //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
-  let autocompleteHeight = autoCompleteValues ? autoCompleteValues.length * 51 + 50 : 48
-
-  const queryText = (input: queryTextInput) => {
-    let classes: POI[] = POIInfo.filter(poi => {
-      return (
-        poi.displayName.toUpperCase().search(input.text.toUpperCase()) !== -1
-      );
-    });
-
-    let narrowedClasses: POI[] = classes.slice(0, 5);
-
-    setAutocomplete([...narrowedClasses]);
-    onChangeText(input.text);
-  };
+  //Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
+  let autoCompleteHeight = autoCompleteValues ?
+        autoCompleteValues.length * 51 + 50: 48;
 
   return (
-    <View style={[styles.container, {height: autocompleteHeight}]}>
+    <View style={[styles.container, { height: autoCompleteHeight }]}>
       <View style={styles.parent}>
         <View style={styles.view}>
           <View style={styles.view}>
@@ -66,26 +46,26 @@ export default function IndoorForm(props: iProps) {
             ></Image>
             <Image source={require("../../../assets/search.png")}></Image>
             <TextInput
-              // key={autocomplete}
               style={styles.input}
-              onChangeText={text => queryText({ text})}
+              onChangeText={text => queryText(text, setAutocomplete, onChangeText)}
               value={value}
             />
           </View>
           <Image source={require("../../../assets/mic.png")}></Image>
         </View>
-
       </View>
-      {autoCompleteValues && value != "" &&
+      {autoCompleteValues && value != "" && (
         <Autocomplete
-            style={styles.autocomplete}
-            autoCompleteValues={autoCompleteValues}
-            selectedLocation={props.getDestination}
+          style={styles.autocomplete}
+          autoCompleteValues={autoCompleteValues}
+          selectedLocation={setDestination}
         ></Autocomplete>
-      }
+      )}
     </View>
   );
 }
+
+export default Search;
 
 const styles = StyleSheet.create({
   container: {
@@ -109,7 +89,7 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     justifyContent: "space-between",
-    zIndex: 2,
+    zIndex: 2
   },
   safeArea: {
     flex: 1,
@@ -137,8 +117,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    alignSelf: "stretch",
+    alignSelf: "stretch"
   },
-  autocomplete: {
-  }
+  autocomplete: {}
 });

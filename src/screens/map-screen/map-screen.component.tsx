@@ -5,8 +5,8 @@ import { isPointInPolygon } from "geolib";
 import FlashMessage, { showMessage } from "react-native-flash-message";
 import { RegionProvider } from "../../context/region.context";
 
-import IndoorForm from "../../components/indoor-view/indoor-form";
-import OmniboxDirections from "../../components/indoor-view/omnibox-directions";
+import Search from "../../components/search/search.component";
+import OmniboxDirections from "../../components/search/omnibox-directions.component";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
@@ -32,7 +32,7 @@ import {
   outdoorRange,
   campusRange
 } from "../../constants/zoom-range.data";
-
+import { POIInfo } from "../../constants/poi.data";
 /**
  * Screen for the Map and its related buttons and components
  */
@@ -54,7 +54,10 @@ const MapScreen = () => {
     }
   );
   const [destination, setDestination] = useState<POI>(null);
-  const [initialLocaiton, setInitialLocaiton] = useState<POI>({displayName: "Current Location", ...currentLocation});
+  const [initialLocation, setInitialLocation] = useState<POI | {displayName: string, latitude: number, longitude: number }>({
+    displayName: "Current Location",
+    ...currentLocation
+  });
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -210,25 +213,44 @@ const MapScreen = () => {
    * @param poi
    */
   const getInitialLocation = (poi: POI | null) => {
-    setInitialLocaiton(poi);
+    setInitialLocation(poi);
   };
+
+  /**
+   * Filters an array of POIs based on users input
+   * @param userInput
+   */
+  const queryText = (userInput, setAutocomplete, onChangeText) => {
+    let POIs: POI[] = POIInfo.filter(poi => {
+      return (
+        poi.displayName.toUpperCase().search(userInput.toUpperCase()) !== -1
+      );
+    });
+
+    let narrowedPOIs: POI[] = POIs.slice(0, 5);
+
+    setAutocomplete([...narrowedPOIs]);
+    onChangeText(userInput);
+  };
+
   let search;
-  if(destination) {
-    search = <OmniboxDirections
+  if (destination) {
+    search = (
+      <OmniboxDirections
         destination={destination}
-        getDestination={getDestination}
-        getInitialLocation={getInitialLocation}
-        currentLocation={currentLocation}
-        initialLocaiton={initialLocaiton}
-    />
-  }
-  else {
-    search = <IndoorForm
-        getDestination={getDestination}
-        getInitialLocation={getInitialLocation}
-        destination={destination}
-        initialLocation={initialLocaiton}
-    />
+        setDestination={setDestination}
+        setInitialLocation={setInitialLocation}
+        initialLocation={initialLocation}
+        queryText={queryText}
+      />
+    );
+  } else {
+    search = (
+      <Search
+      setDestination={setDestination}
+      queryText={queryText}
+      />
+    );
   }
   return (
     <RegionProvider value={currentRegion}>
@@ -260,7 +282,7 @@ const MapScreen = () => {
           </View>
         </MapView>
 
-       {!destination && <CampusToggle onCampusToggle={onCampusToggle} />}
+        {!destination && <CampusToggle onCampusToggle={onCampusToggle} />}
 
         <LocationButton onLocationButtonPress={onLocationButtonPress} />
 
