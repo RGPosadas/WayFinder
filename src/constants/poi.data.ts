@@ -1500,7 +1500,7 @@ export const POIInfo: POI[] = [
   // ------------------
   {
     id: null,
-    displayName: "119",
+    displayName: "CC119",
 
     description: "",
     location: {
@@ -1513,7 +1513,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "122",
+    displayName: "CC122",
 
     description: "",
     location: {
@@ -1526,7 +1526,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "120",
+    displayName: "CC120",
 
     description: "",
     location: {
@@ -1539,7 +1539,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "118",
+    displayName: "CC118",
 
     description: "",
     location: {
@@ -1552,7 +1552,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "117",
+    displayName: "CC117",
 
     description: "",
     location: {
@@ -1565,7 +1565,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "116",
+    displayName: "CC116",
 
     description: "",
     location: {
@@ -1578,7 +1578,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "115",
+    displayName: "CC115",
 
     description: "",
     location: {
@@ -1591,7 +1591,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "112",
+    displayName: "CC112",
 
     description: "",
     location: {
@@ -1604,7 +1604,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "111",
+    displayName: "CC111",
 
     description: "",
     location: {
@@ -1617,7 +1617,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "109",
+    displayName: "CC109",
 
     description: "",
     location: {
@@ -1630,7 +1630,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "107",
+    displayName: "CC107",
 
     description: "",
     location: {
@@ -1643,7 +1643,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "106",
+    displayName: "CC106",
 
     description: "",
     location: {
@@ -1656,7 +1656,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "101",
+    displayName: "CC101",
 
     description: "",
     location: {
@@ -1669,7 +1669,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "104",
+    displayName: "CC104",
 
     description: "",
     location: {
@@ -1685,7 +1685,7 @@ export const POIInfo: POI[] = [
   // ------------------
   {
     id: null,
-    displayName: "Mainsonneuve Exist",
+    displayName: "Maisonneuve Exit",
 
     description: "Exit/Entrance to JMSB and the corner of dM and Guy",
     location: {
@@ -1698,7 +1698,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Police St. Exist",
+    displayName: "Police St. Exit",
 
     description: "Exit/Entrance to JMSB and the corner of Police St. and Guy",
     location: {
@@ -1711,20 +1711,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Stairs dM",
-
-    description: "non-accessible stairs that can only go to higher floors",
-    location: {
-      latitude: 45.49533747193755,
-      longitude: -73.57944214004628
-    },
-    buildingId: BuildingId.MB,
-    level: 1,
-    category: POICategory.Stairs
-  },
-  {
-    id: null,
-    displayName: "Men's",
+    displayName: "Men's Bathroom",
 
     description: "JMBS first 1st floor men's washroom",
     location: {
@@ -1737,7 +1724,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Women's",
+    displayName: "Women's Bathroom",
 
     description: "JMBS first 1st floor women's washroom",
     location: {
@@ -1789,7 +1776,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Stars to second floor",
+    displayName: "Stairs to 2nd",
 
     description: "Stairs that only leads to second floor",
     location: {
@@ -1802,7 +1789,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Stars underground",
+    displayName: "Stairs to S1",
 
     description: "Stairs that can lead to S1 and the tunnel",
     location: {
@@ -1815,7 +1802,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: null,
-    displayName: "Stars Police St, side",
+    displayName: "Stairs",
 
     description: "Stairs that leads to any higher floor",
     location: {
@@ -1825,19 +1812,6 @@ export const POIInfo: POI[] = [
     buildingId: BuildingId.MB,
     level: 1,
     category: POICategory.Stairs
-  },
-  {
-    id: null,
-    displayName: "MB1.210 non-accessible",
-
-    description: "Non-accessible Exit/Entrance to atrium",
-    location: {
-      latitude: 45.49517832965781,
-      longitude: -73.5787479367138
-    },
-    buildingId: BuildingId.MB,
-    level: 1,
-    category: POICategory.Classroom
   },
   {
     id: null,
@@ -1877,19 +1851,6 @@ export const POIInfo: POI[] = [
     buildingId: BuildingId.MB,
     level: 1,
     category: POICategory.Classroom
-  },
-  {
-    id: null,
-    displayName: "Coffee Shop", //Need verification
-
-    description: "Restaurent to buy coffee an bakery",
-    location: {
-      latitude: 45.495424628262846,
-      longitude: -73.57943055890809
-    },
-    buildingId: BuildingId.MB,
-    level: 1,
-    category: POICategory.Restaurant
   }
 ];
 
