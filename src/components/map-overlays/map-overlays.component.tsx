@@ -31,12 +31,14 @@ const MapOverlays = ({
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
   useEffect(() => {
-    setFillColor(BUILDING_UNTAPPED);
-    setTappedColor(CONCORDIA_RED);
+    setTimeout(() => {
+      setFillColor(BUILDING_UNTAPPED);
+      setTappedColor(CONCORDIA_RED);
+    }, 50);
   }, []);
 
   return (
-    <View>
+    <>
       {zoomLevel === ZoomLevel.CAMPUS
         ? getAllCampuses().map((campus, index) => (
             <CustomMarker
@@ -73,7 +75,7 @@ const MapOverlays = ({
 
       {zoomLevel === ZoomLevel.OUTDOOR || zoomLevel === ZoomLevel.INDOOR
         ? Buildings.map((building, index) => (
-            <View key={index} style={{ zIndex: -1 }}>
+            <React.Fragment key={index}>
               <CustomMarker
                 markerType={"building"}
                 key={index}
@@ -87,7 +89,7 @@ const MapOverlays = ({
                     : building.displayName
                 }
               />
-            </View>
+            </React.Fragment>
           ))
         : null}
 
@@ -119,7 +121,7 @@ const MapOverlays = ({
             ))}
         </>
       ) : null}
-    </View>
+    </>
   );
 };
 
