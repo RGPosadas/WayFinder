@@ -14,6 +14,12 @@ interface IProps {
   onFloorPickerButtonPress: (index: number) => void;
 }
 
+/**
+ * Component for controlling indoor floors when in the indoor view.
+ *
+ * @param indoorInformation Indoor information object
+ * @param onFloorPickerButtonPress Function that handles floorpicker press event
+ */
 const FloorPicker = ({
   indoorInformation,
   onFloorPickerButtonPress

@@ -136,7 +136,7 @@ const MapScreen = () => {
   /**
    * Handles react-native-maps events for indoor floors.
    *
-   * @param event event object for indoor floor entry
+   * @param event The event object for indoor floor entry.
    */
   const onIndoorViewEntry = (event: any) => {
     const buildingInfo = event.nativeEvent.IndoorBuilding;

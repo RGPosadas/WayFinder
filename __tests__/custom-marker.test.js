@@ -22,7 +22,7 @@ describe("CustomMarker component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should run function on press", () => {
+  it("should run provided function on press", () => {
     const mockOnPress = jest.fn();
     const building = Buildings[0];
     const wrapper = shallow(
