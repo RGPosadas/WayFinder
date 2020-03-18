@@ -7,7 +7,7 @@ import CampusToggle from "../../components/campus-toggle/campus-toggle.component
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings } from "../../constants/buildings.data";
+import { Buildings, getBuildingById } from "../../constants/buildings.data";
 import BuildingLocation from "../../components/building-location/building-location.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
@@ -16,12 +16,20 @@ import {
   Region,
   BuildingId,
   IndoorInformation,
-  ZoomLevel
+  ZoomLevel,
+  IndoorFloor
 } from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import { getCampusById, getAllCampuses } from "../../constants/campus.data";
+import { getCampusById } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
+import { inRange } from "../../services/utility.service";
+import { screenRatio } from "../../constants/style";
+import {
+  indoorRange,
+  outdoorRange,
+  campusRange
+} from "../../constants/floors.data";
 
 /**
  * Screen for the Map and its Overlayed components
@@ -31,12 +39,10 @@ const MapScreen = () => {
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
-  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(
-    ZoomLevel.CAMPUS_MARKERS
-  );
+  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.CAMPUS);
   const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
     {
-      currentLevel: 0,
+      currentFloor: null,
       floors: []
     }
   );
@@ -54,6 +60,14 @@ const MapScreen = () => {
   const onBuildingTap = (tappedBuilding: BuildingId) => {
     setShowBuildingInfo(true);
     setTappedBuilding(tappedBuilding);
+    let building = getBuildingById(tappedBuilding);
+
+    mapRef.current.animateToRegion({
+      latitude: building.location.latitude,
+      longitude: building.location.longitude,
+      latitudeDelta: indoorRange.max * 0.95,
+      longitudeDelta: indoorRange.max * 0.95 * screenRatio
+    });
   };
 
   /**
@@ -116,43 +130,48 @@ const MapScreen = () => {
     });
   };
 
-  const onIndoorViewEntry = event => {
+  const onIndoorViewEntry = (event: any) => {
     const buildingInfo = event.nativeEvent.IndoorBuilding;
 
-    setIndoorInformation({
-      currentLevel: buildingInfo.activeLevelIndex,
-      floors: buildingInfo.levels.map(floor => {
-        return {
-          name: floor.name,
-          index: floor.index
-        };
-      })
+    let floors: IndoorFloor[] = buildingInfo.levels.map(floor => {
+      return {
+        level: Number(floor.name),
+        index: floor.index
+      };
     });
+
+    let currentFloor: IndoorFloor =
+      floors.length > 0
+        ? floors.filter(
+            floor => floor.index === buildingInfo.activeLevelIndex
+          )[0]
+        : null;
+    let temp: IndoorInformation = {
+      currentFloor: currentFloor,
+      floors: floors
+    };
+    setIndoorInformation(temp);
   };
 
   const onFloorPickerButtonPress = (index: number) => {
     mapRef.current.setIndoorActiveLevelIndex(index);
     setIndoorInformation({
-      currentLevel: index,
+      currentFloor: indoorInformation.floors.filter(
+        floor => floor.index === index
+      )[0],
       floors: indoorInformation.floors
     });
   };
 
   const handleOnRegionChange = (region: Region) => {
-    console.log(region);
     setCurrentRegion(region);
-
-    if (region.latitudeDelta <= 0.0025) {
-      console.log("ZoomLevel.INDOOR_FLOORS_AND_POI");
-      setZoomLevel(ZoomLevel.INDOOR_FLOORS_AND_POI);
-    } else if (region.latitudeDelta <= 0.02 && region.latitudeDelta > 0.0025) {
-      console.log("ZoomLevel.BUILDING_MARKERS_AND_POLYGONS");
-      setZoomLevel(ZoomLevel.BUILDING_MARKERS_AND_POLYGONS);
-    } else if (region.latitudeDelta <= 0.09 && region.latitudeDelta > 0.02) {
-      console.log("ZoomLevel.CAMPUS_MARKERS");
-      setZoomLevel(ZoomLevel.CAMPUS_MARKERS);
+    if (inRange(indoorRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.INDOOR);
+    } else if (inRange(outdoorRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.OUTDOOR);
+    } else if (inRange(campusRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.CAMPUS);
     } else {
-      console.log("ZoomLevel.NONE");
       setZoomLevel(ZoomLevel.NONE);
     }
   };
@@ -182,6 +201,7 @@ const MapScreen = () => {
             onBuildingTap={onBuildingTap}
             tappedBuilding={tappedBuilding}
             zoomLevel={zoomLevel}
+            indoorInformation={indoorInformation}
           />
         </MapView>
 
@@ -189,15 +209,15 @@ const MapScreen = () => {
 
         <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
 
+        <FloorPicker
+          indoorInformation={indoorInformation}
+          onFloorPickerButtonPress={onFloorPickerButtonPress}
+        />
+
         <BuildingInformation
           tappedBuilding={tappedBuilding}
           showBuildingInfo={showBuildingInfo}
           onClosePanel={onClosePanel}
-        />
-
-        <FloorPicker
-          indoorInformation={indoorInformation}
-          onFloorPickerButtonPress={onFloorPickerButtonPress}
         />
 
         <FlashMessage position="top" autoHide={true} floating={true} />

@@ -2,7 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { IndoorInformation } from "../../types/main";
-import { FLOOR_PICKER_HEIGHT, MAP_BUTTON_RIGHT } from "../../constants/style";
+import {
+  FLOOR_PICKER_HEIGHT,
+  MAP_BUTTON_RIGHT,
+  CONCORDIA_RED,
+  INACTIVE_BUTTON_COLOR
+} from "../../constants/style";
 
 interface IProps {
   indoorInformation: IndoorInformation;
@@ -13,60 +18,65 @@ const FloorPicker = ({
   indoorInformation,
   onFloorPickerButtonPress
 }: IProps) => {
+  console.log(indoorInformation);
   return (
-    <View style={styles.container}>
-      {indoorInformation.floors &&
-        indoorInformation.floors.map((floor, index) => {
-          return (
-            <TouchableOpacity
-              key={index}
-              style={
-                floor.index === indoorInformation.currentLevel
-                  ? styles.activatedfloorButton
-                  : styles.floorButton
-              }
-              onPress={() => onFloorPickerButtonPress(floor.index)}
-            >
-              <Text>{floor.name}</Text>
-            </TouchableOpacity>
-          );
-        })}
-    </View>
+    <>
+      {indoorInformation.floors.length > 0 &&
+      indoorInformation.currentFloor != null ? (
+        <View style={styles.container}>
+          {indoorInformation.floors &&
+            indoorInformation.floors.map((floor, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  style={
+                    floor.index === indoorInformation.currentFloor.index
+                      ? StyleSheet.flatten([
+                          styles.floorButton,
+                          { backgroundColor: CONCORDIA_RED }
+                        ])
+                      : StyleSheet.flatten([
+                          styles.floorButton,
+                          { backgroundColor: INACTIVE_BUTTON_COLOR }
+                        ])
+                  }
+                  onPress={() => onFloorPickerButtonPress(floor.index)}
+                >
+                  <Text style={styles.text}>{floor.level}</Text>
+                </TouchableOpacity>
+              );
+            })}
+        </View>
+      ) : null}
+    </>
   );
 };
 
-// Color for the active button
-const activeColor = "#AA2B45";
-
-// Color for the inactive button
-const inactiveColor = "#F2F2F2";
-
 const styles = StyleSheet.create({
   container: {
-    width: 50,
+    width: 45,
     display: "flex",
     flexDirection: "column",
     position: "absolute",
     bottom: FLOOR_PICKER_HEIGHT,
-    right: MAP_BUTTON_RIGHT
-  },
-  activatedfloorButton: {
-    flex: 1,
-    backgroundColor: activeColor,
-    textAlign: "center",
-    alignContent: "center",
-    alignItems: "center",
-    paddingBottom: 10,
-    paddingTop: 10
+    right: MAP_BUTTON_RIGHT,
+    borderRadius: 2,
+    borderWidth: 1,
+    borderColor: "rgba(0,0,0,0.2)"
   },
   floorButton: {
     flex: 1,
-    backgroundColor: inactiveColor,
+    backgroundColor: INACTIVE_BUTTON_COLOR,
     textAlign: "center",
     alignContent: "center",
     alignItems: "center",
-    paddingBottom: 10,
-    paddingTop: 10
+    paddingBottom: 8,
+    paddingTop: 10,
+    borderRadius: 2
+  },
+  text: {
+    fontWeight: "bold",
+    fontSize: 16
   }
 });
 

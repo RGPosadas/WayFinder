@@ -88,14 +88,24 @@ export enum ConnectorType {
 }
 
 export interface IndoorInformation {
-  currentLevel: number;
-  floors: { name: string; index: number }[];
+  currentFloor: IndoorFloor;
+  floors: IndoorFloor[];
+}
+
+export interface IndoorFloor {
+  level: number;
+  index: number;
 }
 
 export interface LinkItem {
   id: number;
   title: string;
   link: string;
+}
+
+export interface Range {
+  min: number;
+  max: number;
 }
 
 export enum CampusId {
@@ -176,9 +186,9 @@ export enum ZoomLevel {
   // Too far
   NONE,
   // Really zoomed out
-  CAMPUS_MARKERS,
+  CAMPUS,
   // Medium
-  BUILDING_MARKERS_AND_POLYGONS,
+  OUTDOOR,
   // Close
-  INDOOR_FLOORS_AND_POI
+  INDOOR
 }

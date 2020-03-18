@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Polygon, Overlay } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId, CampusId, ZoomLevel } from "../../types/main";
+import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
 import { View, StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -13,68 +13,85 @@ interface IProps {
   onBuildingTap: (id: BuildingId) => void;
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
+  indoorInformation: IndoorInformation;
 }
 
 /**
  * Wrapper Component for Polygons and Markers which overlay campus buildings.
  */
-const MapOverlays = ({ onBuildingTap, tappedBuilding, zoomLevel }: IProps) => {
+const MapOverlays = ({
+  onBuildingTap,
+  tappedBuilding,
+  zoomLevel,
+  indoorInformation
+}: IProps) => {
   /**
    * Fill color for the Polygons
    */
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
   useEffect(() => {
-    // setFillColor(BUILDING_UNTAPPED); //temp for placing indoor maps
-    setFillColor("rgba(0,0,0,0)");
+    setFillColor(BUILDING_UNTAPPED); //temp for placing indoor maps
     setTappedColor(CONCORDIA_RED);
   }, []);
 
   return (
     <View>
-      {zoomLevel === ZoomLevel.CAMPUS_MARKERS
+      {zoomLevel === ZoomLevel.CAMPUS
         ? getAllCampuses().map((campus, index) => (
             <CustomMarker
+              markerType={"campus"}
               key={index}
               location={campus.region}
-              text={CampusId[campus.id]}
+              text={campus.displayName}
               onPress={() => {}}
             />
           ))
         : null}
 
-      {zoomLevel === ZoomLevel.BUILDING_MARKERS_AND_POLYGONS ? (
+      {zoomLevel === ZoomLevel.OUTDOOR ? (
         <>
-          {Buildings.map((building, index) => (
-            <View key={index}>
-              {building.boundingBox.length > 0 ? (
-                <Polygon
-                  coordinates={building.boundingBox}
-                  tappable={true}
-                  fillColor={
-                    tappedBuilding != null && tappedBuilding === building.id
-                      ? tappedColor
-                      : fillColor
-                  }
-                  onPress={() => {
-                    onBuildingTap(building.id);
-                  }}
-                />
-              ) : null}
+          {Buildings.filter(building => building.boundingBox.length > 0).map(
+            (building, index) => (
+              <Polygon
+                key={index}
+                coordinates={building.boundingBox}
+                tappable={true}
+                fillColor={
+                  tappedBuilding != null && tappedBuilding === building.id
+                    ? tappedColor
+                    : fillColor
+                }
+                onPress={() => {
+                  onBuildingTap(building.id);
+                }}
+              />
+            )
+          )}
+        </>
+      ) : null}
 
+      {zoomLevel === ZoomLevel.OUTDOOR || zoomLevel === ZoomLevel.INDOOR
+        ? Buildings.map((building, index) => (
+            <View key={index} style={{ zIndex: -1 }}>
               <CustomMarker
+                markerType={"building"}
+                key={index}
                 location={building.location}
                 onPress={() => {
                   onBuildingTap(building.id);
                 }}
-                text={BuildingId[building.id]}
+                text={
+                  zoomLevel === ZoomLevel.OUTDOOR
+                    ? BuildingId[building.id]
+                    : building.displayName
+                }
               />
             </View>
-          ))}
-        </>
-      ) : null}
+          ))
+        : null}
 
-      {zoomLevel === ZoomLevel.INDOOR_FLOORS_AND_POI ? (
+      {zoomLevel === ZoomLevel.INDOOR ? (
         <>
           {floorOverlays.map(floorOverlay => (
             <Overlay
@@ -84,14 +101,22 @@ const MapOverlays = ({ onBuildingTap, tappedBuilding, zoomLevel }: IProps) => {
             />
           ))}
 
-          {getAllPOI().map((poi, index) => (
-            <CustomMarker
-              key={index}
-              location={poi.location}
-              text={poi.displayName}
-              onPress={() => {}}
-            />
-          ))}
+          {getAllPOI()
+            .filter(poi => {
+              if (indoorInformation.currentFloor == null) {
+                return true;
+              }
+              return poi.level === indoorInformation.currentFloor.level;
+            })
+            .map((poi, index) => (
+              <CustomMarker
+                markerType={"poi"}
+                key={index}
+                location={poi.location}
+                text={poi.displayName}
+                onPress={() => {}}
+              />
+            ))}
         </>
       ) : null}
     </View>

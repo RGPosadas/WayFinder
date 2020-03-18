@@ -2,14 +2,30 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Marker } from "react-native-maps";
 import { Location } from "../../types/main";
+import { CONCORDIA_RED } from "../../constants/style";
 
 interface IProps {
   location: Location;
   onPress: () => void;
   text: string;
+  markerType: "campus" | "building" | "poi";
 }
+let backgroundColor: string = CONCORDIA_RED;
+const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
+  /**
+   *
+   */
 
-const CustomMarker = ({ location, onPress, text }: IProps) => {
+  switch (markerType) {
+    case "campus":
+    case "poi":
+      backgroundColor = CONCORDIA_RED;
+      break;
+    case "building":
+      backgroundColor = "#252525";
+      break;
+  }
+
   return (
     <Marker
       coordinate={location}
@@ -18,11 +34,26 @@ const CustomMarker = ({ location, onPress, text }: IProps) => {
       tracksInfoWindowChanges={false}
     >
       <View style={styles.container}>
-        <View style={styles.bubble}>
+        <View
+          style={StyleSheet.flatten([
+            styles.bubble,
+            { backgroundColor: backgroundColor }
+          ])}
+        >
           <Text style={styles.text}>{text}</Text>
         </View>
-        <View style={styles.arrowBorder} />
-        <View style={styles.arrow} />
+        <View
+          style={StyleSheet.flatten([
+            styles.arrowBorder,
+            { borderTopColor: backgroundColor }
+          ])}
+        />
+        <View
+          style={StyleSheet.flatten([
+            styles.arrow,
+            { borderTopColor: backgroundColor }
+          ])}
+        />
       </View>
     </Marker>
   );
@@ -30,8 +61,7 @@ const CustomMarker = ({ location, onPress, text }: IProps) => {
 
 export default CustomMarker;
 
-const backgroundColor = "#252525";
-
+const constant = "#000000";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
@@ -41,10 +71,9 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: "row",
     alignSelf: "flex-start",
-    backgroundColor: backgroundColor,
+    // backgroundColor: backgroundColor,
     padding: 2,
-    borderRadius: 3,
-    borderWidth: 0.5
+    borderRadius: 3
   },
   text: {
     color: "#f0f0f0"
