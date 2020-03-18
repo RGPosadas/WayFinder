@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Polygon, Overlay } from "react-native-maps";
+import { Overlay } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { floorOverlays } from "../../constants/floors.data";
 import { getAllPOI } from "../../constants/poi.data";
 import CustomMarker from "../custom-marker/custom-marker.component";
+import CustomPolygon from "./custom-polygon.component";
 
 interface IProps {
   onBuildingTap: (id: BuildingId) => void;
@@ -30,11 +31,10 @@ const MapOverlays = ({
    */
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
+
   useEffect(() => {
-    setTimeout(() => {
-      setFillColor(BUILDING_UNTAPPED);
-      setTappedColor(CONCORDIA_RED);
-    }, 50);
+    setTappedColor(CONCORDIA_RED);
+    setFillColor(BUILDING_UNTAPPED);
   }, []);
 
   return (
@@ -51,14 +51,22 @@ const MapOverlays = ({
           ))
         : null}
 
+      {/**
+       * colors the bounding box of every building
+       */}
       {zoomLevel === ZoomLevel.OUTDOOR ? (
         <>
           {Buildings.filter(building => building.boundingBox.length > 0).map(
             (building, index) => (
-              <Polygon
-                key={index}
+              <CustomPolygon
+                key={building.id}
                 coordinates={building.boundingBox}
                 tappable={true}
+                onLayout={() =>
+                  this.polygon.setNativeProps({
+                    fillColor: BUILDING_UNTAPPED
+                  })
+                }
                 fillColor={
                   tappedBuilding != null && tappedBuilding === building.id
                     ? tappedColor
@@ -73,12 +81,15 @@ const MapOverlays = ({
         </>
       ) : null}
 
+      {/**
+       * Places a marker for every building
+       */}
       {zoomLevel === ZoomLevel.OUTDOOR || zoomLevel === ZoomLevel.INDOOR
         ? Buildings.map((building, index) => (
             <React.Fragment key={index}>
               <CustomMarker
                 markerType={"building"}
-                key={index}
+                key={building.id}
                 location={building.location}
                 onPress={() => {
                   onBuildingTap(building.id);
@@ -93,6 +104,9 @@ const MapOverlays = ({
           ))
         : null}
 
+      {/**
+       * Places a marker for every POI
+       */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
           {floorOverlays.map(floorOverlay => (
@@ -110,10 +124,10 @@ const MapOverlays = ({
               }
               return poi.level === indoorInformation.currentFloor.level;
             })
-            .map((poi, index) => (
+            .map(poi => (
               <CustomMarker
                 markerType={"poi"}
-                key={index}
+                key={poi.id}
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {}}

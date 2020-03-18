@@ -17,7 +17,7 @@ export interface IProps {
  *
  * @param onBuildingLocationPress Function called when the building location button is pressed.
  */
-const BuildingLocation = ({ onBuildingLocationPress }: IProps) => {
+const LocationButton = ({ onBuildingLocationPress }: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onBuildingLocationPress}>
@@ -45,4 +45,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BuildingLocation;
+export default LocationButton;

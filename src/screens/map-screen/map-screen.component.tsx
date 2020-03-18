@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef, lazy } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 import { RegionProvider } from "../../context/region.context";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings, getBuildingById } from "../../constants/buildings.data";
-import BuildingLocation from "../../components/building-location/building-location.component";
+import { Buildings } from "../../constants/buildings.data";
+import LocationButton from "../../components/location-button/location-button.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
 import {
@@ -22,7 +22,6 @@ import { getCampusById } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import { inRange } from "../../services/utility.service";
-import { screenRatio } from "../../constants/style";
 import {
   indoorRange,
   outdoorRange,
@@ -63,14 +62,6 @@ const MapScreen = () => {
   const onBuildingTap = (tappedBuilding: BuildingId) => {
     setShowBuildingInfo(true);
     setTappedBuilding(tappedBuilding);
-    let building = getBuildingById(tappedBuilding);
-
-    mapRef.current.animateToRegion({
-      latitude: building.location.latitude,
-      longitude: building.location.longitude,
-      latitudeDelta: indoorRange.max * 0.95,
-      longitudeDelta: indoorRange.max * 0.95 * screenRatio
-    });
   };
 
   /**
@@ -224,7 +215,7 @@ const MapScreen = () => {
 
         <CampusToggle onCampusToggle={onCampusToggle} />
 
-        <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
+        <LocationButton onBuildingLocationPress={onBuildingLocationPress} />
 
         <FloorPicker
           indoorInformation={indoorInformation}

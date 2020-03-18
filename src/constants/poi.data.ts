@@ -5,7 +5,7 @@ export const POIInfo: POI[] = [
   // HALL LEVEL 8
   // ------------------
   {
-    id: null,
+    id: 0,
     displayName: "Women's Bathroom",
     description: "",
     location: {
@@ -17,7 +17,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 1,
     displayName: "Men's Bathroom",
     description: "",
     location: {
@@ -29,7 +29,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 2,
     displayName: "Elevator",
     description: "",
     location: {
@@ -41,7 +41,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Elevator
   },
   {
-    id: null,
+    id: 3,
     displayName: "Escalators Up",
     description: "",
     location: {
@@ -53,7 +53,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: null,
+    id: 4,
     displayName: "Escalators Down",
     description: "",
     location: {
@@ -65,7 +65,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: null,
+    id: 5,
     displayName: "Stairs 1",
     description: "",
     location: {
@@ -77,7 +77,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 6,
     displayName: "Stairs 2",
     description: "",
     location: {
@@ -89,7 +89,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 7,
     displayName: "Stairs 3",
     description: "",
     location: {
@@ -101,7 +101,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 8,
     displayName: "Stairs 4",
     description: "",
     location: {
@@ -113,7 +113,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 9,
     displayName: "H801",
     description: "",
     location: {
@@ -125,7 +125,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 10,
     displayName: "H803",
     description: "",
     location: {
@@ -137,7 +137,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 11,
     displayName: "H805.01",
     description: "",
     location: {
@@ -149,7 +149,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 12,
     displayName: "H805.02",
     description: "",
     location: {
@@ -161,7 +161,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 13,
     displayName: "H805.03",
     description: "",
     location: {
@@ -173,7 +173,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 14,
     displayName: "H806.01",
     description: "",
     location: {
@@ -185,7 +185,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 15,
     displayName: "H806.02",
     description: "",
     location: {
@@ -197,7 +197,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 16,
     displayName: "H806.03",
     description: "",
     location: {
@@ -209,7 +209,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 17,
     displayName: "H807",
     description: "",
     location: {
@@ -221,7 +221,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 18,
     displayName: "H811",
     description: "",
     location: {
@@ -233,7 +233,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 19,
     displayName: "H813",
     description: "",
     location: {
@@ -245,7 +245,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 20,
     displayName: "H815",
     description: "",
     location: {
@@ -257,7 +257,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 21,
     displayName: "H817",
     description: "",
     location: {
@@ -269,7 +269,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 22,
     displayName: "H818",
     description: "",
     location: {
@@ -281,7 +281,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 23,
     displayName: "H819",
     description: "",
     location: {
@@ -293,7 +293,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 24,
     displayName: "H820",
     description: "",
     location: {
@@ -305,7 +305,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 25,
     displayName: "H821",
     description: "",
     location: {
@@ -317,7 +317,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 26,
     displayName: "H822",
     description: "",
     location: {
@@ -329,7 +329,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 27,
     displayName: "H823",
     description: "",
     location: {
@@ -341,7 +341,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 28,
     displayName: "H825",
     description: "",
     location: {
@@ -353,7 +353,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 29,
     displayName: "H827",
     description: "",
     location: {
@@ -365,7 +365,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 30,
     displayName: "H829",
     description: "",
     location: {
@@ -377,7 +377,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 31,
     displayName: "H831",
     description: "",
     location: {
@@ -389,7 +389,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 32,
     displayName: "H832.02",
     description: "",
     location: {
@@ -401,7 +401,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 33,
     displayName: "H832.05",
     description: "",
     location: {
@@ -413,7 +413,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 34,
     displayName: "H832.06",
     description: "",
     location: {
@@ -425,7 +425,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 35,
     displayName: "H835",
     description: "",
     location: {
@@ -437,7 +437,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 36,
     displayName: "H837",
     description: "",
     location: {
@@ -449,7 +449,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 37,
     displayName: "H839",
     description: "",
     location: {
@@ -461,7 +461,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 38,
     displayName: "H841",
     description: "",
     location: {
@@ -473,7 +473,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 39,
     displayName: "H843",
     description: "",
     location: {
@@ -485,7 +485,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 40,
     displayName: "H845",
     description: "",
     location: {
@@ -497,7 +497,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 41,
     displayName: "H847",
     description: "",
     location: {
@@ -509,7 +509,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 42,
     displayName: "H849",
     description: "",
     location: {
@@ -521,7 +521,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 43,
     displayName: "H851.01",
     description: "",
     location: {
@@ -533,7 +533,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 44,
     displayName: "H851.02",
     description: "",
     location: {
@@ -545,7 +545,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 45,
     displayName: "H851.03",
     description: "",
     location: {
@@ -557,7 +557,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 46,
     displayName: "H853",
     description: "",
     location: {
@@ -569,7 +569,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 47,
     displayName: "H854",
     description: "",
     location: {
@@ -581,7 +581,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 48,
     displayName: "H855",
     description: "",
     location: {
@@ -593,7 +593,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 49,
     displayName: "H857",
     description: "",
     location: {
@@ -605,7 +605,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 50,
     displayName: "H859",
     description: "",
     location: {
@@ -617,7 +617,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 51,
     displayName: "H860.01",
     description: "",
     location: {
@@ -629,7 +629,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 52,
     displayName: "H860.03",
     description: "",
     location: {
@@ -641,7 +641,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 53,
     displayName: "H860.04",
     description: "",
     location: {
@@ -653,7 +653,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 54,
     displayName: "H860.05",
     description: "",
     location: {
@@ -665,7 +665,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 55,
     displayName: "H860.06",
     description: "",
     location: {
@@ -677,7 +677,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 56,
     displayName: "H861",
     description: "",
     location: {
@@ -689,7 +689,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 57,
     displayName: "H863",
     description: "",
     location: {
@@ -701,7 +701,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 58,
     displayName: "H865",
     description: "",
     location: {
@@ -713,7 +713,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 59,
     displayName: "H867",
     description: "",
     location: {
@@ -729,7 +729,7 @@ export const POIInfo: POI[] = [
   // HALL LEVEL 9
   // ------------------
   {
-    id: null,
+    id: 60,
     displayName: "H961-33",
 
     description: "",
@@ -742,7 +742,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 61,
     displayName: "H961-31",
 
     description: "",
@@ -755,7 +755,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 62,
     displayName: "H961-29",
 
     description: "",
@@ -768,7 +768,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 63,
     displayName: "H961-27",
 
     description: "",
@@ -781,7 +781,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 64,
     displayName: "H961-25",
 
     description: "",
@@ -794,7 +794,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 65,
     displayName: "H961-23",
 
     description: "",
@@ -807,7 +807,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 66,
     displayName: "H961-21",
 
     description: "",
@@ -820,7 +820,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 67,
     displayName: "H961-19",
 
     description: "",
@@ -833,7 +833,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 68,
     displayName: "H961-17",
 
     description: "",
@@ -846,7 +846,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 69,
     displayName: "H961-15",
 
     description: "",
@@ -859,7 +859,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 70,
     displayName: "H961-13",
 
     description: "",
@@ -872,7 +872,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 71,
     displayName: "H961-11",
 
     description: "",
@@ -885,7 +885,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 72,
     displayName: "H961-9",
 
     description: "",
@@ -898,7 +898,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 73,
     displayName: "H961-7",
 
     description: "",
@@ -911,7 +911,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 74,
     displayName: "H961-3",
 
     description: "",
@@ -924,7 +924,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 75,
     displayName: "H961-1",
 
     description: "",
@@ -937,7 +937,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 76,
     displayName: "H961-2",
 
     description: "",
@@ -950,7 +950,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 77,
     displayName: "H961-4",
 
     description: "",
@@ -963,7 +963,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 78,
     displayName: "H961-6",
 
     description: "",
@@ -976,7 +976,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 79,
     displayName: "H961-10",
 
     description: "",
@@ -989,7 +989,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 80,
     displayName: "H961-8",
 
     description: "",
@@ -1002,7 +1002,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 81,
     displayName: "H961-26",
 
     description: "",
@@ -1015,7 +1015,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 82,
     displayName: "H961-28",
 
     description: "",
@@ -1028,7 +1028,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 83,
     displayName: "H961-30",
 
     description: "",
@@ -1041,7 +1041,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 84,
     displayName: "H966",
 
     description: "",
@@ -1054,7 +1054,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 85,
     displayName: "H962",
 
     description: "",
@@ -1067,7 +1067,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 86,
     displayName: "H959",
 
     description: "",
@@ -1080,7 +1080,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 87,
     displayName: "H961",
 
     description: "",
@@ -1093,7 +1093,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 88,
     displayName: "H963",
 
     description: "",
@@ -1106,7 +1106,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 89,
     displayName: "H967",
 
     description: "",
@@ -1119,7 +1119,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 90,
     displayName: "H901-3",
 
     description: "",
@@ -1132,7 +1132,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 91,
     displayName: "H901-1",
 
     description: "",
@@ -1145,7 +1145,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 92,
     displayName: "H905",
 
     description: "",
@@ -1158,7 +1158,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 93,
     displayName: "H907-1",
 
     description: "",
@@ -1171,7 +1171,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 94,
     displayName: "H907-2",
 
     description: "",
@@ -1184,7 +1184,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 95,
     displayName: "H909",
 
     description: "",
@@ -1197,7 +1197,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 96,
     displayName: "H911",
 
     description: "",
@@ -1210,7 +1210,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 97,
     displayName: "H913",
 
     description: "",
@@ -1223,7 +1223,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 98,
     displayName: "H915",
 
     description: "",
@@ -1236,7 +1236,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 99,
     displayName: "H917",
 
     description: "",
@@ -1249,7 +1249,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 100,
     displayName: "H919",
 
     description: "",
@@ -1262,7 +1262,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 101,
     displayName: "H921",
 
     description: "",
@@ -1275,7 +1275,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 102,
     displayName: "H923",
 
     description: "",
@@ -1288,7 +1288,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 103,
     displayName: "H920",
 
     description: "",
@@ -1301,7 +1301,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 104,
     displayName: "H925-2",
 
     description: "",
@@ -1314,7 +1314,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 105,
     displayName: "H925-1",
 
     description: "",
@@ -1327,7 +1327,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 106,
     displayName: "H927",
 
     description: "",
@@ -1340,7 +1340,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 107,
     displayName: "H929",
 
     description: "",
@@ -1353,7 +1353,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 108,
     displayName: "H931",
 
     description: "",
@@ -1366,7 +1366,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 109,
     displayName: "H933",
 
     description: "",
@@ -1379,7 +1379,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 110,
     displayName: "H937",
 
     description: "",
@@ -1392,7 +1392,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 111,
     displayName: "H930",
 
     description: "",
@@ -1405,7 +1405,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 112,
     displayName: "H932",
 
     description: "",
@@ -1418,7 +1418,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 113,
     displayName: "H928",
 
     description: "",
@@ -1431,7 +1431,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 114,
     displayName: "Women's Bathroom",
 
     description: "",
@@ -1444,7 +1444,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 115,
     displayName: "Men's Bathroom",
 
     description: "",
@@ -1457,7 +1457,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 116,
     displayName: "Escalator",
 
     description: "",
@@ -1470,7 +1470,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: null,
+    id: 117,
     displayName: "Stairs",
 
     description: "",
@@ -1483,7 +1483,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 118,
     displayName: "Elevator",
 
     description: "",
@@ -1499,7 +1499,7 @@ export const POIInfo: POI[] = [
   // LOYOLA CC1
   // ------------------
   {
-    id: null,
+    id: 119,
     displayName: "CC119",
 
     description: "",
@@ -1512,7 +1512,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 120,
     displayName: "CC122",
 
     description: "",
@@ -1525,7 +1525,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 121,
     displayName: "CC120",
 
     description: "",
@@ -1538,7 +1538,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 122,
     displayName: "CC118",
 
     description: "",
@@ -1551,7 +1551,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 123,
     displayName: "CC117",
 
     description: "",
@@ -1564,7 +1564,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 124,
     displayName: "CC116",
 
     description: "",
@@ -1577,7 +1577,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 125,
     displayName: "CC115",
 
     description: "",
@@ -1590,7 +1590,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 126,
     displayName: "CC112",
 
     description: "",
@@ -1603,7 +1603,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 127,
     displayName: "CC111",
 
     description: "",
@@ -1616,7 +1616,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 128,
     displayName: "CC109",
 
     description: "",
@@ -1629,7 +1629,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 129,
     displayName: "CC107",
 
     description: "",
@@ -1642,7 +1642,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 130,
     displayName: "CC106",
 
     description: "",
@@ -1655,7 +1655,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 131,
     displayName: "CC101",
 
     description: "",
@@ -1668,7 +1668,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 132,
     displayName: "CC104",
 
     description: "",
@@ -1684,7 +1684,7 @@ export const POIInfo: POI[] = [
   // SGW JMSB
   // ------------------
   {
-    id: null,
+    id: 133,
     displayName: "Maisonneuve Exit",
 
     description: "Exit/Entrance to JMSB and the corner of dM and Guy",
@@ -1697,7 +1697,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Exit
   },
   {
-    id: null,
+    id: 134,
     displayName: "Police St. Exit",
 
     description: "Exit/Entrance to JMSB and the corner of Police St. and Guy",
@@ -1710,7 +1710,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Exit
   },
   {
-    id: null,
+    id: 135,
     displayName: "Men's Bathroom",
 
     description: "JMBS first 1st floor men's washroom",
@@ -1723,7 +1723,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 136,
     displayName: "Women's Bathroom",
 
     description: "JMBS first 1st floor women's washroom",
@@ -1736,7 +1736,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: null,
+    id: 137,
     displayName: "Security",
 
     description: "Lost and founc and other related security services",
@@ -1749,7 +1749,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Service
   },
   {
-    id: null,
+    id: 138,
     displayName: "Elevators",
 
     description: "Fist 1st floor elevators",
@@ -1762,7 +1762,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Elevator
   },
   {
-    id: null,
+    id: 139,
     displayName: "Escalators",
 
     description: "Escalators that leads to tunnel",
@@ -1775,7 +1775,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: null,
+    id: 140,
     displayName: "Stairs to 2nd",
 
     description: "Stairs that only leads to second floor",
@@ -1788,7 +1788,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 141,
     displayName: "Stairs to S1",
 
     description: "Stairs that can lead to S1 and the tunnel",
@@ -1801,7 +1801,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 142,
     displayName: "Stairs",
 
     description: "Stairs that leads to any higher floor",
@@ -1814,7 +1814,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: null,
+    id: 143,
     displayName: "MB1.210",
 
     description: "Exit/Entrance to atrium",
@@ -1827,7 +1827,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 144,
     displayName: "MB1.333", //Need verification
 
     description: "Exit/Entrance to classroom",
@@ -1840,7 +1840,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: null,
+    id: 145,
     displayName: "MB1.666", //Need verification
 
     description: "Exit/Entrance to classroom",
