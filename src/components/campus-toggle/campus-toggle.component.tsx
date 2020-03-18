@@ -6,21 +6,22 @@ import {
   Dimensions,
   TouchableHighlight
 } from "react-native";
-
+import { CampusId, Region } from "../../types/main";
 import {
   CAMPUS_TOGGLE_HEIGHT,
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR
 } from "../../constants/style";
-import { CampusId, Region } from "../../types/main";
+import { getCampusById } from "../../constants/campus.data";
 
 interface IProps {
   onCampusToggle: (region: Region) => void;
 }
-import { getCampusById } from "../../constants/campus.data";
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
+ *
+ * @param onCampusToggle Function to handle campus toggle
  */
 const CampusToggle = ({ onCampusToggle }: IProps) => {
   const [isSGW, setIsSGW] = useState(true);

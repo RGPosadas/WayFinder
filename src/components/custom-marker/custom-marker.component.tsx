@@ -11,11 +11,16 @@ interface IProps {
   markerType: "campus" | "building" | "poi";
 }
 let backgroundColor: string = CONCORDIA_RED;
-const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
-  /**
-   *
-   */
 
+/**
+ * Custom component for rendering a marker with custom text and color
+ *
+ * @param location location for the marker
+ * @param onPress action to be done when marker is pressed
+ * @param text text of the marker
+ * @param markerType type of the marker
+ */
+const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
   switch (markerType) {
     case "campus":
     case "poi":
@@ -61,7 +66,6 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
 
 export default CustomMarker;
 
-const constant = "#000000";
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",

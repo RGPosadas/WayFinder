@@ -31,7 +31,7 @@ const MapOverlays = ({
   const [fillColor, setFillColor] = useState<string>(null);
   const [tappedColor, setTappedColor] = useState<string>(null);
   useEffect(() => {
-    setFillColor(BUILDING_UNTAPPED); //temp for placing indoor maps
+    setFillColor(BUILDING_UNTAPPED);
     setTappedColor(CONCORDIA_RED);
   }, []);
 

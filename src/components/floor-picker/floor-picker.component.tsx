@@ -18,7 +18,6 @@ const FloorPicker = ({
   indoorInformation,
   onFloorPickerButtonPress
 }: IProps) => {
-  console.log(indoorInformation);
   return (
     <>
       {indoorInformation.floors.length > 0 &&

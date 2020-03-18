@@ -1893,6 +1893,9 @@ export const POIInfo: POI[] = [
   }
 ];
 
+/**
+ * Get all Points of Interest
+ */
 export const getAllPOI = (): POI[] => {
   return POIInfo;
 };

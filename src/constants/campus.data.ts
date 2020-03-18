@@ -36,8 +36,7 @@ export const getCampusById = (id: CampusId): Campus => {
 };
 
 /**
- * Get Campus by id.
- * @param id Id of the campus
+ * Get All campuses
  */
 export const getAllCampuses = (): Campus[] => {
   return Campuses;

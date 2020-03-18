@@ -2499,6 +2499,11 @@ export const Buildings: Building[] = [
   }
 ];
 
+/**
+ * Returns a Building object based on its id.
+ *
+ * @param id id of the Building
+ */
 export const getBuildingById = (id: BuildingId): Building => {
   return Buildings.filter(building => building.id === id)[0];
 };

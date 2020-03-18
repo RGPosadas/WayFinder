@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, lazy } from "react";
 import { StyleSheet, View } from "react-native";
-
 import { RegionProvider } from "../../context/region.context";
-
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings, getBuildingById } from "../../constants/buildings.data";
@@ -32,10 +30,15 @@ import {
 } from "../../constants/floors.data";
 
 /**
- * Screen for the Map and its Overlayed components
+ * Screen for the Map and its related buttons and components
  */
 const MapScreen = () => {
-  const [currentRegion, setCurrentRegion] = useState<Region>(null);
+  const [currentRegion, setCurrentRegion] = useState<Region>({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0,
+    longitudeDelta: 0
+  });
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
@@ -54,8 +57,8 @@ const MapScreen = () => {
   const mapRef = useRef<MapView>();
 
   /**
-   * Handle
-   * @param {string buildingId} tappedBuilding
+   * Handle building tap event.
+   * @param tappedBuilding The id of the tapped building
    */
   const onBuildingTap = (tappedBuilding: BuildingId) => {
     setShowBuildingInfo(true);
@@ -79,7 +82,7 @@ const MapScreen = () => {
   };
 
   /**
-   * This functions animates the map view to the input region
+   * This functions handles the campus toggle event
    * @param region The region to animate to
    */
   const onCampusToggle = (region: Region) => {
@@ -130,6 +133,11 @@ const MapScreen = () => {
     });
   };
 
+  /**
+   * Handles react-native-maps events for indoor floors.
+   *
+   * @param event event object for indoor floor entry
+   */
   const onIndoorViewEntry = (event: any) => {
     const buildingInfo = event.nativeEvent.IndoorBuilding;
 
@@ -153,6 +161,11 @@ const MapScreen = () => {
     setIndoorInformation(temp);
   };
 
+  /**
+   * Handles presses on the floor picker
+   *
+   * @param index Index of the active floor
+   */
   const onFloorPickerButtonPress = (index: number) => {
     mapRef.current.setIndoorActiveLevelIndex(index);
     setIndoorInformation({
@@ -163,6 +176,10 @@ const MapScreen = () => {
     });
   };
 
+  /**
+   *
+   * @param region Current region of the map
+   */
   const handleOnRegionChange = (region: Region) => {
     setCurrentRegion(region);
     if (inRange(indoorRange, region.latitudeDelta)) {

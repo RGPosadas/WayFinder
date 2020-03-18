@@ -7,10 +7,6 @@ import {
   MAP_BUTTON_RIGHT
 } from "../../constants/style";
 
-/**
- * the name and types of the properties types accepted
- * by the BuildingLocation component
- */
 export interface IProps {
   onBuildingLocationPress: () => void;
 }
