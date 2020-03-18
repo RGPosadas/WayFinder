@@ -13,7 +13,10 @@ jasmine.getEnv().addReporter(adapter);
 jasmine.getEnv().addReporter(specReporter);
 
 beforeAll(async () => {
-  await detox.init(config);
+  await detox.init(config, {launchApp: false});
+  await device.launchApp({permissions: {
+    location: "always"
+  }});
 }, 300000);
 
 beforeEach(async () => {

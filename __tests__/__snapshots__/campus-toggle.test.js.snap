@@ -26,6 +26,7 @@ exports[`CampusToggle component should match snapshot 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={null}
+    testID="SGWButton"
   >
     <View
       style={
@@ -68,6 +69,7 @@ exports[`CampusToggle component should match snapshot 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={null}
+    testID="loyolaButton"
   >
     <View
       style={

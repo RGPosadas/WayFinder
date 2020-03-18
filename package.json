@@ -6,7 +6,8 @@
     "eject": "expo eject",
     "ios": "expo start --ios",
     "start": "expo start",
-    "test": "jest --verbose --coverage",
+    "test": "jest __tests__ --verbose --coverage",
+    "e2e": "detox test",
     "web": "expo start --web",
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
     "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
@@ -84,7 +85,7 @@
       "ios.sim": {
         "binaryPath": "bin/Exponent.app",
         "type": "ios.simulator",
-        "name": "iPhone 8"
+        "name": "iPhone 11 Pro Max"
       }
     }
   }
