@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Marker } from "react-native-maps";
 import { Location } from "../../types/main";
-import { CONCORDIA_RED } from "../../constants/style";
+import { CONCORDIA_RED, BUILDING_MARKER_COLOR } from "../../constants/style";
 
 interface IProps {
   location: Location;
@@ -27,12 +27,13 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
       backgroundColor = CONCORDIA_RED;
       break;
     case "building":
-      backgroundColor = "#252525";
+      backgroundColor = BUILDING_MARKER_COLOR;
       break;
   }
 
   return (
     <Marker
+      testID={"marker"}
       coordinate={location}
       onPress={onPress}
       tracksViewChanges={false}
@@ -40,6 +41,7 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
     >
       <View style={styles.container}>
         <View
+          testID={"bubble"}
           style={StyleSheet.flatten([
             styles.bubble,
             { backgroundColor: backgroundColor }

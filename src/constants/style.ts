@@ -10,6 +10,7 @@ export const FLOOR_PICKER_HEIGHT = BUILDING_LOCATION_HEIGHT + 80;
 export const CONCORDIA_RED = "#AA2B45";
 export const BUILDING_UNTAPPED = "#dba4a8";
 export const INACTIVE_BUTTON_COLOR = "#F2F2F2";
+export const BUILDING_MARKER_COLOR = "#252525";
 
 // Dimensions
 export const screenHeight = Dimensions.get("window").height;
