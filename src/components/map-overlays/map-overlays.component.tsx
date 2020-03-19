@@ -50,6 +50,7 @@ const MapOverlays = ({
               location={campus.region}
               text={campus.displayName}
               onPress={() => {}}
+              testID={"marker" + campus.id}
             />
           ))
         : null}
@@ -73,6 +74,7 @@ const MapOverlays = ({
                 onPress={() => {
                   onBuildingTap(building.id);
                 }}
+                testID={"polygon" + BuildingId[building.id]}
               />
             )
           )}
@@ -89,7 +91,7 @@ const MapOverlays = ({
                 markerType="building"
                 key={building.id}
                 location={building.location}
-                onPress={() => {
+                onPress={() =>
                   onBuildingTap(building.id);
                 }}
                 text={
@@ -97,6 +99,7 @@ const MapOverlays = ({
                     ? BuildingId[building.id]
                     : building.displayName
                 }
+                testID={"marker" + BuildingId[building.id]}
               />
             </React.Fragment>
           ))
@@ -131,6 +134,7 @@ const MapOverlays = ({
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {}}
+                testID={"poi" + poi.id}
               />
             ))}
         </>
