@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomMarker component should match snapshot 1`] = `
+<AIRMapMarker
+  coordinate={
+    Object {
+      "latitude": 45.49729998360628,
+      "longitude": -73.57890789359567,
+    }
+  }
+  onPress={[Function]}
+  stopPropagation={false}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "transparent",
+        "position": "absolute",
+      },
+      undefined,
+    ]
+  }
+  testID="marker"
+  tracksInfoWindowChanges={false}
+  tracksViewChanges={false}
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "flex-start",
+        "flexDirection": "column",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignSelf": "flex-start",
+          "backgroundColor": "#252525",
+          "borderRadius": 3,
+          "flex": 0,
+          "flexDirection": "row",
+          "padding": 2,
+        }
+      }
+      testID="bubble"
+    >
+      <Text
+        style={
+          Object {
+            "color": "#f0f0f0",
+          }
+        }
+      >
+        asdf
+      </Text>
+    </View>
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "transparent",
+          "borderTopColor": "#252525",
+          "borderWidth": 4,
+          "marginTop": -0.5,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "backgroundColor": "transparent",
+          "borderColor": "transparent",
+          "borderTopColor": "#252525",
+          "borderWidth": 4,
+          "marginTop": -9,
+        }
+      }
+    />
+  </View>
+</AIRMapMarker>
+`;

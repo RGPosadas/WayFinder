@@ -2,14 +2,13 @@ import React from "react";
 import { StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
-import { CAMPUS_TOGGLE_HEIGHT } from "../../constants/style";
+import {
+  BUILDING_LOCATION_HEIGHT,
+  MAP_BUTTON_RIGHT
+} from "../../constants/style";
 
-/**
- * the name and types of the properties types accepted
- * by the BuildingLocation component
- */
 export interface IProps {
-  onBuildingLocationPress: () => void;
+  onLocationButtonPress: () => void;
 }
 
 /**
@@ -18,10 +17,10 @@ export interface IProps {
  *
  * @param onBuildingLocationPress Function called when the building location button is pressed.
  */
-const BuildingLocation = ({ onBuildingLocationPress }: IProps) => {
+const LocationButton = ({ onLocationButtonPress }: IProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onBuildingLocationPress}>
+      <TouchableOpacity style={styles.button} onPress={onLocationButtonPress}>
         <MaterialIcons name="my-location" size={32} />
       </TouchableOpacity>
     </View>
@@ -31,8 +30,8 @@ const BuildingLocation = ({ onBuildingLocationPress }: IProps) => {
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    bottom: CAMPUS_TOGGLE_HEIGHT + 30,
-    right: 20
+    bottom: BUILDING_LOCATION_HEIGHT,
+    right: MAP_BUTTON_RIGHT
   },
   button: {
     borderWidth: 1,
@@ -46,4 +45,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BuildingLocation;
+export default LocationButton;

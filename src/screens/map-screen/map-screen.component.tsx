@@ -1,29 +1,53 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
-
 import { RegionProvider } from "../../context/region.context";
-
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import BuildingHighlights from "../../components/building-highlights/building-highlights.component";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
-import BuildingLocation from "../../components/building-location/building-location.component";
+import LocationButton from "../../components/location-button/location-button.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
 import { isPointInPolygon } from "geolib";
-import { Location, Region, BuildingId } from "../../types/main";
+import {
+  Location,
+  Region,
+  BuildingId,
+  IndoorInformation,
+  ZoomLevel,
+  IndoorFloor
+} from "../../types/main";
 import FlashMessage, { showMessage } from "react-native-flash-message";
-import { getCampus } from "../../constants/campus.data";
+import { getCampusById } from "../../constants/campus.data";
 import { CampusId } from "../../types/main";
+import FloorPicker from "../../components/floor-picker/floor-picker.component";
+import { inRange } from "../../services/utility.service";
+import {
+  indoorRange,
+  outdoorRange,
+  campusRange
+} from "../../constants/floors.data";
 
 /**
- * Screen for the Map and its Overlayed components
+ * Screen for the Map and its related buttons and components
  */
 const MapScreen = () => {
-  const [region, setRegion] = useState<Region>(null);
+  const [currentRegion, setCurrentRegion] = useState<Region>({
+    latitude: 0,
+    longitude: 0,
+    latitudeDelta: 0,
+    longitudeDelta: 0
+  });
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
   const [currentLocation, setCurrentLocation] = useState<Location>(null);
+  const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.CAMPUS);
+  const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
+    {
+      currentFloor: null,
+      floors: []
+    }
+  );
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -32,8 +56,8 @@ const MapScreen = () => {
   const mapRef = useRef<MapView>();
 
   /**
-   * Handle
-   * @param {string buildingId} tappedBuilding
+   * Handle building tap event.
+   * @param tappedBuilding The id of the tapped building
    */
   const onBuildingTap = (tappedBuilding: BuildingId) => {
     setShowBuildingInfo(true);
@@ -49,7 +73,7 @@ const MapScreen = () => {
   };
 
   /**
-   * This functions animates the map view to the input region
+   * This functions handles the campus toggle event
    * @param region The region to animate to
    */
   const onCampusToggle = (region: Region) => {
@@ -63,7 +87,7 @@ const MapScreen = () => {
    * perform point-polygon collision detection to find which building the
    * user is in.
    */
-  const onBuildingLocationPress = (): void => {
+  const onLocationButtonPress = (): void => {
     getCurrentLocationAsync().then(response => {
       // Set current location
       setCurrentLocation({
@@ -74,8 +98,8 @@ const MapScreen = () => {
       mapRef.current.animateToRegion({
         latitude: response.coords.latitude,
         longitude: response.coords.longitude,
-        latitudeDelta: region.latitudeDelta,
-        longitudeDelta: region.longitudeDelta
+        latitudeDelta: currentRegion.latitudeDelta,
+        longitudeDelta: currentRegion.longitudeDelta
       });
 
       // Attemp to find the building the user is in.
@@ -101,14 +125,74 @@ const MapScreen = () => {
   };
 
   /**
+   * Handles react-native-maps events for indoor floors.
+   *
+   * @param event The event object for indoor floor entry.
+   */
+  const onIndoorViewEntry = (event: any) => {
+    const buildingInfo = event.nativeEvent.IndoorBuilding;
+
+    let floors: IndoorFloor[] = buildingInfo.levels.map(floor => {
+      return {
+        level: Number(floor.name),
+        index: floor.index
+      };
+    });
+
+    let currentFloor: IndoorFloor =
+      floors.length > 0
+        ? floors.filter(
+            floor => floor.index === buildingInfo.activeLevelIndex
+          )[0]
+        : null;
+    let temp: IndoorInformation = {
+      currentFloor: currentFloor,
+      floors: floors
+    };
+    setIndoorInformation(temp);
+  };
+
+  /**
+   * Handles presses on the floor picker
+   *
+   * @param index Index of the active floor
+   */
+  const onFloorPickerButtonPress = (index: number) => {
+    mapRef.current.setIndoorActiveLevelIndex(index);
+    setIndoorInformation({
+      currentFloor: indoorInformation.floors.filter(
+        floor => floor.index === index
+      )[0],
+      floors: indoorInformation.floors
+    });
+  };
+
+  /**
+   *
+   * @param region Current region of the map
+   */
+  const handleOnRegionChange = (region: Region) => {
+    setCurrentRegion(region);
+    if (inRange(indoorRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.INDOOR);
+    } else if (inRange(outdoorRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.OUTDOOR);
+    } else if (inRange(campusRange, region.latitudeDelta)) {
+      setZoomLevel(ZoomLevel.CAMPUS);
+    } else {
+      setZoomLevel(ZoomLevel.NONE);
+    }
+  };
+
+  /**
    * Set the region to the SGW campus when this component mounts
    */
   useEffect(() => {
-    setRegion(getCampus(CampusId.SGW).region);
+    setCurrentRegion(getCampusById(CampusId.SGW).region);
   }, []);
 
   return (
-    <RegionProvider value={region}>
+    <RegionProvider value={currentRegion}>
       <View style={styles.container}>
         <MapView
           ref={mapRef}
@@ -117,24 +201,34 @@ const MapScreen = () => {
           showsCompass={true}
           showsBuildings={true}
           showsUserLocation={true}
-          initialRegion={region}
-          onRegionChangeComplete={region => setRegion(region)}
+          initialRegion={currentRegion}
+          onRegionChangeComplete={region => handleOnRegionChange(region)}
+          onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
         >
-          <BuildingHighlights
+          <MapOverlays
             onBuildingTap={onBuildingTap}
             tappedBuilding={tappedBuilding}
+            zoomLevel={zoomLevel}
+            indoorInformation={indoorInformation}
           />
         </MapView>
 
         <CampusToggle onCampusToggle={onCampusToggle} />
 
-        <BuildingLocation onBuildingLocationPress={onBuildingLocationPress} />
-        <FlashMessage position="top" autoHide={true} floating={true} />
+        <LocationButton onLocationButtonPress={onLocationButtonPress} />
+
+        <FloorPicker
+          indoorInformation={indoorInformation}
+          onFloorPickerButtonPress={onFloorPickerButtonPress}
+        />
+
         <BuildingInformation
           tappedBuilding={tappedBuilding}
           showBuildingInfo={showBuildingInfo}
           onClosePanel={onClosePanel}
         />
+
+        <FlashMessage position="top" autoHide={true} floating={true} />
       </View>
     </RegionProvider>
   );
@@ -149,6 +243,13 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
     zIndex: 0
+  },
+  campusToggle: {
+    position: "absolute",
+    bottom: 0
+  },
+  marker: {
+    backgroundColor: "red"
   }
 });
 

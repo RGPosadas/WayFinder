@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BuildingLocation component should match snapshot 1`] = `
+exports[`LocationButton component should match snapshot 1`] = `
 <View
   style={
     Object {
       "bottom": 110,
       "position": "absolute",
-      "right": 20,
+      "right": 10,
     }
   }
 >

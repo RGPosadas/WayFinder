@@ -31,6 +31,13 @@ const Campuses: Campus[] = [
  * Get Campus by id.
  * @param id Id of the campus
  */
-export const getCampus = (id: CampusId): Campus => {
+export const getCampusById = (id: CampusId): Campus => {
   return Campuses.filter(campus => campus.id === id)[0];
+};
+
+/**
+ * Get All campuses
+ */
+export const getAllCampuses = (): Campus[] => {
+  return Campuses;
 };

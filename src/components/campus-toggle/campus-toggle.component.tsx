@@ -6,14 +6,13 @@ import {
   Dimensions,
   TouchableHighlight
 } from "react-native";
-
+import { CampusId, Region } from "../../types/main";
 import {
   CAMPUS_TOGGLE_HEIGHT,
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR
 } from "../../constants/style";
-import { getCampus } from "../../constants/campus.data";
-import { CampusId, Region } from "../../types/main";
+import { getCampusById } from "../../constants/campus.data";
 
 interface IProps {
   onCampusToggle: (region: Region) => void;
@@ -21,6 +20,8 @@ interface IProps {
 
 /**
  * Component for toggling the MapView region between the 2 Concordia Campuses
+ *
+ * @param onCampusToggle Function to handle campus toggle
  */
 const CampusToggle = ({ onCampusToggle }: IProps) => {
   const [isSGW, setIsSGW] = useState(true);
@@ -30,7 +31,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    onCampusToggle(getCampus(CampusId.SGW).region);
+    onCampusToggle(getCampusById(CampusId.SGW).region);
   };
 
   /**
@@ -38,7 +39,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    onCampusToggle(getCampus(CampusId.Loyola).region);
+    onCampusToggle(getCampusById(CampusId.Loyola).region);
   };
 
   return (
