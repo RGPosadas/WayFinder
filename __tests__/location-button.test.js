@@ -1,21 +1,21 @@
 import React from "react";
-import BuildingLocation from "../src/components/building-location/building-location.component";
+import LocationButton from "../src/components/location-button/location-button.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 
-describe("BuildingLocation component", () => {
+describe("LocationButton component", () => {
   it("should match snapshot", () => {
-    const tree = renderer.create(<BuildingLocation />).toJSON();
+    const tree = renderer.create(<LocationButton />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("should call onBuildingLocationPress after button press", () => {
-    const mockOnBuildingLocationPress = jest.fn();
+  it("should call LocationButton after button press", () => {
+    const mockOnLocationButtonPress = jest.fn();
     const wrapper = shallow(
-      <BuildingLocation onBuildingLocationPress={mockOnBuildingLocationPress} />
+      <LocationButton onLocationButtonPress={mockOnLocationButtonPress} />
     );
     const button = wrapper.find("View TouchableOpacity");
     button.simulate("press");
-    expect(mockOnBuildingLocationPress).toHaveBeenCalledTimes(1);
+    expect(mockOnLocationButtonPress).toHaveBeenCalledTimes(1);
   });
 });

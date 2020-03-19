@@ -87,7 +87,7 @@ const MapScreen = () => {
    * perform point-polygon collision detection to find which building the
    * user is in.
    */
-  const onBuildingLocationPress = (): void => {
+  const onLocationButtonPress = (): void => {
     getCurrentLocationAsync().then(response => {
       // Set current location
       setCurrentLocation({
@@ -215,7 +215,7 @@ const MapScreen = () => {
 
         <CampusToggle onCampusToggle={onCampusToggle} />
 
-        <LocationButton onBuildingLocationPress={onBuildingLocationPress} />
+        <LocationButton onLocationButtonPress={onLocationButtonPress} />
 
         <FloorPicker
           indoorInformation={indoorInformation}

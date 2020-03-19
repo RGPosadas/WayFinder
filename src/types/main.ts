@@ -32,7 +32,7 @@ export interface Campus {
 }
 
 export interface IndoorLocation {
-  id: number;
+  id: string;
   displayName: string;
   buildingId: BuildingId;
   level: number;
@@ -68,25 +68,6 @@ export interface FloorOverlay {
   image: any;
 }
 
-export enum POICategory {
-  Classroom,
-  Washroom,
-  Restaurant,
-  Association,
-  Elevator,
-  Escalator,
-  Stairs,
-  Exit,
-  Service
-}
-
-export enum ConnectorType {
-  Elevator,
-  Stairs,
-  Ramp,
-  Escalator
-}
-
 export interface IndoorInformation {
   currentFloor: IndoorFloor;
   floors: IndoorFloor[];
@@ -95,12 +76,6 @@ export interface IndoorInformation {
 export interface IndoorFloor {
   level: number;
   index: number;
-}
-
-export interface LinkItem {
-  id: number;
-  title: string;
-  link: string;
 }
 
 export interface Range {
@@ -191,4 +166,23 @@ export enum ZoomLevel {
   OUTDOOR,
   // Close
   INDOOR
+}
+
+export enum POICategory {
+  Classroom,
+  Washroom,
+  Restaurant,
+  Association,
+  Elevator,
+  Escalator,
+  Stairs,
+  Exit,
+  Service
+}
+
+export enum ConnectorType {
+  Elevator,
+  Stairs,
+  Ramp,
+  Escalator
 }

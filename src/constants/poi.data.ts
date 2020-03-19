@@ -5,7 +5,7 @@ export const POIInfo: POI[] = [
   // HALL LEVEL 8
   // ------------------
   {
-    id: 0,
+    id: "d24c5c62-3e13-4414-bcfd-77fd1e237d23",
     displayName: "Women's Bathroom",
     description: "",
     location: {
@@ -17,7 +17,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 1,
+    id: "a70f66dc-dc4d-4b84-b202-e8de5d1c81cf",
     displayName: "Men's Bathroom",
     description: "",
     location: {
@@ -29,7 +29,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 2,
+    id: "058086ab-58be-4174-a34d-d0dd7e80014f",
     displayName: "Elevator",
     description: "",
     location: {
@@ -41,7 +41,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Elevator
   },
   {
-    id: 3,
+    id: "07366816-4ca4-47b5-808f-ba034508bd10",
     displayName: "Escalators Up",
     description: "",
     location: {
@@ -53,7 +53,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: 4,
+    id: "f1b0422b-63f2-471e-919d-21d7cffbaa87",
     displayName: "Escalators Down",
     description: "",
     location: {
@@ -65,7 +65,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: 5,
+    id: "8c28ea3e-73ad-46d2-9031-5edec3c83187",
     displayName: "Stairs 1",
     description: "",
     location: {
@@ -77,7 +77,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 6,
+    id: "c4541028-739d-4651-b9f5-dc4d54054807",
     displayName: "Stairs 2",
     description: "",
     location: {
@@ -89,7 +89,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 7,
+    id: "f5a7d95c-170b-48c9-aac3-e9faafa6033d",
     displayName: "Stairs 3",
     description: "",
     location: {
@@ -101,7 +101,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 8,
+    id: "f3cf704f-18b3-471a-b27f-be9175f7a5fa",
     displayName: "Stairs 4",
     description: "",
     location: {
@@ -113,7 +113,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 9,
+    id: "a9462139-ef45-4d40-b5ca-52cfebcc26d2",
     displayName: "H801",
     description: "",
     location: {
@@ -125,7 +125,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 10,
+    id: "f6546526-c00d-468b-9c6d-6d42ca44387d",
     displayName: "H803",
     description: "",
     location: {
@@ -137,7 +137,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 11,
+    id: "5180cae3-9b97-45d8-b647-0a21b9a159e6",
     displayName: "H805.01",
     description: "",
     location: {
@@ -149,7 +149,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 12,
+    id: "ac600efa-ed9b-48a6-a576-53e3a0588bf1",
     displayName: "H805.02",
     description: "",
     location: {
@@ -161,7 +161,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 13,
+    id: "f34b033e-cf72-45dc-a90e-055cb9e351f5",
     displayName: "H805.03",
     description: "",
     location: {
@@ -173,7 +173,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 14,
+    id: "64e3185c-ad0f-4a61-882e-9f3ec7bed8e4",
     displayName: "H806.01",
     description: "",
     location: {
@@ -185,7 +185,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 15,
+    id: "a633c606-a3ec-4568-82cd-0356db4cc5fa",
     displayName: "H806.02",
     description: "",
     location: {
@@ -197,7 +197,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 16,
+    id: "99e57c1b-308a-41e2-a5a8-f370f63220c3",
     displayName: "H806.03",
     description: "",
     location: {
@@ -209,7 +209,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 17,
+    id: "3ac8ea7e-0e62-480a-9a86-0f465b570719",
     displayName: "H807",
     description: "",
     location: {
@@ -221,7 +221,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 18,
+    id: "87323dd1-e3fc-4562-b844-fdc7bb45ed1f",
     displayName: "H811",
     description: "",
     location: {
@@ -233,7 +233,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 19,
+    id: "2d618f80-4b64-47b4-bd8d-128ab4dccdf5",
     displayName: "H813",
     description: "",
     location: {
@@ -245,7 +245,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 20,
+    id: "851fd47f-0df4-4c76-ace4-6d37c63a9d16",
     displayName: "H815",
     description: "",
     location: {
@@ -257,7 +257,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 21,
+    id: "0bef5deb-770a-4250-82d2-1140d8019c83",
     displayName: "H817",
     description: "",
     location: {
@@ -269,7 +269,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 22,
+    id: "deac3745-4662-4a38-b660-a7989451345c",
     displayName: "H818",
     description: "",
     location: {
@@ -281,7 +281,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 23,
+    id: "1da76043-0a3d-414f-8f9a-a4386e8fd990",
     displayName: "H819",
     description: "",
     location: {
@@ -293,7 +293,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 24,
+    id: "47fb3f6a-6122-4bde-8c6c-a4791894af10",
     displayName: "H820",
     description: "",
     location: {
@@ -305,7 +305,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 25,
+    id: "e766f54b-8a19-4579-aa72-2e8b740332c8",
     displayName: "H821",
     description: "",
     location: {
@@ -317,7 +317,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 26,
+    id: "52357cbc-9c36-4b59-8325-ff3c6aa82a84",
     displayName: "H822",
     description: "",
     location: {
@@ -329,7 +329,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 27,
+    id: "4cc147c9-d597-4110-9638-f582db80d698",
     displayName: "H823",
     description: "",
     location: {
@@ -341,7 +341,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 28,
+    id: "0e37f222-873e-4ff0-b575-d3686f0e23b5",
     displayName: "H825",
     description: "",
     location: {
@@ -353,7 +353,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 29,
+    id: "23a1ff92-5990-44fc-9758-27f8bc43c181",
     displayName: "H827",
     description: "",
     location: {
@@ -365,7 +365,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 30,
+    id: "58f9fd26-ec00-47ec-aa34-e907f3dbbbf6",
     displayName: "H829",
     description: "",
     location: {
@@ -377,7 +377,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 31,
+    id: "821ba553-fc19-470f-a6ef-f52c9ca75344",
     displayName: "H831",
     description: "",
     location: {
@@ -389,7 +389,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 32,
+    id: "11251422-f70e-45d3-96ac-a85ddef24a88",
     displayName: "H832.02",
     description: "",
     location: {
@@ -401,7 +401,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 33,
+    id: "36e72bc6-dc26-4aa9-be0d-fa6aca0fc02d",
     displayName: "H832.05",
     description: "",
     location: {
@@ -413,7 +413,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 34,
+    id: "7cd8f614-d239-4c89-afd4-8ac91aaf417d",
     displayName: "H832.06",
     description: "",
     location: {
@@ -425,7 +425,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 35,
+    id: "5772ea65-4059-4550-924f-220376df41be",
     displayName: "H835",
     description: "",
     location: {
@@ -437,7 +437,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 36,
+    id: "13b28caa-5896-4130-b1cf-8734c0dea317",
     displayName: "H837",
     description: "",
     location: {
@@ -449,7 +449,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 37,
+    id: "29d27c64-0134-40bc-9aca-41a8312a574d",
     displayName: "H839",
     description: "",
     location: {
@@ -461,7 +461,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 38,
+    id: "a61a7cfb-5ae3-49e5-97f2-7bb248220bdd",
     displayName: "H841",
     description: "",
     location: {
@@ -473,7 +473,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 39,
+    id: "47733232-bb96-4cd9-a588-5211dee6ecd1",
     displayName: "H843",
     description: "",
     location: {
@@ -485,7 +485,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 40,
+    id: "f9233bcc-7ea9-4e80-b960-65bd966c1cfe",
     displayName: "H845",
     description: "",
     location: {
@@ -497,7 +497,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 41,
+    id: "9a330d9c-c8b8-4682-aa56-6c1598c944cb",
     displayName: "H847",
     description: "",
     location: {
@@ -509,7 +509,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 42,
+    id: "f23ebbb1-ccdb-4ad9-923f-b3a7c629f27c",
     displayName: "H849",
     description: "",
     location: {
@@ -521,7 +521,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 43,
+    id: "d55857f8-815a-4d75-8492-cee856b95445",
     displayName: "H851.01",
     description: "",
     location: {
@@ -533,7 +533,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 44,
+    id: "6572e10d-c845-4673-8259-f3a1461d7fc5",
     displayName: "H851.02",
     description: "",
     location: {
@@ -545,7 +545,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 45,
+    id: "af7b3f16-597d-438c-9bae-b4327f082a56",
     displayName: "H851.03",
     description: "",
     location: {
@@ -557,7 +557,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 46,
+    id: "7cc5ad9f-1b74-44b2-98a7-726774c0cf05",
     displayName: "H853",
     description: "",
     location: {
@@ -569,7 +569,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 47,
+    id: "4f7887d0-a1b1-4987-a5d9-e72ed3afab9b",
     displayName: "H854",
     description: "",
     location: {
@@ -581,7 +581,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 48,
+    id: "480750a8-3cbf-4bff-8279-dca9089786dc",
     displayName: "H855",
     description: "",
     location: {
@@ -593,7 +593,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 49,
+    id: "d0cb722c-0219-4e84-8f28-de94d8081f13",
     displayName: "H857",
     description: "",
     location: {
@@ -605,7 +605,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 50,
+    id: "05f64dbb-9fe1-48a3-a771-40fdaadf090a",
     displayName: "H859",
     description: "",
     location: {
@@ -617,7 +617,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 51,
+    id: "e941c71f-973a-4739-aedb-acf49f512cff",
     displayName: "H860.01",
     description: "",
     location: {
@@ -629,7 +629,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 52,
+    id: "1f4c3a6a-312a-475c-b945-3b1dad4129ac",
     displayName: "H860.03",
     description: "",
     location: {
@@ -641,7 +641,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 53,
+    id: "3748d9f7-19ec-4c83-8051-021fb22d01b2",
     displayName: "H860.04",
     description: "",
     location: {
@@ -653,7 +653,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 54,
+    id: "a42db2d1-a757-480f-8260-d68701e9cbba",
     displayName: "H860.05",
     description: "",
     location: {
@@ -665,7 +665,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 55,
+    id: "32d13041-6dec-4236-be75-3f3cbde206e6",
     displayName: "H860.06",
     description: "",
     location: {
@@ -677,7 +677,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 56,
+    id: "246f2cb5-183d-4c66-81d4-1102b1ce4ab8",
     displayName: "H861",
     description: "",
     location: {
@@ -689,7 +689,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 57,
+    id: "2ebe71b6-1cc4-4da9-8102-50adb682aa08",
     displayName: "H863",
     description: "",
     location: {
@@ -701,7 +701,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 58,
+    id: "d0385cbe-80bc-466b-9641-ea2ce9461a13",
     displayName: "H865",
     description: "",
     location: {
@@ -713,7 +713,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 59,
+    id: "858febe6-9b56-46da-a432-5b18431c7fac",
     displayName: "H867",
     description: "",
     location: {
@@ -729,7 +729,7 @@ export const POIInfo: POI[] = [
   // HALL LEVEL 9
   // ------------------
   {
-    id: 60,
+    id: "266f079d-7033-4546-9724-eb634fea4a22",
     displayName: "H961-33",
 
     description: "",
@@ -742,7 +742,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 61,
+    id: "f84b6d0f-453a-47b4-8038-3ebe8eaf9e33",
     displayName: "H961-31",
 
     description: "",
@@ -755,7 +755,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 62,
+    id: "e36e76d3-36c8-468a-b57b-f15daacf7f0d",
     displayName: "H961-29",
 
     description: "",
@@ -768,7 +768,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 63,
+    id: "8f4f0f48-e43f-43b7-9936-068268eee4ac",
     displayName: "H961-27",
 
     description: "",
@@ -781,7 +781,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 64,
+    id: "095fa404-bb34-4bcf-9a9e-27ca90afc197",
     displayName: "H961-25",
 
     description: "",
@@ -794,7 +794,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 65,
+    id: "01a6a388-3ab0-4d60-b2ba-2cf3c8625542",
     displayName: "H961-23",
 
     description: "",
@@ -807,7 +807,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 66,
+    id: "8b54c148-1288-44f9-9b98-a3bd3238f3e9",
     displayName: "H961-21",
 
     description: "",
@@ -820,7 +820,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 67,
+    id: "1d774dcc-6fed-4596-bee4-5adead3c1dfc",
     displayName: "H961-19",
 
     description: "",
@@ -833,7 +833,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 68,
+    id: "4772ab52-ecf7-4711-990d-86b4c53871e4",
     displayName: "H961-17",
 
     description: "",
@@ -846,7 +846,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 69,
+    id: "6d2a6e24-6d6e-4811-806d-8f26c253172c",
     displayName: "H961-15",
 
     description: "",
@@ -859,7 +859,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 70,
+    id: "8194adef-b60d-43de-8b71-103c318ba901",
     displayName: "H961-13",
 
     description: "",
@@ -872,7 +872,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 71,
+    id: "063fdb60-a42b-4434-b2b6-cddedd56d174",
     displayName: "H961-11",
 
     description: "",
@@ -885,7 +885,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 72,
+    id: "fcc8c9ec-d174-47ce-ac71-3ca8055ae78a",
     displayName: "H961-9",
 
     description: "",
@@ -898,7 +898,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 73,
+    id: "74e61a00-ebb9-46ad-a9c4-31376a9554e1",
     displayName: "H961-7",
 
     description: "",
@@ -911,7 +911,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 74,
+    id: "568577e2-581d-4334-87b2-7ae09eb9a292",
     displayName: "H961-3",
 
     description: "",
@@ -924,7 +924,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 75,
+    id: "378a3778-0f43-4b9c-a8a6-3ec7250a7a9c",
     displayName: "H961-1",
 
     description: "",
@@ -937,7 +937,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 76,
+    id: "f9691e16-3463-4544-b5ff-b7b490ca762b",
     displayName: "H961-2",
 
     description: "",
@@ -950,7 +950,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 77,
+    id: "26afc0d3-1674-4c40-97ba-bc0155773adf",
     displayName: "H961-4",
 
     description: "",
@@ -963,7 +963,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 78,
+    id: "62871210-f24f-4c5b-9d31-0e6111640a94",
     displayName: "H961-6",
 
     description: "",
@@ -976,7 +976,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 79,
+    id: "519076a6-4414-4ab8-ba85-80459b6971e9",
     displayName: "H961-10",
 
     description: "",
@@ -989,7 +989,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 80,
+    id: "0979a843-2d4c-4284-9019-ac9fc7641eb5",
     displayName: "H961-8",
 
     description: "",
@@ -1002,7 +1002,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 81,
+    id: "31184f57-3719-4c50-9a5c-edcf3316e0b2",
     displayName: "H961-26",
 
     description: "",
@@ -1015,7 +1015,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 82,
+    id: "31e9dc15-7637-42c3-a9fd-2b78d91622ce",
     displayName: "H961-28",
 
     description: "",
@@ -1028,7 +1028,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 83,
+    id: "4bea728a-a32b-4ea1-a181-db1cedc2a1ec",
     displayName: "H961-30",
 
     description: "",
@@ -1041,7 +1041,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 84,
+    id: "fcf24b42-ab75-42d4-9668-f175434b1c47",
     displayName: "H966",
 
     description: "",
@@ -1054,7 +1054,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 85,
+    id: "851d0ec5-b4e6-434d-8cba-c01d64092263",
     displayName: "H962",
 
     description: "",
@@ -1067,7 +1067,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 86,
+    id: "ef35a6d7-5150-4596-b4b0-2626c3db7aeb",
     displayName: "H959",
 
     description: "",
@@ -1080,7 +1080,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 87,
+    id: "79f48da6-9367-4a2b-8d4c-4afdbd74a954",
     displayName: "H961",
 
     description: "",
@@ -1093,7 +1093,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 88,
+    id: "e76607aa-d878-4efd-a9c8-5b5b500fd93f",
     displayName: "H963",
 
     description: "",
@@ -1106,7 +1106,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 89,
+    id: "d7f892df-089f-4c49-b49c-71134fe84ff6",
     displayName: "H967",
 
     description: "",
@@ -1119,7 +1119,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 90,
+    id: "b97817c4-c459-4a88-8bd6-57c23db7917d",
     displayName: "H901-3",
 
     description: "",
@@ -1132,7 +1132,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 91,
+    id: "47a9cb04-95a0-4299-b304-62a73bde1052",
     displayName: "H901-1",
 
     description: "",
@@ -1145,7 +1145,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 92,
+    id: "b5b7c84f-7546-470a-8377-427488e4f480",
     displayName: "H905",
 
     description: "",
@@ -1158,7 +1158,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 93,
+    id: "0fcca97d-17c5-4e8e-8451-66ca5691c082",
     displayName: "H907-1",
 
     description: "",
@@ -1171,7 +1171,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 94,
+    id: "d66b48c4-c068-42a8-a0de-2688947f3738",
     displayName: "H907-2",
 
     description: "",
@@ -1184,7 +1184,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 95,
+    id: "6a6c030c-5ace-4767-a799-a35a84cef76f",
     displayName: "H909",
 
     description: "",
@@ -1197,7 +1197,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 96,
+    id: "39673728-de58-4756-b482-7b74106ac8ed",
     displayName: "H911",
 
     description: "",
@@ -1210,7 +1210,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 97,
+    id: "91070dd4-e26b-4f38-bbf7-82f048e32375",
     displayName: "H913",
 
     description: "",
@@ -1223,7 +1223,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 98,
+    id: "12063fe2-f655-49f9-a57a-6a8f87202a5a",
     displayName: "H915",
 
     description: "",
@@ -1236,7 +1236,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 99,
+    id: "67b24ede-1182-4e3d-b239-05a0130860f3",
     displayName: "H917",
 
     description: "",
@@ -1249,7 +1249,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 100,
+    id: "9f45791d-7ee4-4dcc-b29c-b4857c7590f5",
     displayName: "H919",
 
     description: "",
@@ -1262,7 +1262,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 101,
+    id: "0c921c7b-467a-4069-ae74-436ca33fb2b9",
     displayName: "H921",
 
     description: "",
@@ -1275,7 +1275,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 102,
+    id: "b5f4461f-fc5e-47dd-9646-dccaaff4b1cc",
     displayName: "H923",
 
     description: "",
@@ -1288,7 +1288,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 103,
+    id: "6b545421-ed5c-45ec-888f-f980e65a7ae6",
     displayName: "H920",
 
     description: "",
@@ -1301,7 +1301,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 104,
+    id: "388a2c73-ce31-46d8-9f77-675ef48ee3d7",
     displayName: "H925-2",
 
     description: "",
@@ -1314,7 +1314,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 105,
+    id: "78d257f6-e93e-4279-9eb4-9921959dcaf8",
     displayName: "H925-1",
 
     description: "",
@@ -1327,7 +1327,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 106,
+    id: "6f5cb64d-706d-4807-ac1b-ed01fcbc7602",
     displayName: "H927",
 
     description: "",
@@ -1340,7 +1340,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 107,
+    id: "8aa00403-e5dc-4518-b46c-d2f2d0120d0f",
     displayName: "H929",
 
     description: "",
@@ -1353,7 +1353,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 108,
+    id: "43ea35e4-93a8-41a6-84ad-68aea94caeb8",
     displayName: "H931",
 
     description: "",
@@ -1366,7 +1366,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 109,
+    id: "58722b25-083f-41a6-a7e5-2be4b8c71943",
     displayName: "H933",
 
     description: "",
@@ -1379,7 +1379,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 110,
+    id: "befdfa2a-e2be-455d-befa-1dacc53d9ddd",
     displayName: "H937",
 
     description: "",
@@ -1392,7 +1392,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 111,
+    id: "63105679-2d75-4c9d-8c1d-84b1fca9eb28",
     displayName: "H930",
 
     description: "",
@@ -1405,7 +1405,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 112,
+    id: "a7d0c94a-4902-4292-802e-bd71496cf4d8",
     displayName: "H932",
 
     description: "",
@@ -1418,7 +1418,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 113,
+    id: "083f4e24-37be-450b-93db-678d9646c745",
     displayName: "H928",
 
     description: "",
@@ -1431,7 +1431,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 114,
+    id: "c069eb38-736e-40e1-b6f9-a06a531c71b0",
     displayName: "Women's Bathroom",
 
     description: "",
@@ -1444,7 +1444,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 115,
+    id: "ee1d2161-e599-4181-80eb-226dea97eabe",
     displayName: "Men's Bathroom",
 
     description: "",
@@ -1457,7 +1457,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 116,
+    id: "f45af436-f9bb-40b8-97c5-8526ad68ac55",
     displayName: "Escalator",
 
     description: "",
@@ -1470,7 +1470,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: 117,
+    id: "a15f5890-eb65-4a05-a578-08d4cabe254d",
     displayName: "Stairs",
 
     description: "",
@@ -1483,7 +1483,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 118,
+    id: "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd",
     displayName: "Elevator",
 
     description: "",
@@ -1499,7 +1499,7 @@ export const POIInfo: POI[] = [
   // LOYOLA CC1
   // ------------------
   {
-    id: 119,
+    id: "77f179c1-4347-47b5-a6b1-c37f5c66bcbd",
     displayName: "CC119",
 
     description: "",
@@ -1512,7 +1512,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 120,
+    id: "d38dfd52-23bc-495a-830d-cd32e7d7f594",
     displayName: "CC122",
 
     description: "",
@@ -1525,7 +1525,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 121,
+    id: "4e9f0b24-92dc-4783-8153-c1ae398658bf",
     displayName: "CC120",
 
     description: "",
@@ -1538,7 +1538,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 122,
+    id: "f2d99335-80cf-40fc-bb48-7189a86536fc",
     displayName: "CC118",
 
     description: "",
@@ -1551,7 +1551,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 123,
+    id: "fe802e50-65b8-4971-87ff-1b3c0ef284c7",
     displayName: "CC117",
 
     description: "",
@@ -1564,7 +1564,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 124,
+    id: "18b0c8bb-28f7-4e52-bd8d-3e0515678ee7",
     displayName: "CC116",
 
     description: "",
@@ -1577,7 +1577,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 125,
+    id: "89faa68e-0664-4dfe-9e3e-659448f0e858",
     displayName: "CC115",
 
     description: "",
@@ -1590,7 +1590,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 126,
+    id: "181e2ee4-59f8-4331-9478-1cbcc4f63c67",
     displayName: "CC112",
 
     description: "",
@@ -1603,7 +1603,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 127,
+    id: "ff63d075-8254-4d72-877a-ea83689ee59a",
     displayName: "CC111",
 
     description: "",
@@ -1616,7 +1616,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 128,
+    id: "77baa2c8-2be8-4f8a-9a6f-3fa00afd6848",
     displayName: "CC109",
 
     description: "",
@@ -1629,7 +1629,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 129,
+    id: "3c77418d-d8c2-4348-bae1-6096810de6de",
     displayName: "CC107",
 
     description: "",
@@ -1642,7 +1642,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 130,
+    id: "7f974e7d-74e3-454c-a124-fd0a424c865a",
     displayName: "CC106",
 
     description: "",
@@ -1655,7 +1655,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 131,
+    id: "9485ed46-a4df-4d3d-bb9b-03e96878cfd6",
     displayName: "CC101",
 
     description: "",
@@ -1668,7 +1668,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 132,
+    id: "ccdbd91b-88c8-4104-b5ff-724bb6de8331",
     displayName: "CC104",
 
     description: "",
@@ -1684,7 +1684,7 @@ export const POIInfo: POI[] = [
   // SGW JMSB
   // ------------------
   {
-    id: 133,
+    id: "106ed45e-c8ec-4d12-aa90-01131e117c2f",
     displayName: "Maisonneuve Exit",
 
     description: "Exit/Entrance to JMSB and the corner of dM and Guy",
@@ -1697,7 +1697,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Exit
   },
   {
-    id: 134,
+    id: "7fc86bc6-bc8e-4d2e-a8b0-e6b08d0cdcd9",
     displayName: "Police St. Exit",
 
     description: "Exit/Entrance to JMSB and the corner of Police St. and Guy",
@@ -1710,7 +1710,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Exit
   },
   {
-    id: 135,
+    id: "8819617a-ad2e-4090-b929-8ee8c0951dc1",
     displayName: "Men's Bathroom",
 
     description: "JMBS first 1st floor men's washroom",
@@ -1723,7 +1723,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 136,
+    id: "988db119-e9ac-450a-8e8c-23a41a17922f",
     displayName: "Women's Bathroom",
 
     description: "JMBS first 1st floor women's washroom",
@@ -1736,7 +1736,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Washroom
   },
   {
-    id: 137,
+    id: "57fc8cce-59bf-4574-a0e6-078a0b2f601f",
     displayName: "Security",
 
     description: "Lost and founc and other related security services",
@@ -1749,7 +1749,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Service
   },
   {
-    id: 138,
+    id: "cc35c44c-a0e1-45c0-b5ce-1f397dd79d24",
     displayName: "Elevators",
 
     description: "Fist 1st floor elevators",
@@ -1762,7 +1762,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Elevator
   },
   {
-    id: 139,
+    id: "c9dc168e-1711-4351-a84f-91b2f78afc1f",
     displayName: "Escalators",
 
     description: "Escalators that leads to tunnel",
@@ -1775,7 +1775,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Escalator
   },
   {
-    id: 140,
+    id: "66ff54b3-f49e-4b54-af8b-28edb00c1d2a",
     displayName: "Stairs to 2nd",
 
     description: "Stairs that only leads to second floor",
@@ -1788,7 +1788,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 141,
+    id: "ce79cf8b-a536-4aec-b3f9-9e4fcc99ef5e",
     displayName: "Stairs to S1",
 
     description: "Stairs that can lead to S1 and the tunnel",
@@ -1801,7 +1801,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 142,
+    id: "938b52f7-caf0-41b7-9b6f-c8239c2b51ee",
     displayName: "Stairs",
 
     description: "Stairs that leads to any higher floor",
@@ -1814,7 +1814,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Stairs
   },
   {
-    id: 143,
+    id: "b61d6510-8933-4497-aea4-6a24123170e8",
     displayName: "MB1.210",
 
     description: "Exit/Entrance to atrium",
@@ -1827,7 +1827,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 144,
+    id: "827ffa92-c0d3-44d5-bde1-751af95c675f",
     displayName: "MB1.333", //Need verification
 
     description: "Exit/Entrance to classroom",
@@ -1840,7 +1840,7 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
-    id: 145,
+    id: "f98956d7-eca8-4633-a196-6a97e5346206",
     displayName: "MB1.666", //Need verification
 
     description: "Exit/Entrance to classroom",

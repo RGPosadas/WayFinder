@@ -8,7 +8,7 @@ import {
 } from "../../constants/style";
 
 export interface IProps {
-  onBuildingLocationPress: () => void;
+  onLocationButtonPress: () => void;
 }
 
 /**
@@ -17,10 +17,10 @@ export interface IProps {
  *
  * @param onBuildingLocationPress Function called when the building location button is pressed.
  */
-const LocationButton = ({ onBuildingLocationPress }: IProps) => {
+const LocationButton = ({ onLocationButtonPress }: IProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onBuildingLocationPress}>
+      <TouchableOpacity style={styles.button} onPress={onLocationButtonPress}>
         <MaterialIcons name="my-location" size={32} />
       </TouchableOpacity>
     </View>

@@ -7,7 +7,7 @@ import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { floorOverlays } from "../../constants/floors.data";
 import { getAllPOI } from "../../constants/poi.data";
-import CustomMarker from "../custom-marker/custom-marker.component";
+import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
 
 interface IProps {
@@ -39,6 +39,9 @@ const MapOverlays = ({
 
   return (
     <>
+      {/**
+       * Adds a marker for each campus
+       */}
       {zoomLevel === ZoomLevel.CAMPUS
         ? getAllCampuses().map((campus, index) => (
             <CustomMarker
@@ -52,21 +55,16 @@ const MapOverlays = ({
         : null}
 
       {/**
-       * colors the bounding box of every building
+       * Adds a polygon for each building
        */}
       {zoomLevel === ZoomLevel.OUTDOOR ? (
         <>
           {Buildings.filter(building => building.boundingBox.length > 0).map(
-            (building, index) => (
+            building => (
               <CustomPolygon
                 key={building.id}
                 coordinates={building.boundingBox}
                 tappable={true}
-                onLayout={() =>
-                  this.polygon.setNativeProps({
-                    fillColor: BUILDING_UNTAPPED
-                  })
-                }
                 fillColor={
                   tappedBuilding != null && tappedBuilding === building.id
                     ? tappedColor
@@ -82,7 +80,7 @@ const MapOverlays = ({
       ) : null}
 
       {/**
-       * Places a marker for every building
+       * Adds a marker for each building
        */}
       {zoomLevel === ZoomLevel.OUTDOOR || zoomLevel === ZoomLevel.INDOOR
         ? Buildings.map((building, index) => (
@@ -105,7 +103,7 @@ const MapOverlays = ({
         : null}
 
       {/**
-       * Places a marker for every POI
+       * Adds a polygon for each POI
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>

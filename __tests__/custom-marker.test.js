@@ -1,9 +1,8 @@
-import CustomMarker from "../src/components/custom-marker/custom-marker.component";
+import CustomMarker from "../src/components/map-overlays/custom-marker.component";
 import { Buildings } from "../src/constants/buildings.data";
 import renderer from "react-test-renderer";
 import React from "react";
 import { shallow } from "enzyme";
-import { Marker } from "react-native-maps";
 import { BUILDING_MARKER_COLOR } from "../src/constants/style";
 
 describe("CustomMarker component", () => {
