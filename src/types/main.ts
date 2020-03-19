@@ -1,5 +1,3 @@
-import { LatLng } from "react-native-maps";
-
 export interface Location {
   latitude: number;
   longitude: number;
@@ -58,19 +56,12 @@ export interface LinkItem {
   link: string;
 }
 
-export interface BuildingFloor {
+export interface FloorOverlay {
   id: number;
   buildingId: BuildingId;
   level: number;
   bounds: [Coordinate, Coordinate];
   image: any;
-  travelNodes: TravelNode[];
-}
-
-export interface TravelNode {
-  id: number;
-  location: Location;
-  children: number[];
 }
 
 export interface IndoorInformation {

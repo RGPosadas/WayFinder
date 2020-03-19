@@ -6,12 +6,13 @@ import {
   Dimensions,
   ScrollView,
   StyleSheet,
-  Linking
+  Linking,
+  Animated
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
+import { AntDesign, Feather } from "@expo/vector-icons";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
-import { AntDesign, Feather } from "@expo/vector-icons";
 import { CONCORDIA_RED } from "../../constants/style";
 
 const { height } = Dimensions.get("window");
@@ -24,7 +25,6 @@ interface IProps {
 
 interface IState {
   allowDragging: boolean;
-  swiped: boolean;
 }
 
 /**
@@ -32,12 +32,14 @@ interface IState {
  */
 class BuildingInformation extends React.Component<IProps, IState> {
   _panel: SlidingUpPanel;
+
+  _draggedValue: Animated.Value;
+
   constructor(props) {
     super(props);
 
     this.state = {
-      allowDragging: true,
-      swiped: false
+      allowDragging: true
     };
   }
 
@@ -48,12 +50,15 @@ class BuildingInformation extends React.Component<IProps, IState> {
       showBuildingInfo
     } = this.props;
     const draggableRange = { top: height / 2, bottom: 105 };
+    const { allowDragging } = this.state;
 
     return (
       <SlidingUpPanel
-        allowDragging={this.state.allowDragging}
+        allowDragging={allowDragging}
         draggableRange={draggableRange}
+        /*eslint-disable */
         animatedValue={this._draggedValue}
+        /* eslint-enable */
         showBackdrop={false}
         ref={c => (this._panel = c)}
         // Speed of the panel
@@ -70,7 +75,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
             >
               <Feather name="x" size={40} color="white" />
             </TouchableOpacity>
-            {Buildings.filter(building => building.id == tappedBuildingId).map(
+            {Buildings.filter(building => building.id === tappedBuildingId).map(
               (building, key) => {
                 return (
                   <View key={key}>
@@ -93,11 +98,19 @@ class BuildingInformation extends React.Component<IProps, IState> {
                     <ScrollView
                       style={styles.scrollView}
                       onTouchStart={() =>
-                        this.setState({ allowDragging: false })
+                        this.setState({
+                          allowDragging: false
+                        })
                       }
-                      onTouchEnd={() => this.setState({ allowDragging: true })}
+                      onTouchEnd={() =>
+                        this.setState({
+                          allowDragging: true
+                        })
+                      }
                       onTouchCancel={() =>
-                        this.setState({ allowDragging: true })
+                        this.setState({
+                          allowDragging: true
+                        })
                       }
                     >
                       <View style={styles.buildingInformation}>

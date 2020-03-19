@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
-import { StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
-import { buildingFloors } from "../../constants/floors.data";
+import { floorOverlays } from "../../constants/floors.data";
 import { getAllPOI } from "../../constants/poi.data";
 import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
@@ -45,7 +44,7 @@ const MapOverlays = ({
       {zoomLevel === ZoomLevel.CAMPUS
         ? getAllCampuses().map((campus, index) => (
             <CustomMarker
-              markerType={"campus"}
+              markerType="campus"
               key={index}
               location={campus.region}
               text={campus.displayName}
@@ -64,7 +63,7 @@ const MapOverlays = ({
               <CustomPolygon
                 key={building.id}
                 coordinates={building.boundingBox}
-                tappable={true}
+                tappable
                 fillColor={
                   tappedBuilding != null && tappedBuilding === building.id
                     ? tappedColor
@@ -86,7 +85,7 @@ const MapOverlays = ({
         ? Buildings.map((building, index) => (
             <React.Fragment key={index}>
               <CustomMarker
-                markerType={"building"}
+                markerType="building"
                 key={building.id}
                 location={building.location}
                 onPress={() => {
@@ -107,15 +106,13 @@ const MapOverlays = ({
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
-          {buildingFloors
-            .filter(floor => floor.bounds != null && floor.image != null)
-            .map(floor => (
-              <Overlay
-                key={floor.id}
-                bounds={floor.bounds}
-                image={floor.image}
-              />
-            ))}
+          {floorOverlays.map(floorOverlay => (
+            <Overlay
+              key={floorOverlay.id}
+              bounds={floorOverlay.bounds}
+              image={floorOverlay.image}
+            />
+          ))}
 
           {getAllPOI()
             .filter(poi => {
@@ -126,7 +123,7 @@ const MapOverlays = ({
             })
             .map(poi => (
               <CustomMarker
-                markerType={"poi"}
+                markerType="poi"
                 key={poi.id}
                 location={poi.location}
                 text={poi.displayName}
@@ -138,14 +135,5 @@ const MapOverlays = ({
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  marker: {
-    backgroundColor: "#252525",
-    color: "#f0f0f0",
-    padding: 1,
-    borderRadius: 5
-  }
-});
 
 export default MapOverlays;

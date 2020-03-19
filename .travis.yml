@@ -13,4 +13,5 @@ script:
   - pre-commit run -a
   - npm install -g expo-cli --loglevel=error
   - npm install --log-level=error
+  - npm run lint
   - npm test

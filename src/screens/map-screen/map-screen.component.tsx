@@ -1,32 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import { isPointInPolygon } from "geolib";
+import FlashMessage, { showMessage } from "react-native-flash-message";
 import { RegionProvider } from "../../context/region.context";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
 import LocationButton from "../../components/location-button/location-button.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
-import { isPointInPolygon } from "geolib";
 import {
   Location,
   Region,
   BuildingId,
   IndoorInformation,
   ZoomLevel,
-  IndoorFloor
+  IndoorFloor,
+  CampusId
 } from "../../types/main";
-import FlashMessage, { showMessage } from "react-native-flash-message";
 import { getCampusById } from "../../constants/campus.data";
-import { CampusId } from "../../types/main";
+
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import { inRange } from "../../services/utility.service";
 import {
   indoorRange,
   outdoorRange,
   campusRange
-} from "../../constants/zoom-range.data";
+} from "../../constants/floors.data";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -132,22 +133,22 @@ const MapScreen = () => {
   const onIndoorViewEntry = (event: any) => {
     const buildingInfo = event.nativeEvent.IndoorBuilding;
 
-    let floors: IndoorFloor[] = buildingInfo.levels.map(floor => {
+    const floors: IndoorFloor[] = buildingInfo.levels.map(floor => {
       return {
         level: Number(floor.name),
         index: floor.index
       };
     });
 
-    let currentFloor: IndoorFloor =
+    const currentFloor: IndoorFloor =
       floors.length > 0
         ? floors.filter(
             floor => floor.index === buildingInfo.activeLevelIndex
           )[0]
         : null;
-    let temp: IndoorInformation = {
-      currentFloor: currentFloor,
-      floors: floors
+    const temp: IndoorInformation = {
+      currentFloor,
+      floors
     };
     setIndoorInformation(temp);
   };
@@ -158,6 +159,7 @@ const MapScreen = () => {
    * @param index Index of the active floor
    */
   const onFloorPickerButtonPress = (index: number) => {
+    // @ts-ignore
     mapRef.current.setIndoorActiveLevelIndex(index);
     setIndoorInformation({
       currentFloor: indoorInformation.floors.filter(
@@ -198,11 +200,12 @@ const MapScreen = () => {
           ref={mapRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
-          showsCompass={true}
-          showsBuildings={true}
-          showsUserLocation={true}
+          showsCompass
+          showsBuildings
+          showsUserLocation
           initialRegion={currentRegion}
           onRegionChangeComplete={region => handleOnRegionChange(region)}
+          // @ts-ignore
           onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
         >
           <MapOverlays
@@ -228,7 +231,7 @@ const MapScreen = () => {
           onClosePanel={onClosePanel}
         />
 
-        <FlashMessage position="top" autoHide={true} floating={true} />
+        <FlashMessage position="top" autoHide floating />
       </View>
     </RegionProvider>
   );

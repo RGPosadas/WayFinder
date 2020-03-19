@@ -88,7 +88,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/conduct/sexual-assault.html"
       }
     ],
-    location: { latitude: 45.49729998360628, longitude: -73.57890789359567 },
+    location: {
+      latitude: 45.49729998360628,
+      longitude: -73.57890789359567
+    },
     boundingBox: [
       { latitude: 45.49682818364492, longitude: -73.57884845912251 },
       { latitude: 45.497163503733475, longitude: -73.57954223351966 },
@@ -103,7 +106,10 @@ export const Buildings: Building[] = [
     address: "1425 René-Lévesque Blvd W, Montreal, QC H3G 1T7",
     departments: [],
     services: [],
-    location: { latitude: 45.495178215575926, longitude: -73.57420033586945 },
+    location: {
+      latitude: 45.495178215575926,
+      longitude: -73.57420033586945
+    },
     boundingBox: [
       { latitude: 45.49516317440483, longitude: -73.57393479717697 },
       { latitude: 45.49524402065233, longitude: -73.57385701311554 },
@@ -240,7 +246,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/about/administration-governance/office-chief-communications-officer.html"
       }
     ],
-    location: { latitude: 45.495874126086186, longitude: -73.57880774403216 },
+    location: {
+      latitude: 45.495874126086186,
+      longitude: -73.57880774403216
+    },
     boundingBox: [
       { latitude: 45.4959455260391, longitude: -73.57843374911931 },
       { latitude: 45.496129141274366, longitude: -73.57880685352598 },
@@ -336,7 +345,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/next-gen/4th-space.html"
       }
     ],
-    location: { latitude: 45.49682594904578, longitude: -73.57795364783972 },
+    location: {
+      latitude: 45.49682594904578,
+      longitude: -73.57795364783972
+    },
     boundingBox: [
       { latitude: 45.49672776379525, longitude: -73.57857786622326 },
       { latitude: 45.496704732634115, longitude: -73.57852925118486 },
@@ -562,7 +574,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/finearts/facilities/fofa-gallery.html"
       }
     ],
-    location: { latitude: 45.495621869806875, longitude: -73.57822377879872 },
+    location: {
+      latitude: 45.495621869806875,
+      longitude: -73.57822377879872
+    },
     boundingBox: [
       { latitude: 45.49559404635745, longitude: -73.57876182221953 },
       { latitude: 45.49524629133255, longitude: -73.57801957058825 },
@@ -682,7 +697,10 @@ export const Buildings: Building[] = [
         link: ""
       }
     ],
-    location: { latitude: 45.494213251967885, longitude: -73.57831280549206 },
+    location: {
+      latitude: 45.494213251967885,
+      longitude: -73.57831280549206
+    },
     boundingBox: [
       { latitude: 45.49445139862351, longitude: -73.57761614190046 },
       { latitude: 45.49438676772876, longitude: -73.57769157902901 },
@@ -715,7 +733,10 @@ export const Buildings: Building[] = [
     address: "1538 Sherbrooke St W, Montreal, Quebec H3G 1L5",
     departments: [],
     services: [],
-    location: { latitude: 45.49657824810454, longitude: -73.58119512804483 },
+    location: {
+      latitude: 45.49657824810454,
+      longitude: -73.58119512804483
+    },
     boundingBox: [
       { latitude: 45.49657694046067, longitude: -73.58143535844584 },
       { latitude: 45.49662535300043, longitude: -73.58145279280444 },
@@ -741,7 +762,10 @@ export const Buildings: Building[] = [
         link: "https://www.csudaycarenursery.com/"
       }
     ],
-    location: { latitude: 45.496860941595955, longitude: -73.57956955010302 },
+    location: {
+      latitude: 45.496860941595955,
+      longitude: -73.57956955010302
+    },
     boundingBox: [
       { latitude: 45.49667544908977, longitude: -73.57973289017177 },
       { latitude: 45.49669871527483, longitude: -73.57978284631467 },
@@ -756,7 +780,10 @@ export const Buildings: Building[] = [
     campusId: CampusId.SGW,
     displayName: "Toronto-Dominion Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
-    location: { latitude: 45.49468411629242, longitude: -73.57875151167761 },
+    location: {
+      latitude: 45.49468411629242,
+      longitude: -73.57875151167761
+    },
     departments: [],
     services: [
       {
@@ -813,7 +840,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/finearts/facilities/art-supply-store.html"
       }
     ],
-    location: { latitude: 45.49567046189002, longitude: -73.57395159813642 },
+    location: {
+      latitude: 45.49567046189002,
+      longitude: -73.57395159813642
+    },
     boundingBox: [
       { latitude: 45.496192, longitude: -73.573781 },
       { latitude: 45.495667, longitude: -73.574304 },
@@ -836,7 +866,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/artsci/research/centres.html"
       }
     ],
-    location: { latitude: 45.496543304992564, longitude: -73.5859904898029 },
+    location: {
+      latitude: 45.496543304992564,
+      longitude: -73.5859904898029
+    },
     boundingBox: [
       { latitude: 45.496436802590246, longitude: -73.58620662612847 },
       { latitude: 45.49650134091714, longitude: -73.58620724019713 },
@@ -863,7 +896,10 @@ export const Buildings: Building[] = [
     address: "2012 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
     services: [],
-    location: { latitude: 45.49662551352863, longitude: -73.57910668548298 },
+    location: {
+      latitude: 45.49662551352863,
+      longitude: -73.57910668548298
+    },
     boundingBox: [
       { latitude: 45.49655514271302, longitude: -73.57912355345123 },
       { latitude: 45.49658616435723, longitude: -73.5791832326018 },
@@ -878,7 +914,10 @@ export const Buildings: Building[] = [
     address: "2020 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
     services: [],
-    location: { latitude: 45.49666311547241, longitude: -73.57917709346962 },
+    location: {
+      latitude: 45.49666311547241,
+      longitude: -73.57917709346962
+    },
     boundingBox: [
       { latitude: 45.49668439945111, longitude: -73.57908130865924 },
       { latitude: 45.49658804445633, longitude: -73.57918390315406 },
@@ -899,7 +938,10 @@ export const Buildings: Building[] = [
         link: "https://gsaconcordia.ca/"
       }
     ],
-    location: { latitude: 45.496690617889044, longitude: -73.57926428318024 },
+    location: {
+      latitude: 45.496690617889044,
+      longitude: -73.57926428318024
+    },
     boundingBox: [
       { latitude: 45.49671824116626, longitude: -73.57918725591533 },
       { latitude: 45.496633636840265, longitude: -73.57927107494704 },
@@ -920,7 +962,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.49672515862477, longitude: -73.57935478981686 },
+    location: {
+      latitude: 45.49672515862477,
+      longitude: -73.57935478981686
+    },
     boundingBox: [
       { latitude: 45.496756323648604, longitude: -73.57925709579087 },
       { latitude: 45.496759848823714, longitude: -73.57925307247734 },
@@ -942,7 +987,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.49678180245391, longitude: -73.57940711081028 },
+    location: {
+      latitude: 45.49678180245391,
+      longitude: -73.57940711081028
+    },
     boundingBox: [
       { latitude: 45.496713758698185, longitude: -73.57942461253974 },
       { latitude: 45.496804943225605, longitude: -73.5793280530152 },
@@ -963,7 +1011,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.496813771844614, longitude: -73.57949044115169 },
+    location: {
+      latitude: 45.496813771844614,
+      longitude: -73.57949044115169
+    },
     boundingBox: [
       { latitude: 45.49673410732826, longitude: -73.57950150438484 },
       { latitude: 45.49677476435048, longitude: -73.5795846528643 },
@@ -984,7 +1035,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/offices/ci.html"
       }
     ],
-    location: { latitude: 45.49689808038526, longitude: -73.57968767736001 },
+    location: {
+      latitude: 45.49689808038526,
+      longitude: -73.57968767736001
+    },
     boundingBox: [
       { latitude: 45.49683533238937, longitude: -73.57971349362178 },
       { latitude: 45.49692839680764, longitude: -73.57962162796302 },
@@ -1032,7 +1086,10 @@ export const Buildings: Building[] = [
         link: "https://genderadvocacy.org/"
       }
     ],
-    location: { latitude: 45.49703622353465, longitude: -73.57994890777009 },
+    location: {
+      latitude: 45.49703622353465,
+      longitude: -73.57994890777009
+    },
     boundingBox: [
       { latitude: 45.49698358115512, longitude: -73.58001797465222 },
       { latitude: 45.49696478029337, longitude: -73.57997841206925 },
@@ -1070,7 +1127,10 @@ export const Buildings: Building[] = [
     address: "2130 Bishop St, Montreal, Quebec H3G 1M8",
     departments: [],
     services: [],
-    location: { latitude: 45.49774741303151, longitude: -73.57925595037777 },
+    location: {
+      latitude: 45.49774741303151,
+      longitude: -73.57925595037777
+    },
     boundingBox: [
       { latitude: 45.49764635969653, longitude: -73.57940146021683 },
       { latitude: 45.49762238887882, longitude: -73.57935351573069 },
@@ -1093,7 +1153,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/artsci/sdbi.html"
       }
     ],
-    location: { latitude: 45.49786402689169, longitude: -73.57957963486078 },
+    location: {
+      latitude: 45.49786402689169,
+      longitude: -73.57957963486078
+    },
     boundingBox: [
       { latitude: 45.49792714005294, longitude: -73.57946173647333 },
       { latitude: 45.497750414665965, longitude: -73.5796347389548 },
@@ -1114,7 +1177,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.49778748649143, longitude: -73.57932072327488 },
+    location: {
+      latitude: 45.49778748649143,
+      longitude: -73.57932072327488
+    },
     boundingBox: [
       { latitude: 45.497707427688056, longitude: -73.57934124180272 },
       { latitude: 45.49774056376567, longitude: -73.57941097923711 },
@@ -1164,7 +1230,10 @@ export const Buildings: Building[] = [
       }
     ],
     departments: [],
-    location: { latitude: 45.49609534540999, longitude: -73.57967431042336 },
+    location: {
+      latitude: 45.49609534540999,
+      longitude: -73.57967431042336
+    },
     boundingBox: [
       { latitude: 45.496114, longitude: -73.579481 },
       { latitude: 45.495955, longitude: -73.579624 },
@@ -1255,7 +1324,10 @@ export const Buildings: Building[] = [
         link: ""
       }
     ],
-    location: { latitude: 45.45758246587577, longitude: -73.64167110725224 },
+    location: {
+      latitude: 45.45758246587577,
+      longitude: -73.64167110725224
+    },
     boundingBox: [
       { latitude: 45.45698150789547, longitude: -73.64083076197447 },
       { latitude: 45.45702101772243, longitude: -73.64093536812605 },
@@ -1296,7 +1368,10 @@ export const Buildings: Building[] = [
     address: "7079 Terrebonne, Montreal, QC H4B 1E1",
     departments: [],
     services: [],
-    location: { latitude: 45.46000780768472, longitude: -73.64087629020517 },
+    location: {
+      latitude: 45.46000780768472,
+      longitude: -73.64087629020517
+    },
     boundingBox: [
       { latitude: 45.460082, longitude: -73.640892 },
       { latitude: 45.459977, longitude: -73.640967 },
@@ -1328,7 +1403,10 @@ export const Buildings: Building[] = [
         link: "https://stores.concordia.ca/"
       }
     ],
-    location: { latitude: 45.45753745751893, longitude: -73.64035934741423 },
+    location: {
+      latitude: 45.45753745751893,
+      longitude: -73.64035934741423
+    },
     boundingBox: [
       { latitude: 45.45717459096273, longitude: -73.64039358679253 },
       { latitude: 45.4574064756653, longitude: -73.6402075067537 },
@@ -1379,7 +1457,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/artsci/loyola-college-diversity-sustainability.html"
       }
     ],
-    location: { latitude: 45.458331403759495, longitude: -73.64041030938552 },
+    location: {
+      latitude: 45.458331403759495,
+      longitude: -73.64041030938552
+    },
     boundingBox: [
       { latitude: 45.45837846246661, longitude: -73.6407936233295 },
       { latitude: 45.45838881002474, longitude: -73.64079261750112 },
@@ -1468,7 +1549,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/students/health.html"
       }
     ],
-    location: { latitude: 45.45810375680996, longitude: -73.63979876573012 },
+    location: {
+      latitude: 45.45810375680996,
+      longitude: -73.63979876573012
+    },
     boundingBox: [
       { latitude: 45.457798967810064, longitude: -73.63982640602099 },
       { latitude: 45.45782083900776, longitude: -73.63980930693852 },
@@ -1535,7 +1619,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/content/concordia/en/offices/facilities"
       }
     ],
-    location: { latitude: 45.45967754256575, longitude: -73.63982368883055 },
+    location: {
+      latitude: 45.45967754256575,
+      longitude: -73.63982368883055
+    },
     boundingBox: [
       { latitude: 45.459286134448504, longitude: -73.63945527416735 },
       { latitude: 45.45957970516812, longitude: -73.63922716977262 },
@@ -1573,7 +1660,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/athletic-complex.html"
       }
     ],
-    location: { latitude: 45.456705108736394, longitude: -73.63754686217693 },
+    location: {
+      latitude: 45.456705108736394,
+      longitude: -73.63754686217693
+    },
     boundingBox: [
       { latitude: 45.45672955099704, longitude: -73.63710111804322 },
       { latitude: 45.457032460316356, longitude: -73.6378709120305 },
@@ -1599,7 +1689,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/content/concordia/en/research/perform.html"
       }
     ],
-    location: { latitude: 45.45699484824472, longitude: -73.63732692103771 },
+    location: {
+      latitude: 45.45699484824472,
+      longitude: -73.63732692103771
+    },
     boundingBox: [
       { latitude: 45.45668234663006, longitude: -73.63698552999276 },
       { latitude: 45.45702100318805, longitude: -73.637839813564 },
@@ -1647,7 +1740,10 @@ export const Buildings: Building[] = [
         link: "https://library.concordia.ca/"
       }
     ],
-    location: { latitude: 45.45898581709969, longitude: -73.63853424124234 },
+    location: {
+      latitude: 45.45898581709969,
+      longitude: -73.63853424124234
+    },
     boundingBox: [
       { latitude: 45.45885292987871, longitude: -73.6390181589777 },
       { latitude: 45.458836232819095, longitude: -73.63897490835734 },
@@ -1686,7 +1782,10 @@ export const Buildings: Building[] = [
         link: "https://lesptitsprofs.wordpress.com/"
       }
     ],
-    location: { latitude: 45.45974814796602, longitude: -73.63912683825797 },
+    location: {
+      latitude: 45.45974814796602,
+      longitude: -73.63912683825797
+    },
     boundingBox: [
       { latitude: 45.45982068669079, longitude: -73.63916645247663 },
       { latitude: 45.459758628539575, longitude: -73.6390162122033 },
@@ -1707,7 +1806,10 @@ export const Buildings: Building[] = [
         link: "https://lesptitsprofs.wordpress.com/"
       }
     ],
-    location: { latitude: 45.459824341726055, longitude: -73.63932129841155 },
+    location: {
+      latitude: 45.459824341726055,
+      longitude: -73.63932129841155
+    },
     boundingBox: [
       { latitude: 45.459847629799036, longitude: -73.63923764922974 },
       { latitude: 45.45975826677363, longitude: -73.63931878605244 },
@@ -1741,7 +1843,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/students/spirituality.html"
       }
     ],
-    location: { latitude: 45.45857915168717, longitude: -73.63933284169326 },
+    location: {
+      latitude: 45.45857915168717,
+      longitude: -73.63933284169326
+    },
     boundingBox: [
       { latitude: 45.45838194827393, longitude: -73.6390384691037 },
       { latitude: 45.45839251355503, longitude: -73.63907076867876 },
@@ -1835,7 +1940,10 @@ export const Buildings: Building[] = [
         link: "http://www.concordia.ca/hospitality.html"
       }
     ],
-    location: { latitude: 45.458637354307285, longitude: -73.6410877337058 },
+    location: {
+      latitude: 45.458637354307285,
+      longitude: -73.6410877337058
+    },
     boundingBox: [
       { latitude: 45.45851577362767, longitude: -73.64077321086462 },
       { latitude: 45.45841441473864, longitude: -73.64085300658282 },
@@ -1888,7 +1996,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.45900554313173, longitude: -73.64044802685575 },
+    location: {
+      latitude: 45.45900554313173,
+      longitude: -73.64044802685575
+    },
     boundingBox: [
       { latitude: 45.45884699152768, longitude: -73.64083336928228 },
       { latitude: 45.45918093171645, longitude: -73.64057855942586 },
@@ -1938,7 +2049,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
       }
     ],
-    location: { latitude: 45.45945398113829, longitude: -73.64120812700196 },
+    location: {
+      latitude: 45.45945398113829,
+      longitude: -73.64120812700196
+    },
     boundingBox: [
       { latitude: 45.45925878611328, longitude: -73.64114246694434 },
       { latitude: 45.4593942427911, longitude: -73.64149584798206 },
@@ -1968,7 +2082,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
       }
     ],
-    location: { latitude: 45.45969590594231, longitude: -73.64206702191026 },
+    location: {
+      latitude: 45.45969590594231,
+      longitude: -73.64206702191026
+    },
     boundingBox: [
       { latitude: 45.459523959498206, longitude: -73.64202462121388 },
       { latitude: 45.45970080481985, longitude: -73.64188246413609 },
@@ -1987,7 +2104,10 @@ export const Buildings: Building[] = [
     address: "4455 Rue West Broadway, Montréal, QC H4B 2A7",
     departments: [],
     services: [],
-    location: { latitude: 45.45788647989946, longitude: -73.64227010232766 },
+    location: {
+      latitude: 45.45788647989946,
+      longitude: -73.64227010232766
+    },
     boundingBox: [
       { latitude: 45.45763260915711, longitude: -73.64256805241634 },
       { latitude: 45.45756817119544, longitude: -73.64239840269614 },
@@ -2101,7 +2221,10 @@ export const Buildings: Building[] = [
     address: "2135 Mackay",
     departments: [],
     services: [],
-    location: { latitude: 45.49736924285446, longitude: -73.57976766139312 },
+    location: {
+      latitude: 45.49736924285446,
+      longitude: -73.57976766139312
+    },
     boundingBox: [
       { latitude: 45.497325531140575, longitude: -73.57985315680547 },
       { latitude: 45.497289809714815, longitude: -73.57977973133369 },
@@ -2167,7 +2290,10 @@ export const Buildings: Building[] = [
         link: ""
       }
     ],
-    location: { latitude: 45.45917811397828, longitude: -73.63917007203673 },
+    location: {
+      latitude: 45.45917811397828,
+      longitude: -73.63917007203673
+    },
     boundingBox: [
       { latitude: 45.4592191196082, longitude: -73.63892663944456 },
       { latitude: 45.45915162626819, longitude: -73.63898430693838 },
@@ -2213,7 +2339,10 @@ export const Buildings: Building[] = [
     address: "2155 Guy St.",
     departments: [],
     services: [],
-    location: { latitude: 45.49641541548804, longitude: -73.57995901192821 },
+    location: {
+      latitude: 45.49641541548804,
+      longitude: -73.57995901192821
+    },
     boundingBox: [
       { latitude: 45.49615963345298, longitude: -73.58006721968488 },
       { latitude: 45.49625880934598, longitude: -73.5803495221837 },
@@ -2236,7 +2365,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.49409857637497, longitude: -73.57794979062419 },
+    location: {
+      latitude: 45.49409857637497,
+      longitude: -73.57794979062419
+    },
     boundingBox: [
       { latitude: 45.49384914500057, longitude: -73.57835396351433 },
       { latitude: 45.49379015399237, longitude: -73.57825304540015 },
@@ -2261,7 +2393,10 @@ export const Buildings: Building[] = [
       }
     ],
     services: [],
-    location: { latitude: 45.45767546719732, longitude: -73.63614320755005 },
+    location: {
+      latitude: 45.45767546719732,
+      longitude: -73.63614320755005
+    },
     boundingBox: [
       { latitude: 45.45695412200131, longitude: -73.63635852206605 },
       { latitude: 45.45736427048473, longitude: -73.63708271850007 },
@@ -2288,7 +2423,10 @@ export const Buildings: Building[] = [
         link: "http://cufa.net/"
       }
     ],
-    location: { latitude: 45.45924054914103, longitude: -73.64189015927725 },
+    location: {
+      latitude: 45.45924054914103,
+      longitude: -73.64189015927725
+    },
     boundingBox: [
       { latitude: 45.45896902854732, longitude: -73.64180873293778 },
       { latitude: 45.45899607301431, longitude: -73.64187712926766 },
@@ -2313,7 +2451,10 @@ export const Buildings: Building[] = [
     address: "7141 Sherbrooke W.",
     departments: [],
     services: [],
-    location: { latitude: 45.458731426354824, longitude: -73.64224078269704 },
+    location: {
+      latitude: 45.458731426354824,
+      longitude: -73.64224078269704
+    },
     boundingBox: [
       { latitude: 45.45867598246963, longitude: -73.64129784085388 },
       { latitude: 45.459247136610294, longitude: -73.64277669887241 },
@@ -2335,7 +2476,10 @@ export const Buildings: Building[] = [
           "http://www.concordia.ca/students/housing/residences/jesuit-residence.html"
       }
     ],
-    location: { latitude: 45.458517236811566, longitude: -73.64323517665649 },
+    location: {
+      latitude: 45.458517236811566,
+      longitude: -73.64323517665649
+    },
     boundingBox: [
       { latitude: 45.45840881417316, longitude: -73.64324139552258 },
       { latitude: 45.45844855817151, longitude: -73.64334030198 },
@@ -2364,8 +2508,11 @@ export const Buildings: Building[] = [
     address: "7141 Sherbrooke W.",
     departments: [],
     services: [],
-    location: { latitude: 45.45863177412241, longitude: -73.64004900596404 },
-    //Not a building
+    location: {
+      latitude: 45.45863177412241,
+      longitude: -73.64004900596404
+    },
+    // Not a building
     boundingBox: []
   },
   {
@@ -2375,7 +2522,10 @@ export const Buildings: Building[] = [
     address: "7141 Sherbrooke W.",
     departments: [],
     services: [],
-    location: { latitude: 45.45929279531785, longitude: -73.64246625725686 },
+    location: {
+      latitude: 45.45929279531785,
+      longitude: -73.64246625725686
+    },
     boundingBox: [
       { latitude: 45.45925610910041, longitude: -73.64255745236336 },
       { latitude: 45.45932712983307, longitude: -73.64255376432597 },
@@ -2390,7 +2540,10 @@ export const Buildings: Building[] = [
     address: "2070 Mackay",
     departments: [],
     services: [],
-    location: { latitude: 45.49687775941154, longitude: -73.57964478141776 },
+    location: {
+      latitude: 45.49687775941154,
+      longitude: -73.57964478141776
+    },
     boundingBox: [
       { latitude: 45.4968347523502, longitude: -73.57971384829989 },
       { latitude: 45.496928286791366, longitude: -73.57962198264113 },

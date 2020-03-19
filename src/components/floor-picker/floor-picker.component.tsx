@@ -38,11 +38,15 @@ const FloorPicker = ({
                     floor.index === indoorInformation.currentFloor.index
                       ? StyleSheet.flatten([
                           styles.floorButton,
-                          { backgroundColor: CONCORDIA_RED }
+                          {
+                            backgroundColor: CONCORDIA_RED
+                          }
                         ])
                       : StyleSheet.flatten([
                           styles.floorButton,
-                          { backgroundColor: INACTIVE_BUTTON_COLOR }
+                          {
+                            backgroundColor: INACTIVE_BUTTON_COLOR
+                          }
                         ])
                   }
                   onPress={() => onFloorPickerButtonPress(floor.index)}

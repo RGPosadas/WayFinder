@@ -1,7 +1,7 @@
 import React from "react";
 import { Polygon, MapPolygonProps } from "react-native-maps";
 
-interface IProps extends Omit<MapPolygonProps, "onLayout"> {}
+type IProps = Omit<MapPolygonProps, "onLayout">;
 
 /**
  * Custom wrapper for Polygon which forces specific behavior for onLayout
@@ -16,6 +16,7 @@ const CustomPolygon = ({ ...props }: IProps) => {
    */
   const onLayoutPolygon = () => {
     if (ref.current) {
+      // @ts-ignore
       ref.current.setNativeProps({ fillColor: props.fillColor });
     }
   };
