@@ -5,7 +5,7 @@ import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
 import { StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
-import { floorOverlays } from "../../constants/floors.data";
+import { buildingFloors } from "../../constants/floors.data";
 import { getAllPOI } from "../../constants/poi.data";
 import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
@@ -107,13 +107,15 @@ const MapOverlays = ({
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
-          {floorOverlays.map(floorOverlay => (
-            <Overlay
-              key={floorOverlay.id}
-              bounds={floorOverlay.bounds}
-              image={floorOverlay.image}
-            />
-          ))}
+          {buildingFloors
+            .filter(floor => floor.bounds != null && floor.image != null)
+            .map(floor => (
+              <Overlay
+                key={floor.id}
+                bounds={floor.bounds}
+                image={floor.image}
+              />
+            ))}
 
           {getAllPOI()
             .filter(poi => {
