@@ -5,7 +5,7 @@ beforeAll(async () => {
   await reloadApp();
 });
 
-describe("CampusToggle: Toggling between campuses", () => {
+describe("US-1: Campus Toggle", () => {
   it("should show the campus toggles", async () => {
     await expect(element(by.id("SGWButton"))).toBeVisible();
     await expect(element(by.id("loyolaButton"))).toBeVisible();

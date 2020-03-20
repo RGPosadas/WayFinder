@@ -50,7 +50,7 @@ const CustomMarker = ({
     >
       <View style={styles.container}>
         <View
-          testID={testID + "bubble"}
+          testID={`${testID}Bubble`}
           style={StyleSheet.flatten([styles.bubble, { backgroundColor }])}
         >
           <Text style={styles.text}>{text}</Text>

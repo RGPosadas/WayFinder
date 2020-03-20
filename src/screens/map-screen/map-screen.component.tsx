@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, ScrollView } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { isPointInPolygon } from "geolib";
 import FlashMessage, { showMessage } from "react-native-flash-message";
@@ -194,7 +194,10 @@ const MapScreen = () => {
   return (
     <RegionProvider value={currentRegion}>
       <View style={styles.container}>
+      {/* <ScrollView testID="mapScroll" contentContainerStyle={styles.container}> */}
         <MapView
+          testID="mapView"
+          accessibilityLabel="mapView"
           ref={mapRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
@@ -231,6 +234,7 @@ const MapScreen = () => {
 
         <FlashMessage position="top" autoHide floating />
       </View>
+      {/* </ScrollView> */}
     </RegionProvider>
   );
 };

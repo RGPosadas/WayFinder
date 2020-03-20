@@ -1,68 +1,60 @@
 import CustomMarker from "../src/components/map-overlays/custom-marker.component";
 import { Buildings } from "../src/constants/buildings.data";
-import { BuildingId } from "../src/types/main";
 import renderer from "react-test-renderer";
 import React from "react";
 import { shallow } from "enzyme";
-import { BUILDING_MARKER_COLOR, CONCORDIA_RED } from "../src/constants/style";
-import { POIInfo } from "../src/constants/poi.data";
+import { BUILDING_MARKER_COLOR } from "../src/constants/style";
 
 describe("CustomMarker component", () => {
-  const buildingH = Buildings[0];
-  const H = BuildingId[BuildingId.H];
-
   it("should match snapshot", () => {
-    const tree = renderer.create(<CustomMarker />).toJSON();
+    const building = Buildings[0];
+    const tree = renderer
+      .create(
+        <CustomMarker
+          location={building.location}
+          markerType={"building"}
+          text={"asdf"}
+          onPress={null}
+        />
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
   it("should run provided function on press", () => {
     const mockOnPress = jest.fn();
+    const building = Buildings[0];
     const wrapper = shallow(
       <CustomMarker
-        location={buildingH.location}
-        markerType={"building"}
-        text={H}
+        location={building.location}
+        markerType={"poi"}
+        text={"asdf"}
         onPress={mockOnPress}
-        testID={"marker" + H}
       />
     );
-    const marker = wrapper.find({ testID: "marker" + H });
+    const marker = wrapper.find({ testID: "marker" });
     marker.simulate("press");
     expect(mockOnPress).toHaveBeenCalledTimes(1);
   });
 
   it("should be black if it is a building marker", () => {
+    const building = Buildings[0];
     const wrapper = shallow(
       <CustomMarker
-        location={buildingH.location}
+        location={building.location}
         markerType={"building"}
-        text={H}
+        text={"asdf"}
         onPress={() => {}}
-        testID={"marker" + H}
       />
     );
 
-    const bubble = wrapper.find({ testID: "marker" + H + "Bubble" }).props();
+    const bubble = wrapper
+      .find({ testID: "bubble" })
+      .at(0)
+      .props();
     expect(bubble).toHaveProperty(
       ["style", "backgroundColor"],
       BUILDING_MARKER_COLOR
     );
-  });
-
-  it("should be red if it is a poi marker", () => {
-    const H801 = POIInfo[9];
-    const wrapper = shallow(
-      <CustomMarker
-        location={buildingH.location}
-        markerType={"poi"}
-        text={H801.displayName}
-        onPress={() => {}}
-        testID={"poi" + H801.id}
-      />
-    );
-
-    const bubble = wrapper.find({ testID: "poi" + H801.id + "Bubble" }).props();
-    expect(bubble).toHaveProperty(["style", "backgroundColor"], CONCORDIA_RED);
   });
 });

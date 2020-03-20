@@ -64,6 +64,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
         {showBuildingInfo ? (
           <View style={styles.container}>
             <TouchableOpacity
+              testID="panelCloseButton"
               style={styles.xButton}
               onPress={() => {
                 onClosePanel();
@@ -75,24 +76,25 @@ class BuildingInformation extends React.Component<IProps, IState> {
             {Buildings.filter(building => building.id === tappedBuildingId).map(
               (building, key) => {
                 return (
-                  <View key={key}>
+                  <View testID="panel" key={key}>
                     <View style={styles.header}>
                       <View style={styles.flexTextContainer}>
                         <AntDesign name="up" size={44} />
                       </View>
                       <View style={styles.flexTextContainer}>
-                        <Text style={styles.headerText}>
+                        <Text testID="panelDisplayName" style={styles.headerText}>
                           {building.displayName}
                         </Text>
                       </View>
                       <View style={styles.flexTextContainer}>
-                        <Text style={styles.normalText}>
+                        <Text testID="panelAddress" style={styles.normalText}>
                           {building.address}
                         </Text>
                       </View>
                     </View>
 
                     <ScrollView
+                      testID="scrollView"
                       style={styles.scrollView}
                       onTouchStart={() =>
                         this.setState({ allowDragging: false })
@@ -103,7 +105,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                       }
                     >
                       <View style={styles.buildingInformation}>
-                        <View>
+                        <View testID="scrollDepartments">
                           {building.departments.length !== 0 ? (
                             <Text style={styles.headerText}>Departments:</Text>
                           ) : (
@@ -134,7 +136,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                             );
                           })}
 
-                        <View>
+                        <View testID="scrollServices">
                           {building.services.length !== 0 ? (
                             <Text style={styles.headerText}>Services:</Text>
                           ) : (
