@@ -1,4 +1,4 @@
-import { Line, Location } from "../types/main";
+import { Line, Point, Location } from "../types/main";
 import { buildingFloors } from "../constants/floors.data";
 import { getDistanceFromLine } from "geolib";
 import { Line, TravelNode } from "../types/main";
@@ -40,7 +40,27 @@ export const findPathOnFloor = (
   start: Location,
   end: Location
 ): Line[] => {
+  let edges: Line[] = traverseNodes(floorId);
+  let startEdge: Line = findEdge(edges, start);
+  let endEdge: Line = findEdge(edges, end);
   return [];
+};
+
+const findEdge = (edges: Line[], point: Location): Line => {
+  let minDistance: number = Number.MAX_SAFE_INTEGER;
+  let line: Line;
+  edges.forEach(edge => {
+    let distance: number = getDistanceFromLine(
+      point,
+      edge.point1.location,
+      edge.point2.location
+    );
+    if (distance < minDistance) {
+      minDistance = distance;
+      line = edge;
+    }
+  });
+  return line;
 };
 
 /**

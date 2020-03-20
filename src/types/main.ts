@@ -90,6 +90,7 @@ export interface Range {
 
 export type Line = [TravelNode, TravelNode];
 
+export type Point = { id: number; location: Location };
 export type Coordinate = [number, number];
 
 export enum CampusId {
