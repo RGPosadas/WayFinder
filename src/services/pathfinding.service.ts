@@ -1,3 +1,5 @@
+import { Line, Location } from "../types/main";
+import { buildingFloors } from "../constants/floors.data";
 import { getDistanceFromLine } from "geolib";
 import { Line, TravelNode } from "../types/main";
 
@@ -42,7 +44,7 @@ export const findPathOnFloor = (
 };
 
 /**
- * TASK-15
+ * TASK-14
  * Function which traverses a floor's travel node and returns a set of lines.
  *
  * This function takes in a floorId, and will return all lines which correspond to
