@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component should match snapshot 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "center",
+        "elevation": 5,
+        "flex": 1,
+        "height": 48,
+        "position": "absolute",
+        "top": 48,
+        "width": 720,
+        "zIndex": 1,
+      },
+      Object {
+        "height": 48,
+      },
+    ]
+  }
+  testID="searchContainer"
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "borderColor": "#AA2B45",
+        "borderWidth": 2,
+        "flexDirection": "row",
+        "height": 48,
+        "justifyContent": "space-between",
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "position": "relative",
+        "zIndex": 2,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+          }
+        }
+      >
+        <Image
+          source={1}
+        />
+        <Image
+          source={1}
+          style={
+            Object {
+              "marginLeft": 16,
+              "marginRight": 16,
+            }
+          }
+        />
+        <Image
+          source={1}
+        />
+        <TextInput
+          allowFontScaling={true}
+          onChangeText={[Function]}
+          rejectResponderTermination={true}
+          style={
+            Object {
+              "alignSelf": "stretch",
+              "flex": 1,
+            }
+          }
+          testID="searchInput"
+          underlineColorAndroid="transparent"
+          value=""
+        />
+      </View>
+      <Image
+        source={1}
+      />
+    </View>
+  </View>
+</View>
+`;
