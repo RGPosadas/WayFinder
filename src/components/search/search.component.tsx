@@ -5,7 +5,7 @@ import {
   TextInput,
   StyleSheet,
   Dimensions,
-  View,
+  View
 } from "react-native";
 import Autocomplete from "./autocomplete.component";
 import { POI } from "../../types/main";
@@ -16,24 +16,32 @@ import { POI } from "../../types/main";
  */
 interface IProps {
   setDestination: (poi: POI) => void;
-  queryText: (userInput: string, setAutocomplete: ([]) => void, onChangeText: (string) => void ) => void;
+  queryText: (
+    userInput: string,
+    setAutocomplete: ([]) => void,
+    onChangeText: (string) => void
+  ) => void;
 }
 
 /**
  * Search component for indoor points of interest's
- * @param getDestination Function called to update destination 
+ * @param getDestination Function called to update destination
  * @param queryText Function to query POI based on user input
  */
-const Search = ({setDestination, queryText}: IProps) => {
+const Search = ({ setDestination, queryText }: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
 
   //Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
-  let autoCompleteHeight = autoCompleteValues ?
-        autoCompleteValues.length * 51 + 50: 48;
 
+  const getAutoCompleteHeight = () => {
+    return autoCompleteValues ? autoCompleteValues.length * 51 + 50 : 48;
+  };
   return (
-    <View style={[styles.container, { height: autoCompleteHeight }]}>
+    <View
+      testID={"searchContainer"}
+      style={[styles.container, { height: getAutoCompleteHeight() }]}
+    >
       <View style={styles.parent}>
         <View style={styles.view}>
           <View style={styles.view}>
@@ -46,8 +54,11 @@ const Search = ({setDestination, queryText}: IProps) => {
             ></Image>
             <Image source={require("../../../assets/search.png")}></Image>
             <TextInput
+              testID={"searchInput"}
               style={styles.input}
-              onChangeText={text => queryText(text, setAutocomplete, onChangeText)}
+              onChangeText={text =>
+                queryText(text, setAutocomplete, onChangeText)
+              }
               value={value}
             />
           </View>
@@ -56,14 +67,15 @@ const Search = ({setDestination, queryText}: IProps) => {
       </View>
       {autoCompleteValues && value != "" && (
         <Autocomplete
+          testID={"autocomplete"}
           style={styles.autocomplete}
           autoCompleteValues={autoCompleteValues}
-          selectedLocation={setDestination}
+          setLocation={setDestination}
         ></Autocomplete>
       )}
     </View>
   );
-}
+};
 
 export default Search;
 

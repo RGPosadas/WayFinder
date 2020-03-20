@@ -16,17 +16,23 @@ import { POI } from "../../types/main";
  */
 export interface IProps {
   autoCompleteValues: POI[];
-  selectedLocation: (poi: POI) => void;
+  setLocation: (poi: POI) => void;
   style: object;
+  testID: string;
 }
 
 /**
  * Displays the names of provided points of interest's
  * @param autoCompleteValues Array of POI's
  * @param style Styles to reposition or resize
- * @param selectedLocation 
+ * @param selectedLocation
  */
-const AutoComplete = ({ autoCompleteValues, style, selectedLocation } : IProps) => {
+const AutoComplete = ({
+  autoCompleteValues,
+  style,
+  setLocation,
+  testID
+}: IProps) => {
   return (
     <View style={[styles.container, { ...style }]}>
       <FlatList
@@ -34,7 +40,8 @@ const AutoComplete = ({ autoCompleteValues, style, selectedLocation } : IProps) 
         data={autoCompleteValues}
         renderItem={({ item }: { item: POI }) => (
           <TouchableOpacity
-            onPress={() => selectedLocation(item)}
+            testID={"touchableList"}
+            onPress={() => setLocation(item)}
             key={item.displayName}
             style={styles.list}
           >
@@ -45,7 +52,7 @@ const AutoComplete = ({ autoCompleteValues, style, selectedLocation } : IProps) 
       />
     </View>
   );
-}
+};
 const styles = StyleSheet.create({
   container: {
     position: "absolute",

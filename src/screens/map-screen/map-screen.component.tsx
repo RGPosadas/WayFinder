@@ -54,7 +54,9 @@ const MapScreen = () => {
     }
   );
   const [destination, setDestination] = useState<POI>(null);
-  const [initialLocation, setInitialLocation] = useState<POI | {displayName: string, latitude: number, longitude: number }>({
+  const [initialLocation, setInitialLocation] = useState<
+    POI | { displayName: string; latitude: number; longitude: number }
+  >({
     displayName: "Current Location",
     ...currentLocation
   });
@@ -245,12 +247,7 @@ const MapScreen = () => {
       />
     );
   } else {
-    search = (
-      <Search
-      setDestination={setDestination}
-      queryText={queryText}
-      />
-    );
+    search = <Search setDestination={setDestination} queryText={queryText} />;
   }
   return (
     <RegionProvider value={currentRegion}>

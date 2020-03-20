@@ -7,10 +7,9 @@ import {
   View,
   Platform,
   TouchableOpacity,
-  StatusBar,
+  StatusBar
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
-import SafeAreaView from "react-native-safe-area-view";
 import { POI } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import SelectInput from "react-native-select-input-ios";
@@ -21,35 +20,59 @@ import SelectInput from "react-native-select-input-ios";
  */
 export interface OmniboxDirectionsProps {
   destination: POI;
-  initialLocation: POI | {displayName: string, latitude: number, longitude: number };
+  initialLocation:
+    | POI
+    | { displayName: string; latitude: number; longitude: number };
   setDestination: (poi: POI) => void;
   setInitialLocation: (poi: POI | null) => void;
-  queryText: (userInput: string, setAutocomplete: ([]) => void, onChangeText: (string) => void ) => void;
+  queryText: (
+    userInput: string,
+    setAutocomplete: ([]) => void,
+    onChangeText: (string) => void
+  ) => void;
 }
 
 /**
- * 
- * @param destination 
+ *
+ * @param destination
  * @param initialLocation
  * @param setDestination Function called to update destination
  * @param setInitialLocation Function called to update initial Location
  * @param queryText Function to query POI based on user input
  */
-const OmniboxDirections = ({destination, initialLocation, setDestination, setInitialLocation, queryText }: OmniboxDirectionsProps) => {
-  const [value, onChangeText] = React.useState(
-    initialLocation.displayName
+const OmniboxDirections = ({
+  destination,
+  initialLocation,
+  setDestination,
+  setInitialLocation,
+  queryText
+}: OmniboxDirectionsProps) => {
+  const [value, onChangeText] = React.useState(initialLocation.displayName);
+  const [destinationValue, setDestinationValue] = React.useState(
+    destination.displayName
   );
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
-  
+  const [autoCompleteValuesDest, setAutocompleteDest] = React.useState(null);
+
   useEffect(() => {
     onChangeText(initialLocation.displayName);
     setAutocomplete(null);
   }, [initialLocation]);
 
+  useEffect(() => {
+    setDestinationValue(destination.displayName);
+    setAutocompleteDest(null);
+  }, [destination]);
+
   //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
-  let autocompleteHeight = (autoCompleteValues && value != "")
-    ? autoCompleteValues.length * 51 + 235
-    : 260;
+  let autocompleteHeight;
+  if (autoCompleteValues && value != "") {
+    autocompleteHeight = autoCompleteValues.length * 51 + 235;
+  } else if (autoCompleteValuesDest && destinationValue != "") {
+    autocompleteHeight = autoCompleteValuesDest.length * 51 + 235;
+  } else {
+    autocompleteHeight = 260;
+  }
 
   const options = [
     { value: 0, label: "Departure time 9AM" },
@@ -61,11 +84,12 @@ const OmniboxDirections = ({destination, initialLocation, setDestination, setIni
     { value: 6, label: "biasjdk fdsthc" }
   ];
   return (
-    <SafeAreaView
-      style={[styles.safeAreaView, , { height: autocompleteHeight }]}
-    >
+    <View style={[styles.safeAreaView, , { height: autocompleteHeight }]}>
       <View style={styles.contentContainer}>
-        <TouchableOpacity onPress={() => setDestination(null)}>
+        <TouchableOpacity
+          testID={"backArrow"}
+          onPress={() => setDestination(null)}
+        >
           <AntDesign
             name={"arrowleft"}
             color={"#AA2B45"}
@@ -77,14 +101,22 @@ const OmniboxDirections = ({destination, initialLocation, setDestination, setIni
           <Image source={require("../../../assets/route.png")}></Image>
           <View style={styles.searchContainer}>
             <TextInput
+              testID={"searchInputInitialLocation"}
+              selectTextOnFocus={true}
               style={styles.input}
-              onChangeText={text => queryText(text, setAutocomplete, onChangeText)}
+              onChangeText={text =>
+                queryText(text, setAutocomplete, onChangeText)
+              }
               value={value}
             />
             <TextInput
+              testID={"searchInputDestinationLocation"}
+              selectTextOnFocus={true}
               style={styles.input}
-              value={destination.displayName}
-              onFocus={() =>setDestination(null)}
+              value={destinationValue}
+              onChangeText={text =>
+                queryText(text, setAutocompleteDest, setDestinationValue)
+              }
             />
           </View>
         </View>
@@ -116,12 +148,19 @@ const OmniboxDirections = ({destination, initialLocation, setDestination, setIni
         <Autocomplete
           style={styles.autocomplete}
           autoCompleteValues={autoCompleteValues}
-          selectedLocation={setInitialLocation}
+          setLocation={setInitialLocation}
         ></Autocomplete>
       )}
-    </SafeAreaView>
+      {autoCompleteValuesDest && destinationValue != "" && (
+        <Autocomplete
+          style={styles.autocomplete}
+          autoCompleteValues={autoCompleteValuesDest}
+          setLocation={setDestination}
+        ></Autocomplete>
+      )}
+    </View>
   );
-}
+};
 
 export default OmniboxDirections;
 
