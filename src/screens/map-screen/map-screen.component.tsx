@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 import { RegionProvider } from "../../context/region.context";
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
-import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
@@ -26,7 +26,7 @@ import {
   indoorRange,
   outdoorRange,
   campusRange
-} from "../../constants/floors.data";
+} from "../../constants/zoom-range.data";
 
 /**
  * Screen for the Map and its related buttons and components

@@ -10,8 +10,6 @@ export interface Region extends Location {
   longitudeDelta: number;
 }
 
-export type Coordinate = [number, number];
-
 export interface Building {
   id: BuildingId;
   campusId: CampusId;
@@ -60,12 +58,19 @@ export interface LinkItem {
   link: string;
 }
 
-export interface FloorOverlay {
+export interface BuildingFloor {
   id: number;
   buildingId: BuildingId;
   level: number;
   bounds: [Coordinate, Coordinate];
   image: any;
+  travelNodes: TravelNode[];
+}
+
+export interface TravelNode {
+  id: number;
+  location: Location;
+  children: number[];
 }
 
 export interface IndoorInformation {
@@ -82,6 +87,10 @@ export interface Range {
   min: number;
   max: number;
 }
+
+export type Line = [Location, Location];
+
+export type Coordinate = [number, number];
 
 export enum CampusId {
   SGW = "SGW",
