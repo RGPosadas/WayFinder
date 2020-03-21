@@ -38,3 +38,10 @@ To run this react-native application and start development:
    - `npm start`
 
 There you go! You can now connect your phone and start developing and debugging your application!
+
+## Linting
+
+### ESLint
+
+- `npm run lint`: To start the linter to look for code smells
+- `npm run lint-fix`: To allow the linter to fix some of the code smells however some may need to be fixed manually

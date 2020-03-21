@@ -16,7 +16,7 @@ const CustomPolygon = ({ ...props }: IProps) => {
    */
   const onLayoutPolygon = () => {
     if (ref.current) {
-      ref.current.setNativeProps({ fillColor: props.fillColor });
+      (ref.current as any).setNativeProps({ fillColor: props.fillColor });
     }
   };
 

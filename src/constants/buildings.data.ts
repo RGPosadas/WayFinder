@@ -2365,7 +2365,7 @@ export const Buildings: Building[] = [
     departments: [],
     services: [],
     location: { latitude: 45.45863177412241, longitude: -73.64004900596404 },
-    //Not a building
+    // Not a building
     boundingBox: []
   },
   {

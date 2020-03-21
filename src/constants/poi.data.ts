@@ -1828,7 +1828,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: "827ffa92-c0d3-44d5-bde1-751af95c675f",
-    displayName: "MB1.333", //Need verification
+    displayName: "MB1.333", // Need verification
 
     description: "Exit/Entrance to classroom",
     location: {
@@ -1841,7 +1841,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: "f98956d7-eca8-4633-a196-6a97e5346206",
-    displayName: "MB1.666", //Need verification
+    displayName: "MB1.666", // Need verification
 
     description: "Exit/Entrance to classroom",
     location: {

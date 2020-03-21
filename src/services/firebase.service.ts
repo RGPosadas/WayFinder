@@ -12,7 +12,7 @@ firebase.initializeApp(firebaseConfig);
  * @param object object to save
  */
 export const saveToDatabase = async (path: string, object: any) => {
-  return await firebase
+  return firebase
     .database()
     .ref(path)
     .set(object);
