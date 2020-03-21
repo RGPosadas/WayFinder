@@ -29,11 +29,12 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
     case "building":
       backgroundColor = BUILDING_MARKER_COLOR;
       break;
+    default:
   }
 
   return (
     <Marker
-      testID={"marker"}
+      testID="marker"
       coordinate={location}
       onPress={onPress}
       tracksViewChanges={false}
@@ -41,11 +42,8 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
     >
       <View style={styles.container}>
         <View
-          testID={"bubble"}
-          style={StyleSheet.flatten([
-            styles.bubble,
-            { backgroundColor: backgroundColor }
-          ])}
+          testID="bubble"
+          style={StyleSheet.flatten([styles.bubble, { backgroundColor }])}
         >
           <Text style={styles.text}>{text}</Text>
         </View>

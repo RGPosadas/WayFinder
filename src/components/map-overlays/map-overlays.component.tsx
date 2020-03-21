@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
+import { StyleSheet } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
-import { StyleSheet } from "react-native";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { buildingFloors } from "../../constants/floors.data";
@@ -45,7 +45,7 @@ const MapOverlays = ({
       {zoomLevel === ZoomLevel.CAMPUS
         ? getAllCampuses().map((campus, index) => (
             <CustomMarker
-              markerType={"campus"}
+              markerType="campus"
               key={index}
               location={campus.region}
               text={campus.displayName}
@@ -64,7 +64,7 @@ const MapOverlays = ({
               <CustomPolygon
                 key={building.id}
                 coordinates={building.boundingBox}
-                tappable={true}
+                tappable
                 fillColor={
                   tappedBuilding != null && tappedBuilding === building.id
                     ? tappedColor
@@ -86,7 +86,7 @@ const MapOverlays = ({
         ? Buildings.map((building, index) => (
             <React.Fragment key={index}>
               <CustomMarker
-                markerType={"building"}
+                markerType="building"
                 key={building.id}
                 location={building.location}
                 onPress={() => {
@@ -126,7 +126,7 @@ const MapOverlays = ({
             })
             .map(poi => (
               <CustomMarker
-                markerType={"poi"}
+                markerType="poi"
                 key={poi.id}
                 location={poi.location}
                 text={poi.displayName}

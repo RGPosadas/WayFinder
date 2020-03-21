@@ -21,14 +21,14 @@ export const getCurrentLocationAsync = async (): Promise<
   Location.LocationData
 > => {
   if (Platform.OS === "android" && !Constants.isDevice) {
-    throw "Location services aren't available on Android Emulators.";
+    throw new Error("Location services aren't available on Android Emulators.");
   }
 
-  let { status } = await Permissions.askAsync(Permissions.LOCATION);
+  const { status } = await Permissions.askAsync(Permissions.LOCATION);
 
   if (status !== "granted") {
-    throw "Location Permission Denied";
+    throw new Error("Location Permission Denied");
   }
 
-  return await Location.getCurrentPositionAsync({});
+  return Location.getCurrentPositionAsync({});
 };

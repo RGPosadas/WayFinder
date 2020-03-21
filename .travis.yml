@@ -13,4 +13,6 @@ script:
   - pre-commit run -a
   - npm install -g expo-cli --loglevel=error
   - npm install --log-level=error
+  - echo "fakeSecret" >> secrets.js
+  - npm run lint
   - npm test

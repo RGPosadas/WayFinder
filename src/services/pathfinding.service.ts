@@ -1,5 +1,5 @@
-import { Line } from "../types/main";
 import { getDistanceFromLine } from "geolib";
+import { Line } from "../types/main";
 
 /**
  * TASK-14

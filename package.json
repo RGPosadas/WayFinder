@@ -7,9 +7,12 @@
     "ios": "expo start --ios",
     "start": "expo start",
     "test": "jest --verbose --coverage",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
+    "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./"
   },
   "dependencies": {
+    "@expo/vector-icons": "^10.0.6",
     "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.1.1",
     "@react-navigation/native": "^5.0.9",
@@ -40,15 +43,23 @@
     "@babel/preset-env": "^7.8.7",
     "@types/react": "^16.9.0",
     "@types/react-native": "^0.60.15",
+    "@typescript-eslint/eslint-plugin": "^2.24.0",
     "babel-jest": "25.1.0",
     "babel-preset-expo": "^8.0.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-typescript": "^7.2.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
     "jest-cli": "^25.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^36.0.0",
     "jest-fetch-mock": "3.0.2",
+    "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0",
     "typescript": "^3.7.2"
   }
