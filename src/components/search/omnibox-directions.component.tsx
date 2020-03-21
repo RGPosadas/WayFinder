@@ -7,12 +7,14 @@ import {
   View,
   Platform,
   TouchableOpacity,
-  StatusBar
+  StatusBar,
+  SafeAreaView
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import { POI } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import SelectInput from "react-native-select-input-ios";
+import StartTravel from "./start-travel.component";
 
 /**
  * the name and types of the properties types accepted
@@ -24,12 +26,20 @@ export interface OmniboxDirectionsProps {
     | POI
     | { displayName: string; latitude: number; longitude: number };
   setDestination: (poi: POI) => void;
-  setInitialLocation: (poi: POI | null) => void;
+  setInitialLocation: (
+    poi:
+      | POI
+      | null
+      | { displayName: string; latitude: number; longitude: number }
+  ) => void;
   queryText: (
     userInput: string,
     setAutocomplete: ([]) => void,
     onChangeText: (string) => void
   ) => void;
+  setMarkerSetsDestination: (Boolean) => void;
+  currentLocation: Location;
+  setStartTravelPlan: (bool: Boolean) => void;
 }
 
 /**
@@ -45,9 +55,12 @@ const OmniboxDirections = ({
   initialLocation,
   setDestination,
   setInitialLocation,
-  queryText
+  queryText,
+  setMarkerSetsDestination,
+  currentLocation,
+  setStartTravelPlan
 }: OmniboxDirectionsProps) => {
-  const [value, onChangeText] = React.useState(initialLocation.displayName);
+  const [value, onChangeText] = React.useState(null);
   const [destinationValue, setDestinationValue] = React.useState(
     destination.displayName
   );
@@ -55,7 +68,7 @@ const OmniboxDirections = ({
   const [autoCompleteValuesDest, setAutocompleteDest] = React.useState(null);
 
   useEffect(() => {
-    onChangeText(initialLocation.displayName);
+    if (initialLocation) onChangeText(initialLocation.displayName);
     setAutocomplete(null);
   }, [initialLocation]);
 
@@ -63,6 +76,15 @@ const OmniboxDirections = ({
     setDestinationValue(destination.displayName);
     setAutocompleteDest(null);
   }, [destination]);
+
+  useEffect(() => {
+    if (currentLocation && !initialLocation) {
+      setInitialLocation({
+        displayName: "Current Location",
+        ...currentLocation
+      });
+    }
+  });
 
   //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
   let autocompleteHeight;
@@ -84,81 +106,95 @@ const OmniboxDirections = ({
     { value: 6, label: "biasjdk fdsthc" }
   ];
   return (
-    <View style={[styles.safeAreaView, , { height: autocompleteHeight }]}>
-      <View style={styles.contentContainer}>
-        <TouchableOpacity
-          testID={"backArrow"}
-          onPress={() => setDestination(null)}
-        >
-          <AntDesign
-            name={"arrowleft"}
-            color={"#AA2B45"}
-            size={26}
-            style={styles.backArrow}
-          ></AntDesign>
-        </TouchableOpacity>
-        <View style={styles.directionsWaypoints}>
-          <Image source={require("../../../assets/route.png")}></Image>
-          <View style={styles.searchContainer}>
-            <TextInput
-              testID={"searchInputInitialLocation"}
-              selectTextOnFocus={true}
-              style={styles.input}
-              onChangeText={text =>
-                queryText(text, setAutocomplete, onChangeText)
-              }
-              value={value}
+    <>
+      <SafeAreaView
+        style={[styles.safeAreaView, , { height: autocompleteHeight }]}
+      >
+        <View style={styles.contentContainer}>
+          <TouchableOpacity
+            testID={"backArrow"}
+            onPress={() => {
+              setDestination(null);
+              setInitialLocation(null);
+              setMarkerSetsDestination(true);
+              setStartTravelPlan(false);
+            }}
+          >
+            <AntDesign
+              name={"arrowleft"}
+              color={"#AA2B45"}
+              size={26}
+              style={styles.backArrow}
+            ></AntDesign>
+          </TouchableOpacity>
+          <View style={styles.directionsWaypoints}>
+            <Image source={require("../../../assets/route.png")}></Image>
+            <View style={styles.searchContainer}>
+              <TextInput
+                testID={"searchInputInitialLocation"}
+                selectTextOnFocus={true}
+                style={styles.input}
+                onChangeText={text =>
+                  queryText(text, setAutocomplete, onChangeText)
+                }
+                value={value}
+                onFocus={() => setMarkerSetsDestination(false)}
+              />
+              <TextInput
+                testID={"searchInputDestinationLocation"}
+                selectTextOnFocus={true}
+                style={styles.input}
+                value={destinationValue}
+                onChangeText={text =>
+                  queryText(text, setAutocompleteDest, setDestinationValue)
+                }
+                onFocus={() => setMarkerSetsDestination(true)}
+              />
+            </View>
+          </View>
+          <SelectInput style={styles.picker} value={0} options={options} />
+          <View style={styles.travelModeSwitcher}>
+            <FontAwesome name={"car"} size={24} style={{ marginLeft: 15 }} />
+            <FontAwesome
+              name={"wheelchair"}
+              size={24}
+              style={{ marginLeft: 15 }}
             />
-            <TextInput
-              testID={"searchInputDestinationLocation"}
-              selectTextOnFocus={true}
-              style={styles.input}
-              value={destinationValue}
-              onChangeText={text =>
-                queryText(text, setAutocompleteDest, setDestinationValue)
-              }
+            <MaterialIcons
+              name={"directions-walk"}
+              size={28}
+              style={{ marginLeft: 15 }}
             />
+            <MaterialIcons
+              name={"directions-bus"}
+              size={28}
+              style={{ marginLeft: 15 }}
+            />
+            <Image
+              source={require("../../../assets/shuttle.png")}
+              style={{ marginLeft: 15 }}
+            ></Image>
           </View>
         </View>
-        <SelectInput style={styles.picker} value={0} options={options} />
-        <View style={styles.travelModeSwitcher}>
-          <FontAwesome name={"car"} size={24} style={{ marginLeft: 15 }} />
-          <FontAwesome
-            name={"wheelchair"}
-            size={24}
-            style={{ marginLeft: 15 }}
-          />
-          <MaterialIcons
-            name={"directions-walk"}
-            size={28}
-            style={{ marginLeft: 15 }}
-          />
-          <MaterialIcons
-            name={"directions-bus"}
-            size={28}
-            style={{ marginLeft: 15 }}
-          />
-          <Image
-            source={require("../../../assets/shuttle.png")}
-            style={{ marginLeft: 15 }}
-          ></Image>
-        </View>
-      </View>
-      {autoCompleteValues && value != "" && (
-        <Autocomplete
-          style={styles.autocomplete}
-          autoCompleteValues={autoCompleteValues}
-          setLocation={setInitialLocation}
-        ></Autocomplete>
+        {autoCompleteValues && value != "" && (
+          <Autocomplete
+            style={styles.autocomplete}
+            autoCompleteValues={autoCompleteValues}
+            setLocation={setInitialLocation}
+          ></Autocomplete>
+        )}
+        {autoCompleteValuesDest && destinationValue != "" && (
+          <Autocomplete
+            style={styles.autocomplete}
+            autoCompleteValues={autoCompleteValuesDest}
+            setLocation={setDestination}
+          ></Autocomplete>
+        )}
+      </SafeAreaView>
+      {initialLocation && destination && destinationValue !== "" && (
+        <StartTravel setStartTravelPlan={setStartTravelPlan} />
       )}
-      {autoCompleteValuesDest && destinationValue != "" && (
-        <Autocomplete
-          style={styles.autocomplete}
-          autoCompleteValues={autoCompleteValuesDest}
-          setLocation={setDestination}
-        ></Autocomplete>
-      )}
-    </View>
+    </>
   );
 };
 

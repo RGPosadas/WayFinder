@@ -56,10 +56,11 @@ const MapScreen = () => {
   const [destination, setDestination] = useState<POI>(null);
   const [initialLocation, setInitialLocation] = useState<
     POI | { displayName: string; latitude: number; longitude: number }
-  >({
-    displayName: "Current Location",
-    ...currentLocation
-  });
+  >(null);
+  const [markerSetsDestination, setMarkerSetsDestination] = useState<Boolean>(
+    true
+  );
+  const [startTravelPlan, setStartTravelPlan] = useState<Boolean>(false);
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -200,6 +201,14 @@ const MapScreen = () => {
    */
   useEffect(() => {
     setCurrentRegion(getCampusById(CampusId.SGW).region);
+    if (!currentLocation) {
+      getCurrentLocationAsync().then(location => {
+        setCurrentLocation({
+          latitude: location.coords.latitude,
+          longitude: location.coords.latitude
+        });
+      });
+    }
   }, []);
 
   /**
@@ -216,6 +225,14 @@ const MapScreen = () => {
    */
   const getInitialLocation = (poi: POI | null) => {
     setInitialLocation(poi);
+  };
+
+  const setMarkerLocation = (poi: POI | null) => {
+    if (markerSetsDestination) {
+      setDestination(poi);
+    } else {
+      setInitialLocation(poi);
+    }
   };
 
   /**
@@ -244,6 +261,9 @@ const MapScreen = () => {
         setInitialLocation={setInitialLocation}
         initialLocation={initialLocation}
         queryText={queryText}
+        setMarkerSetsDestination={setMarkerSetsDestination}
+        currentLocation={currentLocation}
+        setStartTravelPlan={setStartTravelPlan}
       />
     );
   } else {
@@ -272,6 +292,10 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
+            setMarkerLocation={setMarkerLocation}
+            destination={destination}
+            initialLocation={initialLocation}
+            startTravelPlan={startTravelPlan}
           />
 
           <View style={styles.flashMessage} testID="flashMessage">

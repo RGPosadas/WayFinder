@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OmniboxDirections component should match snapshot 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
@@ -70,6 +71,7 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
         <TextInput
           allowFontScaling={true}
           onChangeText={[Function]}
+          onFocus={[Function]}
           rejectResponderTermination={true}
           selectTextOnFocus={true}
           style={
@@ -90,6 +92,7 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
         <TextInput
           allowFontScaling={true}
           onChangeText={[Function]}
+          onFocus={[Function]}
           rejectResponderTermination={true}
           selectTextOnFocus={true}
           style={
@@ -377,5 +380,5 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
       />
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;

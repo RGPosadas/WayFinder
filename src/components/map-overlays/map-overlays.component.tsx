@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
+import {
+  BuildingId,
+  ZoomLevel,
+  IndoorInformation,
+  POI
+} from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { buildingFloors } from "../../constants/floors.data";
@@ -15,6 +20,12 @@ interface IProps {
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
+  setMarkerLocation: (poi: POI) => void;
+  destination: POI;
+  initialLocation:
+    | POI
+    | { displayName: string; latitude: number; longitude: number };
+  startTravelPlan: Boolean;
 }
 
 /**
@@ -24,7 +35,11 @@ const MapOverlays = ({
   onBuildingTap,
   tappedBuilding,
   zoomLevel,
-  indoorInformation
+  indoorInformation,
+  setMarkerLocation,
+  destination,
+  initialLocation,
+  startTravelPlan
 }: IProps) => {
   /**
    * Fill color for the Polygons
@@ -127,16 +142,38 @@ const MapOverlays = ({
               }
               return poi.level === indoorInformation.currentFloor.level;
             })
-            .map(poi => (
-              <CustomMarker
-                markerType="poi"
-                key={poi.id}
-                location={poi.location}
-                text={poi.displayName}
-                onPress={() => {}}
-                testID={`poi-${poi.id}`}
-              />
-            ))}
+            .map(poi => {
+              if (startTravelPlan) {
+                if (
+                  (destination && destination.id == poi.id) ||
+                  (initialLocation && initialLocation.id == poi.id)
+                ) {
+                  return (
+                    <CustomMarker
+                      markerType={"poi"}
+                      key={poi.id}
+                      location={poi.location}
+                      text={poi.displayName}
+                      onPress={() => {
+                        setMarkerLocation(poi);
+                      }}
+                    />
+                  );
+                }
+              } else if (!startTravelPlan) {
+                return (
+                  <CustomMarker
+                    markerType={"poi"}
+                    key={poi.id}
+                    location={poi.location}
+                    text={poi.displayName}
+                    onPress={() => {
+                      setMarkerLocation(poi);
+                    }}
+                  />
+                );
+              }
+            })}
         </>
       ) : null}
     </>
