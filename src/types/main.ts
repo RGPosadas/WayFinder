@@ -88,9 +88,10 @@ export interface Range {
   max: number;
 }
 
+export type PQItem = { id: number; parent: number; g: number };
+
 export type Line = [TravelNode, TravelNode];
 
-export type Point = { id: number; location: Location };
 export type Coordinate = [number, number];
 
 export enum CampusId {
