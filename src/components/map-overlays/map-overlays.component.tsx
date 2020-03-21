@@ -6,7 +6,8 @@ import {
   BuildingId,
   ZoomLevel,
   IndoorInformation,
-  POI
+  POI,
+  UserLocation
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -22,9 +23,7 @@ interface IProps {
   indoorInformation: IndoorInformation;
   setMarkerLocation: (poi: POI) => void;
   destination: POI;
-  initialLocation:
-    | POI
-    | { displayName: string; latitude: number; longitude: number };
+  initialLocation: POI | UserLocation;
   startTravelPlan: Boolean;
 }
 
@@ -143,23 +142,22 @@ const MapOverlays = ({
               return poi.level === indoorInformation.currentFloor.level;
             })
             .map(poi => {
-              if (startTravelPlan) {
-                if (
-                  (destination && destination.id == poi.id) ||
-                  (initialLocation && initialLocation.id == poi.id)
-                ) {
-                  return (
-                    <CustomMarker
-                      markerType={"poi"}
-                      key={poi.id}
-                      location={poi.location}
-                      text={poi.displayName}
-                      onPress={() => {
-                        setMarkerLocation(poi);
-                      }}
-                    />
-                  );
-                }
+              if (
+                startTravelPlan &&
+                ((destination && destination.id == poi.id) ||
+                  (initialLocation && initialLocation.id == poi.id))
+              ) {
+                return (
+                  <CustomMarker
+                    markerType={"poi"}
+                    key={poi.id}
+                    location={poi.location}
+                    text={poi.displayName}
+                    onPress={() => {
+                      setMarkerLocation(poi);
+                    }}
+                  />
+                );
               } else if (!startTravelPlan) {
                 return (
                   <CustomMarker

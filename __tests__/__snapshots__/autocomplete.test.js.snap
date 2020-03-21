@@ -39,6 +39,7 @@ exports[`AutoComplete component should match snapshot 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
+    testID="autoCompleteFlatList"
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
     windowSize={21}

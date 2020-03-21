@@ -10,6 +10,21 @@ import {
 import Autocomplete from "./autocomplete.component";
 import { POI } from "../../types/main";
 
+
+  /**
+   * Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
+   */
+  export const getAutoCompleteHeight = (autoCompleteValues?: string[]) => {
+    const deafaultSearchBarHeight: number = 48;
+    const searchBarHeight: number = 50;
+    const autoCompleteElementHeight: number = 51;
+
+    return autoCompleteValues
+      ? autoCompleteValues.length * autoCompleteElementHeight + searchBarHeight
+      : deafaultSearchBarHeight;
+  };
+
+
 /**
  * the name and types of the properties types accepted
  * by the Search component
@@ -19,7 +34,7 @@ interface IProps {
   queryText: (
     userInput: string,
     setAutocomplete: ([]) => void,
-    onChangeText: (string) => void
+    onChangeText: (string: string) => void
   ) => void;
 }
 
@@ -32,15 +47,10 @@ const Search = ({ setDestination, queryText }: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
 
-  //Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
-
-  const getAutoCompleteHeight = () => {
-    return autoCompleteValues ? autoCompleteValues.length * 51 + 50 : 48;
-  };
   return (
     <View
       testID={"searchContainer"}
-      style={[styles.container, { height: getAutoCompleteHeight() }]}
+      style={[styles.container, { height: getAutoCompleteHeight(autoCompleteValues) }]}
     >
       <View style={styles.parent}>
         <View style={styles.view}>
@@ -84,7 +94,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     position: "absolute",
-    top: Platform.OS === "android" ? 25 + 48 : 0 + 48,
+    top: Platform.OS === "ios" ? 48 : 73,
     width: Dimensions.get("window").width - 30,
     zIndex: 1,
     height: 48,
@@ -102,21 +112,6 @@ const styles = StyleSheet.create({
     paddingRight: 16,
     justifyContent: "space-between",
     zIndex: 2
-  },
-  safeArea: {
-    flex: 1,
-    alignSelf: "center",
-    top: Platform.OS === "android" ? 25 + 48 : 0 + 48,
-    width: Dimensions.get("window").width - 30,
-    borderWidth: 2,
-    borderColor: "#AA2B45",
-    height: 48,
-    backgroundColor: "#fff",
-    flexDirection: "row",
-    alignItems: "center",
-    paddingLeft: 16,
-    paddingRight: 16,
-    justifyContent: "space-between"
   },
   lineSeperator: {
     marginLeft: 16,

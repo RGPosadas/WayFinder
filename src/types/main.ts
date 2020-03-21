@@ -5,6 +5,12 @@ export interface Location {
   longitude: number;
 }
 
+export interface UserLocation {
+  id: string;
+  displayName: string | "User Location";
+  location: Location;
+}
+
 export interface Region extends Location {
   latitudeDelta: number;
   longitudeDelta: number;

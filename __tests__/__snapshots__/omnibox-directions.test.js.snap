@@ -1,168 +1,130 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`OmniboxDirections component should match snapshot 1`] = `
-<RCTSafeAreaView
-  emulateUnlessSupported={true}
-  style={
-    Array [
-      Object {
-        "backgroundColor": "#F2F2F2",
-        "height": 235,
-        "position": "absolute",
-        "top": 0,
-        "width": 750,
-        "zIndex": 1,
-      },
-      undefined,
-      Object {
-        "height": 260,
-      },
-    ]
-  }
->
-  <View
+Array [
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
     style={
-      Object {
-        "marginLeft": 15,
-        "marginRight": 15,
-        "paddingBottom": 20,
-      }
+      Array [
+        Object {
+          "backgroundColor": "#F2F2F2",
+          "height": 235,
+          "position": "absolute",
+          "top": 0,
+          "width": 750,
+          "zIndex": 1,
+        },
+        Object {
+          "height": 260,
+        },
+      ]
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
-        }
-      }
-      testID="backArrow"
-    >
-      <Text />
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "marginLeft": 36,
+          "marginLeft": 15,
+          "marginRight": 15,
+          "paddingBottom": 20,
         }
       }
     >
-      <Image
-        source={1}
-      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="backArrow"
+      >
+        <Text />
+      </View>
       <View
         style={
           Object {
-            "flex": 1,
+            "alignItems": "center",
+            "flexDirection": "row",
+            "marginLeft": 36,
           }
         }
       >
-        <TextInput
-          allowFontScaling={true}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          rejectResponderTermination={true}
-          selectTextOnFocus={true}
+        <Image
+          source={1}
+        />
+        <View
           style={
             Object {
-              "borderColor": "#DEDEDE",
-              "borderWidth": 1,
-              "fontSize": 16,
-              "height": 38,
-              "marginBottom": 15,
-              "marginLeft": 10,
-              "paddingLeft": 10,
+              "flex": 1,
             }
           }
-          testID="searchInputInitialLocation"
-          underlineColorAndroid="transparent"
-          value="Stairs 2"
-        />
-        <TextInput
-          allowFontScaling={true}
-          onChangeText={[Function]}
-          onFocus={[Function]}
-          rejectResponderTermination={true}
-          selectTextOnFocus={true}
-          style={
-            Object {
-              "borderColor": "#DEDEDE",
-              "borderWidth": 1,
-              "fontSize": 16,
-              "height": 38,
-              "marginBottom": 15,
-              "marginLeft": 10,
-              "paddingLeft": 10,
+        >
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            selectTextOnFocus={true}
+            style={
+              Object {
+                "borderColor": "#DEDEDE",
+                "borderWidth": 1,
+                "fontSize": 16,
+                "height": 38,
+                "marginBottom": 15,
+                "marginLeft": 10,
+                "paddingLeft": 10,
+              }
             }
-          }
-          testID="searchInputDestinationLocation"
-          underlineColorAndroid="transparent"
-          value="Stairs 3"
-        />
+            testID="searchInputInitialLocation"
+            underlineColorAndroid="transparent"
+            value={null}
+          />
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            onFocus={[Function]}
+            rejectResponderTermination={true}
+            selectTextOnFocus={true}
+            style={
+              Object {
+                "borderColor": "#DEDEDE",
+                "borderWidth": 1,
+                "fontSize": 16,
+                "height": 38,
+                "marginBottom": 15,
+                "marginLeft": 10,
+                "paddingLeft": 10,
+              }
+            }
+            testID="searchInputDestinationLocation"
+            underlineColorAndroid="transparent"
+            value="Stairs 3"
+          />
+        </View>
       </View>
-    </View>
-    <View
-      accessible={true}
-      focusable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "borderColor": "#DEDEDE",
-          "borderWidth": 1,
-          "height": 35,
-          "marginBottom": 20,
-          "marginLeft": 38,
-        }
-      }
-    >
-      <Text
-        adjustFontSizeToFit={true}
-        allowFontScaling={false}
-        numberOfLines={1}
+      <View
         style={
           Object {
-            "alignSelf": "center",
-            "fontSize": 13,
+            "marginTop": 0,
           }
         }
       >
-        Departure time 9AM
-      </Text>
-      <Modal
-        animationType="slide"
-        hardwareAccelerated={false}
-        onOrientationChange={[Function]}
-        supportedOrientations={
-          Array [
-            "portrait",
-            "landscape",
-            "landscape-left",
-            "landscape-right",
-          ]
-        }
-        transparent={true}
-        visible={false}
-      >
         <View
+          accessibilityRole="button"
+          accessibilityStates={Array []}
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -172,213 +134,125 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "alignItems": "center",
-              "flex": 1,
-              "justifyContent": "flex-end",
+              "opacity": 1,
             }
           }
+          testID="timePickerButton"
         >
           <View
             style={
               Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#F5FCFF",
-                  "justifyContent": "center",
-                  "padding": 0,
-                },
-                Object {
-                  "width": 750,
-                },
+                Object {},
               ]
             }
           >
-            <View
+            <Text
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#CCCFD6",
-                    "borderBottomWidth": 0,
-                    "borderColor": "#CCCFD6",
-                    "borderTopColor": "lightgrey",
-                    "borderTopWidth": 0.5,
-                    "flexDirection": "row",
-                    "justifyContent": "space-between",
-                    "padding": 0,
+                    "color": "#007AFF",
+                    "fontSize": 18,
+                    "padding": 8,
+                    "textAlign": "center",
                   },
-                  undefined,
                   Object {
-                    "width": 750,
+                    "color": "#AA2B45",
                   },
                 ]
               }
             >
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#006BFF",
-                        "padding": 8,
-                      },
-                      undefined,
-                      Object {
-                        "textAlign": "left",
-                      },
-                    ]
-                  }
-                >
-                  Cancel
-                </Text>
-              </View>
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": "#006BFF",
-                        "padding": 8,
-                      },
-                      undefined,
-                      Object {
-                        "textAlign": "right",
-                      },
-                    ]
-                  }
-                >
-                  Done
-                </Text>
-              </View>
-            </View>
-            <View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#FFFFFF",
-                    },
-                    undefined,
-                    Object {
-                      "width": 750,
-                    },
-                  ]
-                }
-              >
-                <RCTPicker
-                  items={
-                    Array [
-                      Object {
-                        "label": "Departure time 9AM",
-                        "textColor": undefined,
-                        "value": 0,
-                      },
-                      Object {
-                        "label": "bithc",
-                        "textColor": undefined,
-                        "value": 1,
-                      },
-                      Object {
-                        "label": "please",
-                        "textColor": undefined,
-                        "value": 2,
-                      },
-                      Object {
-                        "label": "dlsfjhlds",
-                        "textColor": undefined,
-                        "value": 3,
-                      },
-                      Object {
-                        "label": "bisaljdfhlathc",
-                        "textColor": undefined,
-                        "value": 4,
-                      },
-                      Object {
-                        "label": "bijsdfa lsdkfthc",
-                        "textColor": undefined,
-                        "value": 5,
-                      },
-                      Object {
-                        "label": "biasjdk fdsthc",
-                        "textColor": undefined,
-                        "value": 6,
-                      },
-                    ]
-                  }
-                  onChange={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  selectedIndex={0}
-                  style={
-                    Array [
-                      Object {
-                        "height": 216,
-                      },
-                      undefined,
-                    ]
-                  }
-                />
-              </View>
-            </View>
+              Depart at: 23:59
+            </Text>
           </View>
         </View>
-      </Modal>
-    </View>
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        }
-      }
-    >
-      <Text />
-      <Text />
-      <Text />
-      <Text />
-      <Image
-        source={1}
+      </View>
+      <View
         style={
           Object {
-            "marginLeft": 15,
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 20,
           }
         }
-      />
+      >
+        <Text />
+        <Text />
+        <Text />
+        <Text />
+        <Image
+          source={1}
+          style={
+            Object {
+              "marginLeft": 15,
+            }
+          }
+        />
+      </View>
     </View>
-  </View>
-</RCTSafeAreaView>
+  </RCTSafeAreaView>,
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "flex": 1,
+        "height": 80,
+        "position": "absolute",
+        "right": 0,
+        "top": 1234,
+        "width": 80,
+        "zIndex": 1,
+      }
+    }
+  >
+    <RNGestureHandlerButton
+      collapsable={false}
+      onGestureEvent={[Function]}
+      onGestureHandlerEvent={[Function]}
+      onGestureHandlerStateChange={[Function]}
+      onHandlerStateChange={[Function]}
+      rippleColor={0}
+      style={
+        Array [
+          Object {
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        style={
+          Object {
+            "height": 80,
+            "opacity": 1,
+            "width": 80,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#AA2B45",
+              "borderColor": "rgba(0,0,0,0.2)",
+              "borderRadius": 50,
+              "borderWidth": 1,
+              "flex": 1,
+              "height": 80,
+              "justifyContent": "center",
+              "left": 0,
+              "position": "absolute",
+              "top": 0,
+              "width": 80,
+            }
+          }
+        >
+          <Text />
+        </View>
+      </View>
+    </RNGestureHandlerButton>
+  </View>,
+]
 `;

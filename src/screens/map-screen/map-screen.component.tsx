@@ -21,10 +21,10 @@ import {
   ZoomLevel,
   IndoorFloor,
   CampusId,
-  POI
+  POI,
+  UserLocation
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
-
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import { inRange } from "../../services/utility.service";
 import {
@@ -54,9 +54,9 @@ const MapScreen = () => {
     }
   );
   const [destination, setDestination] = useState<POI>(null);
-  const [initialLocation, setInitialLocation] = useState<
-    POI | { displayName: string; latitude: number; longitude: number }
-  >(null);
+  const [initialLocation, setInitialLocation] = useState<POI | UserLocation>(
+    null
+  );
   const [markerSetsDestination, setMarkerSetsDestination] = useState<Boolean>(
     true
   );
@@ -212,21 +212,10 @@ const MapScreen = () => {
   }, []);
 
   /**
-   *
+   *  Set the value of destination or initial locaiton depending
+   *  on which input the user is focued
    * @param poi
    */
-  const getDestination = (poi: POI) => {
-    setDestination(poi);
-  };
-
-  /**
-   *
-   * @param poi
-   */
-  const getInitialLocation = (poi: POI | null) => {
-    setInitialLocation(poi);
-  };
-
   const setMarkerLocation = (poi: POI | null) => {
     if (markerSetsDestination) {
       setDestination(poi);
@@ -257,12 +246,12 @@ const MapScreen = () => {
     search = (
       <OmniboxDirections
         destination={destination}
+        currentLocation={currentLocation}
         setDestination={setDestination}
         setInitialLocation={setInitialLocation}
         initialLocation={initialLocation}
         queryText={queryText}
         setMarkerSetsDestination={setMarkerSetsDestination}
-        currentLocation={currentLocation}
         setStartTravelPlan={setStartTravelPlan}
       />
     );

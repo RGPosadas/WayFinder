@@ -8,42 +8,67 @@ import {
   Platform,
   TouchableOpacity,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
+  Button
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
-import { POI } from "../../types/main";
+import { POI, UserLocation, Location } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
-import SelectInput from "react-native-select-input-ios";
 import StartTravel from "./start-travel.component";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import { CONCORDIA_RED } from "../../constants/style";
 
+/**
+ * Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
+ */
+export const getAutoCompleteHeight = (
+  autoCompleteValues?: string[],
+  value?: string,
+  autoCompleteValuesDest?: string[],
+  showTimePicker?: boolean,
+  destinationValue?: string
+) => {
+  const heightAutoCompleteElement: number = 51;
+  const autoCompleteHeight: number = 235;
+  const defaultAutoCompleteHeight: number = 260;
+
+  if (autoCompleteValues && value != "") {
+    return (
+      autoCompleteValues.length * heightAutoCompleteElement + autoCompleteHeight
+    );
+  } else if (autoCompleteValuesDest && destinationValue != "") {
+    return (
+      autoCompleteValuesDest.length * heightAutoCompleteElement +
+      autoCompleteHeight
+    );
+  } else if (Platform.OS == "ios" && showTimePicker) {
+    return 240 + autoCompleteHeight;
+  } else {
+    return defaultAutoCompleteHeight;
+  }
+};
 /**
  * the name and types of the properties types accepted
  * by the OmniboxDirectionsProps component
  */
 export interface OmniboxDirectionsProps {
   destination: POI;
-  initialLocation:
-    | POI
-    | { displayName: string; latitude: number; longitude: number };
+  currentLocation: Location;
+  initialLocation: POI | UserLocation;
   setDestination: (poi: POI) => void;
-  setInitialLocation: (
-    poi:
-      | POI
-      | null
-      | { displayName: string; latitude: number; longitude: number }
-  ) => void;
+  setInitialLocation: (poi: POI | UserLocation | null) => void;
   queryText: (
     userInput: string,
     setAutocomplete: ([]) => void,
-    onChangeText: (string) => void
+    onChangeText: (string: string) => void
   ) => void;
-  setMarkerSetsDestination: (Boolean) => void;
-  currentLocation: Location;
-  setStartTravelPlan: (bool: Boolean) => void;
+  setMarkerSetsDestination: (bool: boolean) => void;
+  setStartTravelPlan: (bool: boolean) => void;
 }
 
 /**
- *
+ * Displays the start and location with a departure time picker.
+ * Displays the transportation options
  * @param destination
  * @param initialLocation
  * @param setDestination Function called to update destination
@@ -52,12 +77,12 @@ export interface OmniboxDirectionsProps {
  */
 const OmniboxDirections = ({
   destination,
+  currentLocation,
   initialLocation,
   setDestination,
   setInitialLocation,
   queryText,
   setMarkerSetsDestination,
-  currentLocation,
   setStartTravelPlan
 }: OmniboxDirectionsProps) => {
   const [value, onChangeText] = React.useState(null);
@@ -66,6 +91,8 @@ const OmniboxDirections = ({
   );
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
   const [autoCompleteValuesDest, setAutocompleteDest] = React.useState(null);
+  const [date, setDate] = React.useState(new Date(new Date()));
+  const [showTimePicker, setshowTimePicker] = React.useState(false);
 
   useEffect(() => {
     if (initialLocation) onChangeText(initialLocation.displayName);
@@ -80,36 +107,33 @@ const OmniboxDirections = ({
   useEffect(() => {
     if (currentLocation && !initialLocation) {
       setInitialLocation({
+        id: "User Location",
         displayName: "Current Location",
-        ...currentLocation
+        location: currentLocation
       });
     }
   });
 
-  //Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
-  let autocompleteHeight;
-  if (autoCompleteValues && value != "") {
-    autocompleteHeight = autoCompleteValues.length * 51 + 235;
-  } else if (autoCompleteValuesDest && destinationValue != "") {
-    autocompleteHeight = autoCompleteValuesDest.length * 51 + 235;
-  } else {
-    autocompleteHeight = 260;
-  }
+  /**
+   * Change the value of the departure time
+   * @param event
+   * @param date
+   */
+  const onChange = (event, pickDate) => {
+    setDate(pickDate ? pickDate : date);
+  };
 
-  const options = [
-    { value: 0, label: "Departure time 9AM" },
-    { value: 1, label: "bithc" },
-    { value: 2, label: "please" },
-    { value: 3, label: "dlsfjhlds" },
-    { value: 4, label: "bisaljdfhlathc" },
-    { value: 5, label: "bijsdfa lsdkfthc" },
-    { value: 6, label: "biasjdk fdsthc" }
-  ];
+  let height = getAutoCompleteHeight(
+    autoCompleteValues,
+    value,
+    autoCompleteValuesDest,
+    showTimePicker,
+    destinationValue
+  );
+
   return (
     <>
-      <SafeAreaView
-        style={[styles.safeAreaView, , { height: autocompleteHeight }]}
-      >
+      <SafeAreaView style={[styles.safeAreaView, { height: height }]}>
         <View style={styles.contentContainer}>
           <TouchableOpacity
             testID={"backArrow"}
@@ -131,8 +155,9 @@ const OmniboxDirections = ({
             <Image source={require("../../../assets/route.png")}></Image>
             <View style={styles.searchContainer}>
               <TextInput
-                testID={"searchInputInitialLocation"}
                 selectTextOnFocus={true}
+                key={"initialLocation"}
+                testID={"searchInputInitialLocation"}
                 style={styles.input}
                 onChangeText={text =>
                   queryText(text, setAutocomplete, onChangeText)
@@ -141,6 +166,7 @@ const OmniboxDirections = ({
                 onFocus={() => setMarkerSetsDestination(false)}
               />
               <TextInput
+                key={"destinationLocation"}
                 testID={"searchInputDestinationLocation"}
                 selectTextOnFocus={true}
                 style={styles.input}
@@ -152,7 +178,32 @@ const OmniboxDirections = ({
               />
             </View>
           </View>
-          <SelectInput style={styles.picker} value={0} options={options} />
+          <View style={styles.button}>
+            <Button
+              testID={"timePickerButton"}
+              color={CONCORDIA_RED}
+              onPress={() => setshowTimePicker(!showTimePicker)}
+              title={
+                "Depart at: " +
+                (date
+                  ? date.getHours().toString() +
+                    ":" +
+                    date.getMinutes().toString()
+                  : "now")
+              }
+            />
+            {showTimePicker && (
+              <DateTimePicker
+                testID="dateTimePicker"
+                timeZoneOffsetInMinutes={0}
+                value={date}
+                mode={"time"}
+                is24Hour={true}
+                display="spinner"
+                onChange={onChange}
+              />
+            )}
+          </View>
           <View style={styles.travelModeSwitcher}>
             <FontAwesome name={"car"} size={24} style={{ marginLeft: 15 }} />
             <FontAwesome
@@ -178,6 +229,7 @@ const OmniboxDirections = ({
         </View>
         {autoCompleteValues && value != "" && (
           <Autocomplete
+            testID={"initialLocation"}
             style={styles.autocomplete}
             autoCompleteValues={autoCompleteValues}
             setLocation={setInitialLocation}
@@ -185,6 +237,7 @@ const OmniboxDirections = ({
         )}
         {autoCompleteValuesDest && destinationValue != "" && (
           <Autocomplete
+            testID={"destination"}
             style={styles.autocomplete}
             autoCompleteValues={autoCompleteValuesDest}
             setLocation={setDestination}
@@ -242,6 +295,7 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   travelModeSwitcher: {
+    marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between"
@@ -249,5 +303,8 @@ const styles = StyleSheet.create({
   autocomplete: {
     top: 260,
     width: Dimensions.get("window").width
+  },
+  button: {
+    marginTop: Platform.OS === "android" ? 20 : 0
   }
 });

@@ -2,12 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Entypo } from "@expo/vector-icons";
-import {
-  FLOOR_PICKER_HEIGHT,
-  MAP_BUTTON_RIGHT,
-  CONCORDIA_RED,
-  INACTIVE_BUTTON_COLOR
-} from "../../constants/style";
+import { CONCORDIA_RED } from "../../constants/style";
 
 interface IProps {
   setStartTravelPlan: (bool: Boolean) => void;

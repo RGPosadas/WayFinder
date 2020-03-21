@@ -1,7 +1,10 @@
 import React from "react";
-import OmniboxDirections from "../src/components/search/omnibox-directions.component";
+import OmniboxDirections, {
+  getAutoCompleteHeight
+} from "../src/components/search/omnibox-directions.component";
 import renderer from "react-test-renderer";
-import { shallow, mount } from "enzyme";
+import { shallow } from "enzyme";
+import { Platform } from "react-native";
 
 let mockPOIs = [
   {
@@ -43,23 +46,33 @@ describe("OmniboxDirections component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should run provided function on press", () => {
+  it("should run provided function when back arrow pressed", () => {
     const mockSetDestination = jest.fn();
+    const mockSetInitialLocation = jest.fn();
+    const mocksetMarkerSetsDestination = jest.fn();
+    const mockSetStartTravelPlan = jest.fn();
 
     const wrapper = shallow(
       <OmniboxDirections
         setDestination={mockSetDestination}
+        setInitialLocation={mockSetInitialLocation}
+        setMarkerSetsDestination={mocksetMarkerSetsDestination}
         initialLocation={mockPOIs[0]}
+        setStartTravelPlan={mockSetStartTravelPlan}
         destination={mockPOIs[1]}
       />
     );
 
     const backArrow = wrapper.find({ testID: "backArrow" });
     backArrow.simulate("press");
+
     expect(mockSetDestination).toHaveBeenCalledTimes(1);
+    expect(mockSetStartTravelPlan).toHaveBeenCalledTimes(1);
+    expect(mockSetDestination.mock.calls[0][0]).toBe(null);
+    expect(mockSetStartTravelPlan.mock.calls[0][0]).toBe(false);
   });
 
-  it("should call a function on user input", () => {
+  it("should call provided function when initial location textInput text is changed", () => {
     const mockQueryText = jest.fn();
 
     const wrapper = shallow(
@@ -76,7 +89,24 @@ describe("OmniboxDirections component", () => {
     expect(mockQueryText.mock.calls[0][0]).toBe("H805");
   });
 
-  it("should call a function on user input", () => {
+  it("should call the provided functin when initial location textInput is focused", () => {
+    const mockSetMarkerSetsDestination = jest.fn();
+
+    const wrapper = shallow(
+      <OmniboxDirections
+        initialLocation={mockPOIs[0]}
+        destination={mockPOIs[1]}
+        setMarkerSetsDestination={mockSetMarkerSetsDestination}
+      />
+    );
+
+    const textInput = wrapper.find({ testID: "searchInputInitialLocation" });
+    textInput.simulate("focus");
+    expect(mockSetMarkerSetsDestination).toHaveBeenCalledTimes(1);
+    expect(mockSetMarkerSetsDestination.mock.calls[0][0]).toBe(false);
+  });
+
+  it("should call a function when destination location textInput text is changed", () => {
     const mockQueryText = jest.fn();
 
     const wrapper = shallow(
@@ -93,5 +123,110 @@ describe("OmniboxDirections component", () => {
     textInput.simulate("changeText", "H805");
     expect(mockQueryText).toHaveBeenCalledTimes(1);
     expect(mockQueryText.mock.calls[0][0]).toBe("H805");
+  });
+
+  it("should call the provided functin when destination location textInput is focused", () => {
+    const mockSetMarkerSetsDestination = jest.fn();
+
+    const wrapper = shallow(
+      <OmniboxDirections
+        initialLocation={mockPOIs[0]}
+        destination={mockPOIs[1]}
+        setMarkerSetsDestination={mockSetMarkerSetsDestination}
+      />
+    );
+
+    const textInput = wrapper.find({
+      testID: "searchInputDestinationLocation"
+    });
+    textInput.simulate("focus");
+    expect(mockSetMarkerSetsDestination).toHaveBeenCalledTimes(1);
+    expect(mockSetMarkerSetsDestination.mock.calls[0][0]).toBe(true);
+  });
+
+  it("should call setshowTimePicker() when pressed", () => {
+    const mockSetshowTimePicker = jest.fn();
+
+    const useStateSpy = jest.spyOn(React, "useState");
+    useStateSpy.mockImplementation(init => [init, mockSetshowTimePicker]);
+
+    const wrapper = shallow(
+      <OmniboxDirections
+        initialLocation={mockPOIs[0]}
+        destination={mockPOIs[1]}
+        // queryText={mockQueryText}
+      />
+    );
+
+    wrapper
+      .find({ testID: "timePickerButton" })
+      .props()
+      .onPress();
+
+    expect(mockSetshowTimePicker).toHaveBeenCalledTimes(1);
+  });
+
+  it("should get the height of the autoComplete component", () => {
+    (autoCompleteValues = []),
+      (value = 0),
+      (autoCompleteValuesDest = 0),
+      (showTimePicker = 0),
+      (destinationValue = 0);
+
+    let autoComplete = getAutoCompleteHeight(
+      autoCompleteValues,
+      value,
+      autoCompleteValuesDest,
+      showTimePicker,
+      destinationValue
+    );
+    expect(autoComplete).toBe(260);
+
+    (autoCompleteValues = [1]),
+      (value = "tst"),
+      (autoCompleteValuesDest = 0),
+      (showTimePicker = 0),
+      (destinationValue = 0);
+
+    autoComplete = getAutoCompleteHeight(
+      autoCompleteValues,
+      value,
+      autoCompleteValuesDest,
+      showTimePicker,
+      destinationValue
+    );
+    expect(autoComplete).toBe(286);
+
+    (autoCompleteValues = []),
+      (value = ""),
+      (autoCompleteValuesDest = [1]),
+      (showTimePicker = 0),
+      (destinationValue = "test");
+
+    autoComplete = getAutoCompleteHeight(
+      autoCompleteValues,
+      value,
+      autoCompleteValuesDest,
+      showTimePicker,
+      destinationValue
+    );
+    expect(autoComplete).toBe(286);
+
+    (autoCompleteValues = []),
+      (value = 0),
+      (autoCompleteValuesDest = 0),
+      (showTimePicker = true),
+      (destinationValue = 0);
+
+    Platform.OS = "ios";
+
+    autoComplete = getAutoCompleteHeight(
+      autoCompleteValues,
+      value,
+      autoCompleteValuesDest,
+      showTimePicker,
+      destinationValue
+    );
+    expect(autoComplete).toBe(475);
   });
 });

@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartTravel component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "flex": 1,
+      "height": 80,
+      "position": "absolute",
+      "right": 0,
+      "top": 1234,
+      "width": 80,
+      "zIndex": 1,
+    }
+  }
+>
+  <RNGestureHandlerButton
+    collapsable={false}
+    onGestureEvent={[Function]}
+    onGestureHandlerEvent={[Function]}
+    onGestureHandlerStateChange={[Function]}
+    onHandlerStateChange={[Function]}
+    rippleColor={0}
+    style={
+      Array [
+        Object {
+          "overflow": "hidden",
+        },
+        undefined,
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      style={
+        Object {
+          "height": 80,
+          "opacity": 1,
+          "width": 80,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#AA2B45",
+            "borderColor": "rgba(0,0,0,0.2)",
+            "borderRadius": 50,
+            "borderWidth": 1,
+            "flex": 1,
+            "height": 80,
+            "justifyContent": "center",
+            "left": 0,
+            "position": "absolute",
+            "top": 0,
+            "width": 80,
+          }
+        }
+      >
+        <Text />
+      </View>
+    </View>
+  </RNGestureHandlerButton>
+</View>
+`;

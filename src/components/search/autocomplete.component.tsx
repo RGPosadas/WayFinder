@@ -36,6 +36,7 @@ const AutoComplete = ({
   return (
     <View style={[styles.container, { ...style }]}>
       <FlatList
+      testID={"autoCompleteFlatList"}
         keyboardShouldPersistTaps={"handled"}
         data={autoCompleteValues}
         renderItem={({ item }: { item: POI }) => (
