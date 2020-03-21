@@ -18,10 +18,8 @@ module.exports = {
     "@typescript-eslint/no-use-before-define": [
       "error",
       {
-        functions: false,
-        classes: false,
-        variables: false,
-        typedefs: false
+        functions: true,
+        variables: false
       }
     ],
     "import/prefer-default-export": "off",
