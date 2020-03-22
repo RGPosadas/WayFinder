@@ -36,18 +36,18 @@ const AutoComplete = ({
   return (
     <View style={[styles.container, { ...style }]}>
       <FlatList
-      testID={"autoCompleteFlatList"}
-        keyboardShouldPersistTaps={"handled"}
+        testID="autoCompleteFlatList"
+        keyboardShouldPersistTaps="handled"
         data={autoCompleteValues}
         renderItem={({ item }: { item: POI }) => (
           <TouchableOpacity
-            testID={"touchableList"}
+            testID="touchableList"
             onPress={() => setLocation(item)}
             key={item.displayName}
             style={styles.list}
           >
             <Text style={styles.text}>{item.displayName}</Text>
-            <Entypo name={"chevron-thin-right"} size={24} color={"#454F63"} />
+            <Entypo name="chevron-thin-right" size={24} color="#454F63" />
           </TouchableOpacity>
         )}
       />

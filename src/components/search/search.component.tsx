@@ -10,20 +10,18 @@ import {
 import Autocomplete from "./autocomplete.component";
 import { POI } from "../../types/main";
 
+/**
+ * Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
+ */
+export const getAutoCompleteHeight = (autoCompleteValues?: string[]) => {
+  const deafaultSearchBarHeight: number = 48;
+  const searchBarHeight: number = 50;
+  const autoCompleteElementHeight: number = 51;
 
-  /**
-   * Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
-   */
-  export const getAutoCompleteHeight = (autoCompleteValues?: string[]) => {
-    const deafaultSearchBarHeight: number = 48;
-    const searchBarHeight: number = 50;
-    const autoCompleteElementHeight: number = 51;
-
-    return autoCompleteValues
-      ? autoCompleteValues.length * autoCompleteElementHeight + searchBarHeight
-      : deafaultSearchBarHeight;
-  };
-
+  return autoCompleteValues
+    ? autoCompleteValues.length * autoCompleteElementHeight + searchBarHeight
+    : deafaultSearchBarHeight;
+};
 
 /**
  * the name and types of the properties types accepted
@@ -33,7 +31,7 @@ interface IProps {
   setDestination: (poi: POI) => void;
   queryText: (
     userInput: string,
-    setAutocomplete: ([]) => void,
+    setAutocomplete: (poi: POI[]) => void,
     onChangeText: (string: string) => void
   ) => void;
 }
@@ -49,22 +47,23 @@ const Search = ({ setDestination, queryText }: IProps) => {
 
   return (
     <View
-      testID={"searchContainer"}
-      style={[styles.container, { height: getAutoCompleteHeight(autoCompleteValues) }]}
+      testID="searchContainer"
+      style={[
+        styles.container,
+        { height: getAutoCompleteHeight(autoCompleteValues) }
+      ]}
     >
       <View style={styles.parent}>
         <View style={styles.view}>
           <View style={styles.view}>
-            <Image
-              source={require("../../../assets/hamburger_icon.png")}
-            ></Image>
+            <Image source={require("../../../assets/hamburger_icon.png")} />
             <Image
               style={styles.lineSeperator}
               source={require("../../../assets/line-separator.png")}
-            ></Image>
-            <Image source={require("../../../assets/search.png")}></Image>
+            />
+            <Image source={require("../../../assets/search.png")} />
             <TextInput
-              testID={"searchInput"}
+              testID="searchInput"
               style={styles.input}
               onChangeText={text =>
                 queryText(text, setAutocomplete, onChangeText)
@@ -72,16 +71,16 @@ const Search = ({ setDestination, queryText }: IProps) => {
               value={value}
             />
           </View>
-          <Image source={require("../../../assets/mic.png")}></Image>
+          <Image source={require("../../../assets/mic.png")} />
         </View>
       </View>
-      {autoCompleteValues && value != "" && (
+      {autoCompleteValues && value !== "" && (
         <Autocomplete
-          testID={"autocomplete"}
+          testID="autocomplete"
           style={styles.autocomplete}
           autoCompleteValues={autoCompleteValues}
           setLocation={setDestination}
-        ></Autocomplete>
+        />
       )}
     </View>
   );

@@ -81,7 +81,7 @@ const MapOverlays = ({
                 coordinates={building.boundingBox}
                 tappable
                 fillColor={
-                  tappedBuilding != null && tappedBuilding === building.id
+                  tappedBuilding !== null && tappedBuilding === building.id
                     ? tappedColor
                     : fillColor
                 }
@@ -125,7 +125,7 @@ const MapOverlays = ({
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
           {buildingFloors
-            .filter(floor => floor.bounds != null && floor.image != null)
+            .filter(floor => floor.bounds !== null && floor.image !== null)
             .map(floor => (
               <Overlay
                 key={floor.id}
@@ -144,24 +144,12 @@ const MapOverlays = ({
             .map(poi => {
               if (
                 startTravelPlan &&
-                ((destination && destination.id == poi.id) ||
-                  (initialLocation && initialLocation.id == poi.id))
+                ((destination && destination.id === poi.id) ||
+                  (initialLocation && initialLocation.id === poi.id))
               ) {
                 return (
                   <CustomMarker
-                    markerType={"poi"}
-                    key={poi.id}
-                    location={poi.location}
-                    text={poi.displayName}
-                    onPress={() => {
-                      setMarkerLocation(poi);
-                    }}
-                  />
-                );
-              } else if (!startTravelPlan) {
-                return (
-                  <CustomMarker
-                    markerType={"poi"}
+                    markerType="poi"
                     key={poi.id}
                     location={poi.location}
                     text={poi.displayName}
@@ -171,6 +159,20 @@ const MapOverlays = ({
                   />
                 );
               }
+              if (!startTravelPlan) {
+                return (
+                  <CustomMarker
+                    markerType="poi"
+                    key={poi.id}
+                    location={poi.location}
+                    text={poi.displayName}
+                    onPress={() => {
+                      setMarkerLocation(poi);
+                    }}
+                  />
+                );
+              }
+              return null;
             })}
         </>
       ) : null}

@@ -27,7 +27,7 @@ const FloorPicker = ({
   return (
     <>
       {indoorInformation.floors.length > 0 &&
-      indoorInformation.currentFloor != null ? (
+      indoorInformation.currentFloor !== null ? (
         <View style={styles.container}>
           {indoorInformation.floors &&
             indoorInformation.floors.map((floor, index) => {

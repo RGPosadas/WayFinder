@@ -22,7 +22,7 @@ const StartTravel = ({ setStartTravelPlan }: IProps) => {
         style={{ width: 80, height: 80 }}
       >
         <View style={styles.button}>
-          <Entypo name={"chevron-right"} color={"#fff"} size={26} />
+          <Entypo name="chevron-right" color="#fff" size={26} />
         </View>
       </TouchableOpacity>
     </View>

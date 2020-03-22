@@ -229,13 +229,13 @@ const MapScreen = () => {
    * @param userInput
    */
   const queryText = (userInput, setAutocomplete, onChangeText) => {
-    let POIs: POI[] = POIInfo.filter(poi => {
+    const POIs: POI[] = POIInfo.filter(poi => {
       return (
         poi.displayName.toUpperCase().search(userInput.toUpperCase()) !== -1
       );
     });
 
-    let narrowedPOIs: POI[] = POIs.slice(0, 5);
+    const narrowedPOIs: POI[] = POIs.slice(0, 5);
 
     setAutocomplete([...narrowedPOIs]);
     onChangeText(userInput);

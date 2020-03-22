@@ -12,40 +12,41 @@ import {
   Button
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import { POI, UserLocation, Location } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import { CONCORDIA_RED } from "../../constants/style";
 
 /**
  * Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
  */
 export const getAutoCompleteHeight = (
-  autoCompleteValues?: string[],
-  value?: string,
-  autoCompleteValuesDest?: string[],
-  showTimePicker?: boolean,
-  destinationValue?: string
+  autoCompleteValues: string[],
+  value: string,
+  autoCompleteValuesDest: string[],
+  showTimePicker: boolean,
+  destinationValue: string
 ) => {
   const heightAutoCompleteElement: number = 51;
   const autoCompleteHeight: number = 235;
   const defaultAutoCompleteHeight: number = 260;
 
-  if (autoCompleteValues && value != "") {
+  if (autoCompleteValues && value !== "") {
     return (
       autoCompleteValues.length * heightAutoCompleteElement + autoCompleteHeight
     );
-  } else if (autoCompleteValuesDest && destinationValue != "") {
+  }
+  if (autoCompleteValuesDest && destinationValue !== "") {
     return (
       autoCompleteValuesDest.length * heightAutoCompleteElement +
       autoCompleteHeight
     );
-  } else if (Platform.OS == "ios" && showTimePicker) {
-    return 240 + autoCompleteHeight;
-  } else {
-    return defaultAutoCompleteHeight;
   }
+  if (Platform.OS === "ios" && showTimePicker) {
+    return 240 + autoCompleteHeight;
+  }
+  return defaultAutoCompleteHeight;
 };
 /**
  * the name and types of the properties types accepted
@@ -59,7 +60,7 @@ export interface OmniboxDirectionsProps {
   setInitialLocation: (poi: POI | UserLocation | null) => void;
   queryText: (
     userInput: string,
-    setAutocomplete: ([]) => void,
+    setAutocomplete: (poi: POI[]) => void,
     onChangeText: (string: string) => void
   ) => void;
   setMarkerSetsDestination: (bool: boolean) => void;
@@ -120,10 +121,13 @@ const OmniboxDirections = ({
    * @param date
    */
   const onChange = (event, pickDate) => {
-    setDate(pickDate ? pickDate : date);
+    setDate(pickDate || date);
+    if (Platform.OS === "android" || event.type === "set") {
+      setshowTimePicker(false);
+    }
   };
 
-  let height = getAutoCompleteHeight(
+  const AutoCompleteHeight = getAutoCompleteHeight(
     autoCompleteValues,
     value,
     autoCompleteValuesDest,
@@ -133,10 +137,12 @@ const OmniboxDirections = ({
 
   return (
     <>
-      <SafeAreaView style={[styles.safeAreaView, { height: height }]}>
+      <SafeAreaView
+        style={[styles.safeAreaView, { height: AutoCompleteHeight }]}
+      >
         <View style={styles.contentContainer}>
           <TouchableOpacity
-            testID={"backArrow"}
+            testID="backArrow"
             onPress={() => {
               setDestination(null);
               setInitialLocation(null);
@@ -145,19 +151,19 @@ const OmniboxDirections = ({
             }}
           >
             <AntDesign
-              name={"arrowleft"}
-              color={"#AA2B45"}
+              name="arrowleft"
+              color="#AA2B45"
               size={26}
               style={styles.backArrow}
-            ></AntDesign>
+            />
           </TouchableOpacity>
           <View style={styles.directionsWaypoints}>
-            <Image source={require("../../../assets/route.png")}></Image>
+            <Image source={require("../../../assets/route.png")} />
             <View style={styles.searchContainer}>
               <TextInput
-                selectTextOnFocus={true}
-                key={"initialLocation"}
-                testID={"searchInputInitialLocation"}
+                selectTextOnFocus
+                key="initialLocation"
+                testID="searchInputInitialLocation"
                 style={styles.input}
                 onChangeText={text =>
                   queryText(text, setAutocomplete, onChangeText)
@@ -166,9 +172,9 @@ const OmniboxDirections = ({
                 onFocus={() => setMarkerSetsDestination(false)}
               />
               <TextInput
-                key={"destinationLocation"}
-                testID={"searchInputDestinationLocation"}
-                selectTextOnFocus={true}
+                key="destinationLocation"
+                testID="searchInputDestinationLocation"
+                selectTextOnFocus
                 style={styles.input}
                 value={destinationValue}
                 onChangeText={text =>
@@ -180,68 +186,67 @@ const OmniboxDirections = ({
           </View>
           <View style={styles.button}>
             <Button
-              testID={"timePickerButton"}
+              testID="timePickerButton"
               color={CONCORDIA_RED}
               onPress={() => setshowTimePicker(!showTimePicker)}
-              title={
-                "Depart at: " +
-                (date
-                  ? date.getHours().toString() +
-                    ":" +
-                    date.getMinutes().toString()
-                  : "now")
-              }
+              title={`Depart at: ${
+                date
+                  ? `${date
+                      .getHours()
+                      .toString()}:${date.getMinutes().toString()}`
+                  : "now"
+              }`}
             />
             {showTimePicker && (
               <DateTimePicker
                 testID="dateTimePicker"
                 timeZoneOffsetInMinutes={0}
                 value={date}
-                mode={"time"}
-                is24Hour={true}
+                mode="time"
+                is24Hour
                 display="spinner"
                 onChange={onChange}
               />
             )}
           </View>
           <View style={styles.travelModeSwitcher}>
-            <FontAwesome name={"car"} size={24} style={{ marginLeft: 15 }} />
+            <FontAwesome name="car" size={24} style={{ marginLeft: 15 }} />
             <FontAwesome
-              name={"wheelchair"}
+              name="wheelchair"
               size={24}
               style={{ marginLeft: 15 }}
             />
             <MaterialIcons
-              name={"directions-walk"}
+              name="directions-walk"
               size={28}
               style={{ marginLeft: 15 }}
             />
             <MaterialIcons
-              name={"directions-bus"}
+              name="directions-bus"
               size={28}
               style={{ marginLeft: 15 }}
             />
             <Image
               source={require("../../../assets/shuttle.png")}
               style={{ marginLeft: 15 }}
-            ></Image>
+            />
           </View>
         </View>
-        {autoCompleteValues && value != "" && (
+        {autoCompleteValues && value !== "" && (
           <Autocomplete
-            testID={"initialLocation"}
+            testID="initialLocation"
             style={styles.autocomplete}
             autoCompleteValues={autoCompleteValues}
             setLocation={setInitialLocation}
-          ></Autocomplete>
+          />
         )}
-        {autoCompleteValuesDest && destinationValue != "" && (
+        {autoCompleteValuesDest && destinationValue !== "" && (
           <Autocomplete
-            testID={"destination"}
+            testID="destination"
             style={styles.autocomplete}
             autoCompleteValues={autoCompleteValuesDest}
             setLocation={setDestination}
-          ></Autocomplete>
+          />
         )}
       </SafeAreaView>
       {initialLocation && destination && destinationValue !== "" && (

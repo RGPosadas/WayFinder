@@ -16,6 +16,9 @@
     "test": "jest __tests__ --verbose --coverage",
     "web": "expo start --web"
   },
+  "eslintIgnore": [
+    "node_modules/*"
+  ],
   "dependencies": {
     "@react-native-community/datetimepicker": "^2.3.0",
     "@expo/vector-icons": "^10.0.6",
