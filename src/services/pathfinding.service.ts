@@ -4,7 +4,9 @@ import { Line, Location, TravelNode, PQItem } from "../types/main";
 import { buildingFloors } from "../constants/floors.data";
 
 /**
- * Find the shortest path between two locations on a given floor
+ * Find the shortest path between two locations on a given floor.
+ * Returns an array of lines if the path is found.
+ * Returns null if no path is found.
  * @param floorId
  * @param start
  * @param end
@@ -42,11 +44,14 @@ export const findPathOnFloor = (
   nodes[endEdge[0].id].children.push(goal.id);
   nodes[endEdge[1].id].children.push(goal.id);
 
-  const searchPaths = search(nodes, initial, goal);
+  const searchPath = search(nodes, initial, goal);
+
+  if (searchPath === null) return null;
+
   const shortestPath: Line[] = [];
   let { id } = goal;
   while (id !== initial.id) {
-    const parentId: number = searchPaths[id];
+    const parentId: number = searchPath[id];
     shortestPath.push([nodes[id], nodes[parentId]]);
     id = parentId;
   }
@@ -75,7 +80,7 @@ const search = (
     const current = open.dequeue();
     if (!(current.id in closed)) {
       closed[current.id] = current.parent;
-      if (current.id === goal.id) break;
+      if (current.id === goal.id) return closed;
       nodes[current.id].children.forEach(child => {
         if (child in closed) return;
         const g =
@@ -85,7 +90,7 @@ const search = (
       });
     }
   }
-  return closed;
+  return null;
 };
 
 const isEqual = (a: Line, b: Line): boolean => {

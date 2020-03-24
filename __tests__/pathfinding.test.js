@@ -136,6 +136,94 @@ describe("Find the shortest path on a given floor", () => {
       ]
     ]);
   });
+
+  it("should return the shortest path between two given locations on H 9th floor", () => {
+    const shortest = findPathOnFloor(
+      2,
+      {
+        latitude: 45.497658,
+        longitude: -73.57901
+      },
+      {
+        latitude: 45.497064,
+        longitude: -73.578788
+      }
+    );
+    expect(shortest).toEqual([
+      [
+        {
+          children: [1, 2],
+          id: 20,
+          location: { latitude: 45.497064, longitude: -73.578788 }
+        },
+        {
+          children: [2, 11, 20],
+          id: 1,
+          location: { latitude: 45.497154, longitude: -73.578732 }
+        }
+      ],
+      [
+        {
+          children: [2, 11, 20],
+          id: 1,
+          location: { latitude: 45.497154, longitude: -73.578732 }
+        },
+        {
+          children: [1, 10, 12],
+          id: 11,
+          location: { latitude: 45.497223, longitude: -73.578861 }
+        }
+      ],
+      [
+        {
+          children: [1, 10, 12],
+          id: 11,
+          location: { latitude: 45.497223, longitude: -73.578861 }
+        },
+        {
+          children: [9, 11, 13],
+          id: 10,
+          location: { latitude: 45.497322, longitude: -73.579066 }
+        }
+      ],
+      [
+        {
+          children: [9, 11, 13],
+          id: 10,
+          location: { latitude: 45.497322, longitude: -73.579066 }
+        },
+        {
+          children: [10, 14, 17],
+          id: 13,
+          location: { latitude: 45.49739, longitude: -73.579014 }
+        }
+      ],
+      [
+        {
+          children: [10, 14, 17],
+          id: 13,
+          location: { latitude: 45.49739, longitude: -73.579014 }
+        },
+        {
+          children: [13, 16, 18, 19],
+          id: 17,
+          location: { latitude: 45.497651, longitude: -73.579018 }
+        }
+      ],
+      [
+        {
+          children: [13, 16, 18, 19],
+          id: 17,
+          location: { latitude: 45.497651, longitude: -73.579018 }
+        },
+        {
+          children: [17, 18],
+          id: 19,
+          location: { latitude: 45.497658, longitude: -73.57901 }
+        }
+      ]
+    ]);
+  });
 });
 
 describe("Find the shortest path between two locations where the closest line to these locations is the same", () => {
@@ -196,19 +284,4 @@ describe("Find the shortest path between two locations where the closest line to
   });
 });
 
-describe("edge", () => {
-  it("should return path", () => {
-    const shortest = findPathOnFloor(
-      2,
-      {
-        latitude: 45.497658,
-        longitude: -73.57901
-      },
-      {
-        latitude: 45.497064,
-        longitude: -73.578788
-      }
-    );
-    expect(shortest).toEqual(5);
-  });
-});
+describe("edge", () => {});
