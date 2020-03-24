@@ -154,7 +154,6 @@ describe("OmniboxDirections component", () => {
       <OmniboxDirections
         initialLocation={mockPOIs[0]}
         destination={mockPOIs[1]}
-        // queryText={mockQueryText}
       />
     );
 
@@ -180,7 +179,7 @@ describe("OmniboxDirections component", () => {
       showTimePicker,
       destinationValue
     );
-    expect(autoComplete).toBe(260);
+    expect(autoComplete).toBe(235);
 
     (autoCompleteValues = [1]),
       (value = "tst"),
@@ -227,6 +226,6 @@ describe("OmniboxDirections component", () => {
       showTimePicker,
       destinationValue
     );
-    expect(autoComplete).toBe(475);
+    expect(autoComplete).toBe(235);
   });
 });

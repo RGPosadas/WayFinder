@@ -161,7 +161,7 @@ Array [
                 ]
               }
             >
-              Depart at: 23:59
+              Depart at: now
             </Text>
           </View>
         </View>

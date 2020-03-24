@@ -48,6 +48,16 @@ export const getAutoCompleteHeight = (
   }
   return defaultAutoCompleteHeight;
 };
+
+const getTimeToString = (date: Date) => {
+  const hours = `0${date.getHours().toString()}`;
+  const minutes = `0${date.getMinutes().toString()}`;
+
+  const hoursToShow = hours.substring(hours.length - 2, hours.length);
+  const minutessToShow = minutes.substring(minutes.length - 2, minutes.length);
+
+  return `${hoursToShow}:${minutessToShow}`;
+};
 /**
  * the name and types of the properties types accepted
  * by the OmniboxDirectionsProps component
@@ -92,7 +102,7 @@ const OmniboxDirections = ({
   );
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
   const [autoCompleteValuesDest, setAutocompleteDest] = React.useState(null);
-  const [date, setDate] = React.useState(new Date(new Date()));
+  const [date, setDate] = React.useState(null);
   const [showTimePicker, setshowTimePicker] = React.useState(false);
 
   useEffect(() => {
@@ -121,10 +131,15 @@ const OmniboxDirections = ({
    * @param date
    */
   const onChange = (event, pickDate) => {
-    setDate(pickDate || date);
-    if (Platform.OS === "android" || event.type === "set") {
-      setshowTimePicker(false);
-    }
+    setshowTimePicker(Platform.OS === "ios");
+    setDate(pickDate);
+  };
+
+  /**
+   * initializes the date
+   */
+  const initDate = () => {
+    setDate(new Date());
   };
 
   const AutoCompleteHeight = getAutoCompleteHeight(
@@ -189,19 +204,12 @@ const OmniboxDirections = ({
               testID="timePickerButton"
               color={CONCORDIA_RED}
               onPress={() => setshowTimePicker(!showTimePicker)}
-              title={`Depart at: ${
-                date
-                  ? `${date
-                      .getHours()
-                      .toString()}:${date.getMinutes().toString()}`
-                  : "now"
-              }`}
+              title={`Depart at: ${date ? `${getTimeToString(date)}` : "now"}`}
             />
             {showTimePicker && (
               <DateTimePicker
                 testID="dateTimePicker"
-                timeZoneOffsetInMinutes={0}
-                value={date}
+                value={date || initDate}
                 mode="time"
                 is24Hour
                 display="spinner"
