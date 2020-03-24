@@ -1106,6 +1106,32 @@ export const POIInfo: POI[] = [
     category: POICategory.Classroom
   },
   {
+    id: "e13bac9e-e593-4eac-9f6a-e9c368294e4b",
+    displayName: "H965-1",
+
+    description: "",
+    location: {
+      latitude: 45.497411,
+      longitude: -73.578635
+    },
+    buildingId: BuildingId.H,
+    level: 9,
+    category: POICategory.Classroom
+  },
+  {
+    id: "ddd20a9b-964b-43d3-80c8-8f0d8b2573b1",
+    displayName: "H965-3",
+
+    description: "",
+    location: {
+      latitude: 45.497395,
+      longitude: -73.578601
+    },
+    buildingId: BuildingId.H,
+    level: 9,
+    category: POICategory.Classroom
+  },
+  {
     id: "d7f892df-089f-4c49-b49c-71134fe84ff6",
     displayName: "H967",
 
@@ -1202,8 +1228,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.497164,
-      longitude: -73.578708
+      latitude: 45.497064,
+      longitude: -73.578788
     },
     buildingId: BuildingId.H,
     level: 9,
@@ -1215,8 +1241,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.49706,
-      longitude: -73.578789
+      latitude: 45.497011,
+      longitude: -73.578834
     },
     buildingId: BuildingId.H,
     level: 9,
@@ -1517,8 +1543,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.458421,
-      longitude: -73.640639
+      latitude: 45.458419,
+      longitude: -73.64062
     },
     buildingId: BuildingId.CC,
     level: 1,
@@ -1530,8 +1556,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.458413,
-      longitude: -73.640617
+      latitude: 45.458407,
+      longitude: -73.640594
     },
     buildingId: BuildingId.CC,
     level: 1,
@@ -1543,8 +1569,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.458382,
-      longitude: -73.640523
+      latitude: 45.458373,
+      longitude: -73.640502
     },
     buildingId: BuildingId.CC,
     level: 1,
@@ -1556,8 +1582,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.458358,
-      longitude: -73.640537
+      latitude: 45.458351,
+      longitude: -73.640516
     },
     buildingId: BuildingId.CC,
     level: 1,
@@ -1634,8 +1660,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.458207,
-      longitude: -73.640155
+      latitude: 45.458215,
+      longitude: -73.640166
     },
     buildingId: BuildingId.CC,
     level: 1,
