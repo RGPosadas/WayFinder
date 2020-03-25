@@ -22,7 +22,7 @@ import {
   IndoorFloor,
   CampusId,
   POI,
-  UserLocation
+  MarkerLocation
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
@@ -32,7 +32,7 @@ import {
   outdoorRange,
   campusRange
 } from "../../constants/zoom-range.data";
-import { POIInfo } from "../../constants/poi.data";
+import { queryText } from "../../services/queryUserIntput.service";
 /**
  * Screen for the Map and its related buttons and components
  */
@@ -54,10 +54,8 @@ const MapScreen = () => {
     }
   );
   const [destination, setDestination] = useState<POI>(null);
-  const [initialLocation, setInitialLocation] = useState<POI | UserLocation>(
-    null
-  );
-  const [markerSetsDestination, setMarkerSetsDestination] = useState<Boolean>(
+  const [initialLocation, setInitialLocation] = useState<MarkerLocation>(null);
+  const [isDestinationFocused, setIsDestinationFocused] = useState<Boolean>(
     true
   );
   const [startTravelPlan, setStartTravelPlan] = useState<Boolean>(false);
@@ -201,44 +199,32 @@ const MapScreen = () => {
    */
   useEffect(() => {
     setCurrentRegion(getCampusById(CampusId.SGW).region);
-    if (!currentLocation) {
-      getCurrentLocationAsync().then(location => {
-        setCurrentLocation({
-          latitude: location.coords.latitude,
-          longitude: location.coords.latitude
-        });
-      });
-    }
   }, []);
 
   /**
-   *  Set the value of destination or initial locaiton depending
+   *  Set the value of destination or initial location depending
    *  on which input the user is focued
    * @param poi
    */
   const setMarkerLocation = (poi: POI | null) => {
-    if (markerSetsDestination) {
+    if (isDestinationFocused) {
       setDestination(poi);
     } else {
       setInitialLocation(poi);
     }
   };
 
-  /**
-   * Filters an array of POIs based on users input
-   * @param userInput
-   */
-  const queryText = (userInput, setAutocomplete, onChangeText) => {
-    const POIs: POI[] = POIInfo.filter(poi => {
-      return (
-        poi.displayName.toUpperCase().search(userInput.toUpperCase()) !== -1
-      );
-    });
-
-    const narrowedPOIs: POI[] = POIs.slice(0, 5);
-
-    setAutocomplete([...narrowedPOIs]);
-    onChangeText(userInput);
+  const setUserLocation = () => {
+    if (!currentLocation) {
+      getCurrentLocationAsync()
+        .then(location => {
+          setCurrentLocation({
+            latitude: location.coords.latitude,
+            longitude: location.coords.latitude
+          });
+        })
+        .catch();
+    }
   };
 
   let search;
@@ -251,12 +237,19 @@ const MapScreen = () => {
         setInitialLocation={setInitialLocation}
         initialLocation={initialLocation}
         queryText={queryText}
-        setMarkerSetsDestination={setMarkerSetsDestination}
+        setIsDestinationFocused={setIsDestinationFocused}
+        isDestinationFocused={isDestinationFocused}
         setStartTravelPlan={setStartTravelPlan}
       />
     );
   } else {
-    search = <Search setDestination={setDestination} queryText={queryText} />;
+    search = (
+      <Search
+        setUserLocation={setUserLocation}
+        setDestination={setDestination}
+        queryText={queryText}
+      />
+    );
   }
   return (
     <RegionProvider value={currentRegion}>
@@ -294,7 +287,9 @@ const MapScreen = () => {
 
         {!destination && <CampusToggle onCampusToggle={onCampusToggle} />}
 
-        <LocationButton onLocationButtonPress={onLocationButtonPress} />
+        {!destination && (
+          <LocationButton onLocationButtonPress={onLocationButtonPress} />
+        )}
 
         <FloorPicker
           indoorInformation={indoorInformation}

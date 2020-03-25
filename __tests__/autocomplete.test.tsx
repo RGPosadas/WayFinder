@@ -1,10 +1,11 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import AutoComplete from "../src/components/search/autocomplete.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
+import AutoComplete from "../src/components/search/autocomplete.component";
+import { POI, BuildingId, POICategory } from "../src/types/main";
 
-let mockPOIs = [
+const mockPOIs: POI[] = [
   {
     id: "c4541028-739d-4651-b9f5-dc4d54054807",
     displayName: "Stairs 2",
@@ -13,9 +14,9 @@ let mockPOIs = [
       latitude: 45.497482,
       longitude: -73.579034
     },
-    buildingId: "BuildingId.H",
+    buildingId: BuildingId.H,
     level: 8,
-    category: "Stairs"
+    category: POICategory.Classroom
   },
   {
     id: "f5a7d95c-170b-48c9-aac3-e9faafa6033d",
@@ -25,15 +26,24 @@ let mockPOIs = [
       latitude: 45.497253,
       longitude: -73.579251
     },
-    buildingId: "BuildingId.H",
+    buildingId: BuildingId.H,
     level: 8,
-    category: "Stairs"
+    category: POICategory.Classroom
   }
 ];
 
 describe("AutoComplete component", () => {
   it("should match snapshot", () => {
-    const tree = renderer.create(<AutoComplete />).toJSON();
+    const tree = renderer
+      .create(
+        <AutoComplete
+          autoCompleteValues={null}
+          style={null}
+          setLocation={null}
+          testID={null}
+        />
+      )
+      .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
@@ -44,6 +54,8 @@ describe("AutoComplete component", () => {
       <AutoComplete
         autoCompleteValues={mockPOIs}
         setLocation={mockSetLocation}
+        style={null}
+        testID={null}
       />
     );
     const touchableList = wrapper

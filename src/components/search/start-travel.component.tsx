@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { Entypo } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import { CONCORDIA_RED } from "../../constants/style";
 
 interface IProps {
@@ -22,7 +22,7 @@ const StartTravel = ({ setStartTravelPlan }: IProps) => {
         style={{ width: 80, height: 80 }}
       >
         <View style={styles.button}>
-          <Entypo name="chevron-right" color="#fff" size={26} />
+          <AntDesign name="arrowright" color="#fff" size={26} />
         </View>
       </TouchableOpacity>
     </View>
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "absolute",
     top: Dimensions.get("window").height - 100,
-    right: 0,
-    width: 80,
+    right: 20,
+    width: 60,
     zIndex: 1,
-    height: 80
+    height: 60
   },
   button: {
     flex: 1,
@@ -46,8 +46,8 @@ const styles = StyleSheet.create({
     borderColor: "rgba(0,0,0,0.2)",
     alignItems: "center",
     justifyContent: "center",
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     backgroundColor: CONCORDIA_RED,
     borderRadius: 50,
     position: "absolute",

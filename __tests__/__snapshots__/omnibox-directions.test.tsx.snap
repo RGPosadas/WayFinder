@@ -58,9 +58,6 @@ Array [
           }
         }
       >
-        <Image
-          source={1}
-        />
         <View
           style={
             Object {
@@ -180,14 +177,6 @@ Array [
         <Text />
         <Text />
         <Text />
-        <Image
-          source={1}
-          style={
-            Object {
-              "marginLeft": 15,
-            }
-          }
-        />
       </View>
     </View>
   </RCTSafeAreaView>,

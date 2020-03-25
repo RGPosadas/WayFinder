@@ -1,7 +1,6 @@
 import React from "react";
-import Search, {
-  getAutoCompleteHeight
-} from "../src/components/search/search.component";
+import Search from "../src/components/search/search.component";
+import { getSearchBarAutoCompleteHeight } from "../src/services/autoCompleteHeight.service";
 import { shallow } from "enzyme";
 
 describe("Search component", () => {
@@ -18,12 +17,12 @@ describe("Search component", () => {
 
   it("should fucking do something", () => {
     autoCompleteValues = [];
-    let height = getAutoCompleteHeight(autoCompleteValues);
+    let height = getSearchBarAutoCompleteHeight(autoCompleteValues);
     expect(height).toBe(50);
 
     autoCompleteValues = [1];
-    height = getAutoCompleteHeight(autoCompleteValues);
-    expect(height).toBe(101);
+    height = getSearchBarAutoCompleteHeight(autoCompleteValues);
+    expect(height).toBe(135);
   });
 
   it("should do something else", () => {

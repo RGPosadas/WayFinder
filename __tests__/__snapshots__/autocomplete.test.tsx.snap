@@ -19,6 +19,7 @@ exports[`AutoComplete component should match snapshot 1`] = `
   }
 >
   <RCTScrollView
+    data={null}
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}

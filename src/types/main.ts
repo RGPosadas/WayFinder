@@ -5,9 +5,9 @@ export interface Location {
   longitude: number;
 }
 
-export interface UserLocation {
+export interface MarkerLocation {
   id: string;
-  displayName: string | "User Location";
+  displayName: string;
   location: Location;
 }
 
@@ -35,12 +35,9 @@ export interface Campus {
   buildings: BuildingId[];
 }
 
-export interface IndoorLocation {
-  id: string;
-  displayName: string;
+export interface IndoorLocation extends MarkerLocation {
   buildingId: BuildingId;
   level: number;
-  location: Location;
 }
 
 export interface POI extends IndoorLocation {

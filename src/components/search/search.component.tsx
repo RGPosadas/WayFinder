@@ -1,27 +1,16 @@
 import React from "react";
 import {
   Platform,
-  Image,
   TextInput,
   StyleSheet,
   Dimensions,
   View
 } from "react-native";
+import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
 import { POI } from "../../types/main";
-
-/**
- * Dynamic height adjustment of parent. Without this, autoComplete will not be pressable
- */
-export const getAutoCompleteHeight = (autoCompleteValues?: string[]) => {
-  const deafaultSearchBarHeight: number = 48;
-  const searchBarHeight: number = 50;
-  const autoCompleteElementHeight: number = 51;
-
-  return autoCompleteValues
-    ? autoCompleteValues.length * autoCompleteElementHeight + searchBarHeight
-    : deafaultSearchBarHeight;
-};
+import SeparatorSVG from "../../../assets/line-separator.svg";
+import { getSearchBarAutoCompleteHeight } from "../../services/autoCompleteHeight.service";
 
 /**
  * the name and types of the properties types accepted
@@ -31,9 +20,10 @@ interface IProps {
   setDestination: (poi: POI) => void;
   queryText: (
     userInput: string,
-    setAutocomplete: (poi: POI[]) => void,
-    onChangeText: (string: string) => void
+    setAState: (poi: POI[]) => void,
+    onChange: (string: string) => void
   ) => void;
+  setUserLocation: () => void;
 }
 
 /**
@@ -41,7 +31,7 @@ interface IProps {
  * @param getDestination Function called to update destination
  * @param queryText Function to query POI based on user input
  */
-const Search = ({ setDestination, queryText }: IProps) => {
+const Search = ({ setDestination, queryText, setUserLocation }: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
 
@@ -50,18 +40,15 @@ const Search = ({ setDestination, queryText }: IProps) => {
       testID="searchContainer"
       style={[
         styles.container,
-        { height: getAutoCompleteHeight(autoCompleteValues) }
+        { height: getSearchBarAutoCompleteHeight(autoCompleteValues) }
       ]}
     >
       <View style={styles.parent}>
         <View style={styles.view}>
           <View style={styles.view}>
-            <Image source={require("../../../assets/hamburger_icon.png")} />
-            <Image
-              style={styles.lineSeperator}
-              source={require("../../../assets/line-separator.png")}
-            />
-            <Image source={require("../../../assets/search.png")} />
+            <SimpleLineIcons name="menu" color="#AA2B45" size={26} />
+            <SeparatorSVG style={styles.lineSeperator} />
+            <Feather name="search" color="#AA2B45" size={24} />
             <TextInput
               testID="searchInput"
               style={styles.input}
@@ -69,9 +56,10 @@ const Search = ({ setDestination, queryText }: IProps) => {
                 queryText(text, setAutocomplete, onChangeText)
               }
               value={value}
+              onFocus={() => setUserLocation()}
             />
           </View>
-          <Image source={require("../../../assets/mic.png")} />
+          <FontAwesome name="microphone" color="#AA2B45" size={24} />
         </View>
       </View>
       {autoCompleteValues && value !== "" && (

@@ -7,7 +7,7 @@ import {
   ZoomLevel,
   IndoorInformation,
   POI,
-  UserLocation
+  MarkerLocation
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -23,7 +23,7 @@ interface IProps {
   indoorInformation: IndoorInformation;
   setMarkerLocation: (poi: POI) => void;
   destination: POI;
-  initialLocation: POI | UserLocation;
+  initialLocation: MarkerLocation;
   startTravelPlan: Boolean;
 }
 
@@ -68,7 +68,6 @@ const MapOverlays = ({
             />
           ))
         : null}
-
       {/**
        * Adds a polygon for each building
        */}
@@ -94,7 +93,6 @@ const MapOverlays = ({
           )}
         </>
       ) : null}
-
       {/**
        * Adds a marker for each building
        */}
@@ -118,14 +116,13 @@ const MapOverlays = ({
             </React.Fragment>
           ))
         : null}
-
       {/**
        * Adds a marker for each POI
        */}
-      {zoomLevel === ZoomLevel.INDOOR ? (
+      {zoomLevel === ZoomLevel.INDOOR && !startTravelPlan ? (
         <>
           {buildingFloors
-            .filter(floor => floor.bounds !== null && floor.image !== null)
+            .filter(floor => floor.bounds != null && floor.image != null)
             .map(floor => (
               <Overlay
                 key={floor.id}
@@ -141,39 +138,43 @@ const MapOverlays = ({
               }
               return poi.level === indoorInformation.currentFloor.level;
             })
-            .map(poi => {
-              if (
-                startTravelPlan &&
-                ((destination && destination.id === poi.id) ||
-                  (initialLocation && initialLocation.id === poi.id))
-              ) {
+            .map(poi => (
+              <CustomMarker
+                markerType="poi"
+                key={poi.id}
+                location={poi.location}
+                text={poi.displayName}
+                onPress={() => {
+                  setMarkerLocation(poi);
+                }}
+              />
+            ))}
+        </>
+      ) : null}
+
+      {startTravelPlan ? (
+        <>
+          {getAllPOI()
+            .filter(marker => {
+              if (startTravelPlan) {
                 return (
-                  <CustomMarker
-                    markerType="poi"
-                    key={poi.id}
-                    location={poi.location}
-                    text={poi.displayName}
-                    onPress={() => {
-                      setMarkerLocation(poi);
-                    }}
-                  />
+                  marker.id === destination.id ||
+                  marker.id === initialLocation.id
                 );
               }
-              if (!startTravelPlan) {
-                return (
-                  <CustomMarker
-                    markerType="poi"
-                    key={poi.id}
-                    location={poi.location}
-                    text={poi.displayName}
-                    onPress={() => {
-                      setMarkerLocation(poi);
-                    }}
-                  />
-                );
-              }
-              return null;
-            })}
+              return true;
+            })
+            .map(poi => (
+              <CustomMarker
+                markerType="poi"
+                key={`${poi.id} | travelPlan`}
+                location={poi.location}
+                text={poi.displayName}
+                onPress={() => {
+                  setMarkerLocation(poi);
+                }}
+              />
+            ))}
         </>
       ) : null}
     </>

@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {
-  Image,
   TextInput,
   StyleSheet,
   Dimensions,
@@ -13,41 +12,17 @@ import {
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { POI, UserLocation, Location } from "../../types/main";
+import { POI, Location, MarkerLocation } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
-import { CONCORDIA_RED } from "../../constants/style";
-
-/**
- * Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
- */
-export const getAutoCompleteHeight = (
-  autoCompleteValues: string[],
-  value: string,
-  autoCompleteValuesDest: string[],
-  showTimePicker: boolean,
-  destinationValue: string
-) => {
-  const heightAutoCompleteElement: number = 51;
-  const autoCompleteHeight: number = 235;
-  const defaultAutoCompleteHeight: number = 260;
-
-  if (autoCompleteValues && value !== "") {
-    return (
-      autoCompleteValues.length * heightAutoCompleteElement + autoCompleteHeight
-    );
-  }
-  if (autoCompleteValuesDest && destinationValue !== "") {
-    return (
-      autoCompleteValuesDest.length * heightAutoCompleteElement +
-      autoCompleteHeight
-    );
-  }
-  if (Platform.OS === "ios" && showTimePicker) {
-    return 240 + autoCompleteHeight;
-  }
-  return defaultAutoCompleteHeight;
-};
+import {
+  CONCORDIA_RED,
+  INPUT_BORDER_COLOR,
+  screenWidth
+} from "../../constants/style";
+import ShuttleSVG from "../../../assets/shuttle.svg";
+import RouteSVG from "../../../assets/route.svg";
+import { getOmniboxAutoCompleteHeight } from "../../services/autoCompleteHeight.service";
 
 const getTimeToString = (date: Date) => {
   const hours = `0${date.getHours().toString()}`;
@@ -65,15 +40,16 @@ const getTimeToString = (date: Date) => {
 export interface OmniboxDirectionsProps {
   destination: POI;
   currentLocation: Location;
-  initialLocation: POI | UserLocation;
+  initialLocation: MarkerLocation;
   setDestination: (poi: POI) => void;
-  setInitialLocation: (poi: POI | UserLocation | null) => void;
+  setInitialLocation: (marker: MarkerLocation | POI | null) => void;
   queryText: (
     userInput: string,
     setAutocomplete: (poi: POI[]) => void,
     onChangeText: (string: string) => void
   ) => void;
-  setMarkerSetsDestination: (bool: boolean) => void;
+  setIsDestinationFocused: (bool: boolean) => void;
+  isDestinationFocused: Boolean;
   setStartTravelPlan: (bool: boolean) => void;
 }
 
@@ -93,7 +69,8 @@ const OmniboxDirections = ({
   setDestination,
   setInitialLocation,
   queryText,
-  setMarkerSetsDestination,
+  setIsDestinationFocused,
+  isDestinationFocused,
   setStartTravelPlan
 }: OmniboxDirectionsProps) => {
   const [value, onChangeText] = React.useState(null);
@@ -142,7 +119,7 @@ const OmniboxDirections = ({
     setDate(new Date());
   };
 
-  const AutoCompleteHeight = getAutoCompleteHeight(
+  const AutoCompleteHeight = getOmniboxAutoCompleteHeight(
     autoCompleteValues,
     value,
     autoCompleteValuesDest,
@@ -161,7 +138,7 @@ const OmniboxDirections = ({
             onPress={() => {
               setDestination(null);
               setInitialLocation(null);
-              setMarkerSetsDestination(true);
+              setIsDestinationFocused(true);
               setStartTravelPlan(false);
             }}
           >
@@ -173,7 +150,7 @@ const OmniboxDirections = ({
             />
           </TouchableOpacity>
           <View style={styles.directionsWaypoints}>
-            <Image source={require("../../../assets/route.png")} />
+            <RouteSVG />
             <View style={styles.searchContainer}>
               <TextInput
                 selectTextOnFocus
@@ -184,7 +161,7 @@ const OmniboxDirections = ({
                   queryText(text, setAutocomplete, onChangeText)
                 }
                 value={value}
-                onFocus={() => setMarkerSetsDestination(false)}
+                onFocus={() => setIsDestinationFocused(false)}
               />
               <TextInput
                 key="destinationLocation"
@@ -195,7 +172,7 @@ const OmniboxDirections = ({
                 onChangeText={text =>
                   queryText(text, setAutocompleteDest, setDestinationValue)
                 }
-                onFocus={() => setMarkerSetsDestination(true)}
+                onFocus={() => setIsDestinationFocused(true)}
               />
             </View>
           </View>
@@ -234,26 +211,18 @@ const OmniboxDirections = ({
               size={28}
               style={{ marginLeft: 15 }}
             />
-            <Image
-              source={require("../../../assets/shuttle.png")}
-              style={{ marginLeft: 15 }}
-            />
+            <ShuttleSVG width={35} height={40} />
           </View>
         </View>
-        {autoCompleteValues && value !== "" && (
+        {((autoCompleteValues && value !== "") ||
+          (autoCompleteValuesDest && destinationValue !== "")) && (
           <Autocomplete
             testID="initialLocation"
             style={styles.autocomplete}
-            autoCompleteValues={autoCompleteValues}
-            setLocation={setInitialLocation}
-          />
-        )}
-        {autoCompleteValuesDest && destinationValue !== "" && (
-          <Autocomplete
-            testID="destination"
-            style={styles.autocomplete}
-            autoCompleteValues={autoCompleteValuesDest}
-            setLocation={setDestination}
+            autoCompleteValues={autoCompleteValues || autoCompleteValuesDest}
+            setLocation={
+              isDestinationFocused ? setDestination : setInitialLocation
+            }
           />
         )}
       </SafeAreaView>
@@ -290,7 +259,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 38,
-    borderColor: "#DEDEDE",
+    borderColor: INPUT_BORDER_COLOR,
     borderWidth: 1,
     marginLeft: 10,
     marginBottom: 15,
@@ -302,7 +271,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     marginLeft: Platform.OS === "ios" ? 38 : 36,
-    borderColor: "#DEDEDE",
+    borderColor: INPUT_BORDER_COLOR,
     borderWidth: 1,
     height: Platform.OS === "ios" ? 35 : 45,
     marginBottom: 20
@@ -315,7 +284,7 @@ const styles = StyleSheet.create({
   },
   autocomplete: {
     top: 260,
-    width: Dimensions.get("window").width
+    width: screenWidth
   },
   button: {
     marginTop: Platform.OS === "android" ? 20 : 0

@@ -11,6 +11,7 @@ export const CONCORDIA_RED = "#AA2B45";
 export const BUILDING_UNTAPPED = "#dba4a8";
 export const INACTIVE_BUTTON_COLOR = "#F2F2F2";
 export const BUILDING_MARKER_COLOR = "#252525";
+export const INPUT_BORDER_COLOR = "#DEDEDE";
 
 // Dimensions
 export const screenHeight = Dimensions.get("window").height;

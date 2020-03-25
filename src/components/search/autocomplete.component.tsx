@@ -8,7 +8,8 @@ import {
   Text
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { POI } from "../../types/main";
+import { POI, BuildingId } from "../../types/main";
+import { screenWidth } from "../../constants/style";
 
 /**
  * the name and types of the properties types accepted
@@ -46,7 +47,12 @@ const AutoComplete = ({
             key={item.displayName}
             style={styles.list}
           >
-            <Text style={styles.text}>{item.displayName}</Text>
+            <View>
+              <Text style={styles.text}>{item.displayName}</Text>
+              <Text style={styles.text}>
+                Building: {BuildingId[item.buildingId]} Level: {item.level}
+              </Text>
+            </View>
             <Entypo name="chevron-thin-right" size={24} color="#454F63" />
           </TouchableOpacity>
         )}
@@ -58,7 +64,7 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     flex: 1,
-    width: Dimensions.get("window").width - 30,
+    width: screenWidth - 30,
     top: 48,
     borderWidth: 2,
     borderColor: "#F7F7FA",
