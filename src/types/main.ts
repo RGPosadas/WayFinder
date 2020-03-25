@@ -88,7 +88,7 @@ export interface Range {
   max: number;
 }
 
-export type Line = [Location, Location];
+export type Line = [TravelNode, TravelNode];
 
 export type Coordinate = [number, number];
 
