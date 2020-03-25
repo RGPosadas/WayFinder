@@ -1,5 +1,6 @@
 import { getDistanceFromLine, getDistance } from "geolib";
 import PriorityQueue from "ts-priority-queue";
+import _ from "lodash";
 import { Line, Location, TravelNode, PQItem } from "../types/main";
 import { buildingFloors } from "../constants/floors.data";
 
@@ -17,7 +18,7 @@ export const findPathOnFloor = (
   end: Location
 ): Line[] => {
   const { travelNodes } = buildingFloors.find(({ id }) => id === floorId);
-  const nodes = JSON.parse(JSON.stringify(travelNodes));
+  const nodes = _.cloneDeep(travelNodes);
 
   const edges: Line[] = traverseNodes(nodes);
   const startEdge: Line = findClosestLine(edges, start);
@@ -34,15 +35,31 @@ export const findPathOnFloor = (
     children: [endEdge[0].id, endEdge[1].id]
   };
 
-  if (isEqual(startEdge, endEdge)) {
+  if (_.isEqual(startEdge, endEdge)) {
     initial.children.push(goal.id);
     goal.children.push(initial.id);
   }
   nodes.push(initial, goal);
+
   nodes[startEdge[0].id].children.push(initial.id);
+  nodes[startEdge[0].id].children = nodes[startEdge[0].id].children.filter(
+    c => startEdge[1].id !== c
+  );
+
   nodes[startEdge[1].id].children.push(initial.id);
+  nodes[startEdge[1].id].children = nodes[startEdge[1].id].children.filter(
+    c => startEdge[0].id !== c
+  );
+
   nodes[endEdge[0].id].children.push(goal.id);
+  nodes[endEdge[0].id].children = nodes[endEdge[0].id].children.filter(
+    c => endEdge[1].id !== c
+  );
+
   nodes[endEdge[1].id].children.push(goal.id);
+  nodes[endEdge[1].id].children = nodes[endEdge[1].id].children.filter(
+    c => endEdge[0].id !== c
+  );
 
   const searchPath = search(nodes, initial, goal);
 
@@ -91,10 +108,6 @@ const search = (
     }
   }
   return null;
-};
-
-const isEqual = (a: Line, b: Line): boolean => {
-  return JSON.stringify(a) === JSON.stringify(b);
 };
 
 /**
