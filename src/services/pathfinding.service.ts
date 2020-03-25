@@ -1,5 +1,5 @@
 import { getDistanceFromLine } from "geolib";
-import { Line } from "../types/main";
+import { Line, TravelNode } from "../types/main";
 
 /**
  * TASK-14
@@ -49,6 +49,16 @@ export const findPathOnFloor = (
  * connections between nodes. Use a set to avoid duplicates.
  * @see buildingFloors from src/constants/floors.data.ts
  */
-export const traverseNodes = (floorId: number): Line[] => {
-  return [];
+export const traverseNodes = (travelNodes: TravelNode[]): Line[] => {
+  const lines: Line[] = [];
+  for (let i = 0; i < travelNodes.length; i += 1) {
+    const parent: TravelNode = travelNodes[i];
+    parent.children.forEach(nodeId => {
+      if (nodeId > i) {
+        const child: TravelNode = travelNodes[nodeId];
+        lines.push([parent, child]);
+      }
+    });
+  }
+  return lines;
 };

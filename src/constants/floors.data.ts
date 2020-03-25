@@ -278,8 +278,8 @@ export const buildingFloors: BuildingFloor[] = [
       {
         id: 14,
         location: {
-          latitude: 45.49739,
-          longitude: -73.579014
+          latitude: 45.497454,
+          longitude: -73.579139
         },
         children: [13, 15]
       },
@@ -302,8 +302,8 @@ export const buildingFloors: BuildingFloor[] = [
       {
         id: 17,
         location: {
-          latitude: 45.497651,
-          longitude: -73.579018
+          latitude: 45.497563,
+          longitude: -73.578837
         },
         children: [13, 16, 18]
       },
