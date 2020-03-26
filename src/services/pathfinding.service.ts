@@ -1,28 +1,27 @@
 import { getDistanceFromLine, getDistance } from "geolib";
 import PriorityQueue from "ts-priority-queue";
 import _ from "lodash";
-import { Line, Location, TravelNode, PQItem } from "../types/main";
-import { buildingFloors } from "../constants/floors.data";
+import { TravelEdge, Location, TravelNode, PQItem } from "../types/main";
 
 /**
  * Find the shortest path between two locations on a given floor.
  * Returns an array of lines if the path is found.
  * Returns null if no path is found.
- * @param floorId
+ * @param travelNodes the travel nodes to traverse
  * @param start
  * @param end
+ * @returns A list of TravelEdges
  */
 export const findPathOnFloor = (
-  floorId: number,
+  travelNodes: TravelNode[],
   start: Location,
   end: Location
-): Line[] => {
-  const { travelNodes } = buildingFloors.find(({ id }) => id === floorId);
+): TravelEdge[] => {
   const nodes = _.cloneDeep(travelNodes);
 
-  const edges: Line[] = traverseNodes(nodes);
-  const startEdge: Line = findClosestLine(edges, start);
-  const endEdge: Line = findClosestLine(edges, end);
+  const edges: TravelEdge[] = traverseNodes(nodes);
+  const startEdge: TravelEdge = findClosestLine(edges, start);
+  const endEdge: TravelEdge = findClosestLine(edges, end);
 
   const initial: TravelNode = {
     id: nodes.length,
@@ -65,7 +64,7 @@ export const findPathOnFloor = (
 
   if (searchPath === null) return null;
 
-  const shortestPath: Line[] = [];
+  const shortestPath: TravelEdge[] = [];
   let { id } = goal;
   while (id !== initial.id) {
     const parentId: number = searchPath[id];
@@ -76,10 +75,42 @@ export const findPathOnFloor = (
 };
 
 /**
+ * Function which traverses a floor's travel node and returns a set of lines.
+ *
+ * This function takes in a floorId, and will return all lines which correspond to
+ * connections between nodes.
+ * @param travelNodes
+ * @returns A list of TravelEdges
+ */
+export const traverseNodes = (travelNodes: TravelNode[]): TravelEdge[] => {
+  const lines: TravelEdge[] = [];
+  for (let i = 0; i < travelNodes.length; i += 1) {
+    const parent: TravelNode = travelNodes[i];
+    parent.children.forEach(nodeId => {
+      if (nodeId > i) {
+        const child: TravelNode = travelNodes[nodeId];
+        lines.push([parent, child]);
+      }
+    });
+  }
+  return lines;
+};
+
+/**
+ * Returns a list of lines equivalent to a list of TravelNodes
+ * @param travelPath List of TravelEdges
+ * @returns List of equivalent Lines
+ */
+export const travelPathToLinePath = (travelPath: TravelEdge[]) => {
+  return travelPath.map(edge => [edge[0].location, edge[1].location]);
+};
+
+/**
  * A* implementation for indoor pathfinding
  * @param nodes
  * @param initial
  * @param goal
+ * @returns A hashmap of the nodes in the closed and their parents.
  */
 const search = (
   nodes: TravelNode[],
@@ -94,7 +125,7 @@ const search = (
       return f(nodes[a.id], goal, a.g) - f(nodes[b.id], goal, b.g);
     }
   });
-  open.queue({ id: initial.id, parent: null, g: 0 });
+  open.queue({ id: initial.id, parent: null, g: 0 } as PQItem);
   while (open.length > 0) {
     const current = open.dequeue();
     if (!(current.id in closed)) {
@@ -127,6 +158,7 @@ const search = (
  * @param travelNode current node
  * @param goal destination node
  * @param g g(n)
+ * @returns The f(n) score of a given node
  */
 const f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
   return getDistance(goal.location, travelNode.location) + g;
@@ -136,10 +168,11 @@ const f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
  * Find the closest line from a given point
  * @param lines
  * @param point
+ * @returns the line closest to the point
  */
-const findClosestLine = (lines: Line[], point: Location): Line => {
+const findClosestLine = (lines: TravelEdge[], point: Location): TravelEdge => {
   let minDistance: number = Number.MAX_SAFE_INTEGER;
-  let closestLine: Line;
+  let closestLine: TravelEdge;
   lines.forEach(line => {
     const distance: number = getDistanceFromLine(
       point,
@@ -152,25 +185,4 @@ const findClosestLine = (lines: Line[], point: Location): Line => {
     }
   });
   return closestLine;
-};
-
-/**
- * Function which traverses a floor's travel node and returns a set of lines.
- *
- * This function takes in a floorId, and will return all lines which correspond to
- * connections between nodes.
- * @param travelNodes
- */
-const traverseNodes = (travelNodes: TravelNode[]): Line[] => {
-  const lines: Line[] = [];
-  for (let i = 0; i < travelNodes.length; i += 1) {
-    const parent: TravelNode = travelNodes[i];
-    parent.children.forEach(nodeId => {
-      if (nodeId > i) {
-        const child: TravelNode = travelNodes[nodeId];
-        lines.push([parent, child]);
-      }
-    });
-  }
-  return lines;
 };

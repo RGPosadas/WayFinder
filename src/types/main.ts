@@ -90,7 +90,9 @@ export interface Range {
 
 export type PQItem = { id: number; parent: number; g: number };
 
-export type Line = [TravelNode, TravelNode];
+export type TravelEdge = [TravelNode, TravelNode];
+
+export type Line = [Location, Location];
 
 export type Coordinate = [number, number];
 
