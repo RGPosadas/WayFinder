@@ -85,7 +85,9 @@ const search = (
   nodes: TravelNode[],
   initial: TravelNode,
   goal: TravelNode
-): {} => {
+): {
+  [id: number]: number;
+} => {
   const closed = {};
   const open: PriorityQueue<PQItem> = new PriorityQueue<PQItem>({
     comparator: (a, b) => {
@@ -112,9 +114,19 @@ const search = (
 
 /**
  * The sum of the distance from the destination to a node and the distance from the start location to a node
- * @param travelNode
- * @param goal
- * @param g
+ * given by:
+ *
+ * f(n) = g(n) + h(n)
+ *
+ * where:
+ *  n is the next node on the path, g(n) is the cost of the path from the start node to n, and h(n) is a
+ *  heuristic function that estimates the cost of the cheapest path from n to the goal.
+ *
+ *  source: https://en.wikipedia.org/wiki/A*_search_algorithm
+ *
+ * @param travelNode current node
+ * @param goal destination node
+ * @param g g(n)
  */
 const f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
   return getDistance(goal.location, travelNode.location) + g;

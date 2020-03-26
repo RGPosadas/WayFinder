@@ -23,10 +23,8 @@ describe("Find the shortest path on a given floor", () => {
     );
     expect(shortest).toEqual(testData.h96119toH911);
   });
-});
 
-describe("cannot find any path", () => {
-  it("should return null", () => {
+  it("should return null when no path is found", () => {
     floors.buildingFloors = testData.brokenGraph;
     const shortest = findPathOnFloor(
       2,
@@ -37,15 +35,14 @@ describe("cannot find any path", () => {
 
     expect(shortest).toBeNull();
   });
-});
 
-describe("Find the shortest path between two locations where the closest line to these locations is the same", () => {
   it("should return one line only between two locations next to each other", () => {
     const shortest = findPathOnFloor(
       2,
       POIInfo.filter(({ displayName }) => displayName === "H923")[0].location,
       POIInfo.filter(({ displayName }) => displayName === "H921")[0].location
     );
+    expect(shortest.length).toBe(1);
     expect(shortest).toEqual(testData.h923toH921);
   });
 
@@ -56,6 +53,7 @@ describe("Find the shortest path between two locations where the closest line to
         .location,
       POIInfo.filter(({ displayName }) => displayName === "H961-1")[0].location
     );
+    expect(shortest.length).toBe(1);
     expect(shortest).toEqual(testData.h96119toH9611);
   });
 });

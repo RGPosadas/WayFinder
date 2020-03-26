@@ -1,6 +1,10 @@
-import { BuildingId } from "../src/types/main";
+import { BuildingId, Line, BuildingFloor } from "../src/types/main";
+/**
+ * This file contains expected results and a fixture for the
+ * pathfinding tests.
+ */
 
-export const h85103toH815 = [
+export const h85103toH815: Line[] = [
   [
     {
       children: [7, 11],
@@ -123,7 +127,7 @@ export const h85103toH815 = [
   ]
 ];
 
-export const h96119toH911 = [
+export const h96119toH911: Line[] = [
   [
     {
       children: [1, 2],
@@ -179,26 +183,50 @@ export const h96119toH911 = [
       location: { latitude: 45.49739, longitude: -73.579014 }
     },
     {
-      children: [13, 16, 19],
-      id: 17,
+      children: [13, 15],
+      id: 14,
+      location: { latitude: 45.497454, longitude: -73.579139 }
+    }
+  ],
+  [
+    {
+      children: [13, 15],
+      id: 14,
+      location: { latitude: 45.497454, longitude: -73.579139 }
+    },
+    {
+      children: [14, 16],
+      id: 15,
+      location: { latitude: 45.497489, longitude: -73.57917 }
+    }
+  ],
+  [
+    {
+      children: [14, 16],
+      id: 15,
+      location: { latitude: 45.497489, longitude: -73.57917 }
+    },
+    {
+      children: [15, 19],
+      id: 16,
       location: { latitude: 45.497651, longitude: -73.579018 }
     }
   ],
   [
     {
-      children: [13, 16, 19],
-      id: 17,
+      children: [15, 19],
+      id: 16,
       location: { latitude: 45.497651, longitude: -73.579018 }
     },
     {
-      children: [17, 18],
+      children: [16, 17],
       id: 19,
       location: { latitude: 45.497658, longitude: -73.57901 }
     }
   ]
 ];
 
-export const h923toH921 = [
+export const h923toH921: Line[] = [
   [
     {
       children: [2, 3, 19],
@@ -213,7 +241,7 @@ export const h923toH921 = [
   ]
 ];
 
-export const h96119toH9611 = [
+export const h96119toH9611: Line[] = [
   [
     {
       children: [17, 18, 19],
@@ -228,7 +256,7 @@ export const h96119toH9611 = [
   ]
 ];
 
-export const brokenGraph = [
+export const brokenGraph: BuildingFloor[] = [
   {
     id: 2,
     buildingId: BuildingId.H,
