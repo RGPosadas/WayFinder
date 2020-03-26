@@ -58,6 +58,15 @@ Array [
           }
         }
       >
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 80,
+              "resizeMode": "contain",
+            }
+          }
+        />
         <View
           style={
             Object {
@@ -177,6 +186,15 @@ Array [
         <Text />
         <Text />
         <Text />
+        <Image
+          source={1}
+          style={
+            Object {
+              "height": 26,
+              "resizeMode": "contain",
+            }
+          }
+        />
       </View>
     </View>
   </RCTSafeAreaView>,
@@ -185,11 +203,11 @@ Array [
       Object {
         "alignSelf": "center",
         "flex": 1,
-        "height": 80,
+        "height": 60,
         "position": "absolute",
-        "right": 0,
+        "right": 20,
         "top": 1234,
-        "width": 80,
+        "width": 60,
         "zIndex": 1,
       }
     }
@@ -229,12 +247,12 @@ Array [
               "borderRadius": 50,
               "borderWidth": 1,
               "flex": 1,
-              "height": 80,
+              "height": 60,
               "justifyContent": "center",
               "left": 0,
               "position": "absolute",
               "top": 0,
-              "width": 80,
+              "width": 60,
             }
           }
         >

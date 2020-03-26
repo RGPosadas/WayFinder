@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
-  Button
+  Button,
+  Image
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -150,7 +151,10 @@ const OmniboxDirections = ({
             />
           </TouchableOpacity>
           <View style={styles.directionsWaypoints}>
-            <RouteSVG />
+            <Image
+              source={require("../../../assets/route.png")}
+              style={{ height: 80, resizeMode: "contain" }}
+            />
             <View style={styles.searchContainer}>
               <TextInput
                 selectTextOnFocus
@@ -211,7 +215,10 @@ const OmniboxDirections = ({
               size={28}
               style={{ marginLeft: 15 }}
             />
-            <ShuttleSVG width={35} height={40} />
+            <Image
+              source={require("../../../assets/shuttle.png")}
+              style={{ height: 26, resizeMode: "contain" }}
+            />
           </View>
         </View>
         {((autoCompleteValues && value !== "") ||
