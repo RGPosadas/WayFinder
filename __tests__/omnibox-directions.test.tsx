@@ -2,10 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { Platform } from "react-native";
-import { getOmniboxAutoCompleteHeight } from "../src/services/autoCompleteHeight.service";
+import { getOmniboxAutoCompleteHeight } from "../src/services/auto-complete-height.service";
 import OmniboxDirections from "../src/components/search/omnibox-directions.component";
-import { POI, BuildingId, POICategory } from "../src/types/main";
-import { queryText } from "../src/services/queryUserIntput.service";
+import { POI, BuildingId, POICategory, TravelState } from "../src/types/main";
+import { queryText } from "../src/services/query-user-input.service";
 
 const mockPOIs: POI[] = [
   {
@@ -39,15 +39,15 @@ describe("OmniboxDirections component", () => {
     const tree = renderer
       .create(
         <OmniboxDirections
-          initialLocation={mockPOIs[0]}
-          destination={mockPOIs[1]}
+          startLocation={mockPOIs[0]}
+          endLocation={mockPOIs[1]}
           currentLocation={null}
-          setDestination={null}
-          setInitialLocation={null}
+          setEndLocation={null}
+          setStartLocation={null}
           queryText={queryText}
-          setIsDestinationFocused={null}
-          isDestinationFocused={null}
-          setStartTravelPlan={null}
+          setEndLocationFocused={null}
+          endLocationFocused={null}
+          setTravelState={null}
         />
       )
       .toJSON();
@@ -58,19 +58,19 @@ describe("OmniboxDirections component", () => {
     const mockSetDestination = jest.fn();
     const mocSetInitialLocation = jest.fn();
     const mockSetIsDestinationFocused = jest.fn();
-    const mockSetStartTravelPlan = jest.fn();
+    const mockSetTravelState = jest.fn();
 
     const wrapper = shallow(
       <OmniboxDirections
-        setDestination={mockSetDestination}
-        setInitialLocation={mocSetInitialLocation}
-        setIsDestinationFocused={mockSetIsDestinationFocused}
-        initialLocation={mockPOIs[0]}
-        setStartTravelPlan={mockSetStartTravelPlan}
-        destination={mockPOIs[1]}
+        setEndLocation={mockSetDestination}
+        setStartLocation={mocSetInitialLocation}
+        setEndLocationFocused={mockSetIsDestinationFocused}
+        startLocation={mockPOIs[0]}
+        setTravelState={mockSetTravelState}
+        endLocation={mockPOIs[1]}
         currentLocation={null}
         queryText={null}
-        isDestinationFocused={null}
+        endLocationFocused={null}
       />
     );
 
@@ -78,9 +78,9 @@ describe("OmniboxDirections component", () => {
     backArrow.simulate("press");
 
     expect(mockSetDestination).toHaveBeenCalledTimes(1);
-    expect(mockSetStartTravelPlan).toHaveBeenCalledTimes(1);
+    expect(mockSetTravelState).toHaveBeenCalledTimes(1);
     expect(mockSetDestination.mock.calls[0][0]).toBe(null);
-    expect(mockSetStartTravelPlan.mock.calls[0][0]).toBe(false);
+    expect(mockSetTravelState.mock.calls[0][0]).toBe(TravelState.NONE);
   });
 
   it("should call provided function when initial location textInput text is changed", () => {
@@ -88,15 +88,15 @@ describe("OmniboxDirections component", () => {
 
     const wrapper = shallow(
       <OmniboxDirections
-        initialLocation={mockPOIs[0]}
-        destination={mockPOIs[1]}
+        startLocation={mockPOIs[0]}
+        endLocation={mockPOIs[1]}
         queryText={mockQueryText}
         currentLocation={null}
-        isDestinationFocused={null}
-        setDestination={null}
-        setInitialLocation={null}
-        setIsDestinationFocused={null}
-        setStartTravelPlan={null}
+        endLocationFocused={null}
+        setEndLocation={null}
+        setStartLocation={null}
+        setEndLocationFocused={null}
+        setTravelState={null}
       />
     );
 
@@ -111,15 +111,15 @@ describe("OmniboxDirections component", () => {
 
     const wrapper = shallow(
       <OmniboxDirections
-        initialLocation={mockPOIs[0]}
-        destination={mockPOIs[1]}
-        setIsDestinationFocused={mockSetIsDestinationFocused}
+        startLocation={mockPOIs[0]}
+        endLocation={mockPOIs[1]}
+        setEndLocationFocused={mockSetIsDestinationFocused}
         currentLocation={null}
-        setDestination={null}
-        setInitialLocation={null}
+        setEndLocation={null}
+        setStartLocation={null}
         queryText={null}
-        isDestinationFocused={null}
-        setStartTravelPlan={null}
+        endLocationFocused={null}
+        setTravelState={null}
       />
     );
 
@@ -129,20 +129,20 @@ describe("OmniboxDirections component", () => {
     expect(mockSetIsDestinationFocused.mock.calls[0][0]).toBe(false);
   });
 
-  it("should call a function when destination location textInput text is changed", () => {
+  it("should call a function when endLocation location textInput text is changed", () => {
     const mockQueryText = jest.fn();
 
     const wrapper = shallow(
       <OmniboxDirections
-        initialLocation={mockPOIs[0]}
-        destination={mockPOIs[1]}
+        startLocation={mockPOIs[0]}
+        endLocation={mockPOIs[1]}
         queryText={mockQueryText}
         currentLocation={null}
-        setDestination={null}
-        setInitialLocation={null}
-        setIsDestinationFocused={null}
-        isDestinationFocused={null}
-        setStartTravelPlan={null}
+        setEndLocation={null}
+        setStartLocation={null}
+        setEndLocationFocused={null}
+        endLocationFocused={null}
+        setTravelState={null}
       />
     );
 
@@ -154,20 +154,20 @@ describe("OmniboxDirections component", () => {
     expect(mockQueryText.mock.calls[0][0]).toBe("H805");
   });
 
-  it("should call the provided functin when destination location textInput is focused", () => {
+  it("should call the provided functin when endLocation location textInput is focused", () => {
     const mockSetIsDestinationFocused = jest.fn();
 
     const wrapper = shallow(
       <OmniboxDirections
-        initialLocation={mockPOIs[0]}
-        destination={mockPOIs[1]}
-        setIsDestinationFocused={mockSetIsDestinationFocused}
+        startLocation={mockPOIs[0]}
+        endLocation={mockPOIs[1]}
+        setEndLocationFocused={mockSetIsDestinationFocused}
         currentLocation={null}
-        setDestination={null}
-        setInitialLocation={null}
+        setEndLocation={null}
+        setStartLocation={null}
         queryText={null}
-        isDestinationFocused={null}
-        setStartTravelPlan={null}
+        endLocationFocused={null}
+        setTravelState={null}
       />
     );
 
@@ -188,15 +188,15 @@ describe("OmniboxDirections component", () => {
 
     const wrapper = shallow(
       <OmniboxDirections
-        initialLocation={mockPOIs[0]}
-        destination={mockPOIs[1]}
+        startLocation={mockPOIs[0]}
+        endLocation={mockPOIs[1]}
         currentLocation={null}
-        setDestination={null}
-        setInitialLocation={null}
+        setEndLocation={null}
+        setStartLocation={null}
         queryText={null}
-        setIsDestinationFocused={null}
-        isDestinationFocused={null}
-        setStartTravelPlan={null}
+        setEndLocationFocused={null}
+        endLocationFocused={null}
+        setTravelState={null}
       />
     );
 
@@ -209,10 +209,10 @@ describe("OmniboxDirections component", () => {
   });
 
   it("should get the height of the autoComplete component", () => {
-    let autoCompleteValues: string[];
+    let autoCompleteValues: any[];
     let value: string;
-    let autoCompleteValuesDest: string[];
-    let showTimePicker: Boolean;
+    let autoCompleteValuesDest: any[];
+    let showTimePicker: boolean;
     let destinationValue: string;
 
     let autoComplete = getOmniboxAutoCompleteHeight(

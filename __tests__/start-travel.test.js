@@ -2,6 +2,7 @@ import React from "react";
 import StartTravel from "../src/components/search/start-travel.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
+import { TravelState } from "../src/types/main";
 
 describe("StartTravel component", () => {
   it("should match snapshot", () => {
@@ -10,13 +11,13 @@ describe("StartTravel component", () => {
   });
 
   it("should call a function on user input", () => {
-    const mockSetStartTravelPlan = jest.fn();
+    const mockSetTravelState = jest.fn();
     const wrapper = shallow(
-      <StartTravel setStartTravelPlan={mockSetStartTravelPlan} />
+      <StartTravel setTravelState={mockSetTravelState} />
     );
     const touchableOpacity = wrapper.find("TouchableOpacity");
     touchableOpacity.simulate("press");
-    expect(mockSetStartTravelPlan).toHaveBeenCalledTimes(1);
-    expect(mockSetStartTravelPlan.mock.calls[0][0]).toBe(true);
+    expect(mockSetTravelState).toHaveBeenCalledTimes(1);
+    expect(mockSetTravelState.mock.calls[0][0]).toBe(TravelState.TRAVELLING);
   });
 });

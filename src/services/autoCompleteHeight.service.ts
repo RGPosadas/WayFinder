@@ -1,12 +1,13 @@
 import { Platform } from "react-native";
+import { POI } from "../types/main";
 
 /**
  * Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
  */
 export const getOmniboxAutoCompleteHeight = (
-  autoCompleteValues: string[],
+  autoCompleteValues: POI[],
   value: string,
-  autoCompleteValuesDest: string[],
+  autoCompleteValuesDest: POI[],
   showTimePicker: boolean,
   destinationValue: string
 ) => {
@@ -34,9 +35,7 @@ export const getOmniboxAutoCompleteHeight = (
 /**
  * Two function simply because all the inputs and values are different
  */
-export const getSearchBarAutoCompleteHeight = (
-  autoCompleteValues: string[]
-) => {
+export const getSearchBarAutoCompleteHeight = (autoCompleteValues: POI[]) => {
   const deafaultSearchBarHeight: number = 48;
   const searchBarHeight: number = 50;
   const autoCompleteElementHeight: number = 85;

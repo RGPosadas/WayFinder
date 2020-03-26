@@ -5,11 +5,11 @@ exports[`StartTravel component should match snapshot 1`] = `
   style={
     Object {
       "alignSelf": "center",
+      "bottom": 40,
       "flex": 1,
       "height": 60,
       "position": "absolute",
       "right": 20,
-      "top": 1234,
       "width": 60,
       "zIndex": 1,
     }

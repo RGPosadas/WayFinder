@@ -76,6 +76,7 @@ Array [
         >
           <TextInput
             allowFontScaling={true}
+            onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
             rejectResponderTermination={true}
@@ -97,6 +98,7 @@ Array [
           />
           <TextInput
             allowFontScaling={true}
+            onBlur={[Function]}
             onChangeText={[Function]}
             onFocus={[Function]}
             rejectResponderTermination={true}
@@ -202,11 +204,11 @@ Array [
     style={
       Object {
         "alignSelf": "center",
+        "bottom": 40,
         "flex": 1,
         "height": 60,
         "position": "absolute",
         "right": 20,
-        "top": 1234,
         "width": 60,
         "zIndex": 1,
       }

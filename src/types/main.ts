@@ -202,3 +202,9 @@ export enum ConnectorType {
   Ramp,
   Escalator
 }
+
+export enum TravelState {
+  NONE,
+  PLANNING,
+  TRAVELLING
+}

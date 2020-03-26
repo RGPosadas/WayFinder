@@ -2,10 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
-import { CONCORDIA_RED } from "../../constants/style";
+import { CONCORDIA_RED, START_TRAVEL_HEIGHT } from "../../constants/style";
+import { TravelState } from "../../types/main";
 
 interface IProps {
-  setStartTravelPlan: (bool: Boolean) => void;
+  setTravelState: (state: TravelState) => void;
 }
 
 /**
@@ -14,11 +15,13 @@ interface IProps {
  * @param indoorInformation Indoor information object
  * @param onFloorPickerButtonPress Function that handles floorpicker press event
  */
-const StartTravel = ({ setStartTravelPlan }: IProps) => {
+const StartTravel = ({ setTravelState }: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => setStartTravelPlan(true)}
+        onPress={() => {
+          setTravelState(TravelState.TRAVELLING);
+        }}
         style={{ width: 80, height: 80 }}
       >
         <View style={styles.button}>
@@ -34,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     position: "absolute",
-    top: Dimensions.get("window").height - 100,
+    bottom: START_TRAVEL_HEIGHT,
     right: 20,
     width: 60,
     zIndex: 1,

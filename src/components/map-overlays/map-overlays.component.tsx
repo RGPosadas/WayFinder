@@ -7,7 +7,8 @@ import {
   ZoomLevel,
   IndoorInformation,
   POI,
-  MarkerLocation
+  MarkerLocation,
+  TravelState
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -22,9 +23,9 @@ interface IProps {
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
   setMarkerLocation: (poi: POI) => void;
-  destination: POI;
-  initialLocation: MarkerLocation;
-  startTravelPlan: Boolean;
+  endLocation: POI;
+  startLocation: MarkerLocation;
+  travelState: TravelState;
 }
 
 /**
@@ -36,9 +37,9 @@ const MapOverlays = ({
   zoomLevel,
   indoorInformation,
   setMarkerLocation,
-  destination,
-  initialLocation,
-  startTravelPlan
+  endLocation,
+  startLocation,
+  travelState
 }: IProps) => {
   /**
    * Fill color for the Polygons
@@ -71,7 +72,8 @@ const MapOverlays = ({
       {/**
        * Adds a polygon for each building
        */}
-      {zoomLevel === ZoomLevel.OUTDOOR ? (
+      {zoomLevel === ZoomLevel.OUTDOOR &&
+      travelState !== TravelState.TRAVELLING ? (
         <>
           {Buildings.filter(building => building.boundingBox.length > 0).map(
             building => (
@@ -119,7 +121,8 @@ const MapOverlays = ({
       {/**
        * Adds a marker for each POI
        */}
-      {zoomLevel === ZoomLevel.INDOOR && !startTravelPlan ? (
+      {zoomLevel === ZoomLevel.INDOOR ||
+      travelState === TravelState.TRAVELLING ? (
         <>
           {buildingFloors
             .filter(floor => floor.bounds != null && floor.image != null)
@@ -133,6 +136,10 @@ const MapOverlays = ({
 
           {getAllPOI()
             .filter(poi => {
+              if (travelState === TravelState.TRAVELLING) {
+                return poi.id === endLocation.id || poi.id === startLocation.id;
+              }
+
               if (indoorInformation.currentFloor == null) {
                 return true;
               }
@@ -151,43 +158,8 @@ const MapOverlays = ({
             ))}
         </>
       ) : null}
-
-      {startTravelPlan ? (
-        <>
-          {getAllPOI()
-            .filter(marker => {
-              if (startTravelPlan) {
-                return (
-                  marker.id === destination.id ||
-                  marker.id === initialLocation.id
-                );
-              }
-              return true;
-            })
-            .map(poi => (
-              <CustomMarker
-                markerType="poi"
-                key={`${poi.id} | travelPlan`}
-                location={poi.location}
-                text={poi.displayName}
-                onPress={() => {
-                  setMarkerLocation(poi);
-                }}
-              />
-            ))}
-        </>
-      ) : null}
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  marker: {
-    backgroundColor: "#252525",
-    color: "#f0f0f0",
-    padding: 1,
-    borderRadius: 5
-  }
-});
 
 export default MapOverlays;

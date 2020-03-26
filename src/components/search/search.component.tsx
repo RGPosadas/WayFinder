@@ -4,11 +4,12 @@ import {
   TextInput,
   StyleSheet,
   Dimensions,
-  View
+  View,
+  StatusBar
 } from "react-native";
 import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
-import { POI } from "../../types/main";
+import { POI, TravelState } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import { getSearchBarAutoCompleteHeight } from "../../services/autoCompleteHeight.service";
 
@@ -17,23 +18,34 @@ import { getSearchBarAutoCompleteHeight } from "../../services/autoCompleteHeigh
  * by the Search component
  */
 interface IProps {
-  setDestination: (poi: POI) => void;
+  setUserLocation: () => void;
+  setEndLocation: (poi: POI) => void;
   queryText: (
     userInput: string,
     setAState: (poi: POI[]) => void,
     onChange: (string: string) => void
   ) => void;
-  setUserLocation: () => void;
+  setTravelState: (state: TravelState) => void;
 }
 
 /**
  * Search component for indoor points of interest's
- * @param getDestination Function called to update destination
+ * @param setEndLocation Function called to update endLocation
  * @param queryText Function to query POI based on user input
  */
-const Search = ({ setDestination, queryText, setUserLocation }: IProps) => {
+const Search = ({
+  setEndLocation,
+  queryText,
+  setUserLocation,
+  setTravelState
+}: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [autoCompleteValues, setAutocomplete] = React.useState(null);
+
+  const setEndLocationAndStartSearch = (poi: POI) => {
+    setTravelState(TravelState.PLANNING);
+    setEndLocation(poi);
+  };
 
   return (
     <View
@@ -67,7 +79,7 @@ const Search = ({ setDestination, queryText, setUserLocation }: IProps) => {
           testID="autocomplete"
           style={styles.autocomplete}
           autoCompleteValues={autoCompleteValues}
-          setLocation={setDestination}
+          setLocation={setEndLocationAndStartSearch}
         />
       )}
     </View>
@@ -81,7 +93,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: "center",
     position: "absolute",
-    top: Platform.OS === "ios" ? 48 : 73,
+    top: Platform.OS === "ios" ? 48 : StatusBar.currentHeight + 20,
     width: Dimensions.get("window").width - 30,
     zIndex: 1,
     height: 48,
@@ -110,6 +122,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   input: {
+    marginLeft: 5,
     flex: 1,
     alignSelf: "stretch"
   },

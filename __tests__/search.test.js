@@ -7,7 +7,7 @@ describe("Search component", () => {
   it("should call a function on user input", () => {
     const mockQueryText = jest.fn();
     const wrapper = shallow(
-      <Search setDestination={mockQueryText} queryText={mockQueryText} />
+      <Search setEndLocation={mockQueryText} queryText={mockQueryText} />
     );
     const textInput = wrapper.find({ testID: "searchInput" });
     textInput.simulate("changeText", "H805");

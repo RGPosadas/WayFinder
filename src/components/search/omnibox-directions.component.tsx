@@ -13,7 +13,7 @@ import {
 } from "react-native";
 import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { POI, Location, MarkerLocation } from "../../types/main";
+import { POI, Location, MarkerLocation, TravelState } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
 import {
@@ -21,81 +21,78 @@ import {
   INPUT_BORDER_COLOR,
   screenWidth
 } from "../../constants/style";
-import ShuttleSVG from "../../../assets/shuttle.svg";
-import RouteSVG from "../../../assets/route.svg";
-import { getOmniboxAutoCompleteHeight } from "../../services/autoCompleteHeight.service";
+import { getOmniboxAutoCompleteHeight } from "../../services/auto-complete-height.service";
+import { showPickedTime } from "../../services/show-time.service";
 
-const getTimeToString = (date: Date) => {
-  const hours = `0${date.getHours().toString()}`;
-  const minutes = `0${date.getMinutes().toString()}`;
-
-  const hoursToShow = hours.substring(hours.length - 2, hours.length);
-  const minutessToShow = minutes.substring(minutes.length - 2, minutes.length);
-
-  return `${hoursToShow}:${minutessToShow}`;
-};
 /**
  * the name and types of the properties types accepted
  * by the OmniboxDirectionsProps component
  */
 export interface OmniboxDirectionsProps {
-  destination: POI;
   currentLocation: Location;
-  initialLocation: MarkerLocation;
-  setDestination: (poi: POI) => void;
-  setInitialLocation: (marker: MarkerLocation | POI | null) => void;
+  startLocation: MarkerLocation;
+  endLocation: POI;
+  setStartLocation: (marker: MarkerLocation) => void;
+  setEndLocation: (poi: POI) => void;
   queryText: (
     userInput: string,
     setAutocomplete: (poi: POI[]) => void,
     onChangeText: (string: string) => void
   ) => void;
-  setIsDestinationFocused: (bool: boolean) => void;
-  isDestinationFocused: Boolean;
-  setStartTravelPlan: (bool: boolean) => void;
+  setEndLocationFocused: (bool: boolean) => void;
+  endLocationFocused: boolean;
+  setTravelState: (state: TravelState) => void;
 }
 
 /**
  * Displays the start and location with a departure time picker.
  * Displays the transportation options
- * @param destination
- * @param initialLocation
- * @param setDestination Function called to update destination
- * @param setInitialLocation Function called to update initial Location
+ * @param endLocation
+ * @param startLocation
+ * @param setEndLocation Function called to update endLocation
+ * @param setStartLocation Function called to update initial Location
  * @param queryText Function to query POI based on user input
  */
 const OmniboxDirections = ({
-  destination,
   currentLocation,
-  initialLocation,
-  setDestination,
-  setInitialLocation,
+  startLocation,
+  endLocation,
+  setStartLocation,
+  setEndLocation,
   queryText,
-  setIsDestinationFocused,
-  isDestinationFocused,
-  setStartTravelPlan
+  setEndLocationFocused,
+  endLocationFocused,
+  setTravelState
 }: OmniboxDirectionsProps) => {
-  const [value, onChangeText] = React.useState(null);
-  const [destinationValue, setDestinationValue] = React.useState(
-    destination.displayName
+  const [startLocationDisplay, setStartLocationDisplay] = React.useState<
+    string
+  >(null);
+  const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
+    endLocation.displayName
   );
-  const [autoCompleteValues, setAutocomplete] = React.useState(null);
-  const [autoCompleteValuesDest, setAutocompleteDest] = React.useState(null);
-  const [date, setDate] = React.useState(null);
-  const [showTimePicker, setshowTimePicker] = React.useState(false);
+  const [startAutoCompleteValues, setStartAutoCompleteValues] = React.useState<
+    POI[]
+  >(null);
+  const [endAutoCompleteValues, setEndAutoCompleteValues] = React.useState<
+    POI[]
+  >(null);
+  const [date, setDate] = React.useState<Date>(new Date());
+  const [dateIsNow, setDateIsNow] = React.useState(true);
+  const [showTimePicker, setshowTimePicker] = React.useState<boolean>(false);
 
   useEffect(() => {
-    if (initialLocation) onChangeText(initialLocation.displayName);
-    setAutocomplete(null);
-  }, [initialLocation]);
+    if (startLocation) setStartLocationDisplay(startLocation.displayName);
+    setStartAutoCompleteValues(null);
+  }, [startLocation]);
 
   useEffect(() => {
-    setDestinationValue(destination.displayName);
-    setAutocompleteDest(null);
-  }, [destination]);
+    setEndLocationDisplay(endLocation.displayName);
+    setEndAutoCompleteValues(null);
+  }, [endLocation]);
 
   useEffect(() => {
-    if (currentLocation && !initialLocation) {
-      setInitialLocation({
+    if (currentLocation && !startLocation) {
+      setStartLocation({
         id: "User Location",
         displayName: "Current Location",
         location: currentLocation
@@ -108,24 +105,23 @@ const OmniboxDirections = ({
    * @param event
    * @param date
    */
-  const onChange = (event, pickDate) => {
+  const onChange = (event, pickedDate) => {
     setshowTimePicker(Platform.OS === "ios");
-    setDate(pickDate);
-  };
-
-  /**
-   * initializes the date
-   */
-  const initDate = () => {
-    setDate(new Date());
+    if (pickedDate == null) {
+      setDate(new Date());
+      setDateIsNow(true);
+    } else {
+      setDate(pickedDate);
+      setDateIsNow(false);
+    }
   };
 
   const AutoCompleteHeight = getOmniboxAutoCompleteHeight(
-    autoCompleteValues,
-    value,
-    autoCompleteValuesDest,
+    startAutoCompleteValues,
+    startLocationDisplay,
+    endAutoCompleteValues,
     showTimePicker,
-    destinationValue
+    endLocationDisplay
   );
 
   return (
@@ -137,10 +133,10 @@ const OmniboxDirections = ({
           <TouchableOpacity
             testID="backArrow"
             onPress={() => {
-              setDestination(null);
-              setInitialLocation(null);
-              setIsDestinationFocused(true);
-              setStartTravelPlan(false);
+              setEndLocation(null);
+              setStartLocation(null);
+              setEndLocationFocused(true);
+              setTravelState(TravelState.NONE);
             }}
           >
             <AntDesign
@@ -158,25 +154,41 @@ const OmniboxDirections = ({
             <View style={styles.searchContainer}>
               <TextInput
                 selectTextOnFocus
-                key="initialLocation"
+                key="startLocation"
                 testID="searchInputInitialLocation"
                 style={styles.input}
                 onChangeText={text =>
-                  queryText(text, setAutocomplete, onChangeText)
+                  queryText(
+                    text,
+                    setStartAutoCompleteValues,
+                    setStartLocationDisplay
+                  )
                 }
-                value={value}
-                onFocus={() => setIsDestinationFocused(false)}
+                value={startLocationDisplay}
+                onFocus={() => setEndLocationFocused(false)}
+                onBlur={() => {
+                  setStartLocationDisplay(startLocation.displayName);
+                  setStartAutoCompleteValues(null);
+                }}
               />
               <TextInput
                 key="destinationLocation"
                 testID="searchInputDestinationLocation"
                 selectTextOnFocus
                 style={styles.input}
-                value={destinationValue}
+                value={endLocationDisplay}
                 onChangeText={text =>
-                  queryText(text, setAutocompleteDest, setDestinationValue)
+                  queryText(
+                    text,
+                    setEndAutoCompleteValues,
+                    setEndLocationDisplay
+                  )
                 }
-                onFocus={() => setIsDestinationFocused(true)}
+                onFocus={() => setEndLocationFocused(true)}
+                onBlur={() => {
+                  setEndLocationDisplay(endLocation.displayName);
+                  setEndAutoCompleteValues(null);
+                }}
               />
             </View>
           </View>
@@ -185,12 +197,12 @@ const OmniboxDirections = ({
               testID="timePickerButton"
               color={CONCORDIA_RED}
               onPress={() => setshowTimePicker(!showTimePicker)}
-              title={`Depart at: ${date ? `${getTimeToString(date)}` : "now"}`}
+              title={`DEPART ${showPickedTime(date, dateIsNow)}`}
             />
             {showTimePicker && (
               <DateTimePicker
                 testID="dateTimePicker"
-                value={date || initDate}
+                value={date}
                 mode="time"
                 is24Hour
                 display="spinner"
@@ -221,21 +233,24 @@ const OmniboxDirections = ({
             />
           </View>
         </View>
-        {((autoCompleteValues && value !== "") ||
-          (autoCompleteValuesDest && destinationValue !== "")) && (
+        {((startAutoCompleteValues && startLocationDisplay !== "") ||
+          (endAutoCompleteValues && endLocationDisplay !== "")) && (
           <Autocomplete
-            testID="initialLocation"
+            testID="startLocation"
             style={styles.autocomplete}
-            autoCompleteValues={autoCompleteValues || autoCompleteValuesDest}
-            setLocation={
-              isDestinationFocused ? setDestination : setInitialLocation
+            autoCompleteValues={
+              startAutoCompleteValues || endAutoCompleteValues
             }
+            setLocation={endLocationFocused ? setEndLocation : setStartLocation}
           />
         )}
       </SafeAreaView>
-      {initialLocation && destination && destinationValue !== "" && (
-        <StartTravel setStartTravelPlan={setStartTravelPlan} />
-      )}
+      {startLocation &&
+        endLocation &&
+        endLocationDisplay !== "" &&
+        startLocationDisplay !== "" && (
+          <StartTravel setTravelState={setTravelState} />
+        )}
     </>
   );
 };
