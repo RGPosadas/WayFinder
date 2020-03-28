@@ -1,5 +1,6 @@
 const { reloadApp } = require("detox-expo-helpers");
 import { BuildingId } from "../src/types/main";
+import { by, device, expect, element, waitFor } from 'detox';
 
 beforeAll(async () => {
   await reloadApp();

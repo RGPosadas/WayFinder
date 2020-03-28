@@ -14,7 +14,7 @@
     "supercheck": "pre-commit run -a && npm run lint-fix",
     "supercheck-travis": "pre-commit run -a && npm run lint",
     "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
-    "bleach": "rm -rf node_modules && rm package-lock.json && npm install"
+    "bleach": "rm -rf node_modules && npm install"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",

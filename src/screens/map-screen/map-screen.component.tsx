@@ -108,7 +108,7 @@ const MapScreen = () => {
       Buildings.forEach(building => {
         if (isPointInPolygon(response.coords, building.boundingBox)) {
           showMessage({
-            message: `You're currently in the ${building} building!`,
+            message: `You're currently in the ${building.displayName}!`,
             type: "info"
           });
           onBuildingTap(building.id);
@@ -194,7 +194,6 @@ const MapScreen = () => {
   return (
     <RegionProvider value={currentRegion}>
       <View style={styles.container}>
-      {/* <ScrollView testID="mapScroll" contentContainerStyle={styles.container}> */}
         <MapView
           testID="mapView"
           accessibilityLabel="mapView"
@@ -215,6 +214,10 @@ const MapScreen = () => {
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
           />
+
+          <View testID="flashMessage">
+            <FlashMessage position="top" autoHide floating />
+          </View>
         </MapView>
 
         <CampusToggle onCampusToggle={onCampusToggle} />
@@ -232,9 +235,7 @@ const MapScreen = () => {
           onClosePanel={onClosePanel}
         />
 
-        <FlashMessage position="top" autoHide floating />
       </View>
-      {/* </ScrollView> */}
     </RegionProvider>
   );
 };
