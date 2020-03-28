@@ -1,4 +1,4 @@
-import * as testData from "../testData/pathfinding.data";
+import * as testData from "./__testData__/pathfinding.data";
 import { POIInfo } from "../src/constants/poi.data";
 import {
   findPathOnFloor,

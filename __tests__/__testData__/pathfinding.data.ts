@@ -4,7 +4,7 @@ import {
   BuildingFloor,
   TravelNode,
   Line
-} from "../src/types/main";
+} from "../../src/types/main";
 /**
  * This file contains expected results and a fixture for the
  * pathfinding tests.
