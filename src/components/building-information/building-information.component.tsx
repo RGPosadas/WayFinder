@@ -153,6 +153,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                                     {"\u2022  "}
                                   </Text>
                                   <Text
+                                    testID={service.title}
                                     nativeID="services"
                                     style={styles.linkText}
                                     onPress={() => {

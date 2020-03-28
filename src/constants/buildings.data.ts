@@ -78,7 +78,7 @@ export const Buildings: Building[] = [
       },
       {
         id: 11,
-        title: "Career and PLanning Services",
+        title: "Career and Planning Services",
         link:
           "http://www.concordia.ca/students/success/career-planning-services.html"
       },

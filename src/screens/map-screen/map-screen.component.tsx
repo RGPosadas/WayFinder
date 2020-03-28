@@ -215,7 +215,7 @@ const MapScreen = () => {
             indoorInformation={indoorInformation}
           />
 
-          <View testID="flashMessage">
+          <View style={styles.flashMessage} testID="flashMessage">
             <FlashMessage position="top" autoHide floating />
           </View>
         </MapView>
@@ -256,6 +256,9 @@ const styles = StyleSheet.create({
   },
   marker: {
     backgroundColor: "red"
+  },
+  flashMessage: {
+    height: 100
   }
 });
 
