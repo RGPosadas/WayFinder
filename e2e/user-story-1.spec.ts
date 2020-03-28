@@ -1,8 +1,7 @@
 const { reloadApp } = require("detox-expo-helpers");
-import { BuildingId } from "../src/types/main";
 import { by, device, expect, element, waitFor } from 'detox';
 
-beforeAll(async () => {
+beforeEach(async () => {
   await reloadApp();
 });
 
@@ -12,18 +11,17 @@ describe("US-1: Campus Toggle", () => {
     await expect(element(by.id("loyolaButton"))).toBeVisible();
   });
 
-  const VL = BuildingId[BuildingId.VL];
-  const H = BuildingId[BuildingId.H];
-
   it("should show the Loyola campus on Loyola toggle press", async () => {
     await element(by.id("loyolaButton")).tap();
-    await expect(element(by.id("polygon" + VL))).toExist();
-    await expect(element(by.id("marker" + VL))).toExist();
+    await element(by.id("mapView")).pinchWithAngle("inward", "fast", 0);
+
+    await expect(element(by.id("markerLoyola"))).toExist();
   });
 
   it("should show the SGW campus on SGW toggle press", async () => {
     await element(by.id("SGWButton")).tap();
-    await expect(element(by.id("polygon" + H))).toExist();
-    await expect(element(by.id("marker" + H))).toExist();
+    await element(by.id("mapView")).pinchWithAngle("inward", "fast", 0);
+
+    await expect(element(by.id("markerSGW"))).toExist();
   });
 });
