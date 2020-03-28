@@ -2,44 +2,42 @@ import React from "react";
 import {
   FlatList,
   StyleSheet,
-  Dimensions,
   View,
   TouchableOpacity,
   Text
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { POI, BuildingId } from "../../types/main";
-import { screenWidth } from "../../constants/style";
+import {
+  screenWidth,
+  LIST_BACKGROUND_COLOR,
+  LIST_ITEM_BORDER_COLOR,
+  LIST_ITEM_TEXT_COLOR
+} from "../../constants/style";
 
 /**
  * the name and types of the properties types accepted
  * by the AutoComplete component
  */
 export interface IProps {
-  autoCompleteValues: POI[];
+  searchResults: POI[];
   setLocation: (poi: POI) => void;
   style: object;
-  testID: string;
 }
 
 /**
  * Displays the names of provided points of interest's
- * @param autoCompleteValues Array of POI's
+ * @param searchResults Array of POI's
  * @param style Styles to reposition or resize
- * @param selectedLocation
+ * @param setLocation
  */
-const AutoComplete = ({
-  autoCompleteValues,
-  style,
-  setLocation,
-  testID
-}: IProps) => {
+const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
   return (
-    <View style={[styles.container, { ...style }]}>
+    <View style={StyleSheet.flatten([styles.container, { ...style }])}>
       <FlatList
         testID="autoCompleteFlatList"
         keyboardShouldPersistTaps="handled"
-        data={autoCompleteValues}
+        data={searchResults}
         renderItem={({ item }: { item: POI }) => (
           <TouchableOpacity
             testID="touchableList"
@@ -66,9 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: screenWidth - 30,
     top: 48,
-    borderWidth: 2,
-    borderColor: "#F7F7FA",
-    backgroundColor: "#F7F7FA",
+    backgroundColor: LIST_BACKGROUND_COLOR,
     zIndex: 3
   },
   list: {
@@ -78,13 +74,13 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     paddingLeft: 10,
     paddingBottom: 10,
-    borderBottomColor: "rgba(120, 132, 158, 0.08)",
+    borderBottomColor: LIST_ITEM_BORDER_COLOR,
     borderBottomWidth: 1.4,
     zIndex: 4
   },
   text: {
     fontSize: 16,
-    color: "#454F63"
+    color: LIST_ITEM_TEXT_COLOR
   }
 });
 

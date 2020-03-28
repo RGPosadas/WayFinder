@@ -35,9 +35,8 @@ exports[`StartTravel component should match snapshot 1`] = `
       accessible={true}
       style={
         Object {
-          "height": 80,
+          "height": 60,
           "opacity": 1,
-          "width": 80,
         }
       }
     >

@@ -116,7 +116,7 @@ Array [
             }
             testID="searchInputDestinationLocation"
             underlineColorAndroid="transparent"
-            value="Stairs 3"
+            value="H805"
           />
         </View>
       </View>
@@ -128,10 +128,57 @@ Array [
         }
       >
         <View
-          accessibilityRole="button"
-          accessibilityStates={Array []}
           accessible={true}
           focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "borderColor": "#DEDEDE",
+              "borderWidth": 2,
+              "flexDirection": "row",
+              "height": 40,
+              "justifyContent": "space-between",
+              "marginLeft": 36,
+              "opacity": 1,
+              "paddingLeft": 15,
+              "paddingRight": 15,
+            }
+          }
+          testID="timePickerButton"
+        >
+          <Text
+            style={
+              Object {
+                "color": "#717171",
+              }
+            }
+          >
+            DEPART NOW
+          </Text>
+          <Text />
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "marginTop": 20,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={false}
           isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -145,58 +192,93 @@ Array [
               "opacity": 1,
             }
           }
-          testID="timePickerButton"
         >
-          <View
-            style={
-              Array [
-                Object {},
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#007AFF",
-                    "fontSize": 18,
-                    "padding": 8,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#AA2B45",
-                  },
-                ]
-              }
-            >
-              Depart at: now
-            </Text>
-          </View>
+          <Text />
         </View>
-      </View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
-            "marginTop": 20,
-          }
-        }
-      >
-        <Text />
-        <Text />
-        <Text />
-        <Text />
-        <Image
-          source={1}
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "height": 26,
-              "resizeMode": "contain",
+              "opacity": 1,
             }
           }
-        />
+        >
+          <Text />
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Text />
+        </View>
+        <View
+          accessible={true}
+          focusable={false}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+        >
+          <Image
+            source={1}
+            style={
+              Object {
+                "height": 26,
+                "resizeMode": "contain",
+              }
+            }
+          />
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>,
@@ -234,9 +316,8 @@ Array [
         accessible={true}
         style={
           Object {
-            "height": 80,
+            "height": 60,
             "opacity": 1,
-            "width": 80,
           }
         }
       >

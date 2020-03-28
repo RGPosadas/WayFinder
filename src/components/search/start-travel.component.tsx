@@ -1,8 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet, Platform, Dimensions } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
-import { CONCORDIA_RED, START_TRAVEL_HEIGHT } from "../../constants/style";
+import {
+  CONCORDIA_RED,
+  START_TRAVEL_HEIGHT,
+  BUTTON_BORDER_COLOR,
+  WHITE_BACKGROUND_COLOR
+} from "../../constants/style";
 import { TravelState } from "../../types/main";
 
 interface IProps {
@@ -11,8 +16,6 @@ interface IProps {
 
 /**
  * Component for controlling indoor floors when in the indoor view.
- *
- * @param indoorInformation Indoor information object
  * @param onFloorPickerButtonPress Function that handles floorpicker press event
  */
 const StartTravel = ({ setTravelState }: IProps) => {
@@ -22,10 +25,10 @@ const StartTravel = ({ setTravelState }: IProps) => {
         onPress={() => {
           setTravelState(TravelState.TRAVELLING);
         }}
-        style={{ width: 80, height: 80 }}
+        style={styles.touchable}
       >
         <View style={styles.button}>
-          <AntDesign name="arrowright" color="#fff" size={26} />
+          <AntDesign name="arrowright" size={26} style={styles.arrowIcon} />
         </View>
       </TouchableOpacity>
     </View>
@@ -43,10 +46,13 @@ const styles = StyleSheet.create({
     zIndex: 1,
     height: 60
   },
+  touchable: {
+    height: 60
+  },
   button: {
     flex: 1,
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)",
+    borderColor: BUTTON_BORDER_COLOR,
     alignItems: "center",
     justifyContent: "center",
     width: 60,
@@ -56,7 +62,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     left: 0
-  }
+  },
+  arrowIcon: { color: WHITE_BACKGROUND_COLOR }
 });
 
 export default StartTravel;

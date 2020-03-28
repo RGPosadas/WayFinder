@@ -4,11 +4,13 @@ import { POIInfo } from "../constants/poi.data";
 /**
  * Filters an array of POIs based on users input
  * @param userInput
+ * @param setAState
+ * @param updateInputValue
  */
-export const queryText = (
+export const updateSearchResults = (
   userInput: string,
   setAState: (poi: POI[]) => void,
-  onChangeText: (text: string) => void
+  updateInputValue: (text: string) => void
 ) => {
   const POIs: POI[] = POIInfo.filter(poi => {
     return poi.displayName.toUpperCase().search(userInput.toUpperCase()) !== -1;
@@ -17,5 +19,5 @@ export const queryText = (
   const narrowedPOIs: POI[] = POIs.slice(0, 5);
 
   setAState([...narrowedPOIs]);
-  onChangeText(userInput);
+  updateInputValue(userInput);
 };

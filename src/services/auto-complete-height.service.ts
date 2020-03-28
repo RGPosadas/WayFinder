@@ -3,26 +3,32 @@ import { POI } from "../types/main";
 
 /**
  * Dynamic height adjustment of parent. Without this, autocomplete will not be pressable
+ * @param startLocationSearchResults
+ * @param startLocationInputValue
+ * @param endLocationSearchResults
+ * @param showTimePicker
+ * @param endLocationInputValue
  */
 export const getOmniboxAutoCompleteHeight = (
-  autoCompleteValues: POI[],
-  value: string,
-  autoCompleteValuesDest: POI[],
+  startLocationSearchResults: POI[],
+  startLocationInputValue: string,
+  endLocationSearchResults: POI[],
   showTimePicker: boolean,
-  destinationValue: string
+  endLocationInputValue: string
 ) => {
   const heightAutoCompleteElement: number = 75;
   const autoCompleteHeight: number = 235;
   const defaultAutoCompleteHeight: number = 260;
 
-  if (autoCompleteValues && value !== "") {
+  if (startLocationSearchResults && startLocationInputValue !== "") {
     return (
-      autoCompleteValues.length * heightAutoCompleteElement + autoCompleteHeight
+      startLocationSearchResults.length * heightAutoCompleteElement +
+      autoCompleteHeight
     );
   }
-  if (autoCompleteValuesDest && destinationValue !== "") {
+  if (endLocationSearchResults && endLocationInputValue !== "") {
     return (
-      autoCompleteValuesDest.length * heightAutoCompleteElement +
+      endLocationSearchResults.length * heightAutoCompleteElement +
       autoCompleteHeight
     );
   }
@@ -34,13 +40,14 @@ export const getOmniboxAutoCompleteHeight = (
 
 /**
  * Two function simply because all the inputs and values are different
+ * @param searchResults
  */
-export const getSearchBarAutoCompleteHeight = (autoCompleteValues: POI[]) => {
+export const getSearchBarAutoCompleteHeight = (searchResults: POI[]) => {
   const deafaultSearchBarHeight: number = 48;
   const searchBarHeight: number = 50;
   const autoCompleteElementHeight: number = 85;
 
-  return autoCompleteValues
-    ? autoCompleteValues.length * autoCompleteElementHeight + searchBarHeight
+  return searchResults
+    ? searchResults.length * autoCompleteElementHeight + searchBarHeight
     : deafaultSearchBarHeight;
 };

@@ -3,19 +3,14 @@
 exports[`AutoComplete component should match snapshot 1`] = `
 <View
   style={
-    Array [
-      Object {
-        "backgroundColor": "#F7F7FA",
-        "borderColor": "#F7F7FA",
-        "borderWidth": 2,
-        "flex": 1,
-        "position": "absolute",
-        "top": 48,
-        "width": 720,
-        "zIndex": 3,
-      },
-      Object {},
-    ]
+    Object {
+      "backgroundColor": "#F7F7FA",
+      "flex": 1,
+      "position": "absolute",
+      "top": 48,
+      "width": 720,
+      "zIndex": 3,
+    }
   }
 >
   <RCTScrollView

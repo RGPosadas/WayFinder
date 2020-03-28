@@ -72,8 +72,7 @@ const MapOverlays = ({
       {/**
        * Adds a polygon for each building
        */}
-      {zoomLevel === ZoomLevel.OUTDOOR &&
-      travelState !== TravelState.TRAVELLING ? (
+      {zoomLevel === ZoomLevel.OUTDOOR && (
         <>
           {Buildings.filter(building => building.boundingBox.length > 0).map(
             building => (
@@ -94,7 +93,7 @@ const MapOverlays = ({
             )
           )}
         </>
-      ) : null}
+      )}
       {/**
        * Adds a marker for each building
        */}

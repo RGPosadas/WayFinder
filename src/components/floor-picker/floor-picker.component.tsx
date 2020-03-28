@@ -7,7 +7,8 @@ import {
   FLOOR_PICKER_TRAVEL_HEIGHT,
   MAP_BUTTON_RIGHT,
   CONCORDIA_RED,
-  INACTIVE_BUTTON_COLOR
+  INACTIVE_BUTTON_COLOR,
+  BUTTON_BORDER_COLOR
 } from "../../constants/style";
 
 interface IProps {
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     right: MAP_BUTTON_RIGHT,
     borderRadius: 2,
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)"
+    borderColor: BUTTON_BORDER_COLOR
   },
   floorButton: {
     flex: 1,

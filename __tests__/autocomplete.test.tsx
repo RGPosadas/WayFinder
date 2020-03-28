@@ -36,26 +36,20 @@ describe("AutoComplete component", () => {
   it("should match snapshot", () => {
     const tree = renderer
       .create(
-        <AutoComplete
-          autoCompleteValues={null}
-          style={null}
-          setLocation={null}
-          testID={null}
-        />
+        <AutoComplete searchResults={null} style={null} setLocation={null} />
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
   });
 
-  it("should run provided function on press", () => {
+  it("should render touchable elements when search results are populated", () => {
     const mockSetLocation = jest.fn();
 
     const wrapper = shallow(
       <AutoComplete
-        autoCompleteValues={mockPOIs}
+        searchResults={mockPOIs}
         setLocation={mockSetLocation}
         style={null}
-        testID={null}
       />
     );
     const touchableList = wrapper

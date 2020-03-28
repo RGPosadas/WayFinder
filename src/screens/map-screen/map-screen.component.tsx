@@ -13,6 +13,7 @@ import BuildingInformation from "../../components/building-information/building-
 import { Buildings } from "../../constants/buildings.data";
 import LocationButton from "../../components/location-button/location-button.component";
 import { getCurrentLocationAsync } from "../../services/location.service";
+import { updateSearchResults } from "../../services/query-user-input.service";
 import {
   Location,
   Region,
@@ -33,7 +34,7 @@ import {
   outdoorRange,
   campusRange
 } from "../../constants/zoom-range.data";
-import { queryText } from "../../services/query-user-input.service";
+
 /**
  * Screen for the Map and its related buttons and components
  */
@@ -216,7 +217,10 @@ const MapScreen = () => {
     }
   };
 
-  const setUserLocation = () => {
+  /**
+   * Set the users current location if location services is on.
+   */
+  const setUserCurrentLocation = () => {
     if (!currentLocation) {
       getCurrentLocationAsync()
         .then(location => {
@@ -241,19 +245,19 @@ const MapScreen = () => {
         setEndLocation={setEndLocation}
         setStartLocation={setStartLocation}
         startLocation={startLocation}
-        queryText={queryText}
         setEndLocationFocused={setEndLocationFocused}
         endLocationFocused={endLocationFocused}
         setTravelState={setTravelState}
+        updateSearchResults={updateSearchResults}
       />
     );
   } else if (travelState === TravelState.NONE) {
     search = (
       <Search
-        setUserLocation={setUserLocation}
+        setUserCurrentLocation={setUserCurrentLocation}
         setEndLocation={setEndLocation}
-        queryText={queryText}
         setTravelState={setTravelState}
+        updateSearchResults={updateSearchResults}
       />
     );
   }

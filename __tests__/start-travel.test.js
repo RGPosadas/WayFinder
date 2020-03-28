@@ -10,7 +10,7 @@ describe("StartTravel component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should call a function on user input", () => {
+  it("should call provided function on press", () => {
     const mockSetTravelState = jest.fn();
     const wrapper = shallow(
       <StartTravel setTravelState={mockSetTravelState} />

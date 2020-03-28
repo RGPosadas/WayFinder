@@ -2,16 +2,20 @@ import React, { useEffect } from "react";
 import {
   TextInput,
   StyleSheet,
-  Dimensions,
   View,
   Platform,
   TouchableOpacity,
   StatusBar,
   SafeAreaView,
-  Button,
+  Text,
   Image
 } from "react-native";
-import { AntDesign, FontAwesome, MaterialIcons } from "@expo/vector-icons";
+import {
+  AntDesign,
+  FontAwesome,
+  MaterialIcons,
+  Entypo
+} from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { POI, Location, MarkerLocation, TravelState } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
@@ -19,6 +23,9 @@ import StartTravel from "./start-travel.component";
 import {
   CONCORDIA_RED,
   INPUT_BORDER_COLOR,
+  INACTIVE_BUTTON_COLOR,
+  INACTIVE_TEXT_COLOR,
+  INACTIVE_ICON_COLOR,
   screenWidth
 } from "../../constants/style";
 import { getOmniboxAutoCompleteHeight } from "../../services/auto-complete-height.service";
@@ -34,24 +41,28 @@ export interface OmniboxDirectionsProps {
   endLocation: POI;
   setStartLocation: (marker: MarkerLocation) => void;
   setEndLocation: (poi: POI) => void;
-  queryText: (
-    userInput: string,
-    setAutocomplete: (poi: POI[]) => void,
-    onChangeText: (string: string) => void
-  ) => void;
   setEndLocationFocused: (bool: boolean) => void;
   endLocationFocused: boolean;
   setTravelState: (state: TravelState) => void;
+  updateSearchResults: (
+    userInput: string,
+    setAState: (poi: POI[]) => void,
+    updateInputValue: (text: string) => void
+  ) => void;
 }
 
 /**
  * Displays the start and location with a departure time picker.
  * Displays the transportation options
- * @param endLocation
+ * @param currentLocation
  * @param startLocation
- * @param setEndLocation Function called to update endLocation
- * @param setStartLocation Function called to update initial Location
- * @param queryText Function to query POI based on user input
+ * @param endLocation
+ * @param setStartLocation
+ * @param setEndLocation
+ * @param setEndLocationFocused
+ * @param endLocationFocused
+ * @param setTravelState
+ * @param updateSearchResults
  */
 const OmniboxDirections = ({
   currentLocation,
@@ -59,10 +70,10 @@ const OmniboxDirections = ({
   endLocation,
   setStartLocation,
   setEndLocation,
-  queryText,
   setEndLocationFocused,
   endLocationFocused,
-  setTravelState
+  setTravelState,
+  updateSearchResults
 }: OmniboxDirectionsProps) => {
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
     string
@@ -70,24 +81,26 @@ const OmniboxDirections = ({
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
     endLocation.displayName
   );
-  const [startAutoCompleteValues, setStartAutoCompleteValues] = React.useState<
-    POI[]
-  >(null);
-  const [endAutoCompleteValues, setEndAutoCompleteValues] = React.useState<
-    POI[]
-  >(null);
+  const [
+    startLocationSearchResults,
+    setStartLocationSearchResults
+  ] = React.useState<POI[]>(null);
+  const [
+    endLocationSearchResults,
+    setEndLocationSearchResults
+  ] = React.useState<POI[]>(null);
   const [date, setDate] = React.useState<Date>(new Date());
   const [dateIsNow, setDateIsNow] = React.useState(true);
   const [showTimePicker, setshowTimePicker] = React.useState<boolean>(false);
 
   useEffect(() => {
     if (startLocation) setStartLocationDisplay(startLocation.displayName);
-    setStartAutoCompleteValues(null);
+    setStartLocationSearchResults(null);
   }, [startLocation]);
 
   useEffect(() => {
     setEndLocationDisplay(endLocation.displayName);
-    setEndAutoCompleteValues(null);
+    setEndLocationSearchResults(null);
   }, [endLocation]);
 
   useEffect(() => {
@@ -103,9 +116,9 @@ const OmniboxDirections = ({
   /**
    * Change the value of the departure time
    * @param event
-   * @param date
+   * @param pickedDate
    */
-  const onChange = (event, pickedDate) => {
+  const onDateChange = (event, pickedDate) => {
     setshowTimePicker(Platform.OS === "ios");
     if (pickedDate == null) {
       setDate(new Date());
@@ -117,9 +130,9 @@ const OmniboxDirections = ({
   };
 
   const AutoCompleteHeight = getOmniboxAutoCompleteHeight(
-    startAutoCompleteValues,
+    startLocationSearchResults,
     startLocationDisplay,
-    endAutoCompleteValues,
+    endLocationSearchResults,
     showTimePicker,
     endLocationDisplay
   );
@@ -139,17 +152,12 @@ const OmniboxDirections = ({
               setTravelState(TravelState.NONE);
             }}
           >
-            <AntDesign
-              name="arrowleft"
-              color="#AA2B45"
-              size={26}
-              style={styles.backArrow}
-            />
+            <AntDesign name="arrowleft" size={26} style={styles.backArrow} />
           </TouchableOpacity>
           <View style={styles.directionsWaypoints}>
             <Image
               source={require("../../../assets/route.png")}
-              style={{ height: 80, resizeMode: "contain" }}
+              style={styles.routeIcon}
             />
             <View style={styles.searchContainer}>
               <TextInput
@@ -157,10 +165,10 @@ const OmniboxDirections = ({
                 key="startLocation"
                 testID="searchInputInitialLocation"
                 style={styles.input}
-                onChangeText={text =>
-                  queryText(
-                    text,
-                    setStartAutoCompleteValues,
+                onChangeText={inputText =>
+                  updateSearchResults(
+                    inputText,
+                    setStartLocationSearchResults,
                     setStartLocationDisplay
                   )
                 }
@@ -168,7 +176,7 @@ const OmniboxDirections = ({
                 onFocus={() => setEndLocationFocused(false)}
                 onBlur={() => {
                   setStartLocationDisplay(startLocation.displayName);
-                  setStartAutoCompleteValues(null);
+                  setStartLocationSearchResults(null);
                 }}
               />
               <TextInput
@@ -177,28 +185,37 @@ const OmniboxDirections = ({
                 selectTextOnFocus
                 style={styles.input}
                 value={endLocationDisplay}
-                onChangeText={text =>
-                  queryText(
-                    text,
-                    setEndAutoCompleteValues,
+                onChangeText={inputText =>
+                  updateSearchResults(
+                    inputText,
+                    setEndLocationSearchResults,
                     setEndLocationDisplay
                   )
                 }
                 onFocus={() => setEndLocationFocused(true)}
                 onBlur={() => {
                   setEndLocationDisplay(endLocation.displayName);
-                  setEndAutoCompleteValues(null);
+                  setEndLocationSearchResults(null);
                 }}
               />
             </View>
           </View>
           <View style={styles.button}>
-            <Button
+            <TouchableOpacity
               testID="timePickerButton"
-              color={CONCORDIA_RED}
               onPress={() => setshowTimePicker(!showTimePicker)}
-              title={`DEPART ${showPickedTime(date, dateIsNow)}`}
-            />
+              style={styles.datePickerButton}
+            >
+              <Text style={styles.datePickerText}>{`DEPART ${showPickedTime(
+                date,
+                dateIsNow
+              )}`}</Text>
+              <Entypo
+                name="chevron-down"
+                size={24}
+                style={styles.datePickerChevron}
+              />
+            </TouchableOpacity>
             {showTimePicker && (
               <DateTimePicker
                 testID="dateTimePicker"
@@ -206,40 +223,49 @@ const OmniboxDirections = ({
                 mode="time"
                 is24Hour
                 display="spinner"
-                onChange={onChange}
+                onChange={onDateChange}
               />
             )}
           </View>
           <View style={styles.travelModeSwitcher}>
-            <FontAwesome name="car" size={24} style={{ marginLeft: 15 }} />
-            <FontAwesome
-              name="wheelchair"
-              size={24}
-              style={{ marginLeft: 15 }}
-            />
-            <MaterialIcons
-              name="directions-walk"
-              size={28}
-              style={{ marginLeft: 15 }}
-            />
-            <MaterialIcons
-              name="directions-bus"
-              size={28}
-              style={{ marginLeft: 15 }}
-            />
-            <Image
-              source={require("../../../assets/shuttle.png")}
-              style={{ height: 26, resizeMode: "contain" }}
-            />
+            <TouchableOpacity>
+              <FontAwesome name="car" size={24} style={styles.travelModeIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <FontAwesome
+                name="wheelchair"
+                size={24}
+                style={styles.travelModeIcon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <MaterialIcons
+                name="directions-walk"
+                size={28}
+                style={styles.travelModeIcon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <MaterialIcons
+                name="directions-bus"
+                size={28}
+                style={styles.travelModeIcon}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image
+                source={require("../../../assets/shuttle.png")}
+                style={styles.shuttleIcon}
+              />
+            </TouchableOpacity>
           </View>
         </View>
-        {((startAutoCompleteValues && startLocationDisplay !== "") ||
-          (endAutoCompleteValues && endLocationDisplay !== "")) && (
+        {((startLocationSearchResults && startLocationDisplay !== "") ||
+          (endLocationSearchResults && endLocationDisplay !== "")) && (
           <Autocomplete
-            testID="startLocation"
             style={styles.autocomplete}
-            autoCompleteValues={
-              startAutoCompleteValues || endAutoCompleteValues
+            searchResults={
+              startLocationSearchResults || endLocationSearchResults
             }
             setLocation={endLocationFocused ? setEndLocation : setStartLocation}
           />
@@ -262,8 +288,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: Platform.OS === "android" ? StatusBar.currentHeight : 0,
     zIndex: 1,
-    width: Dimensions.get("window").width,
-    backgroundColor: "#F2F2F2",
+    width: screenWidth,
+    backgroundColor: INACTIVE_BUTTON_COLOR,
     height: 235
   },
   contentContainer: {
@@ -272,13 +298,15 @@ const styles = StyleSheet.create({
     paddingBottom: 20
   },
   backArrow: {
-    marginLeft: 10
+    marginLeft: 10,
+    color: CONCORDIA_RED
   },
   directionsWaypoints: {
     flexDirection: "row",
     alignItems: "center",
     marginLeft: 36
   },
+  routeIcon: { height: 80, resizeMode: "contain" },
   input: {
     height: 38,
     borderColor: INPUT_BORDER_COLOR,
@@ -304,11 +332,30 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between"
   },
+  travelModeIcon: { marginLeft: 15 },
+  shuttleIcon: { height: 26, resizeMode: "contain" },
   autocomplete: {
     top: 260,
     width: screenWidth
   },
   button: {
     marginTop: Platform.OS === "android" ? 20 : 0
+  },
+  datePickerButton: {
+    flexDirection: "row",
+    borderWidth: 2,
+    alignItems: "center",
+    justifyContent: "space-between",
+    height: 40,
+    marginLeft: 36,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderColor: INPUT_BORDER_COLOR
+  },
+  datePickerText: {
+    color: INACTIVE_TEXT_COLOR
+  },
+  datePickerChevron: {
+    color: INACTIVE_ICON_COLOR
   }
 });
