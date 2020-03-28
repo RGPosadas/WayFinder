@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, ScrollView } from "react-native";
+import { StyleSheet, View, ScrollView, Platform } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { isPointInPolygon } from "geolib";
 import FlashMessage, { showMessage } from "react-native-flash-message";
@@ -123,7 +123,7 @@ const MapScreen = () => {
         Buildings.forEach(building => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
             showMessage({
-              message: `You're currently in the ${building} building!`,
+              message: `You're currently in the ${building.displayName}!`,
               type: "info"
             });
             onBuildingTap(building.id);
@@ -303,10 +303,11 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
-
-          <View style={styles.flashMessage} testID="flashMessage">
-            <FlashMessage position="bottom" autoHide floating />
-          </View>
+          {Platform.OS === "ios" ? (
+            <View testID="flashMessage" style={styles.flashMessageIOS}>
+              <FlashMessage position="center" />
+            </View>
+          ) : null}
         </MapView>
 
         {travelState === TravelState.NONE && (
@@ -329,7 +330,6 @@ const MapScreen = () => {
           onClosePanel={onClosePanel}
         />
       </View>
-      <FlashMessage position="bottom" autoHide floating />
     </RegionProvider>
   );
 };
@@ -351,9 +351,9 @@ const styles = StyleSheet.create({
   marker: {
     backgroundColor: "red"
   },
-  flashMessage: {
-    marginTop: 20,
-    height: 10,
+  flashMessageIOS: {
+    marginTop: 100,
+    height: 1,
     zIndex: 0
   }
 });

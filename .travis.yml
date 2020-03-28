@@ -9,10 +9,15 @@ before_install:
 before_script:
   - curl https://pre-commit.com/install-local.py | python -
   - pre-commit install
+addons:
+  - sonarcloud:
+    organization: "rgposadas"
+    token:
+      secure: $SONAR_TOKEN
 script:
   - npm install -g expo-cli --loglevel=error
   - npm install --log-level=error
   - echo "fakeSecret" >> secrets.js
   - npm run supercheck-travis
   - npm test
-  - npm run sonar-scanner -Dsonar.projectKey=$SONAR_PROJECT -Dsonar.host.url=$SONAR_URL -Dsonar.login=$SONAR_LOGIN
+  - sonar-scanner

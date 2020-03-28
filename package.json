@@ -87,7 +87,6 @@
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0",
     "sonar-scanner": "^3.1.0",
-    "sonarqube-scanner": "^2.5.0",
     "typescript": "^3.7.2"
   },
   "detox": {
