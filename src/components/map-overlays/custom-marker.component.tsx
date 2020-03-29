@@ -8,7 +8,7 @@ interface IProps {
   location: Location;
   onPress: () => void;
   text: string;
-  markerType: "campus" | "building" | "poi";
+  markerType: "campus" | "building" | "poi" | "startLocation" | "endLocation";
   testID: string;
 }
 let backgroundColor: string = CONCORDIA_RED;

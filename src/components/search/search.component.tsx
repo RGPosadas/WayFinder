@@ -42,6 +42,12 @@ const Search = ({
   const [value, onChangeText] = React.useState("");
   const [searchResults, setAutocomplete] = React.useState(null);
 
+  /**
+   * Starts the planning phase of a travel plan. Sets the end location.
+   * Sets the start location to user's current location if available.
+   *
+   * @param poi A POI which will be set as the end location
+   */
   const setEndLocationAndStartSearch = (poi: POI) => {
     setTravelState(TravelState.PLANNING);
     setUserCurrentLocation();

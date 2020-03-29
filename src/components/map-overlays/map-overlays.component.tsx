@@ -72,7 +72,7 @@ const MapOverlays = ({
       {/**
        * Adds a polygon for each building
        */}
-      {zoomLevel === ZoomLevel.OUTDOOR && (
+      {zoomLevel === ZoomLevel.OUTDOOR ? (
         <>
           {Buildings.filter(building => building.boundingBox.length > 0).map(
             building => (
@@ -93,7 +93,7 @@ const MapOverlays = ({
             )
           )}
         </>
-      )}
+      ) : null}
       {/**
        * Adds a marker for each building
        */}
@@ -120,8 +120,7 @@ const MapOverlays = ({
       {/**
        * Adds a marker for each POI
        */}
-      {zoomLevel === ZoomLevel.INDOOR ||
-      travelState === TravelState.TRAVELLING ? (
+      {zoomLevel === ZoomLevel.INDOOR ? (
         <>
           {buildingFloors
             .filter(floor => floor.bounds != null && floor.image != null)
@@ -132,7 +131,11 @@ const MapOverlays = ({
                 image={floor.image}
               />
             ))}
-
+        </>
+      ) : null}
+      {zoomLevel === ZoomLevel.INDOOR ||
+      travelState === TravelState.TRAVELLING ? (
+        <>
           {getAllPOI()
             .filter(poi => {
               if (travelState === TravelState.TRAVELLING) {

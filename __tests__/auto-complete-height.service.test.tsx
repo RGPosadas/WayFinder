@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 import { getOmniboxAutoCompleteHeight } from "../src/services/auto-complete-height.service";
 
-describe("StartTravel component", () => {
+describe("Auto-complete-height-service", () => {
   it("should get the correct height of the AutoComplete component", () => {
     let startSearchResultValues: any[];
     let startLocationInputValue: string;
