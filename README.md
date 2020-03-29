@@ -43,23 +43,22 @@ There you go! You can now connect your phone and start developing and debugging 
 
 ### Unit Tests
 
-* Run Jest/Enzyme unit tests:
-   ```
-   npm run test
-   ```
+- Run Jest/Enzyme unit tests:
+  ```
+  npm run test
+  ```
 
 ### Acceptance Tests
-* At the moment, acceptance tests only run on iOS simulators.
-* Setup for iOS:
-   ```
-   npm run setup-bin
-   ```
-* Run the Detox acceptance tests:
-   ```
-   npm run e2e
-   ```
 
-
+- At the moment, acceptance tests only run on iOS simulators.
+- Setup for iOS:
+  ```
+  npm run setup-bin
+  ```
+- Run the Detox acceptance tests:
+  ```
+  npm run e2e
+  ```
 
 ## Linting
 

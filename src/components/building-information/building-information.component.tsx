@@ -82,7 +82,10 @@ class BuildingInformation extends React.Component<IProps, IState> {
                         <AntDesign name="up" size={44} />
                       </View>
                       <View style={styles.flexTextContainer}>
-                        <Text testID="panelDisplayName" style={styles.headerText}>
+                        <Text
+                          testID="panelDisplayName"
+                          style={styles.headerText}
+                        >
                           {building.displayName}
                         </Text>
                       </View>

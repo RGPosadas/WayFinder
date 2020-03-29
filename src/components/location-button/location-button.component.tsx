@@ -20,7 +20,11 @@ export interface IProps {
 const LocationButton = ({ onLocationButtonPress }: IProps) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity testID="locationButton" style={styles.button} onPress={onLocationButtonPress}>
+      <TouchableOpacity
+        testID="locationButton"
+        style={styles.button}
+        onPress={onLocationButtonPress}
+      >
         <MaterialIcons name="my-location" size={32} />
       </TouchableOpacity>
     </View>

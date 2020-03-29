@@ -234,7 +234,6 @@ const MapScreen = () => {
           showBuildingInfo={showBuildingInfo}
           onClosePanel={onClosePanel}
         />
-
       </View>
     </RegionProvider>
   );

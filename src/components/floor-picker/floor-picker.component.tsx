@@ -33,7 +33,7 @@ const FloorPicker = ({
             indoorInformation.floors.map((floor, index) => {
               return (
                 <TouchableOpacity
-                  testID={"floorButton"+floor.level}
+                  testID={"floorButton" + floor.level}
                   key={index}
                   style={
                     floor.index === indoorInformation.currentFloor.index

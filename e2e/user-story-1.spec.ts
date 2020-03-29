@@ -1,7 +1,7 @@
 const { reloadApp } = require("detox-expo-helpers");
-import { by, device, expect, element, waitFor } from 'detox';
+import { by, device, expect, element, waitFor } from "detox";
 
-beforeAll( async () => {
+beforeAll(async () => {
   await reloadApp();
 });
 
