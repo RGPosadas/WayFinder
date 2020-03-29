@@ -35,9 +35,31 @@ To run this react-native application and start development:
    - `npm install`
 4. Run project:
 
-   - `npm start`
+   - `expo r -c`
 
 There you go! You can now connect your phone and start developing and debugging your application!
+
+## Testing
+
+### Unit Tests
+
+* Run Jest/Enzyme unit tests:
+   ```
+   npm run test
+   ```
+
+### Acceptance Tests
+* At the moment, acceptance tests only run on iOS simulators.
+* Setup for iOS:
+   ```
+   npm run setup-bin
+   ```
+* Run the Detox acceptance tests:
+   ```
+   npm run e2e
+   ```
+
+
 
 ## Linting
 
