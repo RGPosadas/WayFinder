@@ -1,5 +1,5 @@
 module.exports = {
-  ignorePatterns: ["node_modules/*"],
+  ignorePatterns: ["node_modules/*", "user-story-2.spec.ts"],
   root: true,
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],

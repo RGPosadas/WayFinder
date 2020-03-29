@@ -27,7 +27,7 @@ describe("US-14: Indoor Points of Interest", () => {
     // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
     await element(by.id("mapView")).swipe("down", "slow", 0.63);
-    await element(by.id("mapView")).swipe("right", "slow", 0.58);
+    await element(by.id("mapView")).swipe("right", "slow", 0.53);
     // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
 

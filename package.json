@@ -3,18 +3,18 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "android": "expo start --android",
+    "bleach": "rm -rf node_modules && npm install",
+    "e2e": "detox test",
     "eject": "expo eject",
     "ios": "expo start --ios",
-    "start": "expo start",
-    "test": "jest __tests__ --verbose --coverage",
-    "e2e": "detox test",
-    "web": "expo start --web",
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
     "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
+    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
+    "start": "expo start",
     "supercheck": "pre-commit run -a && npm run lint-fix",
     "supercheck-travis": "pre-commit run -a && npm run lint",
-    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
-    "bleach": "rm -rf node_modules && npm install"
+    "test": "jest __tests__ --verbose --coverage",
+    "web": "expo start --web"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
