@@ -2,6 +2,12 @@
 
 exports[`CustomMarker component should match snapshot 1`] = `
 <AIRMapMarker
+  coordinate={
+    Object {
+      "latitude": 45.49729998360628,
+      "longitude": -73.57890789359567,
+    }
+  }
   onPress={[Function]}
   stopPropagation={false}
   style={
@@ -28,7 +34,7 @@ exports[`CustomMarker component should match snapshot 1`] = `
       style={
         Object {
           "alignSelf": "flex-start",
-          "backgroundColor": "#AA2B45",
+          "backgroundColor": "#252525",
           "borderRadius": 3,
           "flex": 0,
           "flexDirection": "row",
@@ -43,7 +49,9 @@ exports[`CustomMarker component should match snapshot 1`] = `
             "color": "#f0f0f0",
           }
         }
-      />
+      >
+        asdf
+      </Text>
     </View>
     <View
       style={
@@ -51,7 +59,7 @@ exports[`CustomMarker component should match snapshot 1`] = `
           "alignSelf": "center",
           "backgroundColor": "transparent",
           "borderColor": "transparent",
-          "borderTopColor": "#AA2B45",
+          "borderTopColor": "#252525",
           "borderWidth": 4,
           "marginTop": -0.5,
         }
@@ -63,7 +71,7 @@ exports[`CustomMarker component should match snapshot 1`] = `
           "alignSelf": "center",
           "backgroundColor": "transparent",
           "borderColor": "transparent",
-          "borderTopColor": "#AA2B45",
+          "borderTopColor": "#252525",
           "borderWidth": 4,
           "marginTop": -9,
         }
