@@ -258,7 +258,9 @@ const styles = StyleSheet.create({
     backgroundColor: "red"
   },
   flashMessage: {
-    height: 100
+    marginTop: 20,
+    height: 10,
+    zIndex: 0
   }
 });
 

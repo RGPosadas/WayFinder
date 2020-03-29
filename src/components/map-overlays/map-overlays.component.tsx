@@ -106,7 +106,7 @@ const MapOverlays = ({
         : null}
 
       {/**
-       * Adds a polygon for each POI
+       * Adds a marker for each POI
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
@@ -134,7 +134,7 @@ const MapOverlays = ({
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {}}
-                testID={`poi${poi.id}`}
+                testID={`poi-${poi.id}`}
               />
             ))}
         </>

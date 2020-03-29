@@ -2,7 +2,7 @@ const { reloadApp } = require("detox-expo-helpers");
 import { by, device, expect, element, waitFor } from 'detox';
 import { exec } from 'child_process';
 
-beforeEach(async () => {
+beforeEach( async () => {
   await reloadApp();
 });
 
@@ -15,7 +15,7 @@ const setLocation = async (latitude, longitude) => {
   exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
 };
 
-describe("US-3: location services", () => {
+describe("US-3: Location Services", () => {
     it("should indicate that user is not in a building", async () => {
       await setLocation(45.495674, -73.657242);
       await device.enableSynchronization();
