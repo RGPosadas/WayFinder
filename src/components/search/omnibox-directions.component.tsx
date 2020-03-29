@@ -26,7 +26,8 @@ import {
   INACTIVE_BUTTON_COLOR,
   INACTIVE_TEXT_COLOR,
   INACTIVE_ICON_COLOR,
-  screenWidth
+  screenWidth,
+  CURRENT_LOCATION_DISPLAY_TEXT
 } from "../../constants/style";
 import { getOmniboxAutoCompleteHeight } from "../../services/auto-complete-height.service";
 import { showPickedTime } from "../../services/show-time.service";
@@ -49,6 +50,8 @@ export interface OmniboxDirectionsProps {
     setAState: (poi: POI[]) => void,
     updateInputValue: (text: string) => void
   ) => void;
+  startLocationDisplay: string;
+  setStartLocationDisplay: (displayName: string) => void;
 }
 
 /**
@@ -73,11 +76,10 @@ const OmniboxDirections = ({
   setEndLocationFocused,
   endLocationFocused,
   setTravelState,
-  updateSearchResults
+  updateSearchResults,
+  startLocationDisplay,
+  setStartLocationDisplay
 }: OmniboxDirectionsProps) => {
-  const [startLocationDisplay, setStartLocationDisplay] = React.useState<
-    string
-  >(null);
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
     endLocation.displayName
   );
@@ -107,7 +109,7 @@ const OmniboxDirections = ({
     if (currentLocation && !startLocation) {
       setStartLocation({
         id: "User Location",
-        displayName: "Current Location",
+        displayName: CURRENT_LOCATION_DISPLAY_TEXT,
         location: currentLocation
       });
     }
@@ -175,7 +177,9 @@ const OmniboxDirections = ({
                 value={startLocationDisplay}
                 onFocus={() => setEndLocationFocused(false)}
                 onBlur={() => {
-                  setStartLocationDisplay(startLocation.displayName);
+                  if (startLocation) {
+                    setStartLocationDisplay(startLocation.displayName);
+                  }
                   setStartLocationSearchResults(null);
                 }}
               />
@@ -194,7 +198,9 @@ const OmniboxDirections = ({
                 }
                 onFocus={() => setEndLocationFocused(true)}
                 onBlur={() => {
-                  setEndLocationDisplay(endLocation.displayName);
+                  if (endLocation) {
+                    setEndLocationDisplay(endLocation.displayName);
+                  }
                   setEndLocationSearchResults(null);
                 }}
               />

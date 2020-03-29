@@ -44,6 +44,7 @@ const Search = ({
 
   const setEndLocationAndStartSearch = (poi: POI) => {
     setTravelState(TravelState.PLANNING);
+    setUserCurrentLocation();
     setEndLocation(poi);
   };
 
@@ -68,7 +69,6 @@ const Search = ({
                 updateSearchResults(text, setAutocomplete, onChangeText)
               }
               value={value}
-              onFocus={() => setUserCurrentLocation()}
             />
           </View>
           <FontAwesome name="microphone" size={24} style={styles.mic_icon} />

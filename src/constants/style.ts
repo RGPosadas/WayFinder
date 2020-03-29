@@ -26,3 +26,6 @@ export const INACTIVE_ICON_COLOR = "#C76969";
 export const screenHeight = Dimensions.get("window").height;
 export const screenWidth = Dimensions.get("window").width;
 export const screenRatio = screenWidth / screenHeight;
+
+// Text
+export const CURRENT_LOCATION_DISPLAY_TEXT = "Current Location";

@@ -16,10 +16,11 @@ import Constants from "expo-constants";
  * getLocationAsync().then(location => {
  *    // Operations done based on location
  *  });
+ * @param onGranted
  */
-export const getCurrentLocationAsync = async (): Promise<
-  Location.LocationData
-> => {
+export const getCurrentLocationAsync = async (
+  onGranted: () => void
+): Promise<Location.LocationData> => {
   if (Platform.OS === "android" && !Constants.isDevice) {
     throw new Error("Location services aren't available on Android Emulators.");
   }
@@ -29,6 +30,6 @@ export const getCurrentLocationAsync = async (): Promise<
   if (status !== "granted") {
     throw new Error("Location Permission Denied");
   }
-
+  onGranted();
   return Location.getCurrentPositionAsync({});
 };

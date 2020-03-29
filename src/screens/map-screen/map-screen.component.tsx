@@ -34,6 +34,7 @@ import {
   outdoorRange,
   campusRange
 } from "../../constants/zoom-range.data";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../constants/style";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -59,6 +60,9 @@ const MapScreen = () => {
   const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
+  const [startLocationDisplay, setStartLocationDisplay] = React.useState<
+    string
+  >(null);
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -99,7 +103,7 @@ const MapScreen = () => {
    * user is in.
    */
   const onLocationButtonPress = (): void => {
-    getCurrentLocationAsync()
+    getCurrentLocationAsync(() => {})
       .then(response => {
         // Set current location
         setCurrentLocation({
@@ -211,6 +215,7 @@ const MapScreen = () => {
   const setMarkerLocation = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
+      setUserCurrentLocation();
       setEndLocation(poi);
     } else {
       setStartLocation(poi);
@@ -222,14 +227,18 @@ const MapScreen = () => {
    */
   const setUserCurrentLocation = () => {
     if (!currentLocation) {
-      getCurrentLocationAsync()
+      getCurrentLocationAsync(() => {
+        setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
+      })
         .then(location => {
           setCurrentLocation({
             latitude: location.coords.latitude,
             longitude: location.coords.latitude
           });
         })
-        .catch(error => {});
+        .catch(error => {
+          setStartLocationDisplay(null);
+        });
     }
   };
 
@@ -249,6 +258,8 @@ const MapScreen = () => {
         endLocationFocused={endLocationFocused}
         setTravelState={setTravelState}
         updateSearchResults={updateSearchResults}
+        startLocationDisplay={startLocationDisplay}
+        setStartLocationDisplay={setStartLocationDisplay}
       />
     );
   } else if (travelState === TravelState.NONE) {
@@ -278,6 +289,7 @@ const MapScreen = () => {
           onRegionChangeComplete={region => handleOnRegionChange(region)}
           // @ts-ignore
           onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
+          showsIndoorLevelPicker={false}
         >
           <MapOverlays
             onBuildingTap={onBuildingTap}

@@ -47,6 +47,8 @@ describe("OmniboxDirections component", () => {
           endLocationFocused={null}
           setTravelState={null}
           updateSearchResults={null}
+          startLocationDisplay={null}
+          setStartLocationDisplay={null}
         />
       )
       .toJSON();
@@ -70,6 +72,8 @@ describe("OmniboxDirections component", () => {
         currentLocation={null}
         updateSearchResults={null}
         endLocationFocused={null}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -96,6 +100,8 @@ describe("OmniboxDirections component", () => {
         setEndLocationFocused={null}
         setTravelState={null}
         updateSearchResults={mockUpdateSearchResults}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -119,6 +125,8 @@ describe("OmniboxDirections component", () => {
         updateSearchResults={null}
         endLocationFocused={null}
         setTravelState={null}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -142,6 +150,8 @@ describe("OmniboxDirections component", () => {
         endLocationFocused={null}
         setTravelState={null}
         updateSearchResults={mockUpdateSearchResults}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -153,7 +163,7 @@ describe("OmniboxDirections component", () => {
     expect(mockUpdateSearchResults.mock.calls[0][0]).toBe("H805");
   });
 
-  it("should call the provided functin when end location textInput is focused", () => {
+  it("should call the provided function when end location textInput is focused", () => {
     const mockSetEndLocationFocused = jest.fn();
 
     const wrapper = shallow(
@@ -167,6 +177,8 @@ describe("OmniboxDirections component", () => {
         endLocationFocused={null}
         setTravelState={null}
         updateSearchResults={null}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -196,6 +208,8 @@ describe("OmniboxDirections component", () => {
         endLocationFocused={null}
         setTravelState={null}
         updateSearchResults={null}
+        startLocationDisplay={null}
+        setStartLocationDisplay={null}
       />
     );
 
@@ -205,69 +219,5 @@ describe("OmniboxDirections component", () => {
       .onPress();
 
     expect(mockSetShowTimePicker).toHaveBeenCalledTimes(1);
-  });
-
-  it("should get the correct height of the AutoComplete component", () => {
-    let startSearchResultValues: any[];
-    let startLocationInputValue: string;
-    let endLocationSearchResults: any[];
-    let showTimePicker: boolean;
-    let endLocationInputValue: string;
-
-    let autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
-      startLocationInputValue,
-      endLocationSearchResults,
-      (showTimePicker = null),
-      (endLocationInputValue = null)
-    );
-    expect(autoComplete).toBe(260);
-
-    startSearchResultValues = ["1"];
-    startLocationInputValue = "test";
-    endLocationSearchResults = null;
-    showTimePicker = null;
-    endLocationInputValue = null;
-
-    autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
-      startLocationInputValue,
-      endLocationSearchResults,
-      (showTimePicker = null),
-      (endLocationInputValue = null)
-    );
-    expect(autoComplete).toBe(310);
-
-    startSearchResultValues = [];
-    startLocationInputValue = "";
-    endLocationSearchResults = ["1"];
-    showTimePicker = null;
-    endLocationInputValue = "test";
-
-    autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
-      startLocationInputValue,
-      endLocationSearchResults,
-      (showTimePicker = null),
-      endLocationInputValue
-    );
-    expect(autoComplete).toBe(310);
-
-    startSearchResultValues = [];
-    startLocationInputValue = null;
-    endLocationSearchResults = null;
-    showTimePicker = true;
-    endLocationInputValue = null;
-
-    Platform.OS = "ios";
-
-    autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
-      startLocationInputValue,
-      endLocationSearchResults,
-      (showTimePicker = null),
-      (endLocationInputValue = null)
-    );
-    expect(autoComplete).toBe(235);
   });
 });
