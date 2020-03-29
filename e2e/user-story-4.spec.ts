@@ -1,5 +1,6 @@
-const { reloadApp } = require("detox-expo-helpers");
 import { by, device, expect, element, waitFor } from "detox";
+
+const { reloadApp } = require("detox-expo-helpers");
 
 beforeAll(async () => {
   await reloadApp();

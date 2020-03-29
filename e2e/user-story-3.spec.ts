@@ -1,6 +1,7 @@
-const { reloadApp } = require("detox-expo-helpers");
 import { by, device, expect, element, waitFor } from "detox";
 import { exec } from "child_process";
+
+const { reloadApp } = require("detox-expo-helpers");
 
 beforeEach(async () => {
   await reloadApp();
@@ -12,6 +13,7 @@ beforeEach(async () => {
 // Detox has yet to make that transition, therefore this is the current workaround.
 // Source: https://github.com/wix/Detox/issues/1371
 const setLocation = async (latitude, longitude) => {
+  // @ts-ignore
   exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
 };
 

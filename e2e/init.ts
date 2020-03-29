@@ -1,7 +1,8 @@
 import { cleanup, init } from "detox";
+
 const adapter = require("detox/runners/jest/adapter");
-const config = require("../package.json").detox;
 const specReporter = require("detox/runners/jest/specReporter");
+const config = require("../package.json").detox;
 
 // Set the default timeout
 jest.setTimeout(120000);

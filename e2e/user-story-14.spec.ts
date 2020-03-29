@@ -1,5 +1,6 @@
-const { reloadApp } = require("detox-expo-helpers");
 import { by, device, expect, element, waitFor } from "detox";
+
+const { reloadApp } = require("detox-expo-helpers");
 
 beforeAll(async () => {
   await reloadApp();
@@ -23,21 +24,23 @@ enum selectHall9POI {
 
 describe("US-14: Indoor Points of Interest", () => {
   it("should show POI markers on Hall 8th floor", async () => {
+    // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
     await element(by.id("mapView")).swipe("down", "slow", 0.63);
     await element(by.id("mapView")).swipe("right", "slow", 0.58);
+    // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
 
-    for (var i = 37; i < Object.keys(selectHall8POI).length / 2; i++) {
-      await expect(element(by.id("poi" + selectHall8POI[i]))).toExist();
+    for (let i = 37; i < Object.keys(selectHall8POI).length / 2; i += 1) {
+      expect(element(by.id(`poi${selectHall8POI[i]}`))).toExist();
     }
   });
 
   it("should show POI markers on Hall 9th floor", async () => {
     await element(by.id("floorButton9")).tap();
 
-    for (var i = 37; i < Object.keys(selectHall9POI).length / 2; i++) {
-      await expect(element(by.id("poi" + selectHall9POI[i]))).toExist();
+    for (let i = 37; i < Object.keys(selectHall9POI).length / 2; i += 1) {
+      expect(element(by.id(`poi${selectHall9POI[i]}`))).toExist();
     }
   });
 });

@@ -1,5 +1,6 @@
-const { reloadApp } = require("detox-expo-helpers");
 import { by, device, expect, element, waitFor } from "detox";
+
+const { reloadApp } = require("detox-expo-helpers");
 
 beforeAll(async () => {
   await reloadApp();
@@ -13,6 +14,7 @@ describe("US-1: Campus Toggle", () => {
 
   it("should show the Loyola campus on Loyola toggle press", async () => {
     await element(by.id("loyolaButton")).tap();
+    // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("inward", "fast", 0);
 
     await expect(element(by.id("markerLoyola")).atIndex(0)).toExist();
@@ -20,6 +22,7 @@ describe("US-1: Campus Toggle", () => {
 
   it("should show the SGW campus on SGW toggle press", async () => {
     await element(by.id("SGWButton")).tap();
+    // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("inward", "fast", 0);
 
     await expect(element(by.id("markerSGW")).atIndex(0)).toExist();
