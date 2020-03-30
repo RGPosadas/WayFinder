@@ -13,7 +13,7 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
-import { CONCORDIA_RED } from "../../constants/style";
+import { CONCORDIA_RED, WHITE_BACKGROUND_COLOR } from "../../constants/style";
 
 const { height } = Dimensions.get("window");
 
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: height / 2,
-    backgroundColor: "white"
+    backgroundColor: WHITE_BACKGROUND_COLOR
   },
   header: {
     justifyContent: "space-between",

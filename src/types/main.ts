@@ -5,6 +5,12 @@ export interface Location {
   longitude: number;
 }
 
+export interface MarkerLocation {
+  id: string;
+  displayName: string;
+  location: Location;
+}
+
 export interface Region extends Location {
   latitudeDelta: number;
   longitudeDelta: number;
@@ -29,12 +35,9 @@ export interface Campus {
   buildings: BuildingId[];
 }
 
-export interface IndoorLocation {
-  id: string;
-  displayName: string;
+export interface IndoorLocation extends MarkerLocation {
   buildingId: BuildingId;
   level: number;
-  location: Location;
 }
 
 export interface POI extends IndoorLocation {
@@ -198,4 +201,10 @@ export enum ConnectorType {
   Stairs,
   Ramp,
   Escalator
+}
+
+export enum TravelState {
+  NONE,
+  PLANNING,
+  TRAVELLING
 }

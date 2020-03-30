@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
-import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
+import {
+  BuildingId,
+  ZoomLevel,
+  IndoorInformation,
+  POI,
+  MarkerLocation,
+  TravelState
+} from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
 import { buildingFloors } from "../../constants/floors.data";
@@ -15,6 +22,10 @@ interface IProps {
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
+  setMarkerLocation: (poi: POI) => void;
+  endLocation: POI;
+  startLocation: MarkerLocation;
+  travelState: TravelState;
 }
 
 /**
@@ -24,7 +35,11 @@ const MapOverlays = ({
   onBuildingTap,
   tappedBuilding,
   zoomLevel,
-  indoorInformation
+  indoorInformation,
+  setMarkerLocation,
+  endLocation,
+  startLocation,
+  travelState
 }: IProps) => {
   /**
    * Fill color for the Polygons
@@ -54,7 +69,6 @@ const MapOverlays = ({
             />
           ))
         : null}
-
       {/**
        * Adds a polygon for each building
        */}
@@ -67,7 +81,7 @@ const MapOverlays = ({
                 coordinates={building.boundingBox}
                 tappable
                 fillColor={
-                  tappedBuilding != null && tappedBuilding === building.id
+                  tappedBuilding !== null && tappedBuilding === building.id
                     ? tappedColor
                     : fillColor
                 }
@@ -80,7 +94,6 @@ const MapOverlays = ({
           )}
         </>
       ) : null}
-
       {/**
        * Adds a marker for each building
        */}
@@ -104,7 +117,6 @@ const MapOverlays = ({
             </React.Fragment>
           ))
         : null}
-
       {/**
        * Adds a marker for each POI
        */}
@@ -119,9 +131,17 @@ const MapOverlays = ({
                 image={floor.image}
               />
             ))}
-
+        </>
+      ) : null}
+      {zoomLevel === ZoomLevel.INDOOR ||
+      travelState === TravelState.TRAVELLING ? (
+        <>
           {getAllPOI()
             .filter(poi => {
+              if (travelState === TravelState.TRAVELLING) {
+                return poi.id === endLocation.id || poi.id === startLocation.id;
+              }
+
               if (indoorInformation.currentFloor == null) {
                 return true;
               }
@@ -129,12 +149,14 @@ const MapOverlays = ({
             })
             .map(poi => (
               <CustomMarker
+                testID={`poi-${poi.id}`}
                 markerType="poi"
                 key={poi.id}
                 location={poi.location}
                 text={poi.displayName}
-                onPress={() => {}}
-                testID={`poi-${poi.id}`}
+                onPress={() => {
+                  setMarkerLocation(poi);
+                }}
               />
             ))}
         </>
@@ -142,14 +164,5 @@ const MapOverlays = ({
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  marker: {
-    backgroundColor: "#252525",
-    color: "#f0f0f0",
-    padding: 1,
-    borderRadius: 5
-  }
-});
 
 export default MapOverlays;

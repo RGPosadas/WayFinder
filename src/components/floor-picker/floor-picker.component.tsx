@@ -1,17 +1,20 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { IndoorInformation } from "../../types/main";
+import { IndoorInformation, TravelState } from "../../types/main";
 import {
   FLOOR_PICKER_HEIGHT,
+  FLOOR_PICKER_TRAVEL_HEIGHT,
   MAP_BUTTON_RIGHT,
   CONCORDIA_RED,
-  INACTIVE_BUTTON_COLOR
+  INACTIVE_BUTTON_COLOR,
+  BUTTON_BORDER_COLOR
 } from "../../constants/style";
 
 interface IProps {
   indoorInformation: IndoorInformation;
   onFloorPickerButtonPress: (index: number) => void;
+  travelState: TravelState;
 }
 
 /**
@@ -22,13 +25,24 @@ interface IProps {
  */
 const FloorPicker = ({
   indoorInformation,
-  onFloorPickerButtonPress
+  onFloorPickerButtonPress,
+  travelState
 }: IProps) => {
   return (
     <>
       {indoorInformation.floors.length > 0 &&
-      indoorInformation.currentFloor != null ? (
-        <View style={styles.container}>
+      indoorInformation.currentFloor !== null ? (
+        <View
+          style={StyleSheet.flatten([
+            styles.container,
+            {
+              bottom:
+                travelState === TravelState.NONE
+                  ? FLOOR_PICKER_HEIGHT
+                  : FLOOR_PICKER_TRAVEL_HEIGHT
+            }
+          ])}
+        >
           {indoorInformation.floors &&
             indoorInformation.floors.map((floor, index) => {
               return (
@@ -64,11 +78,11 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     position: "absolute",
-    bottom: FLOOR_PICKER_HEIGHT,
+
     right: MAP_BUTTON_RIGHT,
     borderRadius: 2,
     borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)"
+    borderColor: BUTTON_BORDER_COLOR
   },
   floorButton: {
     flex: 1,
