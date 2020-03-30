@@ -10,6 +10,7 @@
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
     "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
     "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
+    "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
     "start": "expo start",
     "supercheck": "pre-commit run -a && npm run lint-fix",
     "supercheck-travis": "pre-commit run -a && npm run lint",
@@ -77,6 +78,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
     "expo-detox-hook": "^1.0.10",
+    "jest": "^25.1.0",
     "jest-cli": "^25.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^36.0.0",
@@ -84,6 +86,7 @@
     "mkdirp": "^1.0.3",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0",
+    "sonar-scanner": "^3.1.0",
     "typescript": "^3.7.2"
   },
   "detox": {

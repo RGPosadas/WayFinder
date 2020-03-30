@@ -546,3 +546,4 @@ web-report/
 .DS_Store
 
 secrets.js
+.scannerwork

@@ -20,7 +20,6 @@ const setLocation = async (latitude, longitude) => {
 describe("US-3: Location Services", () => {
   it("should indicate that user is not in a building", async () => {
     await setLocation(45.495674, -73.657242);
-    await device.enableSynchronization();
 
     await element(by.id("locationButton")).tap();
     await element(by.text("Allow")).tap();

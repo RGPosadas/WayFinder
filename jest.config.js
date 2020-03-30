@@ -182,7 +182,11 @@ module.exports = {
   ],
 
   // An array of regexp patterns strings that are matched against all source file paths, matched files will not be tested
-  testPathIgnorePatterns: ["<rootDir>/__tests__/__testData__"]
+  testPathIgnorePatterns: [
+    "<rootDir>/__tests__/__testData__",
+    "<rootDir>/src/services/location.service.ts",
+    "<rootDir>/src/services/firebase.service.ts"
+  ]
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,
