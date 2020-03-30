@@ -215,7 +215,9 @@ const MapScreen = () => {
   const setMarkerLocation = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
-      setUserCurrentLocation();
+      if (travelState === TravelState.NONE) {
+        setUserCurrentLocation();
+      }
       setEndLocation(poi);
     } else {
       setStartLocation(poi);
