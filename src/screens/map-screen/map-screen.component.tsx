@@ -303,7 +303,7 @@ const MapScreen = () => {
           />
 
           <View style={styles.flashMessage} testID="flashMessage">
-            <FlashMessage position="top" autoHide floating />
+            <FlashMessage position="bottom" autoHide floating />
           </View>
         </MapView>
 
