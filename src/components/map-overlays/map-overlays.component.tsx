@@ -149,6 +149,7 @@ const MapOverlays = ({
             })
             .map(poi => (
               <CustomMarker
+                testID={`poi-${poi.id}`}
                 markerType="poi"
                 key={poi.id}
                 location={poi.location}

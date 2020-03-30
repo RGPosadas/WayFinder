@@ -3,9 +3,9 @@ import { TouchableOpacity } from "react-native";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import AutoComplete from "../src/components/search/autocomplete.component";
-import { POI, BuildingId, POICategory } from "../src/types/main";
+import { BuildingId, POICategory } from "../src/types/main";
 
-const mockPOIs: POI[] = [
+const mockPOIs = [
   {
     id: "c4541028-739d-4651-b9f5-dc4d54054807",
     displayName: "Stairs 2",

@@ -1,12 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import { Platform } from "react-native";
-import { getOmniboxAutoCompleteHeight } from "../src/services/auto-complete-height.service";
 import OmniboxDirections from "../src/components/search/omnibox-directions.component";
-import { POI, BuildingId, POICategory, TravelState } from "../src/types/main";
+import { BuildingId, POICategory, TravelState } from "../src/types/main";
 
-const mockPOIs: POI[] = [
+const mockPOIs = [
   {
     id: "c4541028-739d-4651-b9f5-dc4d54054807",
     displayName: "H803",
