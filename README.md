@@ -2,6 +2,15 @@
 
 [![Build Status](https://travis-ci.com/RGPosadas/WayFinder.svg?branch=develop)](https://travis-ci.com/RGPosadas/WayFinder)
 
+- [Team Members](#team-members)
+- [Development Guidelines](#development-guidelines)
+- [Development Setup](#development-setup)
+- [Testing](#testing)
+  - [Unit Tests](#unit-tests)
+  - [Acceptance Tests](#acceptance-tests)
+- [Linting](#linting)
+  - [ESLint](#eslint)
+
 ## Team Members
 
 - Ritchelle Grace Posadas, @RGPosadas (Team Lead)
@@ -35,9 +44,36 @@ To run this react-native application and start development:
    - `npm install`
 4. Run project:
 
-   - `npm start`
+   - `expo r -c`
 
 There you go! You can now connect your phone and start developing and debugging your application!
+
+## Testing
+
+### Unit Tests
+
+- Run Jest/Enzyme unit tests:
+  ```
+  npm run test
+  ```
+
+### Acceptance Tests
+
+At the moment, acceptance tests only run on iOS simulators.
+
+1. Install dependencies by following `Step 1` in the [Detox setup](https://github.com/wix/Detox/blob/master/docs/Introduction.GettingStarted.md).
+2. Setup for iOS:
+
+```
+npm run setup-bin
+```
+
+3. Run the Detox acceptance tests:
+
+```
+expo r --ios -c
+npm run e2e
+```
 
 ## Linting
 

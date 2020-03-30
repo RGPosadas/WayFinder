@@ -3,19 +3,25 @@
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "android": "expo start --android",
+    "bleach": "rm -rf node_modules && npm install",
+    "e2e": "detox test",
     "eject": "expo eject",
     "ios": "expo start --ios",
-    "start": "expo start",
-    "test": "jest --verbose --coverage",
-    "web": "expo start --web",
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
-    "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./"
+    "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
+    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
+    "start": "expo start",
+    "supercheck": "pre-commit run -a && npm run lint-fix",
+    "supercheck-travis": "pre-commit run -a && npm run lint",
+    "test": "jest __tests__ --verbose --coverage",
+    "web": "expo start --web"
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
     "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.1.1",
     "@react-navigation/native": "^5.0.9",
+    "detox": "^16.0.1",
     "expo": "^36.0.0",
     "expo-constants": "~8.0.0",
     "expo-location": "~8.0.0",
@@ -43,11 +49,17 @@
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.7",
+    "@types/detox": "^14.5.2",
+    "@types/jasmine": "^3.5.10",
+    "@types/jest": "^25.1.4",
     "@types/react": "^16.9.0",
     "@types/react-native": "^0.60.15",
     "@typescript-eslint/eslint-plugin": "^2.24.0",
     "babel-jest": "25.1.0",
     "babel-preset-expo": "^8.0.0",
+    "bunyan-debug-stream": "^2.0.0",
+    "detox-cli": "^10.0.7",
+    "detox-expo-helpers": "^0.6.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-react-16-adapter-setup": "^0.1.0",
@@ -57,12 +69,24 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.19.0",
+    "expo-detox-hook": "^1.0.10",
     "jest-cli": "^25.1.0",
     "jest-enzyme": "^7.1.2",
     "jest-expo": "^36.0.0",
     "jest-fetch-mock": "3.0.2",
+    "mkdirp": "^1.0.3",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.13.0",
     "typescript": "^3.7.2"
+  },
+  "detox": {
+    "test-runner": "jest",
+    "configurations": {
+      "ios.sim": {
+        "binaryPath": "bin/Exponent.app",
+        "type": "ios.simulator",
+        "name": "iPhone 11 Pro Max"
+      }
+    }
   }
 }

@@ -30,6 +30,7 @@ describe("CustomMarker component", () => {
         markerType={"poi"}
         text={"asdf"}
         onPress={mockOnPress}
+        testID={"marker"}
       />
     );
     const marker = wrapper.find({ testID: "marker" });
@@ -44,12 +45,13 @@ describe("CustomMarker component", () => {
         location={building.location}
         markerType={"building"}
         text={"asdf"}
+        testID={"building"}
         onPress={() => {}}
       />
     );
 
     const bubble = wrapper
-      .find({ testID: "bubble" })
+      .find({ testID: "buildingBubble" })
       .at(0)
       .props();
     expect(bubble).toHaveProperty(

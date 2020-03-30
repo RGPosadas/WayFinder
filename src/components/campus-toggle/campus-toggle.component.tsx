@@ -44,7 +44,11 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
 
   return (
     <View style={styles.container}>
-      <TouchableHighlight onPress={onSGWPressButton} underlayColor="white">
+      <TouchableHighlight
+        testID="SGWButton"
+        onPress={onSGWPressButton}
+        underlayColor="white"
+      >
         <View
           style={[isSGW ? styles.buttonSelected : styles.buttonNotSelected]}
         >
@@ -57,7 +61,11 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
           </Text>
         </View>
       </TouchableHighlight>
-      <TouchableHighlight onPress={onLoyolaPressButton} underlayColor="white">
+      <TouchableHighlight
+        testID="loyolaButton"
+        onPress={onLoyolaPressButton}
+        underlayColor="white"
+      >
         <View
           style={[isSGW ? styles.buttonNotSelected : styles.buttonSelected]}
         >

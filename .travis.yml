@@ -10,9 +10,8 @@ before_script:
   - curl https://pre-commit.com/install-local.py | python -
   - pre-commit install
 script:
-  - pre-commit run -a
   - npm install -g expo-cli --loglevel=error
   - npm install --log-level=error
   - echo "fakeSecret" >> secrets.js
-  - npm run lint
+  - npm run supercheck-travis
   - npm test

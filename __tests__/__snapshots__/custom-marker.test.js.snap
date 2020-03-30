@@ -19,7 +19,6 @@ exports[`CustomMarker component should match snapshot 1`] = `
       undefined,
     ]
   }
-  testID="marker"
   tracksInfoWindowChanges={false}
   tracksViewChanges={false}
 >
@@ -39,10 +38,10 @@ exports[`CustomMarker component should match snapshot 1`] = `
           "borderRadius": 3,
           "flex": 0,
           "flexDirection": "row",
-          "padding": 2,
+          "padding": 3,
         }
       }
-      testID="bubble"
+      testID="undefinedBubble"
     >
       <Text
         style={

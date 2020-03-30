@@ -9,6 +9,7 @@ interface IProps {
   onPress: () => void;
   text: string;
   markerType: "campus" | "building" | "poi";
+  testID: string;
 }
 let backgroundColor: string = CONCORDIA_RED;
 
@@ -19,8 +20,15 @@ let backgroundColor: string = CONCORDIA_RED;
  * @param onPress action to be done when marker is pressed
  * @param text text of the marker
  * @param markerType type of the marker
+ * @param testID unique ID for e2e tests
  */
-const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
+const CustomMarker = ({
+  location,
+  onPress,
+  text,
+  markerType,
+  testID
+}: IProps) => {
   switch (markerType) {
     case "campus":
     case "poi":
@@ -34,7 +42,7 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
 
   return (
     <Marker
-      testID="marker"
+      testID={testID}
       coordinate={location}
       onPress={onPress}
       tracksViewChanges={false}
@@ -42,7 +50,7 @@ const CustomMarker = ({ location, onPress, text, markerType }: IProps) => {
     >
       <View style={styles.container}>
         <View
-          testID="bubble"
+          testID={`${testID}Bubble`}
           style={StyleSheet.flatten([styles.bubble, { backgroundColor }])}
         >
           <Text style={styles.text}>{text}</Text>
@@ -75,8 +83,7 @@ const styles = StyleSheet.create({
     flex: 0,
     flexDirection: "row",
     alignSelf: "flex-start",
-    // backgroundColor: backgroundColor,
-    padding: 2,
+    padding: 3,
     borderRadius: 3
   },
   text: {

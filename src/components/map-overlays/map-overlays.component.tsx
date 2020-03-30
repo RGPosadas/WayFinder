@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId, ZoomLevel, IndoorInformation } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
@@ -50,6 +50,7 @@ const MapOverlays = ({
               location={campus.region}
               text={campus.displayName}
               onPress={() => {}}
+              testID={`marker${campus.id}`}
             />
           ))
         : null}
@@ -73,6 +74,7 @@ const MapOverlays = ({
                 onPress={() => {
                   onBuildingTap(building.id);
                 }}
+                testID={`polygon${BuildingId[building.id]}`}
               />
             )
           )}
@@ -86,6 +88,7 @@ const MapOverlays = ({
         ? Buildings.map((building, index) => (
             <React.Fragment key={index}>
               <CustomMarker
+                testID={`marker${BuildingId[building.id]}`}
                 markerType="building"
                 key={building.id}
                 location={building.location}
@@ -103,7 +106,7 @@ const MapOverlays = ({
         : null}
 
       {/**
-       * Adds a polygon for each POI
+       * Adds a marker for each POI
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
@@ -131,6 +134,7 @@ const MapOverlays = ({
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {}}
+                testID={`poi-${poi.id}`}
               />
             ))}
         </>
