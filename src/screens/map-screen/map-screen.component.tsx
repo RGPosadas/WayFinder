@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, Platform } from "react-native";
+import { StyleSheet, View } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { isPointInPolygon } from "geolib";
-import FlashMessage, { showMessage } from "react-native-flash-message";
 import { RegionProvider } from "../../context/region.context";
 
 import Search from "../../components/search/search.component";
@@ -119,24 +118,11 @@ const MapScreen = () => {
         });
 
         // Attempt to find the building the user is in.
-        let inBuilding = false;
         Buildings.forEach(building => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
-            showMessage({
-              message: `You're currently in the ${building.displayName}!`,
-              type: "info"
-            });
             onBuildingTap(building.id);
-            inBuilding = true;
           }
         });
-        // Notify user that they aren't in a building currently.
-        if (!inBuilding) {
-          showMessage({
-            message: "You're not in any campus building right now!",
-            type: "warning"
-          });
-        }
       })
       .catch(error => {});
   };
@@ -298,11 +284,6 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
-          {Platform.OS === "ios" ? (
-            <View testID="flashMessage" style={styles.flashMessageIOS}>
-              <FlashMessage position="center" />
-            </View>
-          ) : null}
         </MapView>
 
         {travelState === TravelState.NONE && (
