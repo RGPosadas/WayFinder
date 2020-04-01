@@ -320,6 +320,7 @@ Array [
             "opacity": 1,
           }
         }
+        testID="startTravel"
       >
         <View
           style={

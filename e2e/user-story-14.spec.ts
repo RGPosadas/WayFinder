@@ -32,7 +32,7 @@ describe("US-14: Indoor Points of Interest", () => {
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
 
     for (let i = 37; i < Object.keys(selectHall8POI).length / 2; i += 1) {
-      expect(element(by.id(`poi${selectHall8POI[i]}`))).toExist();
+      expect(element(by.id(`poi-${selectHall8POI[i]}`))).toExist();
     }
   });
 
@@ -40,7 +40,7 @@ describe("US-14: Indoor Points of Interest", () => {
     await element(by.id("floorButton9")).tap();
 
     for (let i = 37; i < Object.keys(selectHall9POI).length / 2; i += 1) {
-      expect(element(by.id(`poi${selectHall9POI[i]}`))).toExist();
+      expect(element(by.id(`poi-${selectHall9POI[i]}`))).toExist();
     }
   });
 });

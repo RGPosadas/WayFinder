@@ -22,6 +22,7 @@ const StartTravel = ({ setTravelState }: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
+        testID="startTravel"
         onPress={() => {
           setTravelState(TravelState.TRAVELLING);
         }}

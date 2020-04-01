@@ -39,6 +39,7 @@ exports[`StartTravel component should match snapshot 1`] = `
           "opacity": 1,
         }
       }
+      testID="startTravel"
     >
       <View
         style={
