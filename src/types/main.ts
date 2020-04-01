@@ -63,7 +63,7 @@ export interface BuildingFloor {
   id: number;
   buildingId: BuildingId;
   level: number;
-  bounds: [Coordinate, Coordinate];
+  bounds: [Coordinate, Coordinate] | null;
   image: any;
   travelNodes: TravelNode[];
 }
@@ -75,7 +75,7 @@ export interface TravelNode {
 }
 
 export interface IndoorInformation {
-  currentFloor: IndoorFloor;
+  currentFloor: IndoorFloor | null;
   floors: IndoorFloor[];
 }
 

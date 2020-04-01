@@ -1,9 +1,13 @@
 import React from "react";
 import Search from "../src/components/search/search.component";
-import { getSearchBarAutoCompleteHeight } from "../src/services/auto-complete-height.service";
 import { shallow } from "enzyme";
+import DynamicStylingService from "../src/services/dynamic-styling.service";
 
 describe("Search component", () => {
+  const {
+    getSearchBarAutoCompleteHeight
+  } = DynamicStylingService.getInstance();
+
   it("should call a function on user input", () => {
     const mockUpdateSearchResults = jest.fn();
     const wrapper = shallow(

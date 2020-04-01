@@ -1,13 +1,14 @@
 import * as testData from "./__testData__/pathfinding.data";
 import { POIInfo } from "../src/constants/poi.data";
-import {
-  findPathOnFloor,
-  travelPathToLinePath
-} from "../src/services/pathfinding.service";
 import * as floors from "../src/constants/floors.data";
 import { BuildingId } from "../src/types/main";
+import PathFindingService from "../src/services/pathfinding.service";
 
 describe("Find the shortest path on a given floor", () => {
+  const {
+    findPathOnFloor,
+    travelPathToLinePath
+  } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
     const travelNodes = floors.buildingFloors.find(
       floor => floor.buildingId === BuildingId.H && floor.level === 8

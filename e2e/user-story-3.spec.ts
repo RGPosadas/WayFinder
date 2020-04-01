@@ -12,7 +12,7 @@ beforeEach(async () => {
 // on a deprecated binary called fbsimctl, which has been moved to fb/idb.
 // Detox has yet to make that transition, therefore this is the current workaround.
 // Source: https://github.com/wix/Detox/issues/1371
-const setLocation = async (latitude, longitude) => {
+const setLocation = async (latitude: number, longitude: number) => {
   // @ts-ignore
   exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
 };
