@@ -3,12 +3,6 @@ export interface Location {
   longitude: number;
 }
 
-export interface MarkerLocation {
-  id: string;
-  displayName: string;
-  location: Location;
-}
-
 export interface Region extends Location {
   latitudeDelta: number;
   longitudeDelta: number;
@@ -25,12 +19,24 @@ export interface Building {
   boundingBox: Location[];
 }
 
+export interface LinkItem {
+  id: number;
+  title: string;
+  link: string;
+}
+
 export interface Campus {
   id: CampusId;
   displayName: string;
   description: string;
   region: Region;
   buildings: BuildingId[];
+}
+
+export interface MarkerLocation {
+  id: string;
+  displayName: string;
+  location: Location;
 }
 
 export interface IndoorLocation extends MarkerLocation {
@@ -43,7 +49,7 @@ export interface POI extends IndoorLocation {
   category: POICategory;
 }
 
-export interface Connector extends IndoorLocation {
+export interface Connector extends POI {
   type: ConnectorType;
   connections: Connection[];
 }
@@ -51,12 +57,6 @@ export interface Connector extends IndoorLocation {
 export interface Connection {
   level: number;
   location: Location;
-}
-
-export interface LinkItem {
-  id: number;
-  title: string;
-  link: string;
 }
 
 export interface BuildingFloor {
