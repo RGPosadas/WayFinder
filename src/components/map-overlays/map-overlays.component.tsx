@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { StyleSheet } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
 import {
   BuildingId,
