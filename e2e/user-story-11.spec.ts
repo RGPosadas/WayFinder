@@ -18,7 +18,7 @@ const setLocation = async (latitude, longitude) => {
 };
 
 describe("US-14: Indoor Points of Interest", () => {
-  it("should bring up autocomplete POI list in search mode for both location and destination with location services off", async () => {
+  it("should bring up autocomplete POI list in search mode for both start and destination locations with location services off", async () => {
     // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
     await element(by.id("mapView")).swipe("down", "slow", 0.63);
@@ -57,7 +57,7 @@ describe("US-14: Indoor Points of Interest", () => {
   // Since we cannot find our touchable markers/polygons in the UI hierarchy,
   // this test may fail if the map renders slowly and cannot tapAtPoint
   // on the specific POI we are trying to click on
-  it("should bring up autocomplete POI list in search mode with location services on", async () => {
+  it("should take current location and autofill destination on POI tap in search mode with location services on", async () => {
     // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
     await element(by.id("mapView")).swipe("down", "slow", 0.63);
@@ -67,11 +67,11 @@ describe("US-14: Indoor Points of Interest", () => {
 
     await setLocation(45.497193, -73.579001);
     await element(by.id("searchInput")).tap();
-    await element(by.id("mapView")).tapAtPoint({ x: 189, y: 360 });
+    await element(by.id("mapView")).tapAtPoint({ x: 189, y: 355 });
     await element(by.text("Allow")).tap();
 
     await element(by.id("timePickerButton")).tap();
-    await element(by.id("dateTimePicker")).setDatePickerDate("08:30", "HH:mm");
+    await element(by.id("dateTimePicker")).setDatePickerDate("10:30", "HH:mm");
     await element(by.id("timePickerButton")).tap();
 
     await element(by.id("startTravel")).tap();
