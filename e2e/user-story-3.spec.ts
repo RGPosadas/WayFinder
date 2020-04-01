@@ -23,11 +23,8 @@ describe("US-3: Location Services", () => {
 
     await element(by.id("locationButton")).tap();
     await element(by.text("Allow")).tap();
-    await waitFor(element(by.id("flashMessage")))
-      .toBeVisible()
-      .withTimeout(5000);
 
-    await expect(element(by.id("flashMessage"))).toBeVisible();
+    await expect(element(by.id("panel"))).toBeNotVisible();
 
     // Hack-y: call the new location here for the next test
     // since idb takes a long time to switch location
@@ -37,10 +34,10 @@ describe("US-3: Location Services", () => {
 
   it("should indicate that user is in a building", async () => {
     await element(by.id("locationButton")).tap();
-    await waitFor(element(by.id("flashMessage")))
-      .toBeVisible()
-      .withTimeout(5000);
 
-    await expect(element(by.id("flashMessage"))).toBeVisible();
+    await waitFor(element(by.id("panel")))
+      .toExist()
+      .withTimeout(5000);
+    await expect(element(by.id("panelDisplayName"))).toBeVisible();
   });
 });
