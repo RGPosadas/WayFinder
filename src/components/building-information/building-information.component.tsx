@@ -44,11 +44,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
   }
 
   render() {
-    const {
-      tappedBuilding: tappedBuildingId,
-      onClosePanel,
-      showBuildingInfo
-    } = this.props;
+    const { tappedBuilding, onClosePanel, showBuildingInfo } = this.props;
     const draggableRange = { top: height / 2, bottom: 105 };
     const { allowDragging } = this.state;
     return (
@@ -73,7 +69,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
             >
               <Feather name="x" size={40} color="white" />
             </TouchableOpacity>
-            {Buildings.filter(building => building.id === tappedBuildingId).map(
+            {Buildings.filter(building => building.id === tappedBuilding).map(
               (building, key) => {
                 return (
                   <View testID="panel" key={key}>

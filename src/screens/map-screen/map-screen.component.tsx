@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, View, ScrollView, Platform } from "react-native";
+import { StyleSheet, View } from "react-native";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import { isPointInPolygon } from "geolib";
-import FlashMessage, { showMessage } from "react-native-flash-message";
 import { RegionProvider } from "../../context/region.context";
 
 import Search from "../../components/search/search.component";
@@ -12,8 +11,7 @@ import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
 import { Buildings } from "../../constants/buildings.data";
 import LocationButton from "../../components/location-button/location-button.component";
-import { getCurrentLocationAsync } from "../../services/location.service";
-import { updateSearchResults } from "../../services/query-user-input.service";
+
 import {
   Location,
   Region,
@@ -28,13 +26,10 @@ import {
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
-import { inRange } from "../../services/utility.service";
-import {
-  indoorRange,
-  outdoorRange,
-  campusRange
-} from "../../constants/zoom-range.data";
+
 import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../constants/style";
+import UtilityService from "../../services/utility.service";
+import LocationService from "../../services/location.service";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -47,8 +42,8 @@ const MapScreen = () => {
     longitudeDelta: 0
   });
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
-  const [tappedBuilding, setTappedBuilding] = useState<BuildingId>();
-  const [currentLocation, setCurrentLocation] = useState<Location>(null);
+  const [tappedBuilding, setTappedBuilding] = useState<BuildingId | null>(null);
+  const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.CAMPUS);
   const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
     {
@@ -56,19 +51,21 @@ const MapScreen = () => {
       floors: []
     }
   );
-  const [endLocation, setEndLocation] = useState<POI>(null);
-  const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
+  const [endLocation, setEndLocation] = useState<POI | null>(null);
+  const [startLocation, setStartLocation] = useState<MarkerLocation | null>(
+    null
+  );
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
     string
-  >(null);
+  >("");
 
   /**
    * Creates a reference to the MapView Component that is rendered.
    * Allows to access component methods.
    */
-  const mapRef = useRef<MapView>();
+  const mapRef = useRef<MapView | undefined>();
 
   /**
    * Handle building tap event.
@@ -103,13 +100,15 @@ const MapScreen = () => {
    * user is in.
    */
   const onLocationButtonPress = (): void => {
-    getCurrentLocationAsync(() => {})
+    LocationService.getInstance()
+      .getCurrentLocationAsync(() => {})
       .then(response => {
         // Set current location
         setCurrentLocation({
           latitude: response.coords.latitude,
           longitude: response.coords.longitude
         });
+
         // Relocate view
         mapRef.current.animateToRegion({
           latitude: response.coords.latitude,
@@ -119,24 +118,11 @@ const MapScreen = () => {
         });
 
         // Attempt to find the building the user is in.
-        let inBuilding = false;
         Buildings.forEach(building => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
-            showMessage({
-              message: `You're currently in the ${building.displayName}!`,
-              type: "info"
-            });
             onBuildingTap(building.id);
-            inBuilding = true;
           }
         });
-        // Notify user that they aren't in a building currently.
-        if (!inBuilding) {
-          showMessage({
-            message: "You're not in any campus building right now!",
-            type: "warning"
-          });
-        }
       })
       .catch(error => {});
   };
@@ -148,7 +134,7 @@ const MapScreen = () => {
    */
   const onIndoorViewEntry = (event: any) => {
     const buildingInfo = event.nativeEvent.IndoorBuilding;
-    const floors: IndoorFloor[] = buildingInfo.levels.map(floor => {
+    const floors: IndoorFloor[] = buildingInfo.levels.map((floor: any) => {
       return {
         level: Number(floor.name),
         index: floor.index
@@ -189,15 +175,9 @@ const MapScreen = () => {
    */
   const handleOnRegionChange = (region: Region) => {
     setCurrentRegion(region);
-    if (inRange(indoorRange, region.latitudeDelta)) {
-      setZoomLevel(ZoomLevel.INDOOR);
-    } else if (inRange(outdoorRange, region.latitudeDelta)) {
-      setZoomLevel(ZoomLevel.OUTDOOR);
-    } else if (inRange(campusRange, region.latitudeDelta)) {
-      setZoomLevel(ZoomLevel.CAMPUS);
-    } else {
-      setZoomLevel(ZoomLevel.NONE);
-    }
+    setZoomLevel(
+      UtilityService.getInstance().getZoomLevelByLatDelta(region.latitudeDelta)
+    );
   };
 
   /**
@@ -229,9 +209,10 @@ const MapScreen = () => {
    */
   const setUserCurrentLocation = () => {
     if (!currentLocation) {
-      getCurrentLocationAsync(() => {
-        setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
-      })
+      LocationService.getInstance()
+        .getCurrentLocationAsync(() => {
+          setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
+        })
         .then(location => {
           setCurrentLocation({
             latitude: location.coords.latitude,
@@ -259,7 +240,7 @@ const MapScreen = () => {
         setEndLocationFocused={setEndLocationFocused}
         endLocationFocused={endLocationFocused}
         setTravelState={setTravelState}
-        updateSearchResults={updateSearchResults}
+        updateSearchResults={UtilityService.getInstance().updateSearchResults}
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
       />
@@ -270,7 +251,7 @@ const MapScreen = () => {
         setUserCurrentLocation={setUserCurrentLocation}
         setEndLocation={setEndLocation}
         setTravelState={setTravelState}
-        updateSearchResults={updateSearchResults}
+        updateSearchResults={UtilityService.getInstance().updateSearchResults}
       />
     );
   }
@@ -303,11 +284,6 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
-          {Platform.OS === "ios" ? (
-            <View testID="flashMessage" style={styles.flashMessageIOS}>
-              <FlashMessage position="center" />
-            </View>
-          ) : null}
         </MapView>
 
         {travelState === TravelState.NONE && (

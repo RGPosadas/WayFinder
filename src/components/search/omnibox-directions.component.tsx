@@ -29,8 +29,8 @@ import {
   screenWidth,
   CURRENT_LOCATION_DISPLAY_TEXT
 } from "../../constants/style";
-import { getOmniboxAutoCompleteHeight } from "../../services/auto-complete-height.service";
-import { showPickedTime } from "../../services/show-time.service";
+import DynamicStylingService from "../../services/dynamic-styling.service";
+import UtilityService from "../../services/utility.service";
 
 /**
  * the name and types of the properties types accepted
@@ -120,7 +120,7 @@ const OmniboxDirections = ({
    * @param event
    * @param pickedDate
    */
-  const onDateChange = (event, pickedDate) => {
+  const onDateChange = (event: any, pickedDate: Date) => {
     setshowTimePicker(Platform.OS === "ios");
     if (pickedDate == null) {
       setDate(new Date());
@@ -131,7 +131,7 @@ const OmniboxDirections = ({
     }
   };
 
-  const AutoCompleteHeight = getOmniboxAutoCompleteHeight(
+  const AutoCompleteHeight = DynamicStylingService.getInstance().getOmniboxAutoCompleteHeight(
     startLocationSearchResults,
     startLocationDisplay,
     endLocationSearchResults,
@@ -212,7 +212,9 @@ const OmniboxDirections = ({
               onPress={() => setshowTimePicker(!showTimePicker)}
               style={styles.datePickerButton}
             >
-              <Text style={styles.datePickerText}>{`DEPART ${showPickedTime(
+              <Text
+                style={styles.datePickerText}
+              >{`DEPART ${UtilityService.getInstance().showPickedTime(
                 date,
                 dateIsNow
               )}`}</Text>

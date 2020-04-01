@@ -4,12 +4,12 @@ import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
 import { POI, TravelState } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
-import { getSearchBarAutoCompleteHeight } from "../../services/auto-complete-height.service";
 import {
   screenWidth,
   CONCORDIA_RED,
   WHITE_BACKGROUND_COLOR
 } from "../../constants/style";
+import DynamicStylingService from "../../services/dynamic-styling.service";
 
 /**
  * the name and types of the properties types accepted
@@ -40,7 +40,7 @@ const Search = ({
   updateSearchResults
 }: IProps) => {
   const [value, onChangeText] = React.useState("");
-  const [searchResults, setAutocomplete] = React.useState(null);
+  const [searchResults, setSearchResults] = React.useState<POI[]>([]);
 
   /**
    * Starts the planning phase of a travel plan. Sets the end location.
@@ -59,7 +59,11 @@ const Search = ({
       testID="searchContainer"
       style={StyleSheet.flatten([
         styles.container,
-        { height: getSearchBarAutoCompleteHeight(searchResults) }
+        {
+          height: DynamicStylingService.getInstance().getSearchBarAutoCompleteHeight(
+            searchResults
+          )
+        }
       ])}
     >
       <View style={styles.parent}>
@@ -72,7 +76,7 @@ const Search = ({
               testID="searchInput"
               style={styles.input}
               onChangeText={text =>
-                updateSearchResults(text, setAutocomplete, onChangeText)
+                updateSearchResults(text, setSearchResults, onChangeText)
               }
               value={value}
             />

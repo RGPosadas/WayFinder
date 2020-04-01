@@ -1,14 +1,6 @@
-import { LatLng } from "react-native-maps";
-
 export interface Location {
   latitude: number;
   longitude: number;
-}
-
-export interface MarkerLocation {
-  id: string;
-  displayName: string;
-  location: Location;
 }
 
 export interface Region extends Location {
@@ -27,12 +19,24 @@ export interface Building {
   boundingBox: Location[];
 }
 
+export interface LinkItem {
+  id: number;
+  title: string;
+  link: string;
+}
+
 export interface Campus {
   id: CampusId;
   displayName: string;
   description: string;
   region: Region;
   buildings: BuildingId[];
+}
+
+export interface MarkerLocation {
+  id: string;
+  displayName: string;
+  location: Location;
 }
 
 export interface IndoorLocation extends MarkerLocation {
@@ -45,7 +49,7 @@ export interface POI extends IndoorLocation {
   category: POICategory;
 }
 
-export interface Connector extends IndoorLocation {
+export interface Connector extends POI {
   type: ConnectorType;
   connections: Connection[];
 }
@@ -55,17 +59,11 @@ export interface Connection {
   location: Location;
 }
 
-export interface LinkItem {
-  id: number;
-  title: string;
-  link: string;
-}
-
 export interface BuildingFloor {
   id: number;
   buildingId: BuildingId;
   level: number;
-  bounds: [Coordinate, Coordinate];
+  bounds: [Coordinate, Coordinate] | null;
   image: any;
   travelNodes: TravelNode[];
 }
@@ -77,7 +75,7 @@ export interface TravelNode {
 }
 
 export interface IndoorInformation {
-  currentFloor: IndoorFloor;
+  currentFloor: IndoorFloor | null;
   floors: IndoorFloor[];
 }
 

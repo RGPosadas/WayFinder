@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { StyleSheet } from "react-native";
 import { Buildings } from "../../constants/buildings.data";
 import {
   BuildingId,
@@ -44,8 +43,8 @@ const MapOverlays = ({
   /**
    * Fill color for the Polygons
    */
-  const [fillColor, setFillColor] = useState<string>(null);
-  const [tappedColor, setTappedColor] = useState<string>(null);
+  const [fillColor, setFillColor] = useState<string>("");
+  const [tappedColor, setTappedColor] = useState<string>("");
 
   useEffect(() => {
     setTappedColor(CONCORDIA_RED);
