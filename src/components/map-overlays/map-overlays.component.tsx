@@ -7,7 +7,8 @@ import {
   IndoorInformation,
   POI,
   MarkerLocation,
-  TravelState
+  TravelState,
+  Building
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -21,9 +22,9 @@ interface IProps {
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
-  setMarkerLocation: (poi: POI) => void;
-  endLocation: POI;
-  startLocation: MarkerLocation;
+  setMarkerLocation: (location: POI | Building) => void;
+  endLocation: POI | Building;
+  startLocation: MarkerLocation | Building;
   travelState: TravelState;
 }
 

@@ -7,7 +7,7 @@ import {
   Text
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { POI, BuildingId } from "../../types/main";
+import { POI, BuildingId, Building } from "../../types/main";
 import {
   screenWidth,
   LIST_BACKGROUND_COLOR,
@@ -20,8 +20,8 @@ import {
  * by the AutoComplete component
  */
 export interface IProps {
-  searchResults: POI[];
-  setLocation: (poi: POI) => void;
+  searchResults: (POI | Building)[];
+  setLocation: (location: POI | Building) => void;
   style: object;
 }
 
@@ -38,7 +38,7 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
         testID="autoCompleteFlatList"
         keyboardShouldPersistTaps="handled"
         data={searchResults}
-        renderItem={({ item }: { item: POI }) => (
+        renderItem={({ item }: { item: POI | Building }) => (
           <TouchableOpacity
             testID="touchableList"
             onPress={() => setLocation(item)}
@@ -48,7 +48,11 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
             <View>
               <Text style={styles.text}>{item.displayName}</Text>
               <Text style={styles.text}>
-                Building: {BuildingId[item.buildingId]} Level: {item.level}
+                {item.buildingId ? (
+                  <Text style={styles.text}>
+                    Building: {BuildingId[item.buildingId]} Level: {item.level}
+                  </Text>
+                ) : null}
               </Text>
             </View>
             <Entypo name="chevron-thin-right" size={24} color="#454F63" />

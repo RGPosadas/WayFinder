@@ -22,7 +22,8 @@ import {
   CampusId,
   POI,
   MarkerLocation,
-  TravelState
+  TravelState,
+  Building
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
@@ -51,10 +52,10 @@ const MapScreen = () => {
       floors: []
     }
   );
-  const [endLocation, setEndLocation] = useState<POI | null>(null);
-  const [startLocation, setStartLocation] = useState<MarkerLocation | null>(
-    null
-  );
+  const [endLocation, setEndLocation] = useState<POI | Building | null>(null);
+  const [startLocation, setStartLocation] = useState<
+    MarkerLocation | Building | null
+  >(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<

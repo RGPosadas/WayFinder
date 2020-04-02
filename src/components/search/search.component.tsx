@@ -2,7 +2,7 @@ import React from "react";
 import { Platform, TextInput, StyleSheet, View, StatusBar } from "react-native";
 import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
-import { POI, TravelState } from "../../types/main";
+import { POI, TravelState, Building } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
   screenWidth,
@@ -17,11 +17,11 @@ import DynamicStylingService from "../../services/dynamic-styling.service";
  */
 interface IProps {
   setUserCurrentLocation: () => void;
-  setEndLocation: (poi: POI) => void;
+  setEndLocation: (location: POI | Building) => void;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
     userInput: string,
-    setAState: (poi: POI[]) => void,
+    setAState: (locations: (POI | Building)[]) => void,
     updateInputValue: (text: string) => void
   ) => void;
 }
@@ -40,7 +40,9 @@ const Search = ({
   updateSearchResults
 }: IProps) => {
   const [value, onChangeText] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState<POI[]>([]);
+  const [searchResults, setSearchResults] = React.useState<(POI | Building)[]>(
+    []
+  );
 
   /**
    * Starts the planning phase of a travel plan. Sets the end location.
@@ -48,10 +50,10 @@ const Search = ({
    *
    * @param poi A POI which will be set as the end location
    */
-  const setEndLocationAndStartSearch = (poi: POI) => {
+  const setEndLocationAndStartSearch = (location: POI | Building) => {
     setTravelState(TravelState.PLANNING);
     setUserCurrentLocation();
-    setEndLocation(poi);
+    setEndLocation(location);
   };
 
   return (
