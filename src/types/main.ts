@@ -188,7 +188,8 @@ export enum POICategory {
   Restaurant,
   Association,
   Elevator,
-  Escalator,
+  EscalatorUp,
+  EscalatorDown,
   Stairs,
   Exit,
   Service
@@ -198,7 +199,8 @@ export enum ConnectorType {
   Elevator,
   Stairs,
   Ramp,
-  Escalator
+  EscalatorUp,
+  EscalatorDown
 }
 
 export enum TravelState {
