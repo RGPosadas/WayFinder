@@ -5,7 +5,9 @@ import { MaterialIcons } from "@expo/vector-icons";
 import {
   BUILDING_LOCATION_HEIGHT,
   MAP_BUTTON_RIGHT
-} from "../../constants/style";
+} from "../../styles/position-styling.styles";
+import { Circle } from "../../styles/button.styles";
+import { LOCATION_BUTTON_COLOR } from "../../styles/colors.styles";
 
 export interface IProps {
   onLocationButtonPress: () => void;
@@ -38,14 +40,8 @@ const styles = StyleSheet.create({
     right: MAP_BUTTON_RIGHT
   },
   button: {
-    borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 60,
-    height: 60,
-    backgroundColor: "#fff",
-    borderRadius: 50
+    ...Circle,
+    backgroundColor: LOCATION_BUTTON_COLOR
   }
 });
 

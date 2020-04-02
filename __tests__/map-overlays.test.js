@@ -4,7 +4,7 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { BuildingId, ZoomLevel } from "../src/types/main";
 import { Buildings } from "../src/constants/buildings.data";
-import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../src/constants/style";
+import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../src/styles/colors";
 
 describe("MapOverlays component", () => {
   it("should match snapshot", () => {

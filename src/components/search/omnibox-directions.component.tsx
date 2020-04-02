@@ -26,15 +26,15 @@ import {
 } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles/text.styles";
 import {
   CONCORDIA_RED,
   INPUT_BORDER_COLOR,
   INACTIVE_BUTTON_COLOR,
   INACTIVE_TEXT_COLOR,
-  INACTIVE_ICON_COLOR,
-  screenWidth,
-  CURRENT_LOCATION_DISPLAY_TEXT
-} from "../../constants/style";
+  INACTIVE_ICON_COLOR
+} from "../../styles/colors.styles";
+import { screenWidth } from "../../styles/dimensions.styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
 

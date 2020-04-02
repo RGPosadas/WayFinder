@@ -13,7 +13,10 @@ import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { Buildings } from "../../constants/buildings.data";
 import { BuildingId } from "../../types/main";
-import { CONCORDIA_RED, WHITE_BACKGROUND_COLOR } from "../../constants/style";
+import {
+  CONCORDIA_RED,
+  WHITE_BACKGROUND_COLOR
+} from "../../styles/colors.styles";
 
 const { height } = Dimensions.get("window");
 

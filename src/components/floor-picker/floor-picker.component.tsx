@@ -5,11 +5,13 @@ import { IndoorInformation, TravelState, ZoomLevel } from "../../types/main";
 import {
   FLOOR_PICKER_HEIGHT,
   FLOOR_PICKER_TRAVEL_HEIGHT,
-  MAP_BUTTON_RIGHT,
+  MAP_BUTTON_RIGHT
+} from "../../styles/position-styling.styles";
+import {
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR,
   BUTTON_BORDER_COLOR
-} from "../../constants/style";
+} from "../../styles/colors.styles";
 
 interface IProps {
   indoorInformation: IndoorInformation;

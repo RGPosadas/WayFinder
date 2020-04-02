@@ -3,7 +3,7 @@ import { Buildings } from "../src/constants/buildings.data";
 import renderer from "react-test-renderer";
 import React from "react";
 import { shallow } from "enzyme";
-import { BUILDING_MARKER_COLOR } from "../src/constants/style";
+import { BUILDING_MARKER_COLOR } from "../src/styles/colors";
 
 describe("CustomMarker component", () => {
   it("should match snapshot", () => {

@@ -27,9 +27,8 @@ import {
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
-
-import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../constants/style";
 import UtilityService from "../../services/utility.service";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles/text.styles";
 import LocationService from "../../services/location.service";
 
 /**

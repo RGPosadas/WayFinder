@@ -10,7 +10,7 @@ import {
   TravelState,
   Building
 } from "../../types/main";
-import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
+import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../styles/colors.styles";
 import { getAllCampuses } from "../../constants/campus.data";
 import { buildingFloors } from "../../constants/floors.data";
 import { getAllPOI } from "../../constants/poi.data";

@@ -2,7 +2,11 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Marker } from "react-native-maps";
 import { Location } from "../../types/main";
-import { CONCORDIA_RED, BUILDING_MARKER_COLOR } from "../../constants/style";
+import {
+  CONCORDIA_RED,
+  BUILDING_MARKER_COLOR,
+  CUSTOM_MARKER_COLOR
+} from "../../styles/colors.styles";
 
 interface IProps {
   location: Location;
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
     borderRadius: 3
   },
   text: {
-    color: "#f0f0f0"
+    color: CUSTOM_MARKER_COLOR
   },
   arrow: {
     backgroundColor: "transparent",

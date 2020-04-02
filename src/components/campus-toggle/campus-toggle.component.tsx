@@ -7,12 +7,13 @@ import {
   TouchableHighlight
 } from "react-native";
 import { CampusId, Region } from "../../types/main";
+
+import { getCampusById } from "../../constants/campus.data";
+import { CAMPUS_TOGGLE_HEIGHT } from "../../styles/position-styling.styles";
 import {
-  CAMPUS_TOGGLE_HEIGHT,
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR
-} from "../../constants/style";
-import { getCampusById } from "../../constants/campus.data";
+} from "../../styles/colors.styles";
 
 interface IProps {
   onCampusToggle: (region: Region) => void;

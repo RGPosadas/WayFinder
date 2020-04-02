@@ -1,6 +1,9 @@
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-
+import {
+  LOCATION_BUTTON_COLOR,
+  DEFAULT_STACK_NAVIGATOR_COLOR
+} from "../styles/colors.styles";
 import MapScreen from "../screens/map-screen/map-screen.component";
 
 const screens = {
@@ -15,9 +18,9 @@ const screens = {
 const RootStack = createStackNavigator(screens, {
   defaultNavigationOptions: {
     headerStyle: {
-      backgroundColor: "#9f1d35"
+      backgroundColor: DEFAULT_STACK_NAVIGATOR_COLOR
     },
-    headerTintColor: "#fff",
+    headerTintColor: LOCATION_BUTTON_COLOR,
     headerTitleStyle: {
       fontWeight: "bold"
     }
