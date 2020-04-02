@@ -50,7 +50,7 @@ export const POIInfo: POI[] = [
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Escalator
+    category: POICategory.EscalatorUp
   },
   {
     id: "f1b0422b-63f2-471e-919d-21d7cffbaa87",
@@ -62,7 +62,7 @@ export const POIInfo: POI[] = [
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Escalator
+    category: POICategory.EscalatorDown
   },
   {
     id: "8c28ea3e-73ad-46d2-9031-5edec3c83187",
@@ -1484,7 +1484,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: "f45af436-f9bb-40b8-97c5-8526ad68ac55",
-    displayName: "Escalator",
+    displayName: "Escalators Up",
 
     description: "",
     location: {
@@ -1493,7 +1493,20 @@ export const POIInfo: POI[] = [
     },
     buildingId: BuildingId.H,
     level: 9,
-    category: POICategory.Escalator
+    category: POICategory.EscalatorUp
+  },
+  {
+    id: "ad1b69e7-3983-4d2e-91ad-6ef2dd87e908",
+    displayName: "Escalators Down",
+
+    description: "",
+    location: {
+      latitude: 45.497269,
+      longitude: -73.578862
+    },
+    buildingId: BuildingId.H,
+    level: 9,
+    category: POICategory.EscalatorDown
   },
   {
     id: "a15f5890-eb65-4a05-a578-08d4cabe254d",
@@ -1789,7 +1802,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: "c9dc168e-1711-4351-a84f-91b2f78afc1f",
-    displayName: "Escalators",
+    displayName: "Escalators Down",
 
     description: "Escalators that leads to tunnel",
     location: {
@@ -1798,7 +1811,7 @@ export const POIInfo: POI[] = [
     },
     buildingId: BuildingId.MB,
     level: 1,
-    category: POICategory.Escalator
+    category: POICategory.EscalatorDown
   },
   {
     id: "66ff54b3-f49e-4b54-af8b-28edb00c1d2a",
