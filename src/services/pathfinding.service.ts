@@ -10,6 +10,7 @@ import {
   Line,
   POICategory,
   BuildingId,
+  FloorPath,
 } from "../types/main";
 import * as floors from "../constants/floors.data";
 import { POIInfo } from "../constants/poi.data";
@@ -28,7 +29,7 @@ class PathFindingService {
   /**
    *
    */
-  public findPathIndoor = (start: POI, end: POI): Line[][] | null => {
+  public findPathIndoor = (start: POI, end: POI): FloorPath[] | null => {
     if (start.buildingId === end.buildingId) {
       return this.findPathInBuilding(start, end);
     }
@@ -47,7 +48,10 @@ class PathFindingService {
     );
   };
 
-  public findPathInBuilding = (start: POI, end: POI): Line[][] | null => {
+  /**
+   *
+   */
+  public findPathInBuilding = (start: POI, end: POI): FloorPath[] | null => {
     const startFloorNodes = floors.buildingFloors.find(
       (floor) =>
         floor.buildingId === start.buildingId && floor.level === start.level
@@ -59,7 +63,15 @@ class PathFindingService {
 
     if (start.level === end.level) {
       return [
-        this.findPathOnFloor(startFloorNodes, start.location, end.location),
+        {
+          path: this.findPathOnFloor(
+            startFloorNodes,
+            start.location,
+            end.location
+          ),
+          buildingId: start.buildingId,
+          level: start.level,
+        },
       ];
     }
 
@@ -87,6 +99,9 @@ class PathFindingService {
     );
   };
 
+  /**
+   *
+   */
   public findConnectors = (
     poi: POI,
     escalatorDirection: POICategory
@@ -117,40 +132,38 @@ class PathFindingService {
     poi: POI,
     connectors: POI[],
     nodes: TravelNode[]
-  ): {
-    [key: number]: Line[];
-  } => {
-    const pathsToConnectors = {};
+  ): FloorPath[] => {
+    const pathsToConnectors: FloorPath[] = [];
+
     connectors.forEach((connector) => {
-      pathsToConnectors[connector.category] = this.findPathOnFloor(
-        nodes,
-        poi.location,
-        connector.location
-      );
+      pathsToConnectors.push({
+        buildingId: connector.buildingId,
+        level: connector.level,
+        category: connector.category,
+        path: this.findPathOnFloor(nodes, poi.location, connector.location),
+      });
     });
 
     return pathsToConnectors;
   };
 
   public getPathThroghClosestConnector = (
-    startFloorPathsToConnectors: {
-      [key: number]: Line[];
-    },
-    endFloorPathsToConnectors: {
-      [key: number]: Line[];
-    }
-  ): Line[][] | null => {
+    startFloorPathsToConnectors: FloorPath[],
+    endFloorPathsToConnectors: FloorPath[]
+  ): FloorPath[] | null => {
     const shortestPath = [];
     let minDistance = Number.MAX_SAFE_INTEGER;
-    Object.keys(startFloorPathsToConnectors).forEach((category) => {
-      const startFloorPath = startFloorPathsToConnectors[category];
-      const endFloorPath = endFloorPathsToConnectors[category];
+    startFloorPathsToConnectors.forEach((startFloorPath) => {
+      const endFloorPath = endFloorPathsToConnectors.find(
+        ({ category }) => category === startFloorPath.category
+      );
+
       if (endFloorPath === null) {
         return;
       }
       const distance =
-        this.getDistanceToConnector(startFloorPath) +
-        this.getDistanceToConnector(endFloorPath);
+        this.getDistanceToConnector(startFloorPath.path) +
+        this.getDistanceToConnector(endFloorPath.path);
       if (distance < minDistance) {
         minDistance = distance;
         shortestPath[0] = startFloorPath;
@@ -159,6 +172,8 @@ class PathFindingService {
     });
     return shortestPath;
   };
+
+  //  shortestPath[0].buildingId === currentPicked =>  shortestPath[0].path
 
   /**
    * Find the shortest path between two locations on a given floor.

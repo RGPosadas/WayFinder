@@ -89,7 +89,12 @@ export interface Range {
   max: number;
 }
 
-export type FloorPath = { buildingId: BuildingId; level: number; path: Line[] };
+export type FloorPath = {
+  buildingId: BuildingId;
+  level: number;
+  path: Line[];
+  category?: POICategory;
+};
 
 export type PQItem = { id: number; parent: number; g: number };
 
