@@ -189,8 +189,8 @@ const MapScreen = () => {
   }, []);
 
   /**
-   *  Set the value of endLocation or initial location depending
-   *  on which input the user is focued
+   *  Set a POI as an end location or start location depending
+   *  on which input the user is focused on.
    * @param poi
    */
   const setPOIMarkerLocation = (poi: POI | null) => {
@@ -205,6 +205,11 @@ const MapScreen = () => {
     }
   };
 
+  /**
+   * Set a building as an end location or start location depending on
+   * which input the user is focused on.
+   * @param building
+   */
   const setBuildingMarkerLocation = (building: Building | null) => {
     if (TravelState.PLANNING) {
       if (endLocationFocused) {

@@ -27,7 +27,7 @@ interface IProps {
 }
 
 /**
- * Search component for indoor points of interest's
+ * Search component for POIs and Buildings
  * @param setEndLocation
  * @param setUserCurrentLocation
  * @param setTravelState
@@ -48,7 +48,7 @@ const Search = ({
    * Starts the planning phase of a travel plan. Sets the end location.
    * Sets the start location to user's current location if available.
    *
-   * @param poi A POI which will be set as the end location
+   * @param location A POI or Building which will be set as the end location
    */
   const setEndLocationAndStartSearch = (location: POI | Building) => {
     setTravelState(TravelState.PLANNING);
