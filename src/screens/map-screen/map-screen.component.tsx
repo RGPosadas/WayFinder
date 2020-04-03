@@ -273,6 +273,7 @@ const MapScreen = () => {
           // @ts-ignore
           onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
           showsIndoorLevelPicker={false}
+          toolbarEnabled={false}
         >
           <MapOverlays
             onBuildingTap={onBuildingTap}
