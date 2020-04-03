@@ -4,10 +4,7 @@ import { BuildingId } from "../src/types/main";
 import PathFindingService from "../src/services/pathfinding.service";
 
 describe("Find the shortest path on a given floor", () => {
-  const {
-    findPathOnFloor,
-    travelPathToLinePath,
-  } = PathFindingService.getInstance();
+  const { findPathOnFloor } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
     const travelNodes = buildingFloors.find(
       (floor) => floor.buildingId === BuildingId.H && floor.level === 8
@@ -18,7 +15,7 @@ describe("Find the shortest path on a given floor", () => {
         .location,
       POIInfo.filter(({ displayName }) => displayName === "H815")[0].location
     );
-    expect(travelPathToLinePath(shortest)).toEqual(testData.h85103toH815);
+    expect(shortest).toEqual(testData.h85103toH815);
   });
 
   it("should return the shortest path between two given locations on H 9th floor", () => {
@@ -31,7 +28,7 @@ describe("Find the shortest path on a given floor", () => {
         .location,
       POIInfo.filter(({ displayName }) => displayName === "H911")[0].location
     );
-    expect(travelPathToLinePath(shortest)).toEqual(testData.h96119toH911);
+    expect(shortest).toEqual(testData.h96119toH911);
   });
 
   it("should return null when no path is found", () => {
@@ -56,7 +53,7 @@ describe("Find the shortest path on a given floor", () => {
       POIInfo.filter(({ displayName }) => displayName === "H921")[0].location
     );
     expect(shortest.length).toBe(1);
-    expect(travelPathToLinePath(shortest)).toEqual(testData.h923toH921);
+    expect(shortest).toEqual(testData.h923toH921);
   });
 
   it("should return one line only between two locations near the edges of a line", () => {
@@ -70,6 +67,6 @@ describe("Find the shortest path on a given floor", () => {
       POIInfo.filter(({ displayName }) => displayName === "H961-9")[0].location
     );
     expect(shortest.length).toBe(1);
-    expect(travelPathToLinePath(shortest)).toEqual(testData.h96119toH9619);
+    expect(shortest).toEqual(testData.h96119toH9619);
   });
 });

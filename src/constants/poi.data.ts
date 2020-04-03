@@ -1527,8 +1527,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.497264,
-      longitude: -73.578806,
+      latitude: 45.497314,
+      longitude: -73.578751,
     },
     buildingId: BuildingId.H,
     level: 9,
