@@ -89,6 +89,8 @@ export interface Range {
   max: number;
 }
 
+export type FloorPath = { buildingId: BuildingId; level: number; path: Line[] };
+
 export type PQItem = { id: number; parent: number; g: number };
 
 export type TravelEdge = [TravelNode, TravelNode];
