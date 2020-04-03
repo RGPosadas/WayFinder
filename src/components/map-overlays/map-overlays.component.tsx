@@ -22,7 +22,8 @@ interface IProps {
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
-  setMarkerLocation: (location: POI | Building) => void;
+  setPOIMarkerLocation: (location: POI | Building) => void;
+  setBuildingMarkerLocation: (building: Building) => void;
   endLocation: POI | Building;
   startLocation: MarkerLocation | Building;
   travelState: TravelState;
@@ -36,7 +37,8 @@ const MapOverlays = ({
   tappedBuilding,
   zoomLevel,
   indoorInformation,
-  setMarkerLocation,
+  setPOIMarkerLocation,
+  setBuildingMarkerLocation,
   endLocation,
   startLocation,
   travelState
@@ -86,6 +88,7 @@ const MapOverlays = ({
                     : fillColor
                 }
                 onPress={() => {
+                  setBuildingMarkerLocation(building);
                   onBuildingTap(building.id);
                 }}
                 testID={`polygon${BuildingId[building.id]}`}
@@ -106,6 +109,7 @@ const MapOverlays = ({
                 key={building.id}
                 location={building.location}
                 onPress={() => {
+                  setBuildingMarkerLocation(building);
                   onBuildingTap(building.id);
                 }}
                 text={
@@ -155,7 +159,7 @@ const MapOverlays = ({
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {
-                  setMarkerLocation(poi);
+                  setPOIMarkerLocation(poi);
                 }}
               />
             ))}

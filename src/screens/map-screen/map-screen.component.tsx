@@ -193,7 +193,7 @@ const MapScreen = () => {
    *  on which input the user is focued
    * @param poi
    */
-  const setMarkerLocation = (poi: POI | null) => {
+  const setPOIMarkerLocation = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
       if (travelState === TravelState.NONE) {
@@ -202,6 +202,16 @@ const MapScreen = () => {
       setEndLocation(poi);
     } else {
       setStartLocation(poi);
+    }
+  };
+
+  const setBuildingMarkerLocation = (building: Building | null) => {
+    if (TravelState.PLANNING) {
+      if (endLocationFocused) {
+        setEndLocation(building);
+      } else {
+        setStartLocation(building);
+      }
     }
   };
 
@@ -281,7 +291,8 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
-            setMarkerLocation={setMarkerLocation}
+            setPOIMarkerLocation={setPOIMarkerLocation}
+            setBuildingMarkerLocation={setBuildingMarkerLocation}
             endLocation={endLocation}
             startLocation={startLocation}
             travelState={travelState}
@@ -303,11 +314,13 @@ const MapScreen = () => {
           zoomLevel={zoomLevel}
         />
 
-        <BuildingInformation
-          tappedBuilding={tappedBuilding}
-          showBuildingInfo={showBuildingInfo}
-          onClosePanel={onClosePanel}
-        />
+        {travelState === TravelState.NONE && (
+          <BuildingInformation
+            tappedBuilding={tappedBuilding}
+            showBuildingInfo={showBuildingInfo}
+            onClosePanel={onClosePanel}
+          />
+        )}
       </View>
     </RegionProvider>
   );
