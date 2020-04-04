@@ -52,7 +52,9 @@ const MapScreen = () => {
       floors: []
     }
   );
-  const [endLocation, setEndLocation] = useState<POI | Building | null>(null);
+  const [endLocation, setEndLocation] = useState<
+    MarkerLocation | Building | null
+  >(null);
   const [startLocation, setStartLocation] = useState<
     MarkerLocation | Building | null
   >(null);
@@ -193,7 +195,7 @@ const MapScreen = () => {
    *  on which input the user is focused on.
    * @param poi
    */
-  const setPOIMarkerLocation = (poi: POI | null) => {
+  const onPOIMarkerPress = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
       if (travelState === TravelState.NONE) {
@@ -296,7 +298,7 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
-            setPOIMarkerLocation={setPOIMarkerLocation}
+            onPOIMarkerPress={onPOIMarkerPress}
             setBuildingMarkerLocation={setBuildingMarkerLocation}
             endLocation={endLocation}
             startLocation={startLocation}

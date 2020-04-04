@@ -45,9 +45,9 @@ import UtilityService from "../../services/utility.service";
 export interface OmniboxDirectionsProps {
   currentLocation: Location;
   startLocation: MarkerLocation | Building;
-  endLocation: POI | Building;
-  setStartLocation: (marker: MarkerLocation | Building) => void;
-  setEndLocation: (locations: POI | Building) => void;
+  endLocation: MarkerLocation | Building;
+  setStartLocation: (location: MarkerLocation | Building) => void;
+  setEndLocation: (location: MarkerLocation | Building) => void;
   setEndLocationFocused: (bool: boolean) => void;
   endLocationFocused: boolean;
   setTravelState: (state: TravelState) => void;
