@@ -62,7 +62,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
             <TouchableOpacity
               testID="panelCloseButton"
               style={styles.xButton}
-              onPress={() => {
+              onPressOut={() => {
                 onClosePanel();
                 this._panel.hide();
               }}
