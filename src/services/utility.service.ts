@@ -1,4 +1,11 @@
-import { Range, ZoomLevel, POI, Building } from "../types/main";
+import {
+  Range,
+  ZoomLevel,
+  POI,
+  Building,
+  isPOI,
+  BuildingId
+} from "../types/main";
 import { POIInfo } from "../constants/poi.data";
 import { Buildings } from "../constants/buildings.data";
 
@@ -56,13 +63,23 @@ class UtilityService {
   ) => {
     const locationsToSearch: (POI | Building)[] = [...POIInfo, ...Buildings];
     const locations: (POI | Building)[] = locationsToSearch.filter(location => {
+      if (isPOI(location)) {
+        return (
+          location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
+          -1
+        );
+      }
       return (
         location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
-        -1
+          -1 ||
+        BuildingId[location.id]
+          .toUpperCase()
+          .search(inputText.toUpperCase()) !== -1
       );
     });
 
-    const narrowedLocations: (POI | Building)[] = locations.slice(0, 5);
+    const narrowedLocations: (POI | Building)[] =
+      inputText === "" ? [] : locations.slice(0, 5);
 
     setSearchResults([...narrowedLocations]);
     setDisplayValue(inputText);

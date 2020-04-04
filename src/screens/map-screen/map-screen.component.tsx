@@ -72,11 +72,29 @@ const MapScreen = () => {
 
   /**
    * Handle building tap event.
-   * @param tappedBuilding The id of the tapped building
+   * @param tappedBuilding The tapped building
    */
-  const onBuildingTap = (tappedBuilding: BuildingId) => {
-    setShowBuildingInfo(true);
-    setTappedBuilding(tappedBuilding);
+  const onBuildingTap = (tappedBuilding: Building) => {
+    if (travelState === TravelState.NONE) {
+      setShowBuildingInfo(true);
+    }
+    setTappedBuilding(tappedBuilding.id);
+    setBuildingMarkerLocation(tappedBuilding);
+  };
+
+  /**
+   * Set a building as an end location or start location depending on
+   * which input the user is focused on.
+   * @param building
+   */
+  const setBuildingMarkerLocation = (building: Building | null) => {
+    if (travelState === TravelState.PLANNING) {
+      if (endLocationFocused) {
+        setEndLocation(building);
+      } else {
+        setStartLocation(building);
+      }
+    }
   };
 
   /**
@@ -123,7 +141,7 @@ const MapScreen = () => {
         // Attempt to find the building the user is in.
         Buildings.forEach(building => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
-            onBuildingTap(building.id);
+            onBuildingTap(building);
           }
         });
       })
@@ -208,21 +226,6 @@ const MapScreen = () => {
   };
 
   /**
-   * Set a building as an end location or start location depending on
-   * which input the user is focused on.
-   * @param building
-   */
-  const setBuildingMarkerLocation = (building: Building | null) => {
-    if (TravelState.PLANNING) {
-      if (endLocationFocused) {
-        setEndLocation(building);
-      } else {
-        setStartLocation(building);
-      }
-    }
-  };
-
-  /**
    * Set the users current location if location services is on.
    */
   const setUserCurrentLocation = () => {
@@ -299,7 +302,6 @@ const MapScreen = () => {
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
             onPOIMarkerPress={onPOIMarkerPress}
-            setBuildingMarkerLocation={setBuildingMarkerLocation}
             endLocation={endLocation}
             startLocation={startLocation}
             travelState={travelState}

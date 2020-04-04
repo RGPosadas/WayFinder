@@ -42,12 +42,18 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             testID="touchableList"
-            onPress={() => setLocation(item)}
+            onPressOut={() => setLocation(item)}
             key={item.displayName}
             style={styles.list}
           >
             <View>
-              <Text style={styles.text}>{item.displayName}</Text>
+              <Text style={styles.text}>
+                {isPOI(item)
+                  ? `${item.displayName}`
+                  : `${BuildingId[(item as Building).id]} - ${
+                      item.displayName
+                    }`}
+              </Text>
               <Text style={styles.text}>
                 {isPOI(item)
                   ? `Building: ${BuildingId[(item as POI).buildingId]} Level: ${

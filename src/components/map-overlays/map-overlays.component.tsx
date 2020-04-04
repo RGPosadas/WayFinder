@@ -18,12 +18,11 @@ import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
 
 interface IProps {
-  onBuildingTap: (id: BuildingId) => void;
+  onBuildingTap: (building: Building) => void;
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
   onPOIMarkerPress: (poi: POI) => void;
-  setBuildingMarkerLocation: (building: Building) => void;
   startLocation: MarkerLocation | Building;
   endLocation: MarkerLocation | Building;
   travelState: TravelState;
@@ -38,7 +37,6 @@ const MapOverlays = ({
   zoomLevel,
   indoorInformation,
   onPOIMarkerPress,
-  setBuildingMarkerLocation,
   endLocation,
   startLocation,
   travelState
@@ -88,8 +86,7 @@ const MapOverlays = ({
                     : fillColor
                 }
                 onPress={() => {
-                  onBuildingTap(building.id);
-                  setBuildingMarkerLocation(building);
+                  onBuildingTap(building);
                 }}
                 testID={`polygon${BuildingId[building.id]}`}
               />
@@ -109,8 +106,7 @@ const MapOverlays = ({
                 key={building.id}
                 location={building.location}
                 onPress={() => {
-                  onBuildingTap(building.id);
-                  setBuildingMarkerLocation(building);
+                  onBuildingTap(building);
                 }}
                 text={
                   zoomLevel === ZoomLevel.OUTDOOR

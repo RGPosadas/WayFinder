@@ -52,9 +52,9 @@ export interface OmniboxDirectionsProps {
   endLocationFocused: boolean;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
-    userInput: string,
-    setAState: (locations: (POI | Building)[]) => void,
-    updateInputValue: (text: string) => void
+    inputText: string,
+    setSearchResults: (locations: (POI | Building)[]) => void,
+    setDisplayValue: (text: string) => void
   ) => void;
   startLocationDisplay: string;
   setStartLocationDisplay: (displayName: string) => void;

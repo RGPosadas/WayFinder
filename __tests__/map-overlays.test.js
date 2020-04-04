@@ -12,30 +12,26 @@ describe("MapOverlays component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should change the polygon color, call onBuildingTap and setBuildingMarkerLocation after polygon press", () => {
+  it("should change the polygon color, call onBuildingTap after polygon press", () => {
     const mockOnBuildingTap = jest.fn();
-    const mockSetBuildingMarkerLocation = jest.fn();
     const wrapper = shallow(
       <MapOverlays
         indoorInformation={null}
         zoomLevel={ZoomLevel.OUTDOOR}
         onBuildingTap={mockOnBuildingTap}
-        setBuildingMarkerLocation={mockSetBuildingMarkerLocation}
         tappedBuilding={null}
       />
     );
     const polygon = wrapper.find({ coordinates: Buildings[0].boundingBox });
     expect(polygon.prop("fillColor", BUILDING_UNTAPPED));
     polygon.simulate("press");
-    expect(mockSetBuildingMarkerLocation).toHaveBeenCalledTimes(1);
     expect(mockOnBuildingTap).toHaveBeenCalledTimes(1);
     expect(polygon.prop("fillColor", CONCORDIA_RED));
-    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(BuildingId.H);
+    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(Buildings[0]);
   });
 
-  it("should call onBuildingTap and setBuildingMarkerLocation after marker press", () => {
+  it("should call onBuildingTap after marker press", () => {
     const mockOnBuildingTap = jest.fn();
-    const mockSetBuildingMarkerLocation = jest.fn();
     const fakeIndoorInformation = {
       currentFloor: { index: 0, level: 8 },
       floors: [{ index: 0, level: 8 }]
@@ -45,14 +41,12 @@ describe("MapOverlays component", () => {
         indoorInformation={fakeIndoorInformation}
         zoomLevel={ZoomLevel.INDOOR}
         onBuildingTap={mockOnBuildingTap}
-        setBuildingMarkerLocation={mockSetBuildingMarkerLocation}
         tappedBuilding={null}
       />
     );
     const marker = wrapper.find({ location: Buildings[0].location });
     marker.simulate("press");
     expect(mockOnBuildingTap).toHaveBeenCalledTimes(1);
-    expect(mockSetBuildingMarkerLocation).toHaveBeenCalledTimes(1);
-    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(BuildingId.H);
+    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(Buildings[0]);
   });
 });

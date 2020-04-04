@@ -20,9 +20,9 @@ interface IProps {
   setEndLocation: (location: POI | Building) => void;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
-    userInput: string,
-    setAState: (locations: (POI | Building)[]) => void,
-    updateInputValue: (text: string) => void
+    inputText: string,
+    setSearchResults: (locations: (POI | Building)[]) => void,
+    setDisplayValue: (text: string) => void
   ) => void;
 }
 
