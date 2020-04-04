@@ -8,12 +8,13 @@ import {
 } from "react-native";
 import { CampusId, Region } from "../../types/main";
 
-import { getCampusById } from "../../constants/campus.data";
-import { CAMPUS_TOGGLE_HEIGHT } from "../../styles/position-styling.styles";
+import { getCampusById } from "../../constants";
 import {
   CONCORDIA_RED,
-  INACTIVE_BUTTON_COLOR
-} from "../../styles/colors.styles";
+  INACTIVE_BUTTON_COLOR,
+  CAMPUS_TOGGLE_HEIGHT,
+  screenWidth
+} from "../../styles";
 
 interface IProps {
   onCampusToggle: (region: Region) => void;
@@ -92,19 +93,19 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     height: CAMPUS_TOGGLE_HEIGHT,
-    width: Dimensions.get("window").width,
+    width: screenWidth,
     bottom: 0,
     zIndex: 0
   },
   buttonSelected: {
     flex: 1,
-    width: Dimensions.get("window").width / 2,
+    width: screenWidth / 2,
     alignItems: "center",
     backgroundColor: CONCORDIA_RED
   },
   buttonNotSelected: {
     flex: 1,
-    width: Dimensions.get("window").width / 2,
+    width: screenWidth / 2,
     alignItems: "center",
     backgroundColor: INACTIVE_BUTTON_COLOR
   },

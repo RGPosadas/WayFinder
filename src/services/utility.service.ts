@@ -6,8 +6,7 @@ import {
   isPOI,
   BuildingId
 } from "../types/main";
-import { POIInfo } from "../constants/poi.data";
-import { Buildings } from "../constants/buildings.data";
+import { Buildings, POIInfo } from "../constants";
 
 class UtilityService {
   private indoorRange: Range = {

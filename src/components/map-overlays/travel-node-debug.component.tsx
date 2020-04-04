@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 import { Polyline, Marker } from "react-native-maps";
-import { buildingFloors } from "../../constants/floors.data";
+import { buildingFloors } from "../../constants";
 import PathFindingService from "../../services/pathfinding.service";
 
 interface IProps {

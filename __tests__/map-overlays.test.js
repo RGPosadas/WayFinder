@@ -3,8 +3,8 @@ import MapOverlays from "../src/components/map-overlays/map-overlays.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { BuildingId, ZoomLevel } from "../src/types/main";
-import { Buildings } from "../src/constants/buildings.data";
-import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../src/styles/colors";
+import { Buildings } from "../src/constants";
+import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../src/styles";
 
 describe("MapOverlays component", () => {
   it("should match snapshot", () => {

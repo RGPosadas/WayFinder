@@ -11,9 +11,10 @@ import { POI, BuildingId, Building, isPOI } from "../../types/main";
 import {
   LIST_BACKGROUND_COLOR,
   LIST_ITEM_BORDER_COLOR,
-  LIST_ITEM_TEXT_COLOR
-} from "../../styles/colors.styles";
-import { screenWidth } from "../../styles/dimensions.styles";
+  LIST_ITEM_TEXT_COLOR,
+  screenWidth
+} from "../../styles";
+
 /**
  * the name and types of the properties types accepted
  * by the AutoComplete component

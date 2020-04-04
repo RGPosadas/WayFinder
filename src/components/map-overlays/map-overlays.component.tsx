@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Overlay } from "react-native-maps";
-import { Buildings } from "../../constants/buildings.data";
+import {
+  Buildings,
+  getAllCampuses,
+  buildingFloors,
+  getAllPOI
+} from "../../constants";
 import {
   BuildingId,
   ZoomLevel,
@@ -10,10 +15,8 @@ import {
   TravelState,
   Building
 } from "../../types/main";
-import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../styles/colors.styles";
-import { getAllCampuses } from "../../constants/campus.data";
-import { buildingFloors } from "../../constants/floors.data";
-import { getAllPOI } from "../../constants/poi.data";
+import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../styles";
+
 import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
 

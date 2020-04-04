@@ -1,9 +1,9 @@
 import CustomMarker from "../src/components/map-overlays/custom-marker.component";
-import { Buildings } from "../src/constants/buildings.data";
+import { Buildings } from "../src/constants";
 import renderer from "react-test-renderer";
 import React from "react";
 import { shallow } from "enzyme";
-import { BUILDING_MARKER_COLOR } from "../src/styles/colors";
+import { BUILDING_MARKER_COLOR } from "../src/styles";
 
 describe("CustomMarker component", () => {
   it("should match snapshot", () => {

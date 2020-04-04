@@ -3,11 +3,11 @@ import { StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
 import {
+  LOCATION_BUTTON_COLOR,
   BUILDING_LOCATION_HEIGHT,
-  MAP_BUTTON_RIGHT
-} from "../../styles/position-styling.styles";
-import { Circle } from "../../styles/button.styles";
-import { LOCATION_BUTTON_COLOR } from "../../styles/colors.styles";
+  MAP_BUTTON_RIGHT,
+  Circle
+} from "../../styles";
 
 export interface IProps {
   onLocationButtonPress: () => void;

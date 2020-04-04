@@ -4,11 +4,11 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 import {
   CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR
-} from "../../styles/colors.styles";
-import { START_TRAVEL_HEIGHT } from "../../styles/position-styling.styles";
+  WHITE_BACKGROUND_COLOR,
+  START_TRAVEL_HEIGHT,
+  Circle
+} from "../../styles";
 import { TravelState } from "../../types/main";
-import { Circle } from "../../styles/button.styles";
 
 interface IProps {
   setTravelState: (state: TravelState) => void;

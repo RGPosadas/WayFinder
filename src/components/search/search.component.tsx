@@ -6,9 +6,9 @@ import { POI, TravelState, Building } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
   CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR
-} from "../../styles/colors.styles";
-import { screenWidth } from "../../styles/dimensions.styles";
+  WHITE_BACKGROUND_COLOR,
+  screenWidth
+} from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 
 /**

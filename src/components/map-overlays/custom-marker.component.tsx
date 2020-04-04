@@ -5,8 +5,9 @@ import { Location } from "../../types/main";
 import {
   CONCORDIA_RED,
   BUILDING_MARKER_COLOR,
-  CUSTOM_MARKER_COLOR
-} from "../../styles/colors.styles";
+  CUSTOM_MARKER_COLOR,
+  ARROW_MARKER
+} from "../../styles";
 
 interface IProps {
   location: Location;
@@ -94,19 +95,11 @@ const styles = StyleSheet.create({
     color: CUSTOM_MARKER_COLOR
   },
   arrow: {
-    backgroundColor: "transparent",
-    borderWidth: 4,
-    borderColor: "transparent",
-    borderTopColor: backgroundColor,
-    alignSelf: "center",
+    ...ARROW_MARKER,
     marginTop: -9
   },
   arrowBorder: {
-    backgroundColor: "transparent",
-    borderWidth: 4,
-    borderColor: "transparent",
-    borderTopColor: backgroundColor,
-    alignSelf: "center",
+    ...ARROW_MARKER,
     marginTop: -0.5
   }
 });

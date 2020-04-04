@@ -3,7 +3,6 @@ import {
   View,
   TouchableOpacity,
   Text,
-  Dimensions,
   ScrollView,
   StyleSheet,
   Linking,
@@ -11,14 +10,13 @@ import {
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
-import { Buildings } from "../../constants/buildings.data";
+import { Buildings } from "../../constants";
 import { BuildingId } from "../../types/main";
 import {
   CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR
-} from "../../styles/colors.styles";
-
-const { height } = Dimensions.get("window");
+  WHITE_BACKGROUND_COLOR,
+  screenHeight
+} from "../../styles";
 
 interface IProps {
   tappedBuilding: BuildingId;
@@ -48,7 +46,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
 
   render() {
     const { tappedBuilding, onClosePanel, showBuildingInfo } = this.props;
-    const draggableRange = { top: height / 2, bottom: 105 };
+    const draggableRange = { top: screenHeight / 2, bottom: 105 };
     const { allowDragging } = this.state;
     return (
       <SlidingUpPanel
@@ -186,7 +184,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height: height / 2,
+    height: screenHeight / 2,
     backgroundColor: WHITE_BACKGROUND_COLOR
   },
   header: {
