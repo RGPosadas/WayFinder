@@ -22,7 +22,8 @@ import {
   CampusId,
   POI,
   MarkerLocation,
-  TravelState
+  TravelState,
+  Building
 } from "../../types/main";
 import { getCampusById } from "../../constants/campus.data";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
@@ -51,10 +52,12 @@ const MapScreen = () => {
       floors: []
     }
   );
-  const [endLocation, setEndLocation] = useState<POI | null>(null);
-  const [startLocation, setStartLocation] = useState<MarkerLocation | null>(
-    null
-  );
+  const [endLocation, setEndLocation] = useState<
+    MarkerLocation | Building | null
+  >(null);
+  const [startLocation, setStartLocation] = useState<
+    MarkerLocation | Building | null
+  >(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
@@ -69,11 +72,29 @@ const MapScreen = () => {
 
   /**
    * Handle building tap event.
-   * @param tappedBuilding The id of the tapped building
+   * @param tappedBuilding The tapped building
    */
-  const onBuildingTap = (tappedBuilding: BuildingId) => {
-    setShowBuildingInfo(true);
-    setTappedBuilding(tappedBuilding);
+  const onBuildingTap = (tappedBuilding: Building) => {
+    if (travelState === TravelState.NONE) {
+      setShowBuildingInfo(true);
+    }
+    setTappedBuilding(tappedBuilding.id);
+    setBuildingMarkerLocation(tappedBuilding);
+  };
+
+  /**
+   * Set a building as an end location or start location depending on
+   * which input the user is focused on.
+   * @param building
+   */
+  const setBuildingMarkerLocation = (building: Building | null) => {
+    if (travelState === TravelState.PLANNING) {
+      if (endLocationFocused) {
+        setEndLocation(building);
+      } else {
+        setStartLocation(building);
+      }
+    }
   };
 
   /**
@@ -120,7 +141,7 @@ const MapScreen = () => {
         // Attempt to find the building the user is in.
         Buildings.forEach(building => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
-            onBuildingTap(building.id);
+            onBuildingTap(building);
           }
         });
       })
@@ -188,11 +209,11 @@ const MapScreen = () => {
   }, []);
 
   /**
-   *  Set the value of endLocation or initial location depending
-   *  on which input the user is focued
+   *  Set a POI as an end location or start location depending
+   *  on which input the user is focused on.
    * @param poi
    */
-  const setMarkerLocation = (poi: POI | null) => {
+  const onPOIMarkerPress = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
       if (travelState === TravelState.NONE) {
@@ -280,7 +301,7 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             zoomLevel={zoomLevel}
             indoorInformation={indoorInformation}
-            setMarkerLocation={setMarkerLocation}
+            onPOIMarkerPress={onPOIMarkerPress}
             endLocation={endLocation}
             startLocation={startLocation}
             travelState={travelState}
@@ -302,11 +323,13 @@ const MapScreen = () => {
           zoomLevel={zoomLevel}
         />
 
-        <BuildingInformation
-          tappedBuilding={tappedBuilding}
-          showBuildingInfo={showBuildingInfo}
-          onClosePanel={onClosePanel}
-        />
+        {travelState === TravelState.NONE && (
+          <BuildingInformation
+            tappedBuilding={tappedBuilding}
+            showBuildingInfo={showBuildingInfo}
+            onClosePanel={onClosePanel}
+          />
+        )}
       </View>
     </RegionProvider>
   );

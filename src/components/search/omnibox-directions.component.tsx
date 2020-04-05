@@ -17,7 +17,13 @@ import {
   Entypo
 } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { POI, Location, MarkerLocation, TravelState } from "../../types/main";
+import {
+  POI,
+  Location,
+  MarkerLocation,
+  TravelState,
+  Building
+} from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
 import {
@@ -38,17 +44,17 @@ import UtilityService from "../../services/utility.service";
  */
 export interface OmniboxDirectionsProps {
   currentLocation: Location;
-  startLocation: MarkerLocation;
-  endLocation: POI;
-  setStartLocation: (marker: MarkerLocation) => void;
-  setEndLocation: (poi: POI) => void;
+  startLocation: MarkerLocation | Building;
+  endLocation: MarkerLocation | Building;
+  setStartLocation: (location: MarkerLocation | Building) => void;
+  setEndLocation: (location: MarkerLocation | Building) => void;
   setEndLocationFocused: (bool: boolean) => void;
   endLocationFocused: boolean;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
-    userInput: string,
-    setAState: (poi: POI[]) => void,
-    updateInputValue: (text: string) => void
+    inputText: string,
+    setSearchResults: (locations: (POI | Building)[]) => void,
+    setDisplayValue: (text: string) => void
   ) => void;
   startLocationDisplay: string;
   setStartLocationDisplay: (displayName: string) => void;
@@ -86,11 +92,11 @@ const OmniboxDirections = ({
   const [
     startLocationSearchResults,
     setStartLocationSearchResults
-  ] = React.useState<POI[]>(null);
+  ] = React.useState<(POI | Building)[]>(null);
   const [
     endLocationSearchResults,
     setEndLocationSearchResults
-  ] = React.useState<POI[]>(null);
+  ] = React.useState<(POI | Building)[]>(null);
   const [date, setDate] = React.useState<Date>(new Date());
   const [dateIsNow, setDateIsNow] = React.useState(true);
   const [showTimePicker, setshowTimePicker] = React.useState<boolean>(false);

@@ -208,3 +208,7 @@ export enum TravelState {
   PLANNING,
   TRAVELLING
 }
+
+export const isPOI = (object: any) => {
+  return (object as POI).buildingId !== undefined;
+};

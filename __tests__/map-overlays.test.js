@@ -12,7 +12,7 @@ describe("MapOverlays component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should change the polygon color and call onBuildingTap after polygon press", () => {
+  it("should change the polygon color, call onBuildingTap after polygon press", () => {
     const mockOnBuildingTap = jest.fn();
     const wrapper = shallow(
       <MapOverlays
@@ -27,7 +27,7 @@ describe("MapOverlays component", () => {
     polygon.simulate("press");
     expect(mockOnBuildingTap).toHaveBeenCalledTimes(1);
     expect(polygon.prop("fillColor", CONCORDIA_RED));
-    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(BuildingId.H);
+    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(Buildings[0]);
   });
 
   it("should call onBuildingTap after marker press", () => {
@@ -47,6 +47,6 @@ describe("MapOverlays component", () => {
     const marker = wrapper.find({ location: Buildings[0].location });
     marker.simulate("press");
     expect(mockOnBuildingTap).toHaveBeenCalledTimes(1);
-    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(BuildingId.H);
+    expect(mockOnBuildingTap.mock.calls[0][0]).toBe(Buildings[0]);
   });
 });

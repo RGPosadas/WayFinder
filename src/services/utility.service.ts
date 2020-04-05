@@ -1,5 +1,13 @@
-import { Range, ZoomLevel, POI } from "../types/main";
+import {
+  Range,
+  ZoomLevel,
+  POI,
+  Building,
+  isPOI,
+  BuildingId
+} from "../types/main";
 import { POIInfo } from "../constants/poi.data";
+import { Buildings } from "../constants/buildings.data";
 
 class UtilityService {
   private indoorRange: Range = {
@@ -43,25 +51,37 @@ class UtilityService {
   };
 
   /**
-   * Filters an array of POIs based on users input
+   * Filters an array of POIs or buildings based on users input
    * @param inputText Input text for search
    * @param setSearchResults Function for setting state of search results
    * @param setDisplayValue Function for setting display text of search
    */
   public updateSearchResults = (
     inputText: string,
-    setSearchResults: (poi: POI[]) => void,
+    setSearchResults: (locations: (POI | Building)[]) => void,
     setDisplayValue: (text: string) => void
   ) => {
-    const POIs: POI[] = POIInfo.filter(poi => {
+    const locationsToSearch: (POI | Building)[] = [...POIInfo, ...Buildings];
+    const locations: (POI | Building)[] = locationsToSearch.filter(location => {
+      if (isPOI(location)) {
+        return (
+          location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
+          -1
+        );
+      }
       return (
-        poi.displayName.toUpperCase().search(inputText.toUpperCase()) !== -1
+        location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
+          -1 ||
+        BuildingId[location.id]
+          .toUpperCase()
+          .search(inputText.toUpperCase()) !== -1
       );
     });
 
-    const narrowedPOIs: POI[] = POIs.slice(0, 5);
+    const narrowedLocations: (POI | Building)[] =
+      inputText === "" ? [] : locations.slice(0, 5);
 
-    setSearchResults([...narrowedPOIs]);
+    setSearchResults([...narrowedLocations]);
     setDisplayValue(inputText);
   };
 

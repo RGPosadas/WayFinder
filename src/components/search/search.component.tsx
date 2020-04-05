@@ -2,7 +2,7 @@ import React from "react";
 import { Platform, TextInput, StyleSheet, View, StatusBar } from "react-native";
 import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
-import { POI, TravelState } from "../../types/main";
+import { POI, TravelState, Building } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
   screenWidth,
@@ -17,17 +17,17 @@ import DynamicStylingService from "../../services/dynamic-styling.service";
  */
 interface IProps {
   setUserCurrentLocation: () => void;
-  setEndLocation: (poi: POI) => void;
+  setEndLocation: (location: POI | Building) => void;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
-    userInput: string,
-    setAState: (poi: POI[]) => void,
-    updateInputValue: (text: string) => void
+    inputText: string,
+    setSearchResults: (locations: (POI | Building)[]) => void,
+    setDisplayValue: (text: string) => void
   ) => void;
 }
 
 /**
- * Search component for indoor points of interest's
+ * Search component for POIs and Buildings
  * @param setEndLocation
  * @param setUserCurrentLocation
  * @param setTravelState
@@ -40,18 +40,20 @@ const Search = ({
   updateSearchResults
 }: IProps) => {
   const [value, onChangeText] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState<POI[]>([]);
+  const [searchResults, setSearchResults] = React.useState<(POI | Building)[]>(
+    []
+  );
 
   /**
    * Starts the planning phase of a travel plan. Sets the end location.
    * Sets the start location to user's current location if available.
    *
-   * @param poi A POI which will be set as the end location
+   * @param location A POI or Building which will be set as the end location
    */
-  const setEndLocationAndStartSearch = (poi: POI) => {
+  const setEndLocationAndStartSearch = (location: POI | Building) => {
     setTravelState(TravelState.PLANNING);
     setUserCurrentLocation();
-    setEndLocation(poi);
+    setEndLocation(location);
   };
 
   return (

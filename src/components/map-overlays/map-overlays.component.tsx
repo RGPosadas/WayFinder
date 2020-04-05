@@ -7,7 +7,8 @@ import {
   IndoorInformation,
   POI,
   MarkerLocation,
-  TravelState
+  TravelState,
+  Building
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../constants/style";
 import { getAllCampuses } from "../../constants/campus.data";
@@ -17,13 +18,13 @@ import CustomMarker from "./custom-marker.component";
 import CustomPolygon from "./custom-polygon.component";
 
 interface IProps {
-  onBuildingTap: (id: BuildingId) => void;
+  onBuildingTap: (building: Building) => void;
   tappedBuilding: BuildingId;
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
-  setMarkerLocation: (poi: POI) => void;
-  endLocation: POI;
-  startLocation: MarkerLocation;
+  onPOIMarkerPress: (poi: POI) => void;
+  startLocation: MarkerLocation | Building;
+  endLocation: MarkerLocation | Building;
   travelState: TravelState;
 }
 
@@ -35,7 +36,7 @@ const MapOverlays = ({
   tappedBuilding,
   zoomLevel,
   indoorInformation,
-  setMarkerLocation,
+  onPOIMarkerPress,
   endLocation,
   startLocation,
   travelState
@@ -85,7 +86,7 @@ const MapOverlays = ({
                     : fillColor
                 }
                 onPress={() => {
-                  onBuildingTap(building.id);
+                  onBuildingTap(building);
                 }}
                 testID={`polygon${BuildingId[building.id]}`}
               />
@@ -105,7 +106,7 @@ const MapOverlays = ({
                 key={building.id}
                 location={building.location}
                 onPress={() => {
-                  onBuildingTap(building.id);
+                  onBuildingTap(building);
                 }}
                 text={
                   zoomLevel === ZoomLevel.OUTDOOR
@@ -154,7 +155,7 @@ const MapOverlays = ({
                 location={poi.location}
                 text={poi.displayName}
                 onPress={() => {
-                  setMarkerLocation(poi);
+                  onPOIMarkerPress(poi);
                 }}
               />
             ))}
