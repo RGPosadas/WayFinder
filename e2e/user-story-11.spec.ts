@@ -17,7 +17,7 @@ const setLocation = async (latitude, longitude) => {
   exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
 };
 
-describe("US-14: Indoor Points of Interest", () => {
+describe("US-11: Search Start and Destination Room", () => {
   it("should bring up autocomplete POI list in search mode for both start and destination locations with location services off", async () => {
     // @ts-ignore
     await element(by.id("mapView")).pinchWithAngle("outward", "slow", 0);
