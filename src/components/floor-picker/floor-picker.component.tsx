@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { IndoorInformation, TravelState } from "../../types/main";
+import { IndoorInformation, TravelState, ZoomLevel } from "../../types/main";
 import {
   FLOOR_PICKER_HEIGHT,
   FLOOR_PICKER_TRAVEL_HEIGHT,
@@ -15,6 +15,7 @@ interface IProps {
   indoorInformation: IndoorInformation;
   onFloorPickerButtonPress: (index: number) => void;
   travelState: TravelState;
+  zoomLevel: ZoomLevel;
 }
 
 /**
@@ -26,12 +27,14 @@ interface IProps {
 const FloorPicker = ({
   indoorInformation,
   onFloorPickerButtonPress,
-  travelState
+  travelState,
+  zoomLevel
 }: IProps) => {
   return (
     <>
       {indoorInformation.floors.length > 0 &&
-      indoorInformation.currentFloor !== null ? (
+      indoorInformation.currentFloor !== null &&
+      zoomLevel === ZoomLevel.INDOOR ? (
         <View
           style={StyleSheet.flatten([
             styles.container,

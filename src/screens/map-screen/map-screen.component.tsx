@@ -299,6 +299,7 @@ const MapScreen = () => {
           indoorInformation={indoorInformation}
           onFloorPickerButtonPress={onFloorPickerButtonPress}
           travelState={travelState}
+          zoomLevel={zoomLevel}
         />
 
         <BuildingInformation
