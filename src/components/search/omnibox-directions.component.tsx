@@ -34,7 +34,7 @@ import {
   INACTIVE_ICON_COLOR,
   screenWidth,
   CURRENT_LOCATION_DISPLAY_TEXT
-} from "../../constants/style";
+} from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
 

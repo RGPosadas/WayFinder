@@ -3,7 +3,7 @@ import BuildingInformation from "../src/components/building-information/building
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { BuildingId } from "../src/types/main";
-import { Buildings } from "../src/constants/buildings.data";
+import { Buildings } from "../src/constants";
 
 describe("BuildingInformation component", () => {
   it("should match snapshot", () => {

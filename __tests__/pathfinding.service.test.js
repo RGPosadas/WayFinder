@@ -1,6 +1,5 @@
 import * as testData from "./__testData__/pathfinding.data";
-import { POIInfo } from "../src/constants/poi.data";
-import * as floors from "../src/constants/floors.data";
+import { POIInfo, buildingFloors } from "../src/constants";
 import { BuildingId } from "../src/types/main";
 import PathFindingService from "../src/services/pathfinding.service";
 
@@ -10,7 +9,7 @@ describe("Find the shortest path on a given floor", () => {
     travelPathToLinePath
   } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
-    const travelNodes = floors.buildingFloors.find(
+    const travelNodes = buildingFloors.find(
       floor => floor.buildingId === BuildingId.H && floor.level === 8
     ).travelNodes;
     const shortest = findPathOnFloor(
@@ -23,7 +22,7 @@ describe("Find the shortest path on a given floor", () => {
   });
 
   it("should return the shortest path between two given locations on H 9th floor", () => {
-    const travelNodes = floors.buildingFloors.find(
+    const travelNodes = buildingFloors.find(
       floor => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(
@@ -48,7 +47,7 @@ describe("Find the shortest path on a given floor", () => {
   });
 
   it("should return one line only between two locations next to each other", () => {
-    const travelNodes = floors.buildingFloors.find(
+    const travelNodes = buildingFloors.find(
       floor => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(
@@ -61,7 +60,7 @@ describe("Find the shortest path on a given floor", () => {
   });
 
   it("should return one line only between two locations near the edges of a line", () => {
-    const travelNodes = floors.buildingFloors.find(
+    const travelNodes = buildingFloors.find(
       floor => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(

@@ -5,10 +5,10 @@ import Autocomplete from "./autocomplete.component";
 import { POI, TravelState, Building } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
-  screenWidth,
   CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR
-} from "../../constants/style";
+  WHITE_BACKGROUND_COLOR,
+  screenWidth
+} from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 
 /**

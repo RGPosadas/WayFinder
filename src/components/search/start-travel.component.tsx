@@ -4,10 +4,10 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
 import {
   CONCORDIA_RED,
+  WHITE_BACKGROUND_COLOR,
   START_TRAVEL_HEIGHT,
-  BUTTON_BORDER_COLOR,
-  WHITE_BACKGROUND_COLOR
-} from "../../constants/style";
+  Circle
+} from "../../styles";
 import { TravelState } from "../../types/main";
 
 interface IProps {
@@ -51,18 +51,12 @@ const styles = StyleSheet.create({
     height: 60
   },
   button: {
+    ...Circle,
     flex: 1,
-    borderWidth: 1,
-    borderColor: BUTTON_BORDER_COLOR,
-    alignItems: "center",
-    justifyContent: "center",
-    width: 60,
-    height: 60,
     backgroundColor: CONCORDIA_RED,
-    borderRadius: 50,
-    position: "absolute",
     top: 0,
-    left: 0
+    left: 0,
+    position: "absolute"
   },
   arrowIcon: { color: WHITE_BACKGROUND_COLOR }
 });

@@ -3,9 +3,11 @@ import { StyleSheet, View } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { MaterialIcons } from "@expo/vector-icons";
 import {
+  LOCATION_BUTTON_COLOR,
   BUILDING_LOCATION_HEIGHT,
-  MAP_BUTTON_RIGHT
-} from "../../constants/style";
+  MAP_BUTTON_RIGHT,
+  Circle
+} from "../../styles";
 
 export interface IProps {
   onLocationButtonPress: () => void;
@@ -38,14 +40,8 @@ const styles = StyleSheet.create({
     right: MAP_BUTTON_RIGHT
   },
   button: {
-    borderWidth: 1,
-    borderColor: "rgba(0,0,0,0.2)",
-    alignItems: "center",
-    justifyContent: "center",
-    width: 60,
-    height: 60,
-    backgroundColor: "#fff",
-    borderRadius: 50
+    ...Circle,
+    backgroundColor: LOCATION_BUTTON_COLOR
   }
 });
 

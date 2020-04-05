@@ -9,11 +9,11 @@ import {
 import { Entypo } from "@expo/vector-icons";
 import { POI, BuildingId, Building, isPOI } from "../../types/main";
 import {
-  screenWidth,
   LIST_BACKGROUND_COLOR,
   LIST_ITEM_BORDER_COLOR,
-  LIST_ITEM_TEXT_COLOR
-} from "../../constants/style";
+  LIST_ITEM_TEXT_COLOR,
+  screenWidth
+} from "../../styles";
 
 /**
  * the name and types of the properties types accepted

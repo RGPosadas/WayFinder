@@ -9,7 +9,7 @@ import {
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR,
   BUTTON_BORDER_COLOR
-} from "../../constants/style";
+} from "../../styles";
 
 interface IProps {
   indoorInformation: IndoorInformation;

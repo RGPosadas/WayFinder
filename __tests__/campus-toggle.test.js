@@ -1,9 +1,9 @@
 import React from "react";
 import CampusToggle from "../src/components/campus-toggle/campus-toggle.component";
-import { CONCORDIA_RED, INACTIVE_BUTTON_COLOR } from "../src/constants/style";
+import { CONCORDIA_RED, INACTIVE_BUTTON_COLOR } from "../src/styles";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import { getCampusById } from "../src/constants/campus.data";
+import { getCampusById } from "../src/constants";
 import { CampusId } from "../src/types/main";
 
 describe("CampusToggle component", () => {
