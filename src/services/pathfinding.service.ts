@@ -10,7 +10,6 @@ import {
   Line,
   POICategory,
   FloorPath,
-  ConnectorPOICategory,
   ConnectorPOI,
 } from "../types/main";
 import * as floors from "../constants/floors.data";
@@ -65,7 +64,7 @@ class PathFindingService {
    *
    * @returns The list of paths to travese between the start and end POIs
    */
-  public findBuildingPath = (start: POI, end: POI): FloorPath[] | null => {
+  private findBuildingPath = (start: POI, end: POI): FloorPath[] | null => {
     // Get travel nodes for the floors of the start and end of path
     const startFloorNodes = floors.buildingFloors.find(
       (floor) =>
@@ -129,7 +128,7 @@ class PathFindingService {
    *
    * @returns A list of connectorPOIs
    */
-  public findReachableConnectorsFromPOI = (
+  private findReachableConnectorsFromPOI = (
     poi: POI,
     escalatorDirection: POICategory
   ): ConnectorPOI[] => {
@@ -152,7 +151,7 @@ class PathFindingService {
    *
    * @returns The distance traversed by the path
    */
-  public getPathDistance = (path: Line[]): number => {
+  private getPathDistance = (path: Line[]): number => {
     let distance = 0;
     path.forEach((line) => {
       distance += getDistance(line[0], line[1]);
@@ -170,7 +169,7 @@ class PathFindingService {
    *
    * @returns List of valid paths
    */
-  public getPathsBetweenPOIAndConnectors = (
+  private getPathsBetweenPOIAndConnectors = (
     poi: POI,
     connectors: ConnectorPOI[],
     nodes: TravelNode[]
@@ -197,7 +196,7 @@ class PathFindingService {
    *
    * @returns The shortest FloorPath
    */
-  public getShortestPathThroughBuilding = (
+  private getShortestPathThroughBuilding = (
     startFloorPathsToConnectors: FloorPath[],
     endFloorPathsToConnectors: FloorPath[]
   ): FloorPath[] | null => {
@@ -211,7 +210,7 @@ class PathFindingService {
           category === startFloorPath.connectorType
       );
 
-      if (endFloorPath === null) {
+      if (endFloorPath === undefined) {
         return;
       }
       const distance =
@@ -232,8 +231,8 @@ class PathFindingService {
    * Returns null if no path is found.
    *
    * @param travelNodes the travel nodes to traverse
-   * @param start
-   * @param end
+   * @param start start location
+   * @param end end location
    *
    * @returns A list of TravelEdges
    */
@@ -319,15 +318,6 @@ class PathFindingService {
       });
     }
     return lines;
-  };
-
-  /**
-   * Returns a list of lines equivalent to a list of TravelNodes
-   * @param travelPath List of TravelEdges
-   * @returns List of equivalent Lines
-   */
-  public travelPathToLinePath = (travelPath: TravelEdge[]): Line[] => {
-    return travelPath.map((edge) => [edge[0].location, edge[1].location]);
   };
 
   /**
