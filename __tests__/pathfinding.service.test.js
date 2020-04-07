@@ -1,5 +1,6 @@
 import * as testData from "./__testData__/pathfinding.data";
 import { POIInfo, buildingFloors } from "../src/constants";
+import * as constants from "../src/constants";
 import { BuildingId, POICategory } from "../src/types/main";
 import PathFindingService from "../src/services/pathfinding.service";
 
@@ -73,35 +74,103 @@ describe("Find the shortest path on a given floor", () => {
     expect(shortest).toEqual(testData.h96119toH9619);
   });
 
-  it("should return the shortest path between two given locations on H 8th floor", () => {
-    const path = findPathBetweenPOIs(
-      {
-        id: "4772ab52-ecf7-4711-990d-86b4c53871e4",
-        displayName: "H961-17",
-
-        description: "",
-        location: {
-          latitude: 45.497643,
-          longitude: -73.578983
+  it("should return a path that uses stairs as connectors", () => {
+    constants.buildingFloors = buildingFloors.push({
+      id: 3,
+      buildingId: BuildingId.H,
+      level: 3,
+      bounds: null,
+      image: null,
+      travelNodes: [
+        {
+          id: 0,
+          location: {
+            latitude: 45.497411422038525,
+            longitude: -73.57930387743083
+          },
+          children: [1]
         },
-        buildingId: BuildingId.H,
-        level: 9,
-        category: POICategory.Classroom
+        {
+          id: 1,
+          location: {
+            latitude: 45.49735509062119,
+            longitude: -73.57918419446206
+          },
+          children: [0]
+        }
+      ]
+    });
+
+    constants.POIInfo.push({
+      id: "8dd47eee-23b4-437c-bd74-aad3876f83dc",
+      displayName: "Stairs 1",
+      description: "",
+      location: {
+        latitude: 45.497354,
+        longitude: -73.578713
       },
-      {
-        id: "8819617a-ad2e-4090-b929-8ee8c0951dc1",
-        displayName: "Men's Bathroom",
+      buildingId: BuildingId.H,
+      level: 3,
+      category: POICategory.Stairs
+    });
 
-        description: "JMBS first 1st floor men's washroom",
-        location: {
-          latitude: 45.49533465172625,
-          longitude: -73.57934289831273
-        },
-        buildingId: BuildingId.MB,
-        level: 1,
-        category: POICategory.Washroom
-      }
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName, level }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ displayName, level }) => displayName === "Stairs 1" && level === 3
+      )
     );
-    expect(path).toEqual(null);
+    expect(path[0].connectorType).toEqual(POICategory.Stairs);
+    expect(path[1].connectorType).toEqual(POICategory.Stairs);
+  });
+
+  it("should return the shortest path between two given POIs in Hall and JMSB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === BuildingId.MB &&
+          displayName === "Men's Bathroom" &&
+          level === 1
+      )
+    );
+    expect(path.length).toBe(3);
+    expect(path).toEqual(testData.h96117toMBMensBathroom);
+  });
+
+  it("should return the shortest path between two given POIs on H 9th floor", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ displayName, level }) =>
+          displayName === "Men's Bathroom" && level === 9
+      )
+    );
+    expect(path.length).toBe(1);
+    expect(path).toEqual(testData.h96117toH9MensBathroom);
+  });
+
+  it("should return the shortest path between two given POIs from H 9th to 8th floor", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          displayName === "Women's Bathroom" && level === 8
+      )
+    );
+    expect(path.length).toBe(2);
+    expect(path).toEqual(testData.h9117toH8WomensBathroom);
+  });
+
+  it("should return the shortest path between two given POIs from H 8th to 9th floor", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          displayName === "Women's Bathroom" && level === 8
+      ),
+      POIInfo.find(({ displayName }) => displayName === "H961-17")
+    );
+    expect(path.length).toBe(2);
+    expect(path).toEqual(testData.h8WomensBathroomToH9117);
   });
 });

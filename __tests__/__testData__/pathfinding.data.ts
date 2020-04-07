@@ -4,7 +4,9 @@ import {
   BuildingFloor,
   TravelNode,
   Line,
+  POICategory,
 } from "../../src/types/main";
+import { buildingFloors, POIInfo } from "../../src/constants";
 /**
  * This file contains expected results and a fixture for the
  * pathfinding tests.
@@ -344,5 +346,199 @@ export const brokenGraph: TravelNode[] = [
       longitude: -73.578713,
     },
     children: [17],
+  },
+];
+
+export const h96117toMBMensBathroom = [
+  {
+    buildingId: 15,
+    connectorType: 7,
+    level: 9,
+    path: [
+      [
+        { latitude: 45.497269, longitude: -73.578862 },
+        { latitude: 45.497223, longitude: -73.578861 },
+      ],
+      [
+        { latitude: 45.497223, longitude: -73.578861 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497563, longitude: -73.578837 },
+      ],
+      [
+        { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497643, longitude: -73.578983 },
+      ],
+    ],
+  },
+  {
+    buildingId: 15,
+    connectorType: 7,
+    level: 8,
+    path: [
+      [
+        { latitude: 45.49731, longitude: -73.57901 },
+        { latitude: 45.49731, longitude: -73.57901 },
+      ],
+    ],
+  },
+  {
+    buildingId: 21,
+    level: 1,
+    path: [
+      [
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
+        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
+      ],
+      [
+        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
+        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
+      ],
+      [
+        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
+        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
+      ],
+      [
+        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
+        { latitude: 45.49533465172625, longitude: -73.57934289831273 },
+      ],
+    ],
+  },
+];
+
+export const h96117toH9MensBathroom = [
+  {
+    buildingId: 15,
+    level: 9,
+    path: [
+      [
+        { latitude: 45.497101, longitude: -73.578807 },
+        { latitude: 45.497154, longitude: -73.578732 },
+      ],
+      [
+        { latitude: 45.497154, longitude: -73.578732 },
+        { latitude: 45.497223, longitude: -73.578861 },
+      ],
+      [
+        { latitude: 45.497223, longitude: -73.578861 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497563, longitude: -73.578837 },
+      ],
+      [
+        { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497643, longitude: -73.578983 },
+      ],
+    ],
+  },
+];
+
+export const h9117toH8WomensBathroom = [
+  {
+    buildingId: 15,
+    connectorType: 7,
+    level: 9,
+    path: [
+      [
+        { latitude: 45.497269, longitude: -73.578862 },
+        { latitude: 45.497223, longitude: -73.578861 },
+      ],
+      [
+        { latitude: 45.497223, longitude: -73.578861 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497563, longitude: -73.578837 },
+      ],
+      [
+        { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497643, longitude: -73.578983 },
+      ],
+    ],
+  },
+  {
+    buildingId: 15,
+    connectorType: 7,
+    level: 8,
+    path: [
+      [
+        { latitude: 45.49731, longitude: -73.57901 },
+        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+      ],
+      [
+        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+      ],
+      [
+        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+      ],
+      [
+        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+        { latitude: 45.497239, longitude: -73.578674 },
+      ],
+    ],
+  },
+];
+
+export const h8WomensBathroomToH9117 = [
+  {
+    buildingId: 15,
+    connectorType: 6,
+    level: 8,
+    path: [
+      [
+        { latitude: 45.497267, longitude: -73.578869 },
+        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+      ],
+      [
+        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+      ],
+      [
+        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+        { latitude: 45.497239, longitude: -73.578674 },
+      ],
+    ],
+  },
+  {
+    buildingId: 15,
+    connectorType: 6,
+    level: 9,
+    path: [
+      [
+        { latitude: 45.497317, longitude: -73.57901 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497563, longitude: -73.578837 },
+      ],
+      [
+        { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497643, longitude: -73.578983 },
+      ],
+    ],
   },
 ];
