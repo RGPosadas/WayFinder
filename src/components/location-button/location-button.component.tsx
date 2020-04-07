@@ -6,7 +6,7 @@ import {
   LOCATION_BUTTON_COLOR,
   BUILDING_LOCATION_HEIGHT,
   MAP_BUTTON_RIGHT,
-  Circle
+  Circle,
 } from "../../styles";
 
 export interface IProps {
@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: BUILDING_LOCATION_HEIGHT,
-    right: MAP_BUTTON_RIGHT
+    right: MAP_BUTTON_RIGHT,
   },
   button: {
     ...Circle,
-    backgroundColor: LOCATION_BUTTON_COLOR
-  }
+    backgroundColor: LOCATION_BUTTON_COLOR,
+  },
 });
 
 export default LocationButton;

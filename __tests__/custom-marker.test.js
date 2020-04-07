@@ -50,10 +50,7 @@ describe("CustomMarker component", () => {
       />
     );
 
-    const bubble = wrapper
-      .find({ testID: "buildingBubble" })
-      .at(0)
-      .props();
+    const bubble = wrapper.find({ testID: "buildingBubble" }).at(0).props();
     expect(bubble).toHaveProperty(
       ["style", "backgroundColor"],
       BUILDING_MARKER_COLOR

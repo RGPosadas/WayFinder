@@ -6,7 +6,7 @@ import {
   CONCORDIA_RED,
   WHITE_BACKGROUND_COLOR,
   START_TRAVEL_HEIGHT,
-  Circle
+  Circle,
 } from "../../styles";
 import { TravelState } from "../../types/main";
 
@@ -45,10 +45,10 @@ const styles = StyleSheet.create({
     right: 20,
     width: 60,
     zIndex: 1,
-    height: 60
+    height: 60,
   },
   touchable: {
-    height: 60
+    height: 60,
   },
   button: {
     ...Circle,
@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
     backgroundColor: CONCORDIA_RED,
     top: 0,
     left: 0,
-    position: "absolute"
+    position: "absolute",
   },
-  arrowIcon: { color: WHITE_BACKGROUND_COLOR }
+  arrowIcon: { color: WHITE_BACKGROUND_COLOR },
 });
 
 export default StartTravel;

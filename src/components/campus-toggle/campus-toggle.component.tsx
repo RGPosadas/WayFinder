@@ -4,7 +4,7 @@ import {
   View,
   Text,
   Dimensions,
-  TouchableHighlight
+  TouchableHighlight,
 } from "react-native";
 import { CampusId, Region } from "../../types/main";
 
@@ -13,7 +13,7 @@ import {
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR,
   CAMPUS_TOGGLE_HEIGHT,
-  screenWidth
+  screenWidth,
 } from "../../styles";
 
 interface IProps {
@@ -56,7 +56,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
         >
           <Text
             style={[
-              isSGW ? styles.buttonTextSelected : styles.buttonTextNotSelected
+              isSGW ? styles.buttonTextSelected : styles.buttonTextNotSelected,
             ]}
           >
             SGW
@@ -73,7 +73,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
         >
           <Text
             style={[
-              isSGW ? styles.buttonTextNotSelected : styles.buttonTextSelected
+              isSGW ? styles.buttonTextNotSelected : styles.buttonTextSelected,
             ]}
           >
             Loyola
@@ -95,34 +95,34 @@ const styles = StyleSheet.create({
     height: CAMPUS_TOGGLE_HEIGHT,
     width: screenWidth,
     bottom: 0,
-    zIndex: 0
+    zIndex: 0,
   },
   buttonSelected: {
     flex: 1,
     width: screenWidth / 2,
     alignItems: "center",
-    backgroundColor: CONCORDIA_RED
+    backgroundColor: CONCORDIA_RED,
   },
   buttonNotSelected: {
     flex: 1,
     width: screenWidth / 2,
     alignItems: "center",
-    backgroundColor: INACTIVE_BUTTON_COLOR
+    backgroundColor: INACTIVE_BUTTON_COLOR,
   },
   buttonTextSelected: {
     textAlign: "center",
     paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: INACTIVE_BUTTON_COLOR
+    color: INACTIVE_BUTTON_COLOR,
   },
   buttonTextNotSelected: {
     textAlign: "center",
     paddingTop: padding,
     fontSize: 20,
     fontWeight: "bold",
-    color: CONCORDIA_RED
-  }
+    color: CONCORDIA_RED,
+  },
 });
 
 export default CampusToggle;

@@ -12,11 +12,11 @@ const mockPOIs = [
     description: "",
     location: {
       latitude: 45.497482,
-      longitude: -73.579034
+      longitude: -73.579034,
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Classroom
+    category: POICategory.Classroom,
   },
   {
     id: "f5a7d95c-170b-48c9-aac3-e9faafa6033d",
@@ -24,12 +24,12 @@ const mockPOIs = [
     description: "",
     location: {
       latitude: 45.497253,
-      longitude: -73.579251
+      longitude: -73.579251,
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Classroom
-  }
+    category: POICategory.Classroom,
+  },
 ];
 
 describe("AutoComplete component", () => {

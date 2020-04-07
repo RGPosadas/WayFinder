@@ -6,11 +6,11 @@ import PathFindingService from "../src/services/pathfinding.service";
 describe("Find the shortest path on a given floor", () => {
   const {
     findPathOnFloor,
-    travelPathToLinePath
+    travelPathToLinePath,
   } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
     const travelNodes = buildingFloors.find(
-      floor => floor.buildingId === BuildingId.H && floor.level === 8
+      (floor) => floor.buildingId === BuildingId.H && floor.level === 8
     ).travelNodes;
     const shortest = findPathOnFloor(
       travelNodes,
@@ -23,7 +23,7 @@ describe("Find the shortest path on a given floor", () => {
 
   it("should return the shortest path between two given locations on H 9th floor", () => {
     const travelNodes = buildingFloors.find(
-      floor => floor.buildingId === BuildingId.H && floor.level === 9
+      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(
       travelNodes,
@@ -48,7 +48,7 @@ describe("Find the shortest path on a given floor", () => {
 
   it("should return one line only between two locations next to each other", () => {
     const travelNodes = buildingFloors.find(
-      floor => floor.buildingId === BuildingId.H && floor.level === 9
+      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(
       travelNodes,
@@ -61,7 +61,7 @@ describe("Find the shortest path on a given floor", () => {
 
   it("should return one line only between two locations near the edges of a line", () => {
     const travelNodes = buildingFloors.find(
-      floor => floor.buildingId === BuildingId.H && floor.level === 9
+      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
     ).travelNodes;
     const shortest = findPathOnFloor(
       travelNodes,

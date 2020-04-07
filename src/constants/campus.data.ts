@@ -9,7 +9,7 @@ const Campuses: Campus[] = [
       latitude: 45.495376377001215,
       longitude: -73.5777054168284,
       latitudeDelta: 0.013275900094058102,
-      longitudeDelta: 0.009238533675670624
+      longitudeDelta: 0.009238533675670624,
     },
     buildings: [
       BuildingId.B,
@@ -48,8 +48,8 @@ const Campuses: Campus[] = [
       BuildingId.V,
       BuildingId.VA,
       BuildingId.X,
-      BuildingId.Z
-    ]
+      BuildingId.Z,
+    ],
   },
   {
     id: CampusId.Loyola,
@@ -59,7 +59,7 @@ const Campuses: Campus[] = [
       latitude: 45.45840118394234,
       latitudeDelta: 0.013102120988982335,
       longitude: -73.63942572847009,
-      longitudeDelta: 0.009821243584156036
+      longitudeDelta: 0.009821243584156036,
     },
     buildings: [
       BuildingId.AD,
@@ -88,9 +88,9 @@ const Campuses: Campus[] = [
       BuildingId.SP,
       BuildingId.TA,
       BuildingId.VE,
-      BuildingId.VL
-    ]
-  }
+      BuildingId.VL,
+    ],
+  },
 ];
 
 /**
@@ -98,7 +98,7 @@ const Campuses: Campus[] = [
  * @param id Id of the campus
  */
 export const getCampusById = (id: CampusId): Campus => {
-  return Campuses.filter(campus => campus.id === id)[0];
+  return Campuses.filter((campus) => campus.id === id)[0];
 };
 
 /**

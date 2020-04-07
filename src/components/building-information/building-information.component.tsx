@@ -6,7 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   Linking,
-  Animated
+  Animated,
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
@@ -15,7 +15,7 @@ import { BuildingId } from "../../types/main";
 import {
   CONCORDIA_RED,
   WHITE_BACKGROUND_COLOR,
-  screenHeight
+  screenHeight,
 } from "../../styles";
 
 interface IProps {
@@ -40,7 +40,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
     super(props);
 
     this.state = {
-      allowDragging: true
+      allowDragging: true,
     };
   }
 
@@ -54,7 +54,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
         draggableRange={draggableRange}
         animatedValue={this._draggedValue}
         showBackdrop={false}
-        ref={c => (this._panel = c)}
+        ref={(c) => (this._panel = c)}
         // Speed of the panel
         friction={0.8}
       >
@@ -70,7 +70,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
             >
               <Feather name="x" size={40} color="white" />
             </TouchableOpacity>
-            {Buildings.filter(building => building.id === tappedBuilding).map(
+            {Buildings.filter((building) => building.id === tappedBuilding).map(
               (building, key) => {
                 return (
                   <View testID="panel" key={key}>
@@ -115,7 +115,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                           )}
                         </View>
                         {building.departments &&
-                          building.departments.map(department => {
+                          building.departments.map((department) => {
                             return (
                               <View key={department.id} style={styles.listItem}>
                                 <Text style={styles.normalText}>
@@ -146,7 +146,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                           )}
 
                           {building.services &&
-                            building.services.map(service => {
+                            building.services.map((service) => {
                               return (
                                 <View key={service.id} style={styles.listItem}>
                                   <Text style={styles.normalText}>
@@ -185,17 +185,17 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: screenHeight / 2,
-    backgroundColor: WHITE_BACKGROUND_COLOR
+    backgroundColor: WHITE_BACKGROUND_COLOR,
   },
   header: {
     justifyContent: "space-between",
-    display: "flex"
+    display: "flex",
   },
   uparrow: {
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
-    flex: 5
+    flex: 5,
   },
   xButton: {
     position: "absolute",
@@ -205,38 +205,38 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: CONCORDIA_RED,
     display: "flex",
-    zIndex: 1
+    zIndex: 1,
   },
   xButtonText: {
     color: "white",
-    fontSize: 20
+    fontSize: 20,
   },
   flexTextContainer: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   listItem: {
     marginLeft: 20,
     display: "flex",
-    flexDirection: "row"
+    flexDirection: "row",
   },
   headerText: {
-    fontSize: 24
+    fontSize: 24,
   },
   normalText: {
-    fontSize: 16
+    fontSize: 16,
   },
   linkText: {
     fontSize: 16,
     color: "blue",
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
   },
   scrollView: { height: 300 },
   buildingInformation: {
     marginLeft: 10,
-    marginRight: 10
-  }
+    marginRight: 10,
+  },
 });
 
 export default BuildingInformation;

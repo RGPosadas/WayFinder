@@ -6,7 +6,7 @@ import {
   CONCORDIA_RED,
   BUILDING_MARKER_COLOR,
   CUSTOM_MARKER_COLOR,
-  ARROW_MARKER
+  ARROW_MARKER,
 } from "../../styles";
 
 interface IProps {
@@ -32,7 +32,7 @@ const CustomMarker = ({
   onPress,
   text,
   markerType,
-  testID
+  testID,
 }: IProps) => {
   switch (markerType) {
     case "campus":
@@ -63,13 +63,13 @@ const CustomMarker = ({
         <View
           style={StyleSheet.flatten([
             styles.arrowBorder,
-            { borderTopColor: backgroundColor }
+            { borderTopColor: backgroundColor },
           ])}
         />
         <View
           style={StyleSheet.flatten([
             styles.arrow,
-            { borderTopColor: backgroundColor }
+            { borderTopColor: backgroundColor },
           ])}
         />
       </View>
@@ -82,24 +82,24 @@ export default CustomMarker;
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
-    alignSelf: "flex-start"
+    alignSelf: "flex-start",
   },
   bubble: {
     flex: 0,
     flexDirection: "row",
     alignSelf: "flex-start",
     padding: 3,
-    borderRadius: 3
+    borderRadius: 3,
   },
   text: {
-    color: CUSTOM_MARKER_COLOR
+    color: CUSTOM_MARKER_COLOR,
   },
   arrow: {
     ...ARROW_MARKER,
-    marginTop: -9
+    marginTop: -9,
   },
   arrowBorder: {
     ...ARROW_MARKER,
-    marginTop: -0.5
-  }
+    marginTop: -0.5,
+  },
 });

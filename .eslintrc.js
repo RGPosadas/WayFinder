@@ -9,19 +9,19 @@ module.exports = {
     "prettier/@typescript-eslint",
     "prettier/react",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
   ],
   parserOptions: {
     project: "./tsconfig.json",
-    tsconfigRootDir: __dirname
+    tsconfigRootDir: __dirname,
   },
   rules: {
     "@typescript-eslint/no-use-before-define": [
       "error",
       {
         functions: true,
-        variables: false
-      }
+        variables: false,
+      },
     ],
     "import/prefer-default-export": "off",
     "no-shadow": "off",
@@ -31,6 +31,6 @@ module.exports = {
     "react/jsx-props-no-spreading": ["off"],
     "react/no-array-index-key": "off",
     "no-underscore-dangle": "off",
-    "no-return-assign": "off"
-  }
+    "no-return-assign": "off",
+  },
 };

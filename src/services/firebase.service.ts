@@ -21,10 +21,7 @@ class FirebaseService {
    * @param object object to save
    */
   public saveToDatabase = async (path: string, object: any) => {
-    return firebase
-      .database()
-      .ref(path)
-      .set(object);
+    return firebase.database().ref(path).set(object);
   };
 }
 export default FirebaseService;

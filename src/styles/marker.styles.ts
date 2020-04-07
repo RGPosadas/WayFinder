@@ -3,5 +3,5 @@ export const ARROW_MARKER: Object = {
   borderWidth: 4,
   borderColor: "transparent",
   borderTopColor: "#AA2B45",
-  alignSelf: "center"
+  alignSelf: "center",
 };

@@ -34,7 +34,7 @@ describe("MapOverlays component", () => {
     const mockOnBuildingTap = jest.fn();
     const fakeIndoorInformation = {
       currentFloor: { index: 0, level: 8 },
-      floors: [{ index: 0, level: 8 }]
+      floors: [{ index: 0, level: 8 }],
     };
     const wrapper = shallow(
       <MapOverlays

@@ -23,7 +23,7 @@ import {
   POI,
   MarkerLocation,
   TravelState,
-  Building
+  Building,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles";
@@ -38,7 +38,7 @@ const MapScreen = () => {
     latitude: 0,
     longitude: 0,
     latitudeDelta: 0,
-    longitudeDelta: 0
+    longitudeDelta: 0,
   });
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId | null>(null);
@@ -47,7 +47,7 @@ const MapScreen = () => {
   const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
     {
       currentFloor: null,
-      floors: []
+      floors: [],
     }
   );
   const [endLocation, setEndLocation] = useState<
@@ -121,11 +121,11 @@ const MapScreen = () => {
   const onLocationButtonPress = (): void => {
     LocationService.getInstance()
       .getCurrentLocationAsync(() => {})
-      .then(response => {
+      .then((response) => {
         // Set current location
         setCurrentLocation({
           latitude: response.coords.latitude,
-          longitude: response.coords.longitude
+          longitude: response.coords.longitude,
         });
 
         // Relocate view
@@ -133,17 +133,17 @@ const MapScreen = () => {
           latitude: response.coords.latitude,
           longitude: response.coords.longitude,
           latitudeDelta: currentRegion.latitudeDelta,
-          longitudeDelta: currentRegion.longitudeDelta
+          longitudeDelta: currentRegion.longitudeDelta,
         });
 
         // Attempt to find the building the user is in.
-        Buildings.forEach(building => {
+        Buildings.forEach((building) => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
             onBuildingTap(building);
           }
         });
       })
-      .catch(error => {});
+      .catch((error) => {});
   };
 
   /**
@@ -156,19 +156,19 @@ const MapScreen = () => {
     const floors: IndoorFloor[] = buildingInfo.levels.map((floor: any) => {
       return {
         level: Number(floor.name),
-        index: floor.index
+        index: floor.index,
       };
     });
 
     const currentFloor: IndoorFloor =
       floors.length > 0
         ? floors.filter(
-            floor => floor.index === buildingInfo.activeLevelIndex
+            (floor) => floor.index === buildingInfo.activeLevelIndex
           )[0]
         : null;
     const temp: IndoorInformation = {
       currentFloor,
-      floors
+      floors,
     };
     setIndoorInformation(temp);
   };
@@ -182,9 +182,9 @@ const MapScreen = () => {
     (mapRef.current as any).setIndoorActiveLevelIndex(index);
     setIndoorInformation({
       currentFloor: indoorInformation.floors.filter(
-        floor => floor.index === index
+        (floor) => floor.index === index
       )[0],
-      floors: indoorInformation.floors
+      floors: indoorInformation.floors,
     });
   };
 
@@ -232,13 +232,13 @@ const MapScreen = () => {
         .getCurrentLocationAsync(() => {
           setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
         })
-        .then(location => {
+        .then((location) => {
           setCurrentLocation({
             latitude: location.coords.latitude,
-            longitude: location.coords.latitude
+            longitude: location.coords.latitude,
           });
         })
-        .catch(error => {
+        .catch((error) => {
           setStartLocationDisplay(null);
         });
     }
@@ -288,9 +288,9 @@ const MapScreen = () => {
           showsBuildings
           showsUserLocation
           initialRegion={currentRegion}
-          onRegionChangeComplete={region => handleOnRegionChange(region)}
+          onRegionChangeComplete={(region) => handleOnRegionChange(region)}
           // @ts-ignore
-          onIndoorBuildingFocused={event => onIndoorViewEntry(event)}
+          onIndoorBuildingFocused={(event) => onIndoorViewEntry(event)}
           showsIndoorLevelPicker={false}
           toolbarEnabled={false}
         >
@@ -337,24 +337,24 @@ const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     justifyContent: "flex-end",
-    alignItems: "center"
+    alignItems: "center",
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    zIndex: 0
+    zIndex: 0,
   },
   campusToggle: {
     position: "absolute",
-    bottom: 0
+    bottom: 0,
   },
   marker: {
-    backgroundColor: "red"
+    backgroundColor: "red",
   },
   flashMessageIOS: {
     marginTop: 100,
     height: 1,
-    zIndex: 0
-  }
+    zIndex: 0,
+  },
 });
 
 export default MapScreen;

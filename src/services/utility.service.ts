@@ -4,24 +4,24 @@ import {
   POI,
   Building,
   isPOI,
-  BuildingId
+  BuildingId,
 } from "../types/main";
 import { Buildings, POIInfo } from "../constants";
 
 class UtilityService {
   private indoorRange: Range = {
     min: 0,
-    max: 0.0025
+    max: 0.0025,
   };
 
   private outdoorRange: Range = {
     min: 0.0025,
-    max: 0.02
+    max: 0.02,
   };
 
   private campusRange: Range = {
     min: 0.02,
-    max: 0.09
+    max: 0.09,
   };
 
   private static instance = new UtilityService();
@@ -61,21 +61,24 @@ class UtilityService {
     setDisplayValue: (text: string) => void
   ) => {
     const locationsToSearch: (POI | Building)[] = [...POIInfo, ...Buildings];
-    const locations: (POI | Building)[] = locationsToSearch.filter(location => {
-      if (isPOI(location)) {
+    const locations: (POI | Building)[] = locationsToSearch.filter(
+      (location) => {
+        if (isPOI(location)) {
+          return (
+            location.displayName
+              .toUpperCase()
+              .search(inputText.toUpperCase()) !== -1
+          );
+        }
         return (
           location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
-          -1
+            -1 ||
+          BuildingId[location.id]
+            .toUpperCase()
+            .search(inputText.toUpperCase()) !== -1
         );
       }
-      return (
-        location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
-          -1 ||
-        BuildingId[location.id]
-          .toUpperCase()
-          .search(inputText.toUpperCase()) !== -1
-      );
-    });
+    );
 
     const narrowedLocations: (POI | Building)[] =
       inputText === "" ? [] : locations.slice(0, 5);

@@ -8,6 +8,6 @@ repos:
       - id: end-of-file-fixer
       - id: check-yaml
   - repo: https://github.com/prettier/prettier
-    rev: "524cd96fee6153259f97b8176c51928dfec21da8"
+    rev: "2.0.4"
     hooks:
       - id: prettier

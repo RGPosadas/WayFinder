@@ -28,15 +28,11 @@ describe("US-11: Search Start and Destination Room", () => {
 
     await element(by.id("searchInput")).tap();
     await element(by.id("searchInput")).typeText("H820");
-    await element(by.id("touchableList"))
-      .atIndex(0)
-      .tap();
+    await element(by.id("touchableList")).atIndex(0).tap();
     await element(by.text("Deny")).tap();
 
     await element(by.id("searchInputInitialLocation")).typeText("H831");
-    await element(by.id("touchableList"))
-      .atIndex(0)
-      .tap();
+    await element(by.id("touchableList")).atIndex(0).tap();
 
     await element(by.id("timePickerButton")).tap();
     await element(by.id("dateTimePicker")).setDatePickerDate("08:30", "HH:mm");
