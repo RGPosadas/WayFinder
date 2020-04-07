@@ -8,13 +8,13 @@ import {
   StatusBar,
   SafeAreaView,
   Text,
-  Image
+  Image,
 } from "react-native";
 import {
   AntDesign,
   FontAwesome,
   MaterialIcons,
-  Entypo
+  Entypo,
 } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import {
@@ -22,7 +22,7 @@ import {
   Location,
   MarkerLocation,
   TravelState,
-  Building
+  Building,
 } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
@@ -33,7 +33,7 @@ import {
   INACTIVE_TEXT_COLOR,
   INACTIVE_ICON_COLOR,
   screenWidth,
-  CURRENT_LOCATION_DISPLAY_TEXT
+  CURRENT_LOCATION_DISPLAY_TEXT,
 } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
@@ -84,18 +84,18 @@ const OmniboxDirections = ({
   setTravelState,
   updateSearchResults,
   startLocationDisplay,
-  setStartLocationDisplay
+  setStartLocationDisplay,
 }: OmniboxDirectionsProps) => {
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
     endLocation.displayName
   );
   const [
     startLocationSearchResults,
-    setStartLocationSearchResults
+    setStartLocationSearchResults,
   ] = React.useState<(POI | Building)[]>(null);
   const [
     endLocationSearchResults,
-    setEndLocationSearchResults
+    setEndLocationSearchResults,
   ] = React.useState<(POI | Building)[]>(null);
   const [date, setDate] = React.useState<Date>(new Date());
   const [dateIsNow, setDateIsNow] = React.useState(true);
@@ -116,7 +116,7 @@ const OmniboxDirections = ({
       setStartLocation({
         id: "User Location",
         displayName: CURRENT_LOCATION_DISPLAY_TEXT,
-        location: currentLocation
+        location: currentLocation,
       });
     }
   });
@@ -173,7 +173,7 @@ const OmniboxDirections = ({
                 key="startLocation"
                 testID="searchInputInitialLocation"
                 style={styles.input}
-                onChangeText={inputText =>
+                onChangeText={(inputText) =>
                   updateSearchResults(
                     inputText,
                     setStartLocationSearchResults,
@@ -195,7 +195,7 @@ const OmniboxDirections = ({
                 selectTextOnFocus
                 style={styles.input}
                 value={endLocationDisplay}
-                onChangeText={inputText =>
+                onChangeText={(inputText) =>
                   updateSearchResults(
                     inputText,
                     setEndLocationSearchResults,
@@ -304,21 +304,21 @@ const styles = StyleSheet.create({
     zIndex: 1,
     width: screenWidth,
     backgroundColor: INACTIVE_BUTTON_COLOR,
-    height: 235
+    height: 235,
   },
   contentContainer: {
     marginLeft: 15,
     marginRight: 15,
-    paddingBottom: 20
+    paddingBottom: 20,
   },
   backArrow: {
     marginLeft: 10,
-    color: CONCORDIA_RED
+    color: CONCORDIA_RED,
   },
   directionsWaypoints: {
     flexDirection: "row",
     alignItems: "center",
-    marginLeft: 36
+    marginLeft: 36,
   },
   routeIcon: { height: 80, resizeMode: "contain" },
   input: {
@@ -328,32 +328,32 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 15,
     fontSize: 16,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
   searchContainer: {
-    flex: 1
+    flex: 1,
   },
   picker: {
     marginLeft: Platform.OS === "ios" ? 38 : 36,
     borderColor: INPUT_BORDER_COLOR,
     borderWidth: 1,
     height: Platform.OS === "ios" ? 35 : 45,
-    marginBottom: 20
+    marginBottom: 20,
   },
   travelModeSwitcher: {
     marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   travelModeIcon: { marginLeft: 15 },
   shuttleIcon: { height: 26, resizeMode: "contain" },
   autocomplete: {
     top: 260,
-    width: screenWidth
+    width: screenWidth,
   },
   button: {
-    marginTop: Platform.OS === "android" ? 20 : 0
+    marginTop: Platform.OS === "android" ? 20 : 0,
   },
   datePickerButton: {
     flexDirection: "row",
@@ -364,12 +364,12 @@ const styles = StyleSheet.create({
     marginLeft: 36,
     paddingLeft: 15,
     paddingRight: 15,
-    borderColor: INPUT_BORDER_COLOR
+    borderColor: INPUT_BORDER_COLOR,
   },
   datePickerText: {
-    color: INACTIVE_TEXT_COLOR
+    color: INACTIVE_TEXT_COLOR,
   },
   datePickerChevron: {
-    color: INACTIVE_ICON_COLOR
-  }
+    color: INACTIVE_ICON_COLOR,
+  },
 });

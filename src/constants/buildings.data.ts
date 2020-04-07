@@ -11,90 +11,90 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Geography, Planning and Environment",
         link:
-          "http://www.concordia.ca/artsci/geography-planning-environment.html"
+          "http://www.concordia.ca/artsci/geography-planning-environment.html",
       },
       {
         id: 2,
         title: "Political Science, Sociology and Anthropology, Economics",
-        link: "http://www.concordia.ca/artsci/academics/departments.html"
+        link: "http://www.concordia.ca/artsci/academics/departments.html",
       },
       {
         id: 3,
         title: "School of Irish Studies",
-        link: "http://www.concordia.ca/artsci/irish-studies.html"
-      }
+        link: "http://www.concordia.ca/artsci/irish-studies.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Welcome Crew Office",
-        link: "http://www.concordia.ca/students/success/mentoring.html"
+        link: "http://www.concordia.ca/students/success/mentoring.html",
       },
       {
         id: 2,
         title: "DB CLarke Theatre",
-        link: "http://www.concordia.ca/arts/venues/db-clarke-theatre.html"
+        link: "http://www.concordia.ca/arts/venues/db-clarke-theatre.html",
       },
       {
         id: 3,
         title: "Dean of Students",
-        link: "http://www.concordia.ca/offices/dean-students.html"
+        link: "http://www.concordia.ca/offices/dean-students.html",
       },
       {
         id: 4,
         title: "Aboriginal Student Resource Centre",
-        link: "http://www.concordia.ca/students/aboriginal.html"
+        link: "http://www.concordia.ca/students/aboriginal.html",
       },
       {
         id: 5,
         title: "Concordia Student Union",
-        link: "https://www.csu.qc.ca/"
+        link: "https://www.csu.qc.ca/",
       },
       {
         id: 6,
         title: "IT Service Desk",
-        link: "http://www.concordia.ca/it.html"
+        link: "http://www.concordia.ca/it.html",
       },
       {
         id: 7,
         title: "Security Office",
-        link: "http://www.concordia.ca/campus-life/security.html"
+        link: "http://www.concordia.ca/campus-life/security.html",
       },
       {
         id: 8,
         title: "Student Success Centre",
         link:
-          "http://www.concordia.ca/students/success.html?utm_source=redirect&utm_campaign=offices-ssc"
+          "http://www.concordia.ca/students/success.html?utm_source=redirect&utm_campaign=offices-ssc",
       },
       {
         id: 9,
         title: "Mail Services",
-        link: "http://www.concordia.ca/offices/facilities.html"
+        link: "http://www.concordia.ca/offices/facilities.html",
       },
       {
         id: 10,
         title: "Archives",
-        link: "http://www.concordia.ca/offices/archives.html"
+        link: "http://www.concordia.ca/offices/archives.html",
       },
       {
         id: 11,
         title: "Career and Planning Services",
         link:
-          "http://www.concordia.ca/students/success/career-planning-services.html"
+          "http://www.concordia.ca/students/success/career-planning-services.html",
       },
       {
         id: 12,
         title: "Sexual Assault Resource Centre (SARC)",
-        link: "http://www.concordia.ca/conduct/sexual-assault.html"
-      }
+        link: "http://www.concordia.ca/conduct/sexual-assault.html",
+      },
     ],
     location: { latitude: 45.49729998360628, longitude: -73.57890789359567 },
     boundingBox: [
       { latitude: 45.49682818364492, longitude: -73.57884845912251 },
       { latitude: 45.497163503733475, longitude: -73.57954223351966 },
       { latitude: 45.497708183281496, longitude: -73.5790334123961 },
-      { latitude: 45.4973720615268, longitude: -73.57833870872308 }
-    ]
+      { latitude: 45.4973720615268, longitude: -73.57833870872308 },
+    ],
   },
   {
     id: BuildingId.CB,
@@ -116,8 +116,8 @@ export const Buildings: Building[] = [
       { latitude: 45.495030623910644, longitude: -73.5740648843142 },
       { latitude: 45.495105829903075, longitude: -73.57398844135727 },
       { latitude: 45.495135912271934, longitude: -73.57405147326912 },
-      { latitude: 45.49519513688863, longitude: -73.57399782908882 }
-    ]
+      { latitude: 45.49519513688863, longitude: -73.57399782908882 },
+    ],
   },
   {
     id: BuildingId.GM,
@@ -128,117 +128,117 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Contemporary Dance",
-        link: "http://www.concordia.ca/finearts/dance.html"
+        link: "http://www.concordia.ca/finearts/dance.html",
       },
       {
         id: 2,
         title: "Music",
-        link: "http://www.concordia.ca/finearts/music.html"
+        link: "http://www.concordia.ca/finearts/music.html",
       },
       {
         id: 3,
         title: "Theatre",
-        link: "http://www.concordia.ca/finearts/theatre.html"
-      }
+        link: "http://www.concordia.ca/finearts/theatre.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Access Centre for Students with Disabilities",
-        link: "http://www.concordia.ca/students/accessibility.html"
+        link: "http://www.concordia.ca/students/accessibility.html",
       },
       {
         id: 2,
         title: "Environmental Health and Safety",
-        link: "http://www.concordia.ca/campus-life/safety.html"
+        link: "http://www.concordia.ca/campus-life/safety.html",
       },
       {
         id: 3,
         title: "Facilities Management",
-        link: "http://www.concordia.ca/offices/facilities.html"
+        link: "http://www.concordia.ca/offices/facilities.html",
       },
       {
         id: 4,
         title: "Financial Aid & Awards Office",
-        link: "http://www.concordia.ca/offices/faao.html"
+        link: "http://www.concordia.ca/offices/faao.html",
       },
       {
         id: 5,
         title: "Financial Services",
-        link: "http://www.concordia.ca/financial-services.html"
+        link: "http://www.concordia.ca/financial-services.html",
       },
       {
         id: 6,
         title: "Graduate Studies",
-        link: "http://www.concordia.ca/sgs.html"
+        link: "http://www.concordia.ca/sgs.html",
       },
       {
         id: 7,
         title: "Health Services",
-        link: "http://www.concordia.ca/students/health.html"
+        link: "http://www.concordia.ca/students/health.html",
       },
       {
         id: 8,
         title: "Institute for Co-operative Education",
-        link: "http://www.concordia.ca/academics/co-op.html"
+        link: "http://www.concordia.ca/academics/co-op.html",
       },
       {
         id: 9,
         title: "International Students Office",
-        link: "http://www.concordia.ca/students/international.html"
+        link: "http://www.concordia.ca/students/international.html",
       },
       {
         id: 10,
         title: "Office of Rights & Responsibilities",
         link:
-          "http://www.concordia.ca/conduct/behavioural-integrity/rights-responsibilities.html"
+          "http://www.concordia.ca/conduct/behavioural-integrity/rights-responsibilities.html",
       },
       {
         id: 11,
         title: "Office of Sustainability",
-        link: "http://www.concordia.ca/about/sustainability.html"
+        link: "http://www.concordia.ca/about/sustainability.html",
       },
       {
         id: 12,
         title: "Office of the Chief Communications Officer",
         link:
-          "http://www.concordia.ca/about/administration-governance/office-vp-research-graduate-studies.html"
+          "http://www.concordia.ca/about/administration-governance/office-vp-research-graduate-studies.html",
       },
       {
         id: 13,
         title: "Office of the President",
         link:
-          "http://www.concordia.ca/about/administration-governance/president.html"
+          "http://www.concordia.ca/about/administration-governance/president.html",
       },
       {
         id: 14,
         title: "Office of the Provost & VP, Academic",
-        link: "http://www.concordia.ca/provost.html"
+        link: "http://www.concordia.ca/provost.html",
       },
       {
         id: 15,
         title:
           "Office of the VP, Institutional Relations and Secretary General",
         link:
-          "http://www.concordia.ca/about/administration-governance/office-vp-advancement.html"
+          "http://www.concordia.ca/about/administration-governance/office-vp-advancement.html",
       },
       {
         id: 16,
         title: "Office of the VP, Research & Graduate Studies",
         link:
-          "http://www.concordia.ca/about/administration-governance/office-vp-research-graduate-studies.html"
+          "http://www.concordia.ca/about/administration-governance/office-vp-research-graduate-studies.html",
       },
       {
         id: 17,
         title: "Ombuds Office",
-        link: "http://www.concordia.ca/offices/ombuds.html"
+        link: "http://www.concordia.ca/offices/ombuds.html",
       },
       {
         id: 18,
         title: "University Communcations Services",
         link:
-          "http://www.concordia.ca/about/administration-governance/office-chief-communications-officer.html"
-      }
+          "http://www.concordia.ca/about/administration-governance/office-chief-communications-officer.html",
+      },
     ],
     location: { latitude: 45.495874126086186, longitude: -73.57880774403216 },
     boundingBox: [
@@ -247,8 +247,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49577970067112, longitude: -73.57914541643747 },
       { latitude: 45.49576301454991, longitude: -73.57910753023513 },
       { latitude: 45.49577923063962, longitude: -73.57908909004816 },
-      { latitude: 45.495617958757876, longitude: -73.57874772960545 }
-    ]
+      { latitude: 45.495617958757876, longitude: -73.57874772960545 },
+    ],
   },
   {
     id: BuildingId.LB,
@@ -259,82 +259,82 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "English",
-        link: "http://www.concordia.ca/artsci/english.html"
+        link: "http://www.concordia.ca/artsci/english.html",
       },
       {
         id: 2,
         title: "History",
-        link: "http://www.concordia.ca/artsci/history.html"
+        link: "http://www.concordia.ca/artsci/history.html",
       },
       {
         id: 3,
         title: "Etudes francaises",
-        link: "http://www.concordia.ca/artsci/francais.html"
+        link: "http://www.concordia.ca/artsci/francais.html",
       },
       {
         id: 4,
         title: "Mathematics and Statistics",
-        link: "http://mypage.concordia.ca/mathstat/"
+        link: "http://mypage.concordia.ca/mathstat/",
       },
       {
         id: 5,
         title: "Education",
-        link: "http://www.concordia.ca/artsci/education.html"
+        link: "http://www.concordia.ca/artsci/education.html",
       },
       {
         id: 6,
         title:
           "Centre for Interdisciplinary Studies in Society and Culture (CISSC)",
-        link: "http://www.concordia.ca/artsci/cissc.html"
+        link: "http://www.concordia.ca/artsci/cissc.html",
       },
       {
         id: 7,
         title: "Centre for the Study of Learning and Performance",
-        link: "http://www.concordia.ca/research/learning-performance.html"
-      }
+        link: "http://www.concordia.ca/research/learning-performance.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "R. Howard Webster Library",
-        link: "https://library.concordia.ca/"
+        link: "https://library.concordia.ca/",
       },
       {
         id: 2,
         title: "Welcome Centre",
         link:
-          "http://www.concordia.ca/admissions/undergraduate/welcometours.html"
+          "http://www.concordia.ca/admissions/undergraduate/welcometours.html",
       },
       {
         id: 3,
         title: "Leonard and Bina Ellen Art Gallery",
-        link: "http://ellengallery.concordia.ca/"
+        link: "http://ellengallery.concordia.ca/",
       },
       {
         id: 4,
         title: "J.A De Seve Cinema",
-        link: "http://www.concordia.ca/it/services/cinemas.html"
+        link: "http://www.concordia.ca/it/services/cinemas.html",
       },
       {
         id: 5,
         title: "Birks Student Service Centre",
-        link: "http://www.concordia.ca/students/birks.html"
+        link: "http://www.concordia.ca/students/birks.html",
       },
       {
         id: 6,
         title: "Campus Stores",
-        link: "https://stores.concordia.ca/"
+        link: "https://stores.concordia.ca/",
       },
       {
         id: 7,
         title: "Instructional & Information Technology Services (IITS)",
-        link: "http://www.concordia.ca/it.html"
+        link: "http://www.concordia.ca/it.html",
       },
       {
         id: 8,
         title: "4TH SPACE",
-        link: "http://www.concordia.ca/next-gen/4th-space.html"
-      }
+        link: "http://www.concordia.ca/next-gen/4th-space.html",
+      },
     ],
     location: { latitude: 45.49682594904578, longitude: -73.57795364783972 },
     boundingBox: [
@@ -367,8 +367,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49689575208939, longitude: -73.57828891545253 },
       { latitude: 45.49691196785291, longitude: -73.578327136931 },
       { latitude: 45.496872485985776, longitude: -73.57836938172298 },
-      { latitude: 45.496889907674564, longitude: -73.57841469347477 }
-    ]
+      { latitude: 45.496889907674564, longitude: -73.57841469347477 },
+    ],
   },
   {
     id: BuildingId.GN,
@@ -381,24 +381,24 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Residences",
         link:
-          "http://www.concordia.ca/students/housing/test/benefits/grey-nuns.html"
+          "http://www.concordia.ca/students/housing/test/benefits/grey-nuns.html",
       },
       {
         id: 2,
         title: "Grey Nuns Library (Reading Room and Group Study Rooms)",
-        link: "http://www.concordia.ca/maps/buildings/gn.html"
+        link: "http://www.concordia.ca/maps/buildings/gn.html",
       },
       {
         id: 3,
         title: "Daycare Centre",
-        link: "http://www.concordia.ca/campus-life/daycares.html"
+        link: "http://www.concordia.ca/campus-life/daycares.html",
       },
       {
         id: 4,
         title: "Summer Accommodation",
         link:
-          "http://www.concordia.ca/summer/accommodations.html/greynunsresidence/"
-      }
+          "http://www.concordia.ca/summer/accommodations.html/greynunsresidence/",
+      },
     ],
     location: { latitude: 45.4935790877303, longitude: -73.5766034018584 },
     boundingBox: [
@@ -460,8 +460,8 @@ export const Buildings: Building[] = [
       { latitude: 45.492725, longitude: -73.57687 },
       { latitude: 45.492751, longitude: -73.576862 },
       { latitude: 45.492612, longitude: -73.576583 },
-      { latitude: 45.49261, longitude: -73.576578 }
-    ]
+      { latitude: 45.49261, longitude: -73.576578 },
+    ],
   },
   {
     id: BuildingId.EV,
@@ -472,95 +472,95 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Gina Cody School of Engineering and Computer Science",
-        link: "http://www.concordia.ca/ginacody.html"
+        link: "http://www.concordia.ca/ginacody.html",
       },
       {
         id: 2,
         title: "Electrical and Computer Engineering",
-        link: "http://www.concordia.ca/ginacody/electrical-computer-eng.html"
+        link: "http://www.concordia.ca/ginacody/electrical-computer-eng.html",
       },
       {
         id: 3,
         title: "Building, Civil and Environmental Engineering",
         link:
-          "http://www.concordia.ca/ginacody/building-civil-environmental-eng.html"
+          "http://www.concordia.ca/ginacody/building-civil-environmental-eng.html",
       },
       {
         id: 4,
         title: "Computer Science and Software Engineering",
         link:
-          "http://www.concordia.ca/ginacody/computer-science-software-eng.html"
+          "http://www.concordia.ca/ginacody/computer-science-software-eng.html",
       },
       {
         id: 5,
         title: "Mechanical, Industrial and Aerospace",
         link:
-          "http://www.concordia.ca/ginacody/mechanical-industrial-aerospace-eng.html"
+          "http://www.concordia.ca/ginacody/mechanical-industrial-aerospace-eng.html",
       },
       {
         id: 6,
         title: "Design and Computation Arts",
-        link: "http://www.concordia.ca/finearts/design.html"
+        link: "http://www.concordia.ca/finearts/design.html",
       },
       {
         id: 7,
         title: "Faculty of Fine Arts",
-        link: "http://www.concordia.ca/finearts.html"
+        link: "http://www.concordia.ca/finearts.html",
       },
       {
         id: 8,
         title: "Studio Arts",
-        link: "http://www.concordia.ca/finearts/studio-arts.html"
+        link: "http://www.concordia.ca/finearts/studio-arts.html",
       },
       {
         id: 9,
         title: "Art Education",
-        link: "http://www.concordia.ca/finearts/art-education.html"
+        link: "http://www.concordia.ca/finearts/art-education.html",
       },
       {
         id: 10,
         title: "Art History",
-        link: "http://www.concordia.ca/finearts/art-history.html"
+        link: "http://www.concordia.ca/finearts/art-history.html",
       },
       {
         id: 11,
         title: "Comtemporary Dance",
-        link: "http://www.concordia.ca/finearts/dance.html"
+        link: "http://www.concordia.ca/finearts/dance.html",
       },
       {
         id: 12,
         title: "Recreation and Athletics",
-        link: "http://www.concordia.ca/campus-life/recreation.html"
+        link: "http://www.concordia.ca/campus-life/recreation.html",
       },
       {
         id: 13,
         title: "Zero Energy Building Studies, Centre",
-        link: "http://www.concordia.ca/research/zero-energy-building.html"
+        link: "http://www.concordia.ca/research/zero-energy-building.html",
       },
       {
         id: 14,
         title:
           "Centre for Pattern Recognition and Machine Intelligence (CENPARMI)",
-        link: "http://www.concordia.ca/research/cenparmi.html"
+        link: "http://www.concordia.ca/research/cenparmi.html",
       },
       {
         id: 15,
         title: "Center for Composites (CONCOM)",
-        link: "http://www.concordia.ca/research/composites.html"
-      }
+        link: "http://www.concordia.ca/research/composites.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "LeGym",
         link:
-          "http://www.concordia.ca/campus-life/recreation/facilities/le-gym.html"
+          "http://www.concordia.ca/campus-life/recreation/facilities/le-gym.html",
       },
       {
         id: 2,
         title: "FOFA Gallery",
-        link: "http://www.concordia.ca/finearts/facilities/fofa-gallery.html"
-      }
+        link: "http://www.concordia.ca/finearts/facilities/fofa-gallery.html",
+      },
     ],
     location: { latitude: 45.495621869806875, longitude: -73.57822377879872 },
     boundingBox: [
@@ -575,8 +575,8 @@ export const Buildings: Building[] = [
       { latitude: 45.495830189488665, longitude: -73.5772488091822 },
       { latitude: 45.496047619396265, longitude: -73.57770755025268 },
       { latitude: 45.495665, longitude: -73.578072 },
-      { latitude: 45.495863, longitude: -73.578494 }
-    ]
+      { latitude: 45.495863, longitude: -73.578494 },
+    ],
   },
   {
     id: BuildingId.MB,
@@ -587,71 +587,72 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Accountancy",
-        link: "http://www.concordia.ca/jmsb/about/departments/accountancy.html"
+        link: "http://www.concordia.ca/jmsb/about/departments/accountancy.html",
       },
       {
         id: 2,
         title: "Supply Chain & Business Technology Management",
         link:
-          "http://www.concordia.ca/jmsb/about/departments/supply-chain-business-technology-management.html"
+          "http://www.concordia.ca/jmsb/about/departments/supply-chain-business-technology-management.html",
       },
       {
         id: 3,
         title: "Finance",
-        link: "http://www.concordia.ca/jmsb/about/departments/finance.html"
+        link: "http://www.concordia.ca/jmsb/about/departments/finance.html",
       },
       {
         id: 4,
         title: "Management",
-        link: "http://www.concordia.ca/jmsb/about/departments/management.html"
+        link: "http://www.concordia.ca/jmsb/about/departments/management.html",
       },
       {
         id: 5,
         title: "Marketing",
-        link: "http://www.concordia.ca/jmsb/about/departments/marketing.html"
+        link: "http://www.concordia.ca/jmsb/about/departments/marketing.html",
       },
       {
         id: 6,
         title: "Goodman Institute of Investment Management",
-        link: "http://www.concordia.ca/jmsb/mba-cfa.html"
+        link: "http://www.concordia.ca/jmsb/mba-cfa.html",
       },
       {
         id: 7,
         title: "Executive MBA Program",
-        link: "http://www.concordia.ca/jmsb/emba.html"
+        link: "http://www.concordia.ca/jmsb/emba.html",
       },
       {
         id: 8,
         title: "Music",
-        link: "http://www.concordia.ca/finearts/music.html"
+        link: "http://www.concordia.ca/finearts/music.html",
       },
       {
         id: 9,
         title: "Theatre",
-        link: "http://www.concordia.ca/finearts/theatre.html"
+        link: "http://www.concordia.ca/finearts/theatre.html",
       },
       {
         id: 10,
         title: "Contemporary Dance",
-        link: "http://www.concordia.ca/finearts/dance.html"
-      }
+        link: "http://www.concordia.ca/finearts/dance.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Career Management Services",
-        link: "http://www.concordia.ca/jmsb/career.html"
+        link: "http://www.concordia.ca/jmsb/career.html",
       },
       {
         id: 2,
         title: "John Molson Executive Centre",
-        link: "http://www.concordia.ca/jmsb/executive-education.html"
+        link: "http://www.concordia.ca/jmsb/executive-education.html",
       },
       {
         id: 3,
         title: "Performing Arts Facilities",
-        link: "http://www.concordia.ca/finearts/facilities/performing-arts.html"
-      }
+        link:
+          "http://www.concordia.ca/finearts/facilities/performing-arts.html",
+      },
     ],
     location: { latitude: 45.49529042487793, longitude: -73.5789511712376 },
     boundingBox: [
@@ -660,8 +661,8 @@ export const Buildings: Building[] = [
       { latitude: 45.495026633071944, longitude: -73.57869996638969 },
       { latitude: 45.49523626954047, longitude: -73.57847600193695 },
       { latitude: 45.495597256069885, longitude: -73.57931821556762 },
-      { latitude: 45.495296434122736, longitude: -73.57962398739532 }
-    ]
+      { latitude: 45.495296434122736, longitude: -73.57962398739532 },
+    ],
   },
   {
     id: BuildingId.FG,
@@ -672,15 +673,15 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Education",
-        link: "http://www.concordia.ca/artsci/education.html"
-      }
+        link: "http://www.concordia.ca/artsci/education.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Classrooms",
-        link: ""
-      }
+        link: "",
+      },
     ],
     location: { latitude: 45.494213251967885, longitude: -73.57831280549206 },
     boundingBox: [
@@ -705,8 +706,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49429961861071, longitude: -73.57852197272727 },
       { latitude: 45.494368244973636, longitude: -73.5784411711807 },
       { latitude: 45.49436189938879, longitude: -73.57842843068788 },
-      { latitude: 45.494694338167676, longitude: -73.57803821563283 }
-    ]
+      { latitude: 45.494694338167676, longitude: -73.57803821563283 },
+    ],
   },
   {
     id: BuildingId.GS,
@@ -725,8 +726,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49651742476055, longitude: -73.58080300057769 },
       { latitude: 45.496475592488274, longitude: -73.58084423954129 },
       { latitude: 45.49648640307848, longitude: -73.5808730732882 },
-      { latitude: 45.49641517082438, longitude: -73.58094149396186 }
-    ]
+      { latitude: 45.49641517082438, longitude: -73.58094149396186 },
+    ],
   },
   {
     id: BuildingId.LD,
@@ -738,8 +739,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "CSU Daycare & Nursery",
-        link: "https://www.csudaycarenursery.com/"
-      }
+        link: "https://www.csudaycarenursery.com/",
+      },
     ],
     location: { latitude: 45.496860941595955, longitude: -73.57956955010302 },
     boundingBox: [
@@ -748,8 +749,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496931444925195, longitude: -73.57955278629667 },
       { latitude: 45.496889847971616, longitude: -73.57946997309334 },
       { latitude: 45.49678691300525, longitude: -73.57957223231203 },
-      { latitude: 45.496801483719686, longitude: -73.57960542464859 }
-    ]
+      { latitude: 45.496801483719686, longitude: -73.57960542464859 },
+    ],
   },
   {
     id: BuildingId.TD,
@@ -762,16 +763,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "CUSP",
-        link: "http://www.concordia.ca/students/parenthood.html"
-      }
+        link: "http://www.concordia.ca/students/parenthood.html",
+      },
     ],
 
     boundingBox: [
       { latitude: 45.49454232015587, longitude: -73.57861454959261 },
       { latitude: 45.49461000614049, longitude: -73.5785344185983 },
       { latitude: 45.49480086963056, longitude: -73.57886535821028 },
-      { latitude: 45.49473271383509, longitude: -73.5789454892046 }
-    ]
+      { latitude: 45.49473271383509, longitude: -73.5789454892046 },
+    ],
   },
   {
     id: BuildingId.VA,
@@ -782,36 +783,36 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Studio Arts",
-        link: "http://www.concordia.ca/finearts/studio-arts.html"
+        link: "http://www.concordia.ca/finearts/studio-arts.html",
       },
       {
         id: 2,
         title: "Art History",
-        link: "http://www.concordia.ca/finearts/art-history.html"
+        link: "http://www.concordia.ca/finearts/art-history.html",
       },
       {
         id: 3,
         title: "Art Education",
-        link: "http://www.concordia.ca/finearts/art-education.html"
+        link: "http://www.concordia.ca/finearts/art-education.html",
       },
       {
         id: 4,
         title: "Creative Arts Therapies",
-        link: "http://www.concordia.ca/finearts/creative-arts-therapies.html"
-      }
+        link: "http://www.concordia.ca/finearts/creative-arts-therapies.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "VAV Art Gallery",
-        link: "http://vavgallery.concordia.ca/"
+        link: "http://vavgallery.concordia.ca/",
       },
       {
         id: 2,
         title: "Art Supply Store",
         link:
-          "http://www.concordia.ca/finearts/facilities/art-supply-store.html"
-      }
+          "http://www.concordia.ca/finearts/facilities/art-supply-store.html",
+      },
     ],
     location: { latitude: 45.49567046189002, longitude: -73.57395159813642 },
     boundingBox: [
@@ -820,8 +821,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49541, longitude: -73.573748 },
       { latitude: 45.495665, longitude: -73.573482 },
       { latitude: 45.495813, longitude: -73.573807 },
-      { latitude: 45.496079, longitude: -73.573544 }
-    ]
+      { latitude: 45.496079, longitude: -73.573544 },
+    ],
   },
   {
     id: BuildingId.SB,
@@ -833,8 +834,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Arts and Science Research Groups",
-        link: "http://www.concordia.ca/artsci/research/centres.html"
-      }
+        link: "http://www.concordia.ca/artsci/research/centres.html",
+      },
     ],
     location: { latitude: 45.496543304992564, longitude: -73.5859904898029 },
     boundingBox: [
@@ -853,8 +854,8 @@ export const Buildings: Building[] = [
       { latitude: 45.4965100514593, longitude: -73.58579253193895 },
       { latitude: 45.49650981644659, longitude: -73.58577912089387 },
       { latitude: 45.4964919554778, longitude: -73.58573922303478 },
-      { latitude: 45.496466339078445, longitude: -73.58573654082576 }
-    ]
+      { latitude: 45.496466339078445, longitude: -73.58573654082576 },
+    ],
   },
   {
     id: BuildingId.Q,
@@ -868,8 +869,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49655514271302, longitude: -73.57912355345123 },
       { latitude: 45.49658616435723, longitude: -73.5791832326018 },
       { latitude: 45.496682989379224, longitude: -73.57908130865924 },
-      { latitude: 45.49665102773989, longitude: -73.57902162950866 }
-    ]
+      { latitude: 45.49665102773989, longitude: -73.57902162950866 },
+    ],
   },
   {
     id: BuildingId.P,
@@ -883,8 +884,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49668439945111, longitude: -73.57908130865924 },
       { latitude: 45.49658804445633, longitude: -73.57918390315406 },
       { latitude: 45.49662987664503, longitude: -73.5792730866038 },
-      { latitude: 45.49673093180422, longitude: -73.5791718332135 }
-    ]
+      { latitude: 45.49673093180422, longitude: -73.5791718332135 },
+    ],
   },
   {
     id: BuildingId.T,
@@ -896,16 +897,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Graduate Students Association",
-        link: "https://gsaconcordia.ca/"
-      }
+        link: "https://gsaconcordia.ca/",
+      },
     ],
     location: { latitude: 45.496690617889044, longitude: -73.57926428318024 },
     boundingBox: [
       { latitude: 45.49671824116626, longitude: -73.57918725591533 },
       { latitude: 45.496633636840265, longitude: -73.57927107494704 },
       { latitude: 45.496667948610025, longitude: -73.57934617679946 },
-      { latitude: 45.49675678309487, longitude: -73.57925967555873 }
-    ]
+      { latitude: 45.49675678309487, longitude: -73.57925967555873 },
+    ],
   },
   {
     id: BuildingId.RR,
@@ -916,8 +917,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Liberal Arts College",
-        link: "http://www.concordia.ca/artsci/liberal-arts-college.html"
-      }
+        link: "http://www.concordia.ca/artsci/liberal-arts-college.html",
+      },
     ],
     services: [],
     location: { latitude: 45.49672515862477, longitude: -73.57935478981686 },
@@ -926,8 +927,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496759848823714, longitude: -73.57925307247734 },
       { latitude: 45.49680614610299, longitude: -73.57933186236716 },
       { latitude: 45.49665120661304, longitude: -73.57948126357395 },
-      { latitude: 45.4966126646122, longitude: -73.57940012675125 }
-    ]
+      { latitude: 45.4966126646122, longitude: -73.57940012675125 },
+    ],
   },
   {
     id: BuildingId.R,
@@ -938,8 +939,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Religion and Cultures",
-        link: "http://www.concordia.ca/artsci/religions-cultures.html"
-      }
+        link: "http://www.concordia.ca/artsci/religions-cultures.html",
+      },
     ],
     services: [],
     location: { latitude: 45.49678180245391, longitude: -73.57940711081028 },
@@ -947,8 +948,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496713758698185, longitude: -73.57942461253974 },
       { latitude: 45.496804943225605, longitude: -73.5793280530152 },
       { latitude: 45.4968463052306, longitude: -73.57939980210635 },
-      { latitude: 45.49674337018465, longitude: -73.5794903266606 }
-    ]
+      { latitude: 45.49674337018465, longitude: -73.5794903266606 },
+    ],
   },
   {
     id: BuildingId.FA,
@@ -959,8 +960,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Religion and Cultures",
-        link: "http://www.concordia.ca/artsci/religions-cultures.html"
-      }
+        link: "http://www.concordia.ca/artsci/religions-cultures.html",
+      },
     ],
     services: [],
     location: { latitude: 45.496813771844614, longitude: -73.57949044115169 },
@@ -968,8 +969,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49673410732826, longitude: -73.57950150438484 },
       { latitude: 45.49677476435048, longitude: -73.5795846528643 },
       { latitude: 45.49687181964071, longitude: -73.57948708839042 },
-      { latitude: 45.4968323377454, longitude: -73.57940930432899 }
-    ]
+      { latitude: 45.4968323377454, longitude: -73.57940930432899 },
+    ],
   },
   {
     id: BuildingId.X,
@@ -981,16 +982,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Concordia International",
-        link: "http://www.concordia.ca/offices/ci.html"
-      }
+        link: "http://www.concordia.ca/offices/ci.html",
+      },
     ],
     location: { latitude: 45.49689808038526, longitude: -73.57968767736001 },
     boundingBox: [
       { latitude: 45.49683533238937, longitude: -73.57971349362178 },
       { latitude: 45.49692839680764, longitude: -73.57962162796302 },
       { latitude: 45.49694813772508, longitude: -73.57966454330726 },
-      { latitude: 45.496856013384495, longitude: -73.5797560736899 }
-    ]
+      { latitude: 45.496856013384495, longitude: -73.5797560736899 },
+    ],
   },
   {
     id: BuildingId.Z,
@@ -1002,22 +1003,22 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Multi-Faith and Spirituality Centre",
-        link: "http://www.concordia.ca/students/spirituality.html"
+        link: "http://www.concordia.ca/students/spirituality.html",
       },
 
       {
         id: 2,
         title: "Sustainable Concordia",
-        link: "http://sustainableconcordia.ca/"
-      }
+        link: "http://sustainableconcordia.ca/",
+      },
     ],
     location: { latitude: 45.4969250583817, longitude: -73.57974457604605 },
     boundingBox: [
       { latitude: 45.496851, longitude: -73.57976 },
       { latitude: 45.496889, longitude: -73.579836 },
       { latitude: 45.496985, longitude: -73.579742 },
-      { latitude: 45.496948, longitude: -73.579671 }
-    ]
+      { latitude: 45.496948, longitude: -73.579671 },
+    ],
   },
   {
     id: BuildingId.V,
@@ -1029,16 +1030,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Centre 2110",
-        link: "https://genderadvocacy.org/"
-      }
+        link: "https://genderadvocacy.org/",
+      },
     ],
     location: { latitude: 45.49703622353465, longitude: -73.57994890777009 },
     boundingBox: [
       { latitude: 45.49698358115512, longitude: -73.58001797465222 },
       { latitude: 45.49696478029337, longitude: -73.57997841206925 },
       { latitude: 45.497068654976104, longitude: -73.57987749395507 },
-      { latitude: 45.4970876908135, longitude: -73.57991638598578 }
-    ]
+      { latitude: 45.4970876908135, longitude: -73.57991638598578 },
+    ],
   },
   {
     id: BuildingId.S,
@@ -1049,8 +1050,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Department of Philosophy",
-        link: "http://www.concordia.ca/artsci/philosophy.html"
-      }
+        link: "http://www.concordia.ca/artsci/philosophy.html",
+      },
     ],
     services: [],
     location: { latitude: 45.4974195251975, longitude: -73.57983290157836 },
@@ -1060,8 +1061,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49742563542892, longitude: -73.57975277058404 },
       { latitude: 45.49743480077479, longitude: -73.57977188132327 },
       { latitude: 45.497457831637334, longitude: -73.57975142947953 },
-      { latitude: 45.497489087792864, longitude: -73.57981379083913 }
-    ]
+      { latitude: 45.497489087792864, longitude: -73.57981379083913 },
+    ],
   },
   {
     id: BuildingId.MI,
@@ -1077,8 +1078,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49769383128575, longitude: -73.5792837782963 },
       { latitude: 45.49768114086482, longitude: -73.57925896786291 },
       { latitude: 45.49777749398921, longitude: -73.57916542582352 },
-      { latitude: 45.4978115700547, longitude: -73.57923348687727 }
-    ]
+      { latitude: 45.4978115700547, longitude: -73.57923348687727 },
+    ],
   },
   {
     id: BuildingId.MU,
@@ -1090,16 +1091,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Simone de Beauvoir Institute",
-        link: "http://www.concordia.ca/artsci/sdbi.html"
-      }
+        link: "http://www.concordia.ca/artsci/sdbi.html",
+      },
     ],
     location: { latitude: 45.49786402689169, longitude: -73.57957963486078 },
     boundingBox: [
       { latitude: 45.49792714005294, longitude: -73.57946173647333 },
       { latitude: 45.497750414665965, longitude: -73.5796347389548 },
       { latitude: 45.497786135799544, longitude: -73.57970447638918 },
-      { latitude: 45.49796944126014, longitude: -73.579537508878 }
-    ]
+      { latitude: 45.49796944126014, longitude: -73.579537508878 },
+    ],
   },
   {
     id: BuildingId.D,
@@ -1110,8 +1111,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Department of Theological Studies",
-        link: "http://www.concordia.ca/artsci/theology.html"
-      }
+        link: "http://www.concordia.ca/artsci/theology.html",
+      },
     ],
     services: [],
     location: { latitude: 45.49778748649143, longitude: -73.57932072327488 },
@@ -1119,8 +1120,8 @@ export const Buildings: Building[] = [
       { latitude: 45.497707427688056, longitude: -73.57934124180272 },
       { latitude: 45.49774056376567, longitude: -73.57941097923711 },
       { latitude: 45.49784929339781, longitude: -73.5793110002672 },
-      { latitude: 45.49781075221699, longitude: -73.57923288092964 }
-    ]
+      { latitude: 45.49781075221699, longitude: -73.57923288092964 },
+    ],
   },
   {
     id: BuildingId.B,
@@ -1131,8 +1132,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Engineering and Computer Science Association",
-        link: "https://ecaconcordia.ca/"
-      }
+        link: "https://ecaconcordia.ca/",
+      },
     ],
     departments: [],
     location: { latitude: 45.49783475527905, longitude: -73.5794920119643 },
@@ -1140,8 +1141,8 @@ export const Buildings: Building[] = [
       { latitude: 45.497703209954416, longitude: -73.57955668952776 },
       { latitude: 45.49773916612552, longitude: -73.5796344735892 },
       { latitude: 45.49791835672028, longitude: -73.5794601358713 },
-      { latitude: 45.49788287067755, longitude: -73.57938436346663 }
-    ]
+      { latitude: 45.49788287067755, longitude: -73.57938436346663 },
+    ],
   },
   {
     id: BuildingId.LS,
@@ -1153,15 +1154,15 @@ export const Buildings: Building[] = [
         id: 1,
         title: "IT Services - 1st floor",
         link:
-          "http://www.concordia.ca/it/services/classroom-support/sir-george-williamscampus/SGW-LS-1.html"
+          "http://www.concordia.ca/it/services/classroom-support/sir-george-williamscampus/SGW-LS-1.html",
       },
 
       {
         id: 2,
         title: "IT Services - 2nd floor",
         link:
-          "http://www.concordia.ca/it/services/classroom-support/sir-george-williamscampus/SGW-LS-2.html"
-      }
+          "http://www.concordia.ca/it/services/classroom-support/sir-george-williamscampus/SGW-LS-2.html",
+      },
     ],
     departments: [],
     location: { latitude: 45.49609534540999, longitude: -73.57967431042336 },
@@ -1172,8 +1173,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496191, longitude: -73.579744 },
       { latitude: 45.496157, longitude: -73.579667 },
       { latitude: 45.496184, longitude: -73.579642 },
-      { latitude: 45.496113, longitude: -73.579483 }
-    ]
+      { latitude: 45.496113, longitude: -73.579483 },
+    ],
   },
   {
     id: BuildingId.SP,
@@ -1184,76 +1185,76 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Biology",
-        link: "http://www.concordia.ca/artsci/biology.html"
+        link: "http://www.concordia.ca/artsci/biology.html",
       },
       {
         id: 2,
         title: "Chemistry and Biochemistry",
-        link: "http://www.concordia.ca/artsci/chemistry.html"
+        link: "http://www.concordia.ca/artsci/chemistry.html",
       },
       {
         id: 3,
         title: "Health, Kinesiology & Applied Physiology",
         link:
-          "http://www.concordia.ca/artsci/health-kinesiology-physiology.html"
+          "http://www.concordia.ca/artsci/health-kinesiology-physiology.html",
       },
       {
         id: 4,
         title: "Physics",
-        link: "http://www.concordia.ca/artsci/physics.html"
+        link: "http://www.concordia.ca/artsci/physics.html",
       },
       {
         id: 5,
         title: "Psychology",
-        link: "https://www.concordia.ca/artsci/psychology.html"
+        link: "https://www.concordia.ca/artsci/psychology.html",
       },
       {
         id: 6,
         title: "Centre for Biological Applications of Mass Spectrometry",
-        link: "http://www.concordia.ca/research/mass-spec.html"
+        link: "http://www.concordia.ca/research/mass-spec.html",
       },
       {
         id: 7,
         title: "Centre for NanoScience Research",
-        link: "http://www.concordia.ca/research/nanoscience.html"
+        link: "http://www.concordia.ca/research/nanoscience.html",
       },
       {
         id: 8,
         title: "Center for Studies in Behavioral Neurobiology",
-        link: "http://www.concordia.ca/research/neuroscience.html"
+        link: "http://www.concordia.ca/research/neuroscience.html",
       },
       {
         id: 9,
         title: "Centre for Research in Molecular Modeling",
-        link: "http://www.concordia.ca/research/molecular-modeling.html"
-      }
+        link: "http://www.concordia.ca/research/molecular-modeling.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Science College",
-        link: "http://www.concordia.ca/artsci/science-college.html"
+        link: "http://www.concordia.ca/artsci/science-college.html",
       },
       {
         id: 2,
         title: "Science Technical Centre",
-        link: "http://www.concordia.ca/artsci/students/technical-centre.html"
+        link: "http://www.concordia.ca/artsci/students/technical-centre.html",
       },
       {
         id: 3,
         title: "Animal Care Facilities",
-        link: ""
+        link: "",
       },
       {
         id: 4,
         title: "Security Office",
-        link: ""
+        link: "",
       },
       {
         id: 5,
         title: "Cafe",
-        link: ""
-      }
+        link: "",
+      },
     ],
     location: { latitude: 45.45758246587577, longitude: -73.64167110725224 },
     boundingBox: [
@@ -1286,8 +1287,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45752432666299, longitude: -73.64147029091669 },
       { latitude: 45.45724875063997, longitude: -73.64076394112611 },
       { latitude: 45.45724592852179, longitude: -73.640766288059 },
-      { latitude: 45.4572014801418, longitude: -73.64065497638488 }
-    ]
+      { latitude: 45.4572014801418, longitude: -73.64065497638488 },
+    ],
   },
   {
     id: BuildingId.TA,
@@ -1301,8 +1302,8 @@ export const Buildings: Building[] = [
       { latitude: 45.460082, longitude: -73.640892 },
       { latitude: 45.459977, longitude: -73.640967 },
       { latitude: 45.45994, longitude: -73.640865 },
-      { latitude: 45.460041, longitude: -73.640774 }
-    ]
+      { latitude: 45.460041, longitude: -73.640774 },
+    ],
   },
   {
     id: BuildingId.CJ,
@@ -1313,20 +1314,20 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Communcation Studies",
-        link: "http://www.concordia.ca/artsci/coms.html"
+        link: "http://www.concordia.ca/artsci/coms.html",
       },
       {
         id: 2,
         title: "Journalism",
-        link: "https://www.concordia.ca/artsci/journalism.html"
-      }
+        link: "https://www.concordia.ca/artsci/journalism.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Campus Retail Stores",
-        link: "https://stores.concordia.ca/"
-      }
+        link: "https://stores.concordia.ca/",
+      },
     ],
     location: { latitude: 45.45753745751893, longitude: -73.64035934741423 },
     boundingBox: [
@@ -1357,8 +1358,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45759613889239, longitude: -73.64050232144196 },
       { latitude: 45.457333342167544, longitude: -73.64071711930137 },
       { latitude: 45.45730300443521, longitude: -73.64064000579219 },
-      { latitude: 45.457278844731654, longitude: -73.64065825111975 }
-    ]
+      { latitude: 45.457278844731654, longitude: -73.64065825111975 },
+    ],
   },
   {
     id: BuildingId.CC,
@@ -1370,14 +1371,14 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Concordia Student Union",
-        link: "https://www.csu.qc.ca/"
+        link: "https://www.csu.qc.ca/",
       },
       {
         id: 2,
         title: "Loyola College for Diversity and Sustainability and Loyola",
         link:
-          "http://www.concordia.ca/artsci/loyola-college-diversity-sustainability.html"
-      }
+          "http://www.concordia.ca/artsci/loyola-college-diversity-sustainability.html",
+      },
     ],
     location: { latitude: 45.458331403759495, longitude: -73.64041030938552 },
     boundingBox: [
@@ -1395,8 +1396,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45817209318592, longitude: -73.64025567759593 },
       { latitude: 45.45816621386914, longitude: -73.64026104201396 },
       { latitude: 45.45828027250493, longitude: -73.64056245525201 },
-      { latitude: 45.458290384908956, longitude: -73.64056346108039 }
-    ]
+      { latitude: 45.458290384908956, longitude: -73.64056346108039 },
+    ],
   },
   {
     id: BuildingId.AD,
@@ -1407,66 +1408,66 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Faculty of Arts & Science",
-        link: "http://www.concordia.ca/artsci.html"
-      }
+        link: "http://www.concordia.ca/artsci.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Welcome Crew Office",
         link:
-          "http://www.concordia.ca/content/concordia/en/students/success/mentoring.html"
+          "http://www.concordia.ca/content/concordia/en/students/success/mentoring.html",
       },
       {
         id: 2,
         title: "Centre for Teaching & Learning",
-        link: "http://www.concordia.ca/content/concordia/en/offices/ctl.html"
+        link: "http://www.concordia.ca/content/concordia/en/offices/ctl.html",
       },
       {
         id: 3,
         title: "Loyola International College",
         link:
-          "http://www.concordia.ca/content/concordia/en/artsci/loyola-college-diversity-sustainability.html"
+          "http://www.concordia.ca/content/concordia/en/artsci/loyola-college-diversity-sustainability.html",
       },
       {
         id: 4,
         title: "Provost and VP, Academic",
-        link: "http://www.concordia.ca/content/concordia/en/provost.html"
+        link: "http://www.concordia.ca/content/concordia/en/provost.html",
       },
       {
         id: 5,
         title: "Dean of Students",
         link:
-          "http://www.concordia.ca/content/concordia/en/offices/dean-students.html"
+          "http://www.concordia.ca/content/concordia/en/offices/dean-students.html",
       },
       {
         id: 6,
         title: "Concordia Multi-Faith and Spirituality Centre",
         link:
-          "http://www.concordia.ca/content/concordia/en/students/spirituality"
+          "http://www.concordia.ca/content/concordia/en/students/spirituality",
       },
       {
         id: 7,
         title: "Advocacy & Support Services",
         link:
-          "http://www.concordia.ca/content/concordia/en/offices/advocacy.html"
+          "http://www.concordia.ca/content/concordia/en/offices/advocacy.html",
       },
       {
         id: 8,
         title: "Access Centre for Students with Disabilities",
-        link: "http://www.concordia.ca/content/concordia/en/offices/acsd.html"
+        link: "http://www.concordia.ca/content/concordia/en/offices/acsd.html",
       },
       {
         id: 9,
         title: "Counselling and Development",
-        link: "http://www.concordia.ca/content/concordia/en/offices/cdev.html"
+        link: "http://www.concordia.ca/content/concordia/en/offices/cdev.html",
       },
       {
         id: 10,
         title: "Health Services",
         link:
-          "http://www.concordia.ca/content/concordia/en/students/health.html"
-      }
+          "http://www.concordia.ca/content/concordia/en/students/health.html",
+      },
     ],
     location: { latitude: 45.45810375680996, longitude: -73.63979876573012 },
     boundingBox: [
@@ -1514,8 +1515,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45793732238327, longitude: -73.64011474432657 },
       { latitude: 45.45793426512592, longitude: -73.6401164207072 },
       { latitude: 45.457923447136956, longitude: -73.64012346150587 },
-      { latitude: 45.45791121810349, longitude: -73.64012413205812 }
-    ]
+      { latitude: 45.45791121810349, longitude: -73.64012413205812 },
+    ],
   },
   {
     id: BuildingId.PS,
@@ -1527,13 +1528,13 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Environmental Health and Safety",
-        link: "http://www.concordia.ca/content/concordia/en/campus-life/safety"
+        link: "http://www.concordia.ca/content/concordia/en/campus-life/safety",
       },
       {
         id: 2,
         title: "Facilities Management",
-        link: "http://www.concordia.ca/content/concordia/en/offices/facilities"
-      }
+        link: "http://www.concordia.ca/content/concordia/en/offices/facilities",
+      },
     ],
     location: { latitude: 45.45967754256575, longitude: -73.63982368883055 },
     boundingBox: [
@@ -1550,8 +1551,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45941306539998, longitude: -73.63965570433571 },
       { latitude: 45.45944363716442, longitude: -73.63963089390232 },
       { latitude: 45.45940443495661, longitude: -73.63952956323371 },
-      { latitude: 45.4593331791535, longitude: -73.63957985465274 }
-    ]
+      { latitude: 45.4593331791535, longitude: -73.63957985465274 },
+    ],
   },
   {
     id: BuildingId.RA,
@@ -1564,14 +1565,14 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Ed Meagher Arena",
         link:
-          "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/arena.html"
+          "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/arena.html",
       },
       {
         id: 2,
         title: "Gymnasium",
         link:
-          "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/athletic-complex.html"
-      }
+          "http://www.concordia.ca/content/concordia/en/campus-life/recreation/facilities/athletic-complex.html",
+      },
     ],
     location: { latitude: 45.456705108736394, longitude: -73.63754686217693 },
     boundingBox: [
@@ -1582,8 +1583,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45684714021175, longitude: -73.63818875379876 },
       { latitude: 45.456793519560236, longitude: -73.63806671328858 },
       { latitude: 45.456692863111876, longitude: -73.6381431562455 },
-      { latitude: 45.45638995196833, longitude: -73.6373666567357 }
-    ]
+      { latitude: 45.45638995196833, longitude: -73.6373666567357 },
+    ],
   },
   {
     id: BuildingId.PC,
@@ -1596,16 +1597,16 @@ export const Buildings: Building[] = [
         id: 1,
         title: "PERFORM Centre",
         link:
-          "http://www.concordia.ca/content/concordia/en/research/perform.html"
-      }
+          "http://www.concordia.ca/content/concordia/en/research/perform.html",
+      },
     ],
     location: { latitude: 45.45699484824472, longitude: -73.63732692103771 },
     boundingBox: [
       { latitude: 45.45668234663006, longitude: -73.63698552999276 },
       { latitude: 45.45702100318805, longitude: -73.637839813564 },
       { latitude: 45.457286530811096, longitude: -73.63762780116437 },
-      { latitude: 45.45694975726986, longitude: -73.63677754090665 }
-    ]
+      { latitude: 45.45694975726986, longitude: -73.63677754090665 },
+    ],
   },
   {
     id: BuildingId.GE,
@@ -1617,8 +1618,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Centre for Structural and Functional Genomics",
-        link: "http://www.concordia.ca/content/concordia/en/research/genomics"
-      }
+        link: "http://www.concordia.ca/content/concordia/en/research/genomics",
+      },
     ],
     location: { latitude: 45.45701687615203, longitude: -73.6404512594209 },
     boundingBox: [
@@ -1631,8 +1632,8 @@ export const Buildings: Building[] = [
       { latitude: 45.457174001923924, longitude: -73.64056978502741 },
       { latitude: 45.456945143117935, longitude: -73.64074044057598 },
       { latitude: 45.45691762731151, longitude: -73.64067103841772 },
-      { latitude: 45.45689246327163, longitude: -73.64068813750019 }
-    ]
+      { latitude: 45.45689246327163, longitude: -73.64068813750019 },
+    ],
   },
   {
     id: BuildingId.VL,
@@ -1644,8 +1645,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Library",
-        link: "https://library.concordia.ca/"
-      }
+        link: "https://library.concordia.ca/",
+      },
     ],
     location: { latitude: 45.45898581709969, longitude: -73.63853424124234 },
     boundingBox: [
@@ -1670,8 +1671,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45910114119617, longitude: -73.63784562066363 },
       { latitude: 45.459211842639064, longitude: -73.63813004574473 },
       { latitude: 45.45913296257864, longitude: -73.63819521425744 },
-      { latitude: 45.45931034975063, longitude: -73.63867908052914 }
-    ]
+      { latitude: 45.45931034975063, longitude: -73.63867908052914 },
+    ],
   },
   {
     id: BuildingId.BH,
@@ -1683,16 +1684,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "CPE Les P'tits Profs Daycare",
-        link: "https://lesptitsprofs.wordpress.com/"
-      }
+        link: "https://lesptitsprofs.wordpress.com/",
+      },
     ],
     location: { latitude: 45.45974814796602, longitude: -73.63912683825797 },
     boundingBox: [
       { latitude: 45.45982068669079, longitude: -73.63916645247663 },
       { latitude: 45.459758628539575, longitude: -73.6390162122033 },
       { latitude: 45.459664091711765, longitude: -73.63909064350347 },
-      { latitude: 45.45972382395475, longitude: -73.63924419996957 }
-    ]
+      { latitude: 45.45972382395475, longitude: -73.63924419996957 },
+    ],
   },
   {
     id: BuildingId.BB,
@@ -1704,16 +1705,16 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "CPE Les P'tits Profs Daycare",
-        link: "https://lesptitsprofs.wordpress.com/"
-      }
+        link: "https://lesptitsprofs.wordpress.com/",
+      },
     ],
     location: { latitude: 45.459824341726055, longitude: -73.63932129841155 },
     boundingBox: [
       { latitude: 45.459847629799036, longitude: -73.63923764922974 },
       { latitude: 45.45975826677363, longitude: -73.63931878605244 },
       { latitude: 45.45981611759046, longitude: -73.63945624926446 },
-      { latitude: 45.45990030688451, longitude: -73.63937578299401 }
-    ]
+      { latitude: 45.45990030688451, longitude: -73.63937578299401 },
+    ],
   },
 
   {
@@ -1728,18 +1729,18 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "F.C. Smith Auditorium",
-        link: "http://www.concordia.ca/arts/venues/fc-smith-auditorium.html"
+        link: "http://www.concordia.ca/arts/venues/fc-smith-auditorium.html",
       },
       {
         id: 2,
         title: "Cazalet Theatre",
-        link: "http://www.concordia.ca/arts/venues/cazalet.html"
+        link: "http://www.concordia.ca/arts/venues/cazalet.html",
       },
       {
         id: 3,
         title: "Concordia Multi-Faith and Spirituality Centre",
-        link: "http://www.concordia.ca/students/spirituality.html"
-      }
+        link: "http://www.concordia.ca/students/spirituality.html",
+      },
     ],
     location: { latitude: 45.45857915168717, longitude: -73.63933284169326 },
     boundingBox: [
@@ -1813,8 +1814,8 @@ export const Buildings: Building[] = [
       { latitude: 45.4585220782418, longitude: -73.63901342742918 },
       { latitude: 45.45850927765965, longitude: -73.63898268782555 },
       { latitude: 45.45852973755486, longitude: -73.63896491819082 },
-      { latitude: 45.45851844933774, longitude: -73.6389347433394 }
-    ]
+      { latitude: 45.45851844933774, longitude: -73.6389347433394 },
+    ],
   },
   {
     id: BuildingId.RF,
@@ -1827,13 +1828,13 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Loyola Jesuit Hall and Conference Centre",
         link:
-          "http://www.concordia.ca/hospitality/hospitality-venues/loyola-jesuit-hall-conference-centre.html"
+          "http://www.concordia.ca/hospitality/hospitality-venues/loyola-jesuit-hall-conference-centre.html",
       },
       {
         id: 2,
         title: "Conference services",
-        link: "http://www.concordia.ca/hospitality.html"
-      }
+        link: "http://www.concordia.ca/hospitality.html",
+      },
     ],
     location: { latitude: 45.458637354307285, longitude: -73.6410877337058 },
     boundingBox: [
@@ -1867,8 +1868,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45853875633943, longitude: -73.64075525128395 },
       { latitude: 45.45849125175137, longitude: -73.64079380803854 },
       { latitude: 45.45846350152795, longitude: -73.64081358933002 },
-      { latitude: 45.4584430416087, longitude: -73.64083001786024 }
-    ]
+      { latitude: 45.4584430416087, longitude: -73.64083001786024 },
+    ],
   },
   {
     id: BuildingId.PY,
@@ -1879,13 +1880,13 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Psychology",
-        link: "http://www.concordia.ca/artsci/psychology.html"
+        link: "http://www.concordia.ca/artsci/psychology.html",
       },
       {
         id: 2,
         title: "Centre for Clinical Research in Health (CCRH)",
-        link: "http://www.concordia.ca/research/clinical-research-health.html"
-      }
+        link: "http://www.concordia.ca/research/clinical-research-health.html",
+      },
     ],
     services: [],
     location: { latitude: 45.45900554313173, longitude: -73.64044802685575 },
@@ -1921,8 +1922,8 @@ export const Buildings: Building[] = [
       { latitude: 45.458821994180084, longitude: -73.64069428769645 },
       { latitude: 45.45880059371079, longitude: -73.64071105150279 },
       { latitude: 45.45881776112088, longitude: -73.64075597850379 },
-      { latitude: 45.45883657471496, longitude: -73.64080291716155 }
-    ]
+      { latitude: 45.45883657471496, longitude: -73.64080291716155 },
+    ],
   },
   {
     id: BuildingId.HA,
@@ -1935,8 +1936,8 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Student Residence",
         link:
-          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
-      }
+          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html",
+      },
     ],
     location: { latitude: 45.45945398113829, longitude: -73.64120812700196 },
     boundingBox: [
@@ -1951,8 +1952,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45951439868366, longitude: -73.64094103863604 },
       { latitude: 45.45949041163848, longitude: -73.64088169476159 },
       { latitude: 45.4592511634036, longitude: -73.64106927824055 },
-      { latitude: 45.45927538571867, longitude: -73.64113063377177 }
-    ]
+      { latitude: 45.45927538571867, longitude: -73.64113063377177 },
+    ],
   },
   {
     id: BuildingId.HC,
@@ -1965,8 +1966,8 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Student Residence",
         link:
-          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html"
-      }
+          "http://www.concordia.ca/students/housing/residences/hingston-hall-ha.html",
+      },
     ],
     location: { latitude: 45.45969590594231, longitude: -73.64206702191026 },
     boundingBox: [
@@ -1977,8 +1978,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45989646282729, longitude: -73.64200584575077 },
       { latitude: 45.45978640528163, longitude: -73.6421010641708 },
       { latitude: 45.459796752581404, longitude: -73.64213325067898 },
-      { latitude: 45.459619907560686, longitude: -73.64227406665226 }
-    ]
+      { latitude: 45.459619907560686, longitude: -73.64227406665226 },
+    ],
   },
   {
     id: BuildingId.SI,
@@ -2033,8 +2034,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45765622576718, longitude: -73.64256590008726 },
       { latitude: 45.457654344368684, longitude: -73.64255986511698 },
       { latitude: 45.45763317863112, longitude: -73.64257662892332 },
-      { latitude: 45.45763035653218, longitude: -73.64257528781881 }
-    ]
+      { latitude: 45.45763035653218, longitude: -73.64257528781881 },
+    ],
   },
   {
     id: BuildingId.VE,
@@ -2045,18 +2046,18 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Applied Human Sciences",
-        link: "http://ahsc.concordia.ca"
-      }
+        link: "http://ahsc.concordia.ca",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Library",
-        link: "http://library.concordia.ca/index.php"
-      }
+        link: "http://library.concordia.ca/index.php",
+      },
     ],
     location: { latitude: 45.458758, longitude: -73.63861 },
-    boundingBox: []
+    boundingBox: [],
   },
   {
     id: BuildingId.PR,
@@ -2070,8 +2071,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496945274392665, longitude: -73.57993717310565 },
       { latitude: 45.496964075260934, longitude: -73.579977741517 },
       { latitude: 45.49706700990343, longitude: -73.57987615285056 },
-      { latitude: 45.49704703401723, longitude: -73.57983323750632 }
-    ]
+      { latitude: 45.49704703401723, longitude: -73.57983323750632 },
+    ],
   },
   {
     id: BuildingId.CI,
@@ -2082,8 +2083,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "School of Community & Public Affairs",
-        link: "https://www.concordia.ca/artsci/scpa.html"
-      }
+        link: "https://www.concordia.ca/artsci/scpa.html",
+      },
     ],
     services: [],
     location: { latitude: 45.49748594357205, longitude: -73.5798858080879 },
@@ -2091,8 +2092,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49740575241681, longitude: -73.58001507658908 },
       { latitude: 45.49736627089587, longitude: -73.57993595142314 },
       { latitude: 45.497544460692055, longitude: -73.57975840315969 },
-      { latitude: 45.49758323706336, longitude: -73.5798371930495 }
-    ]
+      { latitude: 45.49758323706336, longitude: -73.5798371930495 },
+    ],
   },
   {
     id: BuildingId.M,
@@ -2106,8 +2107,8 @@ export const Buildings: Building[] = [
       { latitude: 45.497325531140575, longitude: -73.57985315680547 },
       { latitude: 45.497289809714815, longitude: -73.57977973133369 },
       { latitude: 45.49738827859022, longitude: -73.57967981904788 },
-      { latitude: 45.49742705506909, longitude: -73.57975425034805 }
-    ]
+      { latitude: 45.49742705506909, longitude: -73.57975425034805 },
+    ],
   },
   {
     id: BuildingId.PT,
@@ -2118,15 +2119,15 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Oscar Peterson Concert Hall",
-        link: "https://www.concordia.ca/arts/venues/oscar-peterson.html"
-      }
+        link: "https://www.concordia.ca/arts/venues/oscar-peterson.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Concert Hall",
-        link: "https://www.concordia.ca/arts/venues/oscar-peterson.html"
-      }
+        link: "https://www.concordia.ca/arts/venues/oscar-peterson.html",
+      },
     ],
     location: { latitude: 45.4593209473864, longitude: -73.63894675601217 },
     boundingBox: [
@@ -2136,8 +2137,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45933498973359, longitude: -73.6392207202542 },
       { latitude: 45.45931608578421, longitude: -73.63917769454538 },
       { latitude: 45.459174439992786, longitude: -73.63879926133203 },
-      { latitude: 45.4593134220142, longitude: -73.63869328726027 }
-    ]
+      { latitude: 45.4593134220142, longitude: -73.63869328726027 },
+    ],
   },
   {
     id: BuildingId.SC,
@@ -2149,23 +2150,23 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Campus Centre",
-        link: ""
+        link: "",
       },
       {
         id: 2,
         title: "Food Services",
-        link: "http://www.concordia.ca/students/housing/residences.html"
+        link: "http://www.concordia.ca/students/housing/residences.html",
       },
       {
         id: 3,
         title: "Cafeteria",
-        link: ""
+        link: "",
       },
       {
         id: 4,
         title: "Cafe",
-        link: ""
-      }
+        link: "",
+      },
     ],
     location: { latitude: 45.45917811397828, longitude: -73.63917007203673 },
     boundingBox: [
@@ -2180,8 +2181,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45923243643183, longitude: -73.63938128435578 },
       { latitude: 45.4593053385378, longitude: -73.63932261103358 },
       { latitude: 45.45926559514335, longitude: -73.63922068709101 },
-      { latitude: 45.45931508346138, longitude: -73.63917722111121 }
-    ]
+      { latitude: 45.45931508346138, longitude: -73.63917722111121 },
+    ],
   },
   {
     id: BuildingId.CL,
@@ -2193,8 +2194,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Concordia Continuing Education (CCE)",
-        link: "https://www.concordia.ca/cce.html"
-      }
+        link: "https://www.concordia.ca/cce.html",
+      },
     ],
     location: { latitude: 45.494229787244, longitude: -73.57929775659919 },
     boundingBox: [
@@ -2203,8 +2204,8 @@ export const Buildings: Building[] = [
       { latitude: 45.493979045928185, longitude: -73.57932499658406 },
       { latitude: 45.4939844514632, longitude: -73.57935315977872 },
       { latitude: 45.494164196622975, longitude: -73.57965755613947 },
-      { latitude: 45.49447127774607, longitude: -73.5792813637081 }
-    ]
+      { latitude: 45.49447127774607, longitude: -73.5792813637081 },
+    ],
   },
   {
     id: BuildingId.ER,
@@ -2220,8 +2221,8 @@ export const Buildings: Building[] = [
       { latitude: 45.496674782160476, longitude: -73.57996730739907 },
       { latitude: 45.49652070814119, longitude: -73.57963138408415 },
       { latitude: 45.49621471393958, longitude: -73.57990302081502 },
-      { latitude: 45.496245265743696, longitude: -73.5799714171449 }
-    ]
+      { latitude: 45.496245265743696, longitude: -73.5799714171449 },
+    ],
   },
   {
     id: BuildingId.GA,
@@ -2232,8 +2233,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Department of Education",
-        link: "http://www.concordia.ca/artsci/education.html"
-      }
+        link: "http://www.concordia.ca/artsci/education.html",
+      },
     ],
     services: [],
     location: { latitude: 45.49409857637497, longitude: -73.57794979062419 },
@@ -2245,8 +2246,8 @@ export const Buildings: Building[] = [
       { latitude: 45.49428245167078, longitude: -73.57762095874678 },
       { latitude: 45.4943456725548, longitude: -73.57773662901054 },
       { latitude: 45.49412044431024, longitude: -73.57798424095054 },
-      { latitude: 45.49413337055625, longitude: -73.57800972193618 }
-    ]
+      { latitude: 45.49413337055625, longitude: -73.57800972193618 },
+    ],
   },
   {
     id: BuildingId.DO,
@@ -2257,8 +2258,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Stingers.ca",
-        link: "https://stingers.ca"
-      }
+        link: "https://stingers.ca",
+      },
     ],
     services: [],
     location: { latitude: 45.45767546719732, longitude: -73.63614320755005 },
@@ -2266,8 +2267,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45695412200131, longitude: -73.63635852206605 },
       { latitude: 45.45736427048473, longitude: -73.63708271850007 },
       { latitude: 45.4583275432652, longitude: -73.63595619071381 },
-      { latitude: 45.45791928317803, longitude: -73.63524004090684 }
-    ]
+      { latitude: 45.45791928317803, longitude: -73.63524004090684 },
+    ],
   },
   {
     id: BuildingId.HB,
@@ -2280,13 +2281,13 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Student Residence",
         link:
-          "http://www.concordia.ca/students/housing/residences/hingston-hall-hb.html"
+          "http://www.concordia.ca/students/housing/residences/hingston-hall-hb.html",
       },
       {
         id: 2,
         title: "CUFA",
-        link: "http://cufa.net/"
-      }
+        link: "http://cufa.net/",
+      },
     ],
     location: { latitude: 45.45924054914103, longitude: -73.64189015927725 },
     boundingBox: [
@@ -2303,8 +2304,8 @@ export const Buildings: Building[] = [
       { latitude: 45.459501385613365, longitude: -73.64194238563765 },
       { latitude: 45.459525372653886, longitude: -73.64200206478823 },
       { latitude: 45.459555474023674, longitude: -73.64197893073548 },
-      { latitude: 45.45936614352995, longitude: -73.64149514807193 }
-    ]
+      { latitude: 45.45936614352995, longitude: -73.64149514807193 },
+    ],
   },
   {
     id: BuildingId.HU,
@@ -2318,8 +2319,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45867598246963, longitude: -73.64129784085388 },
       { latitude: 45.459247136610294, longitude: -73.64277669887241 },
       { latitude: 45.45878824385115, longitude: -73.64316405369357 },
-      { latitude: 45.45820087960469, longitude: -73.6416734954904 }
-    ]
+      { latitude: 45.45820087960469, longitude: -73.6416734954904 },
+    ],
   },
   {
     id: BuildingId.JR,
@@ -2332,8 +2333,8 @@ export const Buildings: Building[] = [
         id: 1,
         title: "Student Residence",
         link:
-          "http://www.concordia.ca/students/housing/residences/jesuit-residence.html"
-      }
+          "http://www.concordia.ca/students/housing/residences/jesuit-residence.html",
+      },
     ],
     location: { latitude: 45.458517236811566, longitude: -73.64323517665649 },
     boundingBox: [
@@ -2354,8 +2355,8 @@ export const Buildings: Building[] = [
       { latitude: 45.4584779059221, longitude: -73.6431212972678 },
       { latitude: 45.45846732320888, longitude: -73.64309548100603 },
       { latitude: 45.45839653656496, longitude: -73.64315314849985 },
-      { latitude: 45.458425697850956, longitude: -73.64322724452389 }
-    ]
+      { latitude: 45.458425697850956, longitude: -73.64322724452389 },
+    ],
   },
   {
     id: BuildingId.QA,
@@ -2366,7 +2367,7 @@ export const Buildings: Building[] = [
     services: [],
     location: { latitude: 45.45863177412241, longitude: -73.64004900596404 },
     // Not a building
-    boundingBox: []
+    boundingBox: [],
   },
   {
     id: BuildingId.SH,
@@ -2380,8 +2381,8 @@ export const Buildings: Building[] = [
       { latitude: 45.45925610910041, longitude: -73.64255745236336 },
       { latitude: 45.45932712983307, longitude: -73.64255376432597 },
       { latitude: 45.459321720972476, longitude: -73.6423693624562 },
-      { latitude: 45.45925164090562, longitude: -73.64237271521746 }
-    ]
+      { latitude: 45.45925164090562, longitude: -73.64237271521746 },
+    ],
   },
   {
     id: BuildingId.EN,
@@ -2395,8 +2396,8 @@ export const Buildings: Building[] = [
       { latitude: 45.4968347523502, longitude: -73.57971384829989 },
       { latitude: 45.496928286791366, longitude: -73.57962198264113 },
       { latitude: 45.49690549072327, longitude: -73.57957772619238 },
-      { latitude: 45.496813836335825, longitude: -73.57967059767952 }
-    ]
+      { latitude: 45.496813836335825, longitude: -73.57967059767952 },
+    ],
   },
   {
     id: BuildingId.FB,
@@ -2407,52 +2408,52 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Classics, Modern Languages & Linguistics",
-        link: "http://www.concordia.ca/content/concordia/en/artsci/cmll"
+        link: "http://www.concordia.ca/content/concordia/en/artsci/cmll",
       },
       {
         id: 2,
         title: "Concordia Continuing Education",
-        link: "http://www.concordia.ca/cce.html"
+        link: "http://www.concordia.ca/cce.html",
       },
       {
         id: 3,
         title: "Mel Hoppenheim School of Cinema",
-        link: "http://www.concordia.ca/content/concordia/en/finearts/cinema"
+        link: "http://www.concordia.ca/content/concordia/en/finearts/cinema",
       },
       {
         id: 4,
         title:
           "Montreal Institute for Genocide and Human Rights Studies (MIGS)",
-        link: "http://www.concordia.ca/research/migs.html"
+        link: "http://www.concordia.ca/research/migs.html",
       },
       {
         id: 5,
         title: "District 3 Innovation Center",
-        link: "http://www.concordia.ca/research/d3center.html"
-      }
+        link: "http://www.concordia.ca/research/d3center.html",
+      },
     ],
     services: [
       {
         id: 1,
         title: "Human Resources",
-        link: "http://www.concordia.ca/hr.html"
+        link: "http://www.concordia.ca/hr.html",
       },
       {
         id: 2,
         title:
           "Enrolment Services / Office of the Registrar / Student Recruitment",
-        link: "http://www.concordia.ca/offices/registrar.html"
+        link: "http://www.concordia.ca/offices/registrar.html",
       },
       {
         id: 3,
         title: "Examinations Office",
-        link: "http://www.concordia.ca/students/exams.html"
+        link: "http://www.concordia.ca/students/exams.html",
       },
       {
         id: 4,
         title: "Senior non-credit program",
-        link: "http://www.concordia.ca/admissions/seniors.html"
-      }
+        link: "http://www.concordia.ca/admissions/seniors.html",
+      },
     ],
     location: { latitude: 45.4946720832902, longitude: -73.57763727107047 },
     boundingBox: [
@@ -2469,8 +2470,8 @@ export const Buildings: Building[] = [
       { latitude: 45.494875533856366, longitude: -73.57770325518729 },
       { latitude: 45.4948691883287, longitude: -73.57771197236659 },
       { latitude: 45.49491031673617, longitude: -73.57778439200999 },
-      { latitude: 45.494693782050334, longitude: -73.57803710524378 }
-    ]
+      { latitude: 45.494693782050334, longitude: -73.57803710524378 },
+    ],
   },
   {
     id: BuildingId.K,
@@ -2482,8 +2483,8 @@ export const Buildings: Building[] = [
       {
         id: 1,
         title: "Theological Studies",
-        link: "http://www.concordia.ca/artsci/theology.html"
-      }
+        link: "http://www.concordia.ca/artsci/theology.html",
+      },
     ],
     location: { latitude: 45.49782950921831, longitude: -73.5793927965218 },
     boundingBox: [
@@ -2494,9 +2495,9 @@ export const Buildings: Building[] = [
       { latitude: 45.49777138468352, longitude: -73.57943762209702 },
       { latitude: 45.497753759122396, longitude: -73.57940074172306 },
       { latitude: 45.497849407101164, longitude: -73.57931323465395 },
-      { latitude: 45.49788254309522, longitude: -73.5793836426406 }
-    ]
-  }
+      { latitude: 45.49788254309522, longitude: -73.5793836426406 },
+    ],
+  },
 ];
 
 /**
@@ -2505,5 +2506,5 @@ export const Buildings: Building[] = [
  * @param id id of the Building
  */
 export const getBuildingById = (id: BuildingId): Building => {
-  return Buildings.filter(building => building.id === id)[0];
+  return Buildings.filter((building) => building.id === id)[0];
 };

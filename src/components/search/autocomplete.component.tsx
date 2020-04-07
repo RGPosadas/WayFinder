@@ -4,7 +4,7 @@ import {
   StyleSheet,
   View,
   TouchableOpacity,
-  Text
+  Text,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { POI, BuildingId, Building, isPOI } from "../../types/main";
@@ -12,7 +12,7 @@ import {
   LIST_BACKGROUND_COLOR,
   LIST_ITEM_BORDER_COLOR,
   LIST_ITEM_TEXT_COLOR,
-  screenWidth
+  screenWidth,
 } from "../../styles";
 
 /**
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     width: screenWidth - 30,
     top: 48,
     backgroundColor: LIST_BACKGROUND_COLOR,
-    zIndex: 3
+    zIndex: 3,
   },
   list: {
     flexDirection: "row",
@@ -87,12 +87,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomColor: LIST_ITEM_BORDER_COLOR,
     borderBottomWidth: 1.4,
-    zIndex: 4
+    zIndex: 4,
   },
   text: {
     fontSize: 16,
-    color: LIST_ITEM_TEXT_COLOR
-  }
+    color: LIST_ITEM_TEXT_COLOR,
+  },
 });
 
 export default AutoComplete;

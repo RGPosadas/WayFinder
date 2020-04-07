@@ -12,19 +12,19 @@ const TravelNodeDebug = ({ id }: IProps) => {
   return (
     <>
       {buildingFloors
-        .filter(buildingFloor => buildingFloor.id === id)
-        .map(buildingFloor => (
+        .filter((buildingFloor) => buildingFloor.id === id)
+        .map((buildingFloor) => (
           <>
             {PathFindingService.getInstance()
               .traverseNodes(buildingFloor.travelNodes)
-              .map(line => (
+              .map((line) => (
                 <>
-                  <Polyline coordinates={line.map(edge => edge.location)} />
+                  <Polyline coordinates={line.map((edge) => edge.location)} />
                 </>
               ))}
             {PathFindingService.getInstance()
               .traverseNodes(buildingFloor.travelNodes)
-              .map(line => (
+              .map((line) => (
                 <>
                   <Marker coordinate={line[0].location}>
                     <Text>{line[0].id}</Text>

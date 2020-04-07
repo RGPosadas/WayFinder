@@ -11,7 +11,7 @@ enum selectHall8POI {
   "058086ab-58be-4174-a34d-d0dd7e80014f", // Elevator
   "f1b0422b-63f2-471e-919d-21d7cffbaa87", // Escalators
   "8c28ea3e-73ad-46d2-9031-5edec3c83187", // Stairs
-  "a9462139-ef45-4d40-b5ca-52cfebcc26d2" // Classroom
+  "a9462139-ef45-4d40-b5ca-52cfebcc26d2", // Classroom
 }
 
 enum selectHall9POI {
@@ -19,7 +19,7 @@ enum selectHall9POI {
   "c069eb38-736e-40e1-b6f9-a06a531c71b0", // Washroom
   "f45af436-f9bb-40b8-97c5-8526ad68ac55", // Escalator
   "a15f5890-eb65-4a05-a578-08d4cabe254d", // Stairs
-  "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd" // Elevator
+  "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd", // Elevator
 }
 
 describe("US-14: Indoor Points of Interest", () => {

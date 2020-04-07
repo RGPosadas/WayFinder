@@ -8,7 +8,7 @@ import {
   MAP_BUTTON_RIGHT,
   CONCORDIA_RED,
   INACTIVE_BUTTON_COLOR,
-  BUTTON_BORDER_COLOR
+  BUTTON_BORDER_COLOR,
 } from "../../styles";
 
 interface IProps {
@@ -28,7 +28,7 @@ const FloorPicker = ({
   indoorInformation,
   onFloorPickerButtonPress,
   travelState,
-  zoomLevel
+  zoomLevel,
 }: IProps) => {
   return (
     <>
@@ -42,8 +42,8 @@ const FloorPicker = ({
               bottom:
                 travelState === TravelState.NONE
                   ? FLOOR_PICKER_HEIGHT
-                  : FLOOR_PICKER_TRAVEL_HEIGHT
-            }
+                  : FLOOR_PICKER_TRAVEL_HEIGHT,
+            },
           ])}
         >
           {indoorInformation.floors &&
@@ -56,11 +56,11 @@ const FloorPicker = ({
                     floor.index === indoorInformation.currentFloor.index
                       ? StyleSheet.flatten([
                           styles.floorButton,
-                          { backgroundColor: CONCORDIA_RED }
+                          { backgroundColor: CONCORDIA_RED },
                         ])
                       : StyleSheet.flatten([
                           styles.floorButton,
-                          { backgroundColor: INACTIVE_BUTTON_COLOR }
+                          { backgroundColor: INACTIVE_BUTTON_COLOR },
                         ])
                   }
                   onPress={() => onFloorPickerButtonPress(floor.index)}
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     right: MAP_BUTTON_RIGHT,
     borderRadius: 2,
     borderWidth: 1,
-    borderColor: BUTTON_BORDER_COLOR
+    borderColor: BUTTON_BORDER_COLOR,
   },
   floorButton: {
     flex: 1,
@@ -95,12 +95,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingBottom: 8,
     paddingTop: 10,
-    borderRadius: 2
+    borderRadius: 2,
   },
   text: {
     fontWeight: "bold",
-    fontSize: 16
-  }
+    fontSize: 16,
+  },
 });
 
 export default FloorPicker;

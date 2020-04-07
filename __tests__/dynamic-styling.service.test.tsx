@@ -4,7 +4,7 @@ import DynamicStylingService from "../src/services/dynamic-styling.service";
 describe("Auto-complete-height-service", () => {
   const {
     getOmniboxAutoCompleteHeight,
-    getSearchBarAutoCompleteHeight
+    getSearchBarAutoCompleteHeight,
   } = DynamicStylingService.getInstance();
 
   it("should get the correct height of the AutoComplete component", () => {

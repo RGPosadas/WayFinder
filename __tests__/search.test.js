@@ -5,7 +5,7 @@ import DynamicStylingService from "../src/services/dynamic-styling.service";
 
 describe("Search component", () => {
   const {
-    getSearchBarAutoCompleteHeight
+    getSearchBarAutoCompleteHeight,
   } = DynamicStylingService.getInstance();
 
   it("should call a function on user input", () => {

@@ -38,7 +38,7 @@ describe("UtilityService", () => {
     it("should return expected value", () => {
       let range = {
         min: 0,
-        max: 1
+        max: 1,
       };
       expect(utilityService.inRange(range, 1)).toEqual(true);
       expect(utilityService.inRange(range, 0)).toEqual(true);

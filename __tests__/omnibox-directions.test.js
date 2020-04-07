@@ -11,11 +11,11 @@ const mockPOIs = [
     description: "",
     location: {
       latitude: 45.497482,
-      longitude: -73.579034
+      longitude: -73.579034,
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Washroom
+    category: POICategory.Washroom,
   },
   {
     id: "f5a7d95c-170b-48c9-aac3-e9faafa6033d",
@@ -23,12 +23,12 @@ const mockPOIs = [
     description: "",
     location: {
       latitude: 45.497253,
-      longitude: -73.579251
+      longitude: -73.579251,
     },
     buildingId: BuildingId.H,
     level: 8,
-    category: POICategory.Washroom
-  }
+    category: POICategory.Washroom,
+  },
 ];
 
 describe("OmniboxDirections component", () => {
@@ -154,7 +154,7 @@ describe("OmniboxDirections component", () => {
     );
 
     const textInput = wrapper.find({
-      testID: "searchInputDestinationLocation"
+      testID: "searchInputDestinationLocation",
     });
     textInput.simulate("changeText", "H805");
     expect(mockUpdateSearchResults).toHaveBeenCalledTimes(1);
@@ -181,7 +181,7 @@ describe("OmniboxDirections component", () => {
     );
 
     const textInput = wrapper.find({
-      testID: "searchInputDestinationLocation"
+      testID: "searchInputDestinationLocation",
     });
     textInput.simulate("focus");
     expect(mockSetEndLocationFocused).toHaveBeenCalledTimes(1);
@@ -193,7 +193,7 @@ describe("OmniboxDirections component", () => {
 
     const useStateSpy = jest.spyOn(React, "useState");
     // @ts-ignore
-    useStateSpy.mockImplementation(init => [init, mockSetShowTimePicker]);
+    useStateSpy.mockImplementation((init) => [init, mockSetShowTimePicker]);
 
     const wrapper = shallow(
       <OmniboxDirections
@@ -211,10 +211,7 @@ describe("OmniboxDirections component", () => {
       />
     );
 
-    wrapper
-      .find({ testID: "timePickerButton" })
-      .props()
-      .onPress();
+    wrapper.find({ testID: "timePickerButton" }).props().onPress();
 
     expect(mockSetShowTimePicker).toHaveBeenCalledTimes(1);
   });

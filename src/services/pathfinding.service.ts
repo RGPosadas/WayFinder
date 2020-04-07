@@ -37,12 +37,12 @@ class PathFindingService {
     const initial: TravelNode = {
       id: nodes.length,
       location: start,
-      children: [startEdge[0].id, startEdge[1].id]
+      children: [startEdge[0].id, startEdge[1].id],
     };
     const goal: TravelNode = {
       id: nodes.length + 1,
       location: end,
-      children: [endEdge[0].id, endEdge[1].id]
+      children: [endEdge[0].id, endEdge[1].id],
     };
 
     if (_.isEqual(startEdge, endEdge)) {
@@ -53,22 +53,22 @@ class PathFindingService {
 
     nodes[startEdge[0].id].children.push(initial.id);
     nodes[startEdge[0].id].children = nodes[startEdge[0].id].children.filter(
-      c => startEdge[1].id !== c
+      (c) => startEdge[1].id !== c
     );
 
     nodes[startEdge[1].id].children.push(initial.id);
     nodes[startEdge[1].id].children = nodes[startEdge[1].id].children.filter(
-      c => startEdge[0].id !== c
+      (c) => startEdge[0].id !== c
     );
 
     nodes[endEdge[0].id].children.push(goal.id);
     nodes[endEdge[0].id].children = nodes[endEdge[0].id].children.filter(
-      c => endEdge[1].id !== c
+      (c) => endEdge[1].id !== c
     );
 
     nodes[endEdge[1].id].children.push(goal.id);
     nodes[endEdge[1].id].children = nodes[endEdge[1].id].children.filter(
-      c => endEdge[0].id !== c
+      (c) => endEdge[0].id !== c
     );
 
     const searchPath = this.search(nodes, initial, goal);
@@ -97,7 +97,7 @@ class PathFindingService {
     const lines: TravelEdge[] = [];
     for (let i = 0; i < travelNodes.length; i += 1) {
       const parent: TravelNode = travelNodes[i];
-      parent.children.forEach(nodeId => {
+      parent.children.forEach((nodeId) => {
         if (nodeId > i) {
           const child: TravelNode = travelNodes[nodeId];
           lines.push([parent, child]);
@@ -113,7 +113,7 @@ class PathFindingService {
    * @returns List of equivalent Lines
    */
   public travelPathToLinePath = (travelPath: TravelEdge[]) => {
-    return travelPath.map(edge => [edge[0].location, edge[1].location]);
+    return travelPath.map((edge) => [edge[0].location, edge[1].location]);
   };
 
   /**
@@ -134,7 +134,7 @@ class PathFindingService {
     const open: PriorityQueue<PQItem> = new PriorityQueue<PQItem>({
       comparator: (a, b) => {
         return this.f(nodes[a.id], goal, a.g) - this.f(nodes[b.id], goal, b.g);
-      }
+      },
     });
     open.queue({ id: initial.id, parent: -1, g: 0 } as PQItem);
     while (open.length > 0) {
@@ -142,7 +142,7 @@ class PathFindingService {
       if (!(current.id in closed)) {
         closed[current.id] = current.parent;
         if (current.id === goal.id) return closed;
-        nodes[current.id].children.forEach(child => {
+        nodes[current.id].children.forEach((child) => {
           if (child in closed) return;
           const g =
             current.g +
@@ -187,7 +187,7 @@ class PathFindingService {
   ): TravelEdge => {
     let minDistance: number = Number.MAX_SAFE_INTEGER;
     let closestLine: TravelEdge = lines[0];
-    lines.forEach(line => {
+    lines.forEach((line) => {
       const distance: number = getDistanceFromLine(
         point,
         line[0].location,

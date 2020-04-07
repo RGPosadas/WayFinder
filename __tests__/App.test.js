@@ -5,7 +5,7 @@ import renderer from "react-test-renderer";
 
 // Mock application
 jest.mock("expo", () => ({
-  AppLoading: "AppLoading"
+  AppLoading: "AppLoading",
 }));
 
 jest.mock("../src/navigation/navigation", () => "navigation");

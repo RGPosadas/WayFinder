@@ -4,7 +4,7 @@ import {
   Buildings,
   getAllCampuses,
   buildingFloors,
-  getAllPOI
+  getAllPOI,
 } from "../../constants";
 import {
   BuildingId,
@@ -13,7 +13,7 @@ import {
   POI,
   MarkerLocation,
   TravelState,
-  Building
+  Building,
 } from "../../types/main";
 import { CONCORDIA_RED, BUILDING_UNTAPPED } from "../../styles";
 
@@ -42,7 +42,7 @@ const MapOverlays = ({
   onPOIMarkerPress,
   endLocation,
   startLocation,
-  travelState
+  travelState,
 }: IProps) => {
   /**
    * Fill color for the Polygons
@@ -77,8 +77,8 @@ const MapOverlays = ({
        */}
       {zoomLevel === ZoomLevel.OUTDOOR ? (
         <>
-          {Buildings.filter(building => building.boundingBox.length > 0).map(
-            building => (
+          {Buildings.filter((building) => building.boundingBox.length > 0).map(
+            (building) => (
               <CustomPolygon
                 key={building.id}
                 coordinates={building.boundingBox}
@@ -126,8 +126,8 @@ const MapOverlays = ({
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
           {buildingFloors
-            .filter(floor => floor.bounds != null && floor.image != null)
-            .map(floor => (
+            .filter((floor) => floor.bounds != null && floor.image != null)
+            .map((floor) => (
               <Overlay
                 key={floor.id}
                 bounds={floor.bounds}
@@ -140,7 +140,7 @@ const MapOverlays = ({
       travelState === TravelState.TRAVELLING ? (
         <>
           {getAllPOI()
-            .filter(poi => {
+            .filter((poi) => {
               if (travelState === TravelState.TRAVELLING) {
                 return poi.id === endLocation.id || poi.id === startLocation.id;
               }
@@ -150,7 +150,7 @@ const MapOverlays = ({
               }
               return poi.level === indoorInformation.currentFloor.level;
             })
-            .map(poi => (
+            .map((poi) => (
               <CustomMarker
                 testID={`poi-${poi.id}`}
                 markerType="poi"

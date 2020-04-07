@@ -173,20 +173,20 @@ module.exports = {
   transform: {
     "^.+\\.jsx?$": "babel-jest",
     "node_modules/react-native/.+\\.js$":
-      "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+      "<rootDir>/node_modules/react-native/jest/preprocessor.js",
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [
-    "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base|react-native-screens|react-native|rn-sliding-up-panel|react-native-maps|react-test-renderer)"
+    "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|sentry-expo|native-base|react-native-screens|react-native|rn-sliding-up-panel|react-native-maps|react-test-renderer)",
   ],
 
   // An array of regexp patterns strings that are matched against all source file paths, matched files will not be tested
   testPathIgnorePatterns: [
     "<rootDir>/__tests__/__testData__",
     "<rootDir>/src/services/location.service.ts",
-    "<rootDir>/src/services/firebase.service.ts"
-  ]
+    "<rootDir>/src/services/firebase.service.ts",
+  ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
   // unmockedModulePathPatterns: undefined,

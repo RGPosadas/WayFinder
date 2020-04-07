@@ -17,8 +17,8 @@ beforeAll(async () => {
   await init(config, { launchApp: false });
   await device.launchApp({
     permissions: {
-      location: "always"
-    }
+      location: "always",
+    },
   });
 }, 300000);
 

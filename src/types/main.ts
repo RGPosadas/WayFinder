@@ -99,7 +99,7 @@ export type Coordinate = [number, number];
 
 export enum CampusId {
   SGW = "SGW",
-  Loyola = "Loyola"
+  Loyola = "Loyola",
 }
 
 export enum BuildingId {
@@ -168,7 +168,7 @@ export enum BuildingId {
   SP,
   TA,
   VE,
-  VL
+  VL,
 }
 
 export enum ZoomLevel {
@@ -179,7 +179,7 @@ export enum ZoomLevel {
   // Medium
   OUTDOOR,
   // Close
-  INDOOR
+  INDOOR,
 }
 
 export enum POICategory {
@@ -192,7 +192,7 @@ export enum POICategory {
   EscalatorDown,
   Stairs,
   Exit,
-  Service
+  Service,
 }
 
 export enum ConnectorType {
@@ -200,13 +200,13 @@ export enum ConnectorType {
   Stairs,
   Ramp,
   EscalatorUp,
-  EscalatorDown
+  EscalatorDown,
 }
 
 export enum TravelState {
   NONE,
   PLANNING,
-  TRAVELLING
+  TRAVELLING,
 }
 
 export const isPOI = (object: any) => {

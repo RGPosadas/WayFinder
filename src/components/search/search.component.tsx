@@ -7,7 +7,7 @@ import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
   CONCORDIA_RED,
   WHITE_BACKGROUND_COLOR,
-  screenWidth
+  screenWidth,
 } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 
@@ -37,7 +37,7 @@ const Search = ({
   setEndLocation,
   setUserCurrentLocation,
   setTravelState,
-  updateSearchResults
+  updateSearchResults,
 }: IProps) => {
   const [value, onChangeText] = React.useState("");
   const [searchResults, setSearchResults] = React.useState<(POI | Building)[]>(
@@ -64,8 +64,8 @@ const Search = ({
         {
           height: DynamicStylingService.getInstance().getSearchBarAutoCompleteHeight(
             searchResults
-          )
-        }
+          ),
+        },
       ])}
     >
       <View style={styles.parent}>
@@ -77,7 +77,7 @@ const Search = ({
             <TextInput
               testID="searchInput"
               style={styles.input}
-              onChangeText={text =>
+              onChangeText={(text) =>
                 updateSearchResults(text, setSearchResults, onChangeText)
               }
               value={value}
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     width: screenWidth - 30,
     zIndex: 1,
     height: 48,
-    elevation: 5
+    elevation: 5,
   },
   parent: {
     position: "relative",
@@ -121,30 +121,30 @@ const styles = StyleSheet.create({
     paddingLeft: 16,
     paddingRight: 16,
     justifyContent: "space-between",
-    zIndex: 2
+    zIndex: 2,
   },
   menu_icon: {
-    color: CONCORDIA_RED
+    color: CONCORDIA_RED,
   },
   lineSeperator: {
     marginLeft: 16,
-    marginRight: 16
+    marginRight: 16,
   },
   view: {
     flex: 1,
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   search_icon: {
-    color: CONCORDIA_RED
+    color: CONCORDIA_RED,
   },
   input: {
     marginLeft: 5,
     flex: 1,
-    alignSelf: "stretch"
+    alignSelf: "stretch",
   },
   mic_icon: {
-    color: CONCORDIA_RED
+    color: CONCORDIA_RED,
   },
-  searchResults: {}
+  searchResults: {},
 });
