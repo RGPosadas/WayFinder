@@ -4,10 +4,10 @@ import * as constants from "../src/constants";
 import { BuildingId, POICategory } from "../src/types/main";
 import PathFindingService from "../src/services/pathfinding.service";
 
-describe("Find the shortest path on a given floor", () => {
+describe("Find the shortest path between two locations/POI's", () => {
   const {
     findPathOnFloor,
-    findPathBetweenPOIs
+    findPathBetweenPOIs,
   } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
     const travelNodes = buildingFloors.find(
@@ -75,44 +75,8 @@ describe("Find the shortest path on a given floor", () => {
   });
 
   it("should return a path that uses stairs as connectors", () => {
-    constants.buildingFloors = buildingFloors.push({
-      id: 3,
-      buildingId: BuildingId.H,
-      level: 3,
-      bounds: null,
-      image: null,
-      travelNodes: [
-        {
-          id: 0,
-          location: {
-            latitude: 45.497411422038525,
-            longitude: -73.57930387743083
-          },
-          children: [1]
-        },
-        {
-          id: 1,
-          location: {
-            latitude: 45.49735509062119,
-            longitude: -73.57918419446206
-          },
-          children: [0]
-        }
-      ]
-    });
-
-    constants.POIInfo.push({
-      id: "8dd47eee-23b4-437c-bd74-aad3876f83dc",
-      displayName: "Stairs 1",
-      description: "",
-      location: {
-        latitude: 45.497354,
-        longitude: -73.578713
-      },
-      buildingId: BuildingId.H,
-      level: 3,
-      category: POICategory.Stairs
-    });
+    constants.buildingFloors = buildingFloors.push(testData.h3rdFloorPoiMock);
+    constants.POIInfo.push(testData.h3rdFloorMock);
 
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName, level }) => displayName === "H961-17"),
@@ -120,11 +84,15 @@ describe("Find the shortest path on a given floor", () => {
         ({ displayName, level }) => displayName === "Stairs 1" && level === 3
       )
     );
+
+    constants.buildingFloors.pop();
+    constants.POIInfo.pop();
+
     expect(path[0].connectorType).toEqual(POICategory.Stairs);
     expect(path[1].connectorType).toEqual(POICategory.Stairs);
   });
 
-  it("should return the shortest path between two given POIs in Hall and JMSB", () => {
+  it("should return the shortest path between two given POI's in Hall and JMSB", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
@@ -150,7 +118,7 @@ describe("Find the shortest path on a given floor", () => {
     expect(path).toEqual(testData.h96117toH9MensBathroom);
   });
 
-  it("should return the shortest path between two given POIs from H 9th to 8th floor", () => {
+  it("should return the shortest path between two given POI's from H 9th to 8th floor", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
@@ -162,7 +130,7 @@ describe("Find the shortest path on a given floor", () => {
     expect(path).toEqual(testData.h9117toH8WomensBathroom);
   });
 
-  it("should return the shortest path between two given POIs from H 8th to 9th floor", () => {
+  it("should return the shortest path between two given POI's from H 8th to 9th floor", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(
         ({ buildingId, displayName, level }) =>

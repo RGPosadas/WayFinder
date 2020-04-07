@@ -12,8 +12,7 @@ import {
   FloorPath,
   ConnectorPOI,
 } from "../types/main";
-import * as floors from "../constants/floors.data";
-import { POIInfo } from "../constants/poi.data";
+import { POIInfo, buildingFloors } from "../constants";
 
 class PathFindingService {
   private static instance = new PathFindingService();
@@ -27,14 +26,14 @@ class PathFindingService {
   }
 
   /**
-   * Returns a list of paths between two pois.
+   * Returns a list of paths between two POI's.
    *
    * These POI's can be within the same building, or in two different buildings.
    *
    * @param start The start POI
    * @param end The end POI
    *
-   * @returns The list of paths to travese between the start and end POIs
+   * @returns The list of paths to travese between the start and end POI's
    */
   public findPathBetweenPOIs = (start: POI, end: POI): FloorPath[] | null => {
     if (start.buildingId === end.buildingId) {
@@ -57,20 +56,20 @@ class PathFindingService {
   };
 
   /**
-   * Returns a list of paths between two pois within the same building
+   * Returns a list of paths between two POI's within the same building
    *
    * @param start The start POI
    * @param end The end POI
    *
-   * @returns The list of paths to travese between the start and end POIs
+   * @returns The list of paths to travese between the start and end POI's
    */
   private findBuildingPath = (start: POI, end: POI): FloorPath[] | null => {
     // Get travel nodes for the floors of the start and end of path
-    const startFloorNodes = floors.buildingFloors.find(
+    const startFloorNodes = buildingFloors.find(
       (floor) =>
         floor.buildingId === start.buildingId && floor.level === start.level
     ).travelNodes;
-    const endFloorNodes = floors.buildingFloors.find(
+    const endFloorNodes = buildingFloors.find(
       (floor) =>
         floor.buildingId === end.buildingId && floor.level === end.level
     ).travelNodes;
@@ -121,12 +120,12 @@ class PathFindingService {
   };
 
   /**
-   * Returns all connector POIs which are in the same floor and building as the given POI.
+   * Returns all connector POI's which are in the same floor and building as the given POI.
    *
    * @param poi POI whose building/floor is searched for conenctors
    * @param escalatorDirection Accepted escalator direction for current travel plan
    *
-   * @returns A list of connectorPOIs
+   * @returns A list of connectorPOI's
    */
   private findReachableConnectorsFromPOI = (
     poi: POI,
@@ -163,7 +162,7 @@ class PathFindingService {
    * Returns a list of valid paths between a POI and all the other connectors on the same building/floor
    *
    * @param poi POI which serves as the start point for per-floor navigation
-   * @param connectors List of reachable connectors. These POI must be on the
+   * @param connectors List of reachable connectors. These POI's must be on the
    * same building/floor as the starting POI
    * @param nodes Travel nodes for the given floor
    *

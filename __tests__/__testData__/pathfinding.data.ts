@@ -1,14 +1,12 @@
 import {
-  BuildingId,
-  TravelEdge,
-  BuildingFloor,
   TravelNode,
   Line,
+  BuildingId,
   POICategory,
 } from "../../src/types/main";
-import { buildingFloors, POIInfo } from "../../src/constants";
+
 /**
- * This file contains expected results and a fixture for the
+ * This file contains expected results and fixtures for the
  * pathfinding tests.
  */
 
@@ -542,3 +540,42 @@ export const h8WomensBathroomToH9117 = [
     ],
   },
 ];
+
+export const h3rdFloorMock = {
+  id: "8dd47eee-23b4-437c-bd74-aad3876f83dc",
+  displayName: "Stairs 1",
+  description: "",
+  location: {
+    latitude: 45.497354,
+    longitude: -73.578713,
+  },
+  buildingId: BuildingId.H,
+  level: 3,
+  category: POICategory.Stairs,
+};
+
+export const h3rdFloorPoiMock = {
+  id: 3,
+  buildingId: BuildingId.H,
+  level: 3,
+  bounds: null,
+  image: null,
+  travelNodes: [
+    {
+      id: 0,
+      location: {
+        latitude: 45.497411422038525,
+        longitude: -73.57930387743083,
+      },
+      children: [1],
+    },
+    {
+      id: 1,
+      location: {
+        latitude: 45.49735509062119,
+        longitude: -73.57918419446206,
+      },
+      children: [0],
+    },
+  ],
+};

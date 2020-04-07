@@ -66,7 +66,7 @@ export const POIInfo: POI[] = [
   },
   {
     id: "5454457b-debf-4511-9bd0-6bc61c9177a3",
-    displayName: "  Exit",
+    displayName: "Exit",
     description: "",
     location: {
       latitude: 45.49731,
