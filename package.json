@@ -9,7 +9,7 @@
     "ios": "expo start --ios",
     "lint": "tsc --noEmit && eslint --ext .ts,.tsx ./",
     "lint-fix": "tsc --noEmit && eslint --fix --ext .ts,.tsx ./",
-    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.14.0.tar.gz && tar zxvf Exponent-2.14.0.tar.gz",
+    "setup-bin": "mkdirp bin/Exponent.app && cd bin/Exponent.app && wget https://dpq5q02fu5f55.cloudfront.net/Exponent-2.15.3.tar.gz && tar zxvf Exponent-2.15.3.tar.gz",
     "sonar-scanner": "node_modules/sonar-scanner/bin/sonar-scanner",
     "start": "expo start",
     "supercheck": "npx sort-package-json && pre-commit run -a && npm run lint-fix",
