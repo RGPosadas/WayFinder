@@ -190,8 +190,8 @@ class PathFindingService {
   /**
    * Searches through valid paths between start and end POI to find the shortest one.
    *
-   * @param startFloorPathsToConnectors
-   * @param endFloorPathsToConnectors
+   * @param startFloorPathsToConnectors List of all paths from the start POI to a connector on the same floor
+   * @param endFloorPathsToConnectors List of all paths from the end POI to a connector on the same floor
    *
    * @returns The shortest FloorPath
    */
@@ -302,7 +302,7 @@ class PathFindingService {
    *
    * This function takes in a floorId, and will return all lines which correspond to
    * connections between nodes.
-   * @param travelNodes
+   * @param travelNodes List of travel nodes for a building floor
    * @returns A list of TravelEdges
    */
   public traverseNodes = (travelNodes: TravelNode[]): TravelEdge[] => {
@@ -321,9 +321,9 @@ class PathFindingService {
 
   /**
    * A* implementation for indoor pathfinding
-   * @param nodes
-   * @param initial
-   * @param goal
+   * @param nodes List of travel nodes
+   * @param initial Start travel node
+   * @param goal End travel node
    * @returns A hashmap of the nodes in the closed and their parents.
    */
   private search = (
