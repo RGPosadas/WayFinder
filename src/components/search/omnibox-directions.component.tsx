@@ -18,11 +18,10 @@ import {
 } from "@expo/vector-icons";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import {
-  POI,
   Location,
   MarkerLocation,
   TravelState,
-  Building,
+  SearchResult,
 } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
@@ -44,16 +43,16 @@ import UtilityService from "../../services/utility.service";
  */
 export interface OmniboxDirectionsProps {
   currentLocation: Location;
-  startLocation: MarkerLocation | Building;
-  endLocation: MarkerLocation | Building;
-  setStartLocation: (location: MarkerLocation | Building) => void;
-  setEndLocation: (location: MarkerLocation | Building) => void;
+  startLocation: MarkerLocation;
+  endLocation: MarkerLocation;
+  setStartLocation: (location: MarkerLocation) => void;
+  setEndLocation: (location: MarkerLocation) => void;
   setEndLocationFocused: (bool: boolean) => void;
   endLocationFocused: boolean;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
     inputText: string,
-    setSearchResults: (locations: (POI | Building)[]) => void,
+    setSearchResults: (locations: SearchResult[]) => void,
     setDisplayValue: (text: string) => void
   ) => void;
   startLocationDisplay: string;
@@ -92,34 +91,42 @@ const OmniboxDirections = ({
   const [
     startLocationSearchResults,
     setStartLocationSearchResults,
-  ] = React.useState<(POI | Building)[]>(null);
+  ] = React.useState<SearchResult[]>(null);
   const [
     endLocationSearchResults,
     setEndLocationSearchResults,
-  ] = React.useState<(POI | Building)[]>(null);
+  ] = React.useState<SearchResult[]>(null);
   const [date, setDate] = React.useState<Date>(new Date());
   const [dateIsNow, setDateIsNow] = React.useState(true);
   const [showTimePicker, setshowTimePicker] = React.useState<boolean>(false);
 
   useEffect(() => {
-    if (startLocation) setStartLocationDisplay(startLocation.displayName);
+    if (startLocation) {
+      setStartLocationDisplay(startLocation.displayName);
+    } else {
+      setStartLocationDisplay("");
+    }
     setStartLocationSearchResults(null);
   }, [startLocation]);
 
   useEffect(() => {
-    setEndLocationDisplay(endLocation.displayName);
+    if (endLocation) {
+      setEndLocationDisplay(endLocation.displayName);
+    } else {
+      setEndLocationDisplay("");
+    }
     setEndLocationSearchResults(null);
   }, [endLocation]);
 
   useEffect(() => {
     if (currentLocation && !startLocation) {
       setStartLocation({
-        id: "User Location",
+        id: CURRENT_LOCATION_DISPLAY_TEXT,
         displayName: CURRENT_LOCATION_DISPLAY_TEXT,
         location: currentLocation,
       });
     }
-  });
+  }, [currentLocation]);
 
   /**
    * Change the value of the departure time
@@ -138,11 +145,11 @@ const OmniboxDirections = ({
   };
 
   const AutoCompleteHeight = DynamicStylingService.getInstance().getOmniboxAutoCompleteHeight(
-    startLocationSearchResults,
     startLocationDisplay,
+    endLocationDisplay,
+    startLocationSearchResults,
     endLocationSearchResults,
-    showTimePicker,
-    endLocationDisplay
+    showTimePicker
   );
 
   return (

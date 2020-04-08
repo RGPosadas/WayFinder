@@ -39,18 +39,26 @@ export interface MarkerLocation {
   location: Location;
 }
 
-export interface IndoorLocation extends MarkerLocation {
+export interface POI extends MarkerLocation {
   buildingId: BuildingId;
   level: number;
-}
-
-export interface POI extends IndoorLocation {
   description: string;
   category: POICategory;
 }
 
-export interface ConnectorPOI extends POI {
-  category: ConnectorPOICategory;
+export interface SearchResult extends MarkerLocation {
+  searchString: string;
+  extraString: string;
+}
+
+export interface Connector extends POI {
+  type: ConnectorType;
+  connections: Connection[];
+}
+
+export interface Connection {
+  level: number;
+  location: Location;
 }
 
 export interface BuildingFloor {
@@ -105,79 +113,73 @@ export type Line = [Location, Location];
 
 export type Coordinate = [number, number];
 
-export enum CampusId {
-  SGW = "SGW",
-  Loyola = "Loyola",
-}
+export type CampusId = "SGW" | "Loyola";
 
-export enum BuildingId {
-  // SGW Campus
-  B,
-  CB,
-  CI,
-  CL,
-  D,
-  EN,
-  ER,
-  EV,
-  FA,
-  FB,
-  FG,
-  GA,
-  GM,
-  GN,
-  GS,
-  H,
-  K,
-  LB,
-  LD,
-  LS,
-  M,
-  MB,
-  MI,
-  MU,
-  P,
-  PR,
-  Q,
-  R,
-  RR,
-  S,
-  SB,
-  T,
-  TD,
-  V,
-  VA,
-  X,
-  Z,
-  // Loyola Campus
-  AD,
-  BB,
-  BH,
-  CC,
-  CJ,
-  DO,
-  FC,
-  GE,
-  HA,
-  HB,
-  HC,
-  HU,
-  JR,
-  PC,
-  PS,
-  PT,
-  PY,
-  QA,
-  RA,
-  RF,
-  SC,
-  SH,
-  SI,
-  SP,
-  TA,
-  VE,
-  VL,
-}
+export type BuildingId =
+  | "B"
+  | "CB"
+  | "CI"
+  | "CL"
+  | "D"
+  | "EN"
+  | "ER"
+  | "EV"
+  | "FA"
+  | "FB"
+  | "FG"
+  | "GA"
+  | "GM"
+  | "GN"
+  | "GS"
+  | "H"
+  | "K"
+  | "LB"
+  | "LD"
+  | "LS"
+  | "M"
+  | "MB"
+  | "MI"
+  | "MU"
+  | "P"
+  | "PR"
+  | "Q"
+  | "R"
+  | "RR"
+  | "S"
+  | "SB"
+  | "T"
+  | "TD"
+  | "V"
+  | "VA"
+  | "X"
+  | "Z"
+  | "AD"
+  | "BB"
+  | "BH"
+  | "CC"
+  | "CJ"
+  | "DO"
+  | "FC"
+  | "GE"
+  | "HA"
+  | "HB"
+  | "HC"
+  | "HU"
+  | "JR"
+  | "PC"
+  | "PS"
+  | "PT"
+  | "PY"
+  | "QA"
+  | "RA"
+  | "RF"
+  | "SC"
+  | "SH"
+  | "SI"
+  | "SP"
+  | "TA"
+  | "VE"
+  | "VL";
 
 export enum ZoomLevel {
   // Too far

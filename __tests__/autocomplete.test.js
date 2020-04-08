@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import AutoComplete from "../src/components/search/autocomplete.component";
-import { BuildingId, POICategory } from "../src/types/main";
+import { POICategory } from "../src/types/main";
 
 const mockPOIs = [
   {
@@ -14,7 +14,7 @@ const mockPOIs = [
       latitude: 45.497482,
       longitude: -73.579034,
     },
-    buildingId: BuildingId.H,
+    buildingId: "H",
     level: 8,
     category: POICategory.Classroom,
   },
@@ -26,7 +26,7 @@ const mockPOIs = [
       latitude: 45.497253,
       longitude: -73.579251,
     },
-    buildingId: BuildingId.H,
+    buildingId: "H",
     level: 8,
     category: POICategory.Classroom,
   },

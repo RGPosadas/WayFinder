@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Dimensions,
-  TouchableHighlight,
-} from "react-native";
-import { CampusId, Region } from "../../types/main";
+import { StyleSheet, View, Text, TouchableHighlight } from "react-native";
+import { Region } from "../../types/main";
 
 import { getCampusById } from "../../constants";
 import {
@@ -33,7 +27,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onSGWPressButton = () => {
     setIsSGW(true);
-    onCampusToggle(getCampusById(CampusId.SGW).region);
+    onCampusToggle(getCampusById("SGW").region);
   };
 
   /**
@@ -41,7 +35,7 @@ const CampusToggle = ({ onCampusToggle }: IProps) => {
    */
   const onLoyolaPressButton = () => {
     setIsSGW(false);
-    onCampusToggle(getCampusById(CampusId.Loyola).region);
+    onCampusToggle(getCampusById("Loyola").region);
   };
 
   return (

@@ -1,9 +1,41 @@
-import { Building, BuildingId, CampusId } from "../types/main";
+import {
+  Building,
+  BuildingId,
+  MarkerLocation,
+  SearchResult,
+} from "../types/main";
+
+export const buildingToMarker = (building: Building): MarkerLocation => {
+  return {
+    id: building.id,
+    displayName: building.id,
+    location: building.location,
+  };
+};
+
+export const buildingToSearchResult = (building: Building): SearchResult => {
+  return {
+    id: building.id,
+    displayName: building.id,
+    location: building.location,
+    searchString: `${building.id}: ${building.displayName}`,
+    extraString: `Campus: ${building.campusId}`,
+  };
+};
+
+/**
+ * Returns a Building object based on its id.
+ *
+ * @param id id of the Building
+ */
+export const getBuildingById = (id: BuildingId): Building => {
+  return Buildings.filter((building) => building.id === id)[0];
+};
 
 export const Buildings: Building[] = [
   {
-    id: BuildingId.H,
-    campusId: CampusId.SGW,
+    id: "H",
+    campusId: "SGW",
     displayName: "Henry F. Hall Building",
     address: "1455 De Maisonneuve Blvd O., Montreal, QC, H3G 1M8",
     departments: [
@@ -97,8 +129,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.CB,
-    campusId: CampusId.SGW,
+    id: "CB",
+    campusId: "SGW",
     displayName: "CB Building",
     address: "1425 René-Lévesque Blvd W, Montreal, QC H3G 1T7",
     departments: [],
@@ -120,8 +152,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.GM,
-    campusId: CampusId.SGW,
+    id: "GM",
+    campusId: "SGW",
     displayName: "Guy-De Mainsonneuve Building",
     address: "1550 De Maisonneuve W, Montreal, Quebec H3G 1N1",
     departments: [
@@ -251,8 +283,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.LB,
-    campusId: CampusId.SGW,
+    id: "LB",
+    campusId: "SGW",
     displayName: "JW McConnell Building",
     address: "1400 De Maisonneuve Blvd. O. Montreal, QC, H3G 1M8",
     departments: [
@@ -371,8 +403,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.GN,
-    campusId: CampusId.SGW,
+    id: "GN",
+    campusId: "SGW",
     displayName: "Grey Nuns Building",
     address: "1190 Guy St, Montreal, Quebec H3H 2L4",
     departments: [],
@@ -464,8 +496,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.EV,
-    campusId: CampusId.SGW,
+    id: "EV",
+    campusId: "SGW",
     displayName: "Engineering, CS and VA Integrated Complex",
     address: "1493-1515 Saint-Catherine St W, Montreal, Quebec H3G 2W1",
     departments: [
@@ -579,8 +611,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.MB,
-    campusId: CampusId.SGW,
+    id: "MB",
+    campusId: "SGW",
     displayName: "John Molson School of Buisness",
     address: "1450 Guy St, Montreal, Quebec H3H 0A1",
     departments: [
@@ -665,8 +697,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.FG,
-    campusId: CampusId.SGW,
+    id: "FG",
+    campusId: "SGW",
     displayName: "Faubourg Sainte-Catherine Building",
     address: "1616 Saint-Catherine St W, Montreal, Quebec H3H 1L7",
     departments: [
@@ -710,8 +742,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.GS,
-    campusId: CampusId.SGW,
+    id: "GS",
+    campusId: "SGW",
     displayName: "GS Building",
     address: "1538 Sherbrooke St W, Montreal, Quebec H3G 1L5",
     departments: [],
@@ -730,8 +762,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.LD,
-    campusId: CampusId.SGW,
+    id: "LD",
+    campusId: "SGW",
     displayName: "LD Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -753,8 +785,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.TD,
-    campusId: CampusId.SGW,
+    id: "TD",
+    campusId: "SGW",
     displayName: "Toronto-Dominion Building",
     address: "2050 Mackay, 2070 Mackay St, Montreal, QC H3G 2J1",
     location: { latitude: 45.49468411629242, longitude: -73.57875151167761 },
@@ -775,8 +807,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.VA,
-    campusId: CampusId.SGW,
+    id: "VA",
+    campusId: "SGW",
     displayName: "Visual Arts Building",
     address: "1395 René-Lévesque Blvd W, Montreal, QC H3G 2M5",
     departments: [
@@ -825,8 +857,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.SB,
-    campusId: CampusId.SGW,
+    id: "SB",
+    campusId: "SGW",
     displayName: "Samuel Bronfman Building",
     address: "1590 Docteur Penfield, Montreal, QC",
     departments: [],
@@ -858,8 +890,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.Q,
-    campusId: CampusId.SGW,
+    id: "Q",
+    campusId: "SGW",
     displayName: "Q annex",
     address: "2012 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -873,8 +905,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.P,
-    campusId: CampusId.SGW,
+    id: "P",
+    campusId: "SGW",
     displayName: "P annex",
     address: "2020 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -888,8 +920,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.T,
-    campusId: CampusId.SGW,
+    id: "T",
+    campusId: "SGW",
     displayName: "T annex",
     address: "2030 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -909,8 +941,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.RR,
-    campusId: CampusId.SGW,
+    id: "RR",
+    campusId: "SGW",
     displayName: "RR annex",
     address: "2040 Mackay St, Montreal, QC H3G 2J1",
     departments: [
@@ -931,8 +963,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.R,
-    campusId: CampusId.SGW,
+    id: "R",
+    campusId: "SGW",
     displayName: "R annex",
     address: "2050 Mackay St, Montreal, QC H3G 2J1",
     departments: [
@@ -952,8 +984,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.FA,
-    campusId: CampusId.SGW,
+    id: "FA",
+    campusId: "SGW",
     displayName: "FA annex",
     address: "2060 Mackay St, Montreal, QC H3G 2J1",
     departments: [
@@ -973,8 +1005,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.X,
-    campusId: CampusId.SGW,
+    id: "X",
+    campusId: "SGW",
     displayName: "X annex",
     address: "2080 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -994,8 +1026,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.Z,
-    campusId: CampusId.SGW,
+    id: "Z",
+    campusId: "SGW",
     displayName: "Z annex",
     address: "2090 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -1021,8 +1053,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.V,
-    campusId: CampusId.SGW,
+    id: "V",
+    campusId: "SGW",
     displayName: "V annex",
     address: "2110 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -1042,8 +1074,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.S,
-    campusId: CampusId.SGW,
+    id: "S",
+    campusId: "SGW",
     displayName: "S annex",
     address: "2145 Mackay St, Montreal, QC H3G 2J1",
     departments: [
@@ -1065,8 +1097,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.MI,
-    campusId: CampusId.SGW,
+    id: "MI",
+    campusId: "SGW",
     displayName: "MI Annex",
     address: "2130 Bishop St, Montreal, Quebec H3G 1M8",
     departments: [],
@@ -1082,8 +1114,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.MU,
-    campusId: CampusId.SGW,
+    id: "MU",
+    campusId: "SGW",
     displayName: "MU Annex",
     address: "2170 Bishop St, Montreal, QC H3G 2E9 ",
     departments: [],
@@ -1103,8 +1135,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.D,
-    campusId: CampusId.SGW,
+    id: "D",
+    campusId: "SGW",
     displayName: "D annex",
     address: "2140 Bishop St, Montreal, QC H3G 2E9",
     departments: [
@@ -1124,8 +1156,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.B,
-    campusId: CampusId.SGW,
+    id: "B",
+    campusId: "SGW",
     displayName: "B annex",
     address: "2160 Bishop St, Montreal, QC H3G 2E9",
     services: [
@@ -1145,8 +1177,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.LS,
-    campusId: CampusId.SGW,
+    id: "LS",
+    campusId: "SGW",
     displayName: "Learning Square Building",
     address: "1535 Boulevard de Maisonneuve O, Montréal, QC H3G 1M9",
     services: [
@@ -1177,8 +1209,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.SP,
-    campusId: CampusId.Loyola,
+    id: "SP",
+    campusId: "Loyola",
     displayName: "Richard J. Renaud Science Complex",
     address: "3475 Rue West Broadway, Montreal, QC H4B 2A7",
     departments: [
@@ -1291,8 +1323,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.TA,
-    campusId: CampusId.Loyola,
+    id: "TA",
+    campusId: "Loyola",
     displayName: "Terrebonne Building",
     address: "7079 Terrebonne, Montreal, QC H4B 1E1",
     departments: [],
@@ -1306,8 +1338,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.CJ,
-    campusId: CampusId.Loyola,
+    id: "CJ",
+    campusId: "Loyola",
     displayName: "Communications & Journalism Building",
     address: "Notre-Dame-de-Grâce, Montreal, QC H4B 1R6",
     departments: [
@@ -1362,8 +1394,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.CC,
-    campusId: CampusId.Loyola,
+    id: "CC",
+    campusId: "Loyola",
     displayName: "Central Building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
     departments: [],
@@ -1400,8 +1432,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.AD,
-    campusId: CampusId.Loyola,
+    id: "AD",
+    campusId: "Loyola",
     displayName: "Administration Building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
     departments: [
@@ -1519,8 +1551,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.PS,
-    campusId: CampusId.Loyola,
+    id: "PS",
+    campusId: "Loyola",
     displayName: "Physical Services building",
     address: "7141 Rue Sherbrooke O, Montréal, QC H4B 2B5",
     departments: [],
@@ -1555,8 +1587,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.RA,
-    campusId: CampusId.Loyola,
+    id: "RA",
+    campusId: "Loyola",
     displayName: "Recreation and Athletic Complex",
     address: "7200 Sherbrooke St W, Montreal, QC, H4B 1R6",
     departments: [],
@@ -1587,8 +1619,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.PC,
-    campusId: CampusId.Loyola,
+    id: "PC",
+    campusId: "Loyola",
     displayName: "PERFORM Centre",
     address: "7200 Sherbrooke St W Montreal, QC H4B 1R2",
     departments: [],
@@ -1609,8 +1641,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.GE,
-    campusId: CampusId.Loyola,
+    id: "GE",
+    campusId: "Loyola",
     displayName: "Centre for Structural and Functional Genomics",
     address: "7141 Rue Sherbrooke Ouest, Montréal, H4B 1R6",
     departments: [],
@@ -1636,8 +1668,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.VL,
-    campusId: CampusId.Loyola,
+    id: "VL",
+    campusId: "Loyola",
     displayName: "Vanier Library Building",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
     departments: [],
@@ -1675,8 +1707,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.BH,
-    campusId: CampusId.Loyola,
+    id: "BH",
+    campusId: "Loyola",
     displayName: "BH Annex",
     address: "3500 Avenue BelmoreMontréal, QC H4B 2B9",
     departments: [],
@@ -1696,8 +1728,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.BB,
-    campusId: CampusId.Loyola,
+    id: "BB",
+    campusId: "Loyola",
     displayName: "BB Annex",
     address: "3502 Avenue BelmoreMontréal, QC H4B 2B9",
     departments: [],
@@ -1718,8 +1750,8 @@ export const Buildings: Building[] = [
   },
 
   {
-    id: BuildingId.FC,
-    campusId: CampusId.Loyola,
+    id: "FC",
+    campusId: "Loyola",
     displayName: "F.C Smith Building",
     address:
       "7141 Sherbrooke St. West F.C. Smith Building, Montréal, QC H4B 2B5",
@@ -1818,8 +1850,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.RF,
-    campusId: CampusId.Loyola,
+    id: "RF",
+    campusId: "Loyola",
     displayName: "Loyola Jesuit Hall and Conference Centre",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
     departments: [],
@@ -1872,8 +1904,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.PY,
-    campusId: CampusId.Loyola,
+    id: "PY",
+    campusId: "Loyola",
     displayName: "Psychology Building",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
     departments: [
@@ -1926,8 +1958,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.HA,
-    campusId: CampusId.Loyola,
+    id: "HA",
+    campusId: "Loyola",
     displayName: "Hingston Hall, wing HA",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
     departments: [],
@@ -1956,8 +1988,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.HC,
-    campusId: CampusId.Loyola,
+    id: "HC",
+    campusId: "Loyola",
     displayName: "Hingston Hall, wing HC",
     address: "7141 Sherbrooke St W, Montreal, Quebec H4B 1R6",
     departments: [],
@@ -1982,8 +2014,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.SI,
-    campusId: CampusId.Loyola,
+    id: "SI",
+    campusId: "Loyola",
     displayName: "St. Ignatius of Loyola Church",
     address: "4455 Rue West Broadway, Montréal, QC H4B 2A7",
     departments: [],
@@ -2038,8 +2070,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.VE,
-    campusId: CampusId.Loyola,
+    id: "VE",
+    campusId: "Loyola",
     displayName: "Vanier Extension",
     address: "7141 Sherbrooke W.",
     departments: [
@@ -2060,8 +2092,8 @@ export const Buildings: Building[] = [
     boundingBox: [],
   },
   {
-    id: BuildingId.PR,
-    campusId: CampusId.SGW,
+    id: "PR",
+    campusId: "SGW",
     displayName: "PR Annex",
     address: "2110 Mackay St, Montreal, QC H3G 2J1",
     departments: [],
@@ -2075,8 +2107,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.CI,
-    campusId: CampusId.SGW,
+    id: "CI",
+    campusId: "SGW",
     displayName: "CI Annex",
     address: "2149 Mackay St, Montreal, QC H3G 2J2",
     departments: [
@@ -2096,8 +2128,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.M,
-    campusId: CampusId.SGW,
+    id: "M",
+    campusId: "SGW",
     displayName: "M Annex",
     address: "2135 Mackay",
     departments: [],
@@ -2111,8 +2143,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.PT,
-    campusId: CampusId.Loyola,
+    id: "PT",
+    campusId: "Loyola",
     displayName: "Oscar Peterson Concert Hall",
     address: "7141 Sherbrooke W.",
     departments: [
@@ -2141,8 +2173,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.SC,
-    campusId: CampusId.Loyola,
+    id: "SC",
+    campusId: "Loyola",
     displayName: "Student Centre",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2185,8 +2217,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.CL,
-    campusId: CampusId.SGW,
+    id: "CL",
+    campusId: "SGW",
     displayName: "CL Annex",
     address: "1665 Saint-Catherine St W, Montreal, QC H3H 1L9",
     departments: [],
@@ -2208,8 +2240,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.ER,
-    campusId: CampusId.SGW,
+    id: "ER",
+    campusId: "SGW",
     displayName: "ER Building",
     address: "2155 Guy St.",
     departments: [],
@@ -2225,8 +2257,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.GA,
-    campusId: CampusId.SGW,
+    id: "GA",
+    campusId: "SGW",
     displayName: "Grey Nuns Annex",
     address: "1211-1215 St-Mathieu St.",
     departments: [
@@ -2250,8 +2282,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.DO,
-    campusId: CampusId.Loyola,
+    id: "DO",
+    campusId: "Loyola",
     displayName: "Stinger Dome",
     address: "7141 Sherbrooke W.",
     departments: [
@@ -2271,8 +2303,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.HB,
-    campusId: CampusId.Loyola,
+    id: "HB",
+    campusId: "Loyola",
     displayName: "Hingston Hall, wing HB",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2308,8 +2340,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.HU,
-    campusId: CampusId.Loyola,
+    id: "HU",
+    campusId: "Loyola",
     displayName: "Applied Science Hub",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2323,8 +2355,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.JR,
-    campusId: CampusId.Loyola,
+    id: "JR",
+    campusId: "Loyola",
     displayName: "Jesuit Residence",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2359,8 +2391,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.QA,
-    campusId: CampusId.Loyola,
+    id: "QA",
+    campusId: "Loyola",
     displayName: "Quadrangle",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2370,8 +2402,8 @@ export const Buildings: Building[] = [
     boundingBox: [],
   },
   {
-    id: BuildingId.SH,
-    campusId: CampusId.Loyola,
+    id: "SH",
+    campusId: "Loyola",
     displayName: "Solar House",
     address: "7141 Sherbrooke W.",
     departments: [],
@@ -2385,8 +2417,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.EN,
-    campusId: CampusId.SGW,
+    id: "EN",
+    campusId: "SGW",
     displayName: "EN Annex",
     address: "2070 Mackay",
     departments: [],
@@ -2400,8 +2432,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.FB,
-    campusId: CampusId.SGW,
+    id: "FB",
+    campusId: "SGW",
     displayName: "Faubourg Building",
     address: "1250 Guy",
     departments: [
@@ -2474,8 +2506,8 @@ export const Buildings: Building[] = [
     ],
   },
   {
-    id: BuildingId.K,
-    campusId: CampusId.SGW,
+    id: "K",
+    campusId: "SGW",
     displayName: "K Annex",
     address: "2150 Bishop",
     departments: [],
@@ -2499,12 +2531,3 @@ export const Buildings: Building[] = [
     ],
   },
 ];
-
-/**
- * Returns a Building object based on its id.
- *
- * @param id id of the Building
- */
-export const getBuildingById = (id: BuildingId): Building => {
-  return Buildings.filter((building) => building.id === id)[0];
-};

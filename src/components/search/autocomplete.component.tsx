@@ -7,7 +7,7 @@ import {
   Text,
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
-import { POI, BuildingId, Building, isPOI } from "../../types/main";
+import { MarkerLocation, SearchResult } from "../../types/main";
 import {
   LIST_BACKGROUND_COLOR,
   LIST_ITEM_BORDER_COLOR,
@@ -20,8 +20,8 @@ import {
  * by the AutoComplete component
  */
 export interface IProps {
-  searchResults: (POI | Building)[];
-  setLocation: (location: POI | Building) => void;
+  searchResults: SearchResult[];
+  setLocation: (location: MarkerLocation) => void;
   style: object;
 }
 
@@ -47,20 +47,8 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
             style={styles.list}
           >
             <View>
-              <Text style={styles.text}>
-                {isPOI(item)
-                  ? `${item.displayName}`
-                  : `${BuildingId[(item as Building).id]} - ${
-                      item.displayName
-                    }`}
-              </Text>
-              <Text style={styles.text}>
-                {isPOI(item)
-                  ? `Building: ${BuildingId[(item as POI).buildingId]} Level: ${
-                      (item as POI).level
-                    }`
-                  : `Campus: ${(item as Building).campusId}`}
-              </Text>
+              <Text style={styles.text}>{item.searchString}</Text>
+              <Text style={styles.text}>{item.extraString}</Text>
             </View>
             <Entypo name="chevron-thin-right" size={24} color="#454F63" />
           </TouchableOpacity>

@@ -1,7 +1,7 @@
 // File ignored in ESLint
 // Reason: the `no-await-in-loop` error broke Detox's synchronization
 import { by, device, expect, element, waitFor } from "detox";
-import { BuildingId } from "../src/types/main";
+import { getCampusById } from "../src/constants";
 
 const { reloadApp } = require("detox-expo-helpers");
 
@@ -13,16 +13,20 @@ describe("US-2: Distinguish Campus Buildings", () => {
   it("should show all SGW campus annexes and buildings", async () => {
     await element(by.id("SGWButton")).tap();
 
-    for (let i = 0; i < 37; i += 1) {
-      await expect(element(by.id(`marker${BuildingId[i]}`))).toExist();
+    let sgwBuildings = getCampusById("SGW").buildings;
+
+    for (const buildingId of sgwBuildings) {
+      await expect(element(by.id(`marker${buildingId}`))).toExist();
     }
   });
 
   it("should show all Loyola campus annexes and buildings", async () => {
     await element(by.id("loyolaButton")).tap();
 
-    for (let i = 37; i < Object.keys(BuildingId).length / 2; i += 1) {
-      await expect(element(by.id(`marker${BuildingId[i]}`))).toExist();
+    let loyolaBuildings = getCampusById("Loyola").buildings;
+
+    for (const buildingId of loyolaBuildings) {
+      await expect(element(by.id(`marker${buildingId}`))).toExist();
     }
   });
 });

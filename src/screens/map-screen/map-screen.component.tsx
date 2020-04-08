@@ -50,12 +50,9 @@ const MapScreen = () => {
       floors: [],
     }
   );
-  const [endLocation, setEndLocation] = useState<
-    MarkerLocation | Building | null
-  >(null);
-  const [startLocation, setStartLocation] = useState<
-    MarkerLocation | Building | null
-  >(null);
+
+  const [endLocation, setEndLocation] = useState<MarkerLocation>();
+  const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
@@ -67,6 +64,13 @@ const MapScreen = () => {
    * Allows to access component methods.
    */
   const mapRef = useRef<MapView | undefined>();
+
+  /**
+   * Set the region to the SGW campus when this component mounts
+   */
+  useEffect(() => {
+    setCurrentRegion(getCampusById("SGW").region);
+  }, []);
 
   /**
    * Handle building tap event.
@@ -200,13 +204,6 @@ const MapScreen = () => {
   };
 
   /**
-   * Set the region to the SGW campus when this component mounts
-   */
-  useEffect(() => {
-    setCurrentRegion(getCampusById(CampusId.SGW).region);
-  }, []);
-
-  /**
    *  Set a POI as an end location or start location depending
    *  on which input the user is focused on.
    * @param poi
@@ -233,10 +230,7 @@ const MapScreen = () => {
           setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
         })
         .then((location) => {
-          setCurrentLocation({
-            latitude: location.coords.latitude,
-            longitude: location.coords.latitude,
-          });
+          setCurrentLocation(location.coords);
         })
         .catch((error) => {
           setStartLocationDisplay(null);
