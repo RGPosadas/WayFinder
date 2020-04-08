@@ -1,7 +1,7 @@
 // File ignored in ESLint
 // Reason: the `no-await-in-loop` error broke Detox's synchronization
 import { by, device, expect, element, waitFor } from "detox";
-import { getCampusById } from "../src/constants";
+import { getCampusById } from "../src/constants/campus.data";
 
 const { reloadApp } = require("detox-expo-helpers");
 
