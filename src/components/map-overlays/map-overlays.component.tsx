@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { StyleSheet, View } from "react-native";
 import { Overlay } from "react-native-maps";
 import {
   Buildings,
@@ -69,6 +70,7 @@ const MapOverlays = ({
               text={campus.displayName}
               onPress={() => {}}
               testID={`marker${campus.id}`}
+              zIndex={1}
             />
           ))
         : null}
@@ -116,6 +118,7 @@ const MapOverlays = ({
                     ? building.id
                     : building.displayName
                 }
+                zIndex={1}
               />
             </React.Fragment>
           ))
@@ -136,15 +139,11 @@ const MapOverlays = ({
             ))}
         </>
       ) : null}
-      {zoomLevel === ZoomLevel.INDOOR ||
-      travelState === TravelState.TRAVELLING ? (
+      {zoomLevel === ZoomLevel.INDOOR &&
+      travelState !== TravelState.TRAVELLING ? (
         <>
           {getAllPOI()
             .filter((poi) => {
-              if (travelState === TravelState.TRAVELLING) {
-                return poi.id === endLocation.id || poi.id === startLocation.id;
-              }
-
               if (indoorInformation.currentFloor == null) {
                 return true;
               }
@@ -160,10 +159,26 @@ const MapOverlays = ({
                 onPress={() => {
                   onPOIMarkerPress(poi);
                 }}
+                zIndex={1}
               />
             ))}
         </>
       ) : null}
+      {travelState === TravelState.TRAVELLING
+        ? [startLocation, endLocation].map((marker, index) => (
+            <CustomMarker
+              testID={index === 0 ? "startLocation" : "endLocation"}
+              markerType={index === 0 ? "startLocation" : "endLocation"}
+              location={marker.location}
+              text={
+                zoomLevel === ZoomLevel.INDOOR ? marker.displayName : marker.id
+              }
+              onPress={() => {}}
+              key={index}
+              zIndex={2}
+            />
+          ))
+        : null}
     </>
   );
 };

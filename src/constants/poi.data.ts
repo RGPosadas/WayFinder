@@ -22,11 +22,11 @@ export const POIToMarker = (poi: POI): MarkerLocation => {
  */
 export const POIToSearchResult = (poi: POI): SearchResult => {
   return {
-    id: poi.id,
+    id: poi.displayName, // Not a mistake, needed for startLocation/endLocation marker texts
     displayName: poi.displayName,
     location: poi.location,
     searchName: poi.displayName,
-    extraInformation: `Building: ${poi.buildingId} Level: ${poi.level}`,
+    extraInformation: `Building: ${poi.buildingId}, Level: ${poi.level}`,
   };
 };
 

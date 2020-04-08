@@ -13,3 +13,5 @@ export const INACTIVE_ICON_COLOR = "#C76969";
 export const CUSTOM_MARKER_COLOR = "#f0f0f0";
 export const LOCATION_BUTTON_COLOR = "#fff";
 export const DEFAULT_STACK_NAVIGATOR_COLOR = "#9f1d35";
+export const END_LOCATION_COLOR = "#44aa2b";
+export const START_LOCATION_COLOR = "#2b5eaa";
