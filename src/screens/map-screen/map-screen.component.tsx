@@ -9,7 +9,7 @@ import OmniboxDirections from "../../components/search/omnibox-directions.compon
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings, getCampusById, buildingToMarker } from "../../constants";
+import { Buildings, getCampusById,  getAllPOI ,buildingToMarker } from "../../constants";
 import LocationButton from "../../components/location-button/location-button.component";
 
 import {
@@ -31,6 +31,7 @@ import {
 } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
+import TravelRoute from "../../components/map-overlays/travel-route.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -256,8 +257,8 @@ const MapScreen = () => {
 
   let search;
   if (
-    travelState === TravelState.PLANNING ||
-    travelState === TravelState.TRAVELLING
+    travelState === TravelState.PLANNING
+    // || travelState === TravelState.TRAVELLING
   ) {
     search = (
       <OmniboxDirections
@@ -274,7 +275,7 @@ const MapScreen = () => {
         setStartLocationDisplay={setStartLocationDisplay}
       />
     );
-  } else if (travelState === TravelState.NONE) {
+  } else {
     search = (
       <Search
         setUserCurrentLocation={setUserCurrentLocation}
@@ -314,6 +315,9 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
+          {travelState === TravelState.TRAVELLING && (
+            <TravelRoute start={getAllPOI()[1]} end={getAllPOI()[125]} />
+          )}
         </MapView>
 
         {travelState === TravelState.NONE && (
