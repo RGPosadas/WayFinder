@@ -1,12 +1,10 @@
+import { Range, ZoomLevel, SearchResult } from "../types/main";
 import {
-  Range,
-  ZoomLevel,
-  POI,
-  Building,
-  isPOI,
-  BuildingId,
-} from "../types/main";
-import { Buildings, POIInfo } from "../constants";
+  Buildings,
+  POIToSearchResult,
+  buildingToSearchResult,
+  POIInfo,
+} from "../constants";
 
 class UtilityService {
   private indoorRange: Range = {
@@ -23,6 +21,11 @@ class UtilityService {
     min: 0.02,
     max: 0.09,
   };
+
+  private locationsToSearch: SearchResult[] = [
+    ...POIInfo.map(POIToSearchResult),
+    ...Buildings.map(buildingToSearchResult),
+  ];
 
   private static instance = new UtilityService();
 
@@ -54,37 +57,29 @@ class UtilityService {
    * @param inputText Input text for search
    * @param setSearchResults Function for setting state of search results
    * @param setDisplayValue Function for setting display text of search
+   *
+   * TODO: Add current location as a searchable element by passing it as
+   * a parameter and including it in the search.
    */
   public updateSearchResults = (
     inputText: string,
-    setSearchResults: (locations: (POI | Building)[]) => void,
-    setDisplayValue: (text: string) => void
+    setSearchResults: (locations: SearchResult[]) => void,
+    setLocationDisplay: (display: string) => void
   ) => {
-    const locationsToSearch: (POI | Building)[] = [...POIInfo, ...Buildings];
-    const locations: (POI | Building)[] = locationsToSearch.filter(
+    const locations: SearchResult[] = this.locationsToSearch.filter(
       (location) => {
-        if (isPOI(location)) {
-          return (
-            location.displayName
-              .toUpperCase()
-              .search(inputText.toUpperCase()) !== -1
-          );
-        }
         return (
-          location.displayName.toUpperCase().search(inputText.toUpperCase()) !==
-            -1 ||
-          BuildingId[location.id]
-            .toUpperCase()
-            .search(inputText.toUpperCase()) !== -1
+          location.searchName.toLowerCase().search(inputText.toLowerCase()) !==
+          -1
         );
       }
     );
 
-    const narrowedLocations: (POI | Building)[] =
+    const narrowedLocations: SearchResult[] =
       inputText === "" ? [] : locations.slice(0, 5);
 
     setSearchResults([...narrowedLocations]);
-    setDisplayValue(inputText);
+    setLocationDisplay(inputText);
   };
 
   /**

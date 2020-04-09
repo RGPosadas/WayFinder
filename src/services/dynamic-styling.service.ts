@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { POI, Building } from "../types/main";
+import { SearchResult } from "../types/main";
 
 class DynamicStylingService {
   private static instance = new DynamicStylingService();
@@ -22,11 +22,11 @@ class DynamicStylingService {
    * @param endLocationInputValue
    */
   public getOmniboxAutoCompleteHeight = (
-    startLocationSearchResults: (POI | Building)[],
     startLocationInputValue: string,
-    endLocationSearchResults: (POI | Building)[],
-    showTimePicker: boolean,
-    endLocationInputValue: string
+    endLocationInputValue: string,
+    startLocationSearchResults: SearchResult[],
+    endLocationSearchResults: SearchResult[],
+    showTimePicker: boolean
   ) => {
     const heightAutoCompleteElement: number = 75;
     const autoCompleteHeight: number = 235;
@@ -55,9 +55,7 @@ class DynamicStylingService {
    *
    * @param searchResults
    */
-  public getSearchBarAutoCompleteHeight = (
-    searchResults: (POI | Building)[]
-  ) => {
+  public getSearchBarAutoCompleteHeight = (searchResults: SearchResult[]) => {
     const deafaultSearchBarHeight: number = 48;
     const searchBarHeight: number = 50;
     const autoCompleteElementHeight: number = 85;

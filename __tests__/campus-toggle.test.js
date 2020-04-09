@@ -4,7 +4,6 @@ import { CONCORDIA_RED, INACTIVE_BUTTON_COLOR } from "../src/styles";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import { getCampusById } from "../src/constants";
-import { CampusId } from "../src/types/main";
 
 describe("CampusToggle component", () => {
   it("should match snapshot", () => {
@@ -21,7 +20,7 @@ describe("CampusToggle component", () => {
     SGWButton.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
     expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
-      getCampusById(CampusId.SGW).region
+      getCampusById("SGW").region
     );
 
     // Since we cannot directly check the state of react hooks, we test side effects instead
@@ -53,7 +52,7 @@ describe("CampusToggle component", () => {
     loyolaButton.simulate("press");
     expect(mockOnCampusToggle).toHaveBeenCalledTimes(1);
     expect(mockOnCampusToggle.mock.calls[0][0]).toBe(
-      getCampusById(CampusId.Loyola).region
+      getCampusById("Loyola").region
     );
 
     // Since we cannot directly check the state of react hooks, we test side effects instead

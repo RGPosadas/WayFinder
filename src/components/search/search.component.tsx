@@ -2,7 +2,13 @@ import React from "react";
 import { Platform, TextInput, StyleSheet, View, StatusBar } from "react-native";
 import { SimpleLineIcons, Feather, FontAwesome } from "@expo/vector-icons";
 import Autocomplete from "./autocomplete.component";
-import { POI, TravelState, Building } from "../../types/main";
+import {
+  POI,
+  TravelState,
+  Building,
+  MarkerLocation,
+  SearchResult,
+} from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
 import {
   CONCORDIA_RED,
@@ -17,11 +23,11 @@ import DynamicStylingService from "../../services/dynamic-styling.service";
  */
 interface IProps {
   setUserCurrentLocation: () => void;
-  setEndLocation: (location: POI | Building) => void;
+  setEndLocation: (location: MarkerLocation) => void;
   setTravelState: (state: TravelState) => void;
   updateSearchResults: (
     inputText: string,
-    setSearchResults: (locations: (POI | Building)[]) => void,
+    setSearchResults: (locations: SearchResult[]) => void,
     setDisplayValue: (text: string) => void
   ) => void;
 }
@@ -40,9 +46,7 @@ const Search = ({
   updateSearchResults,
 }: IProps) => {
   const [value, onChangeText] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState<(POI | Building)[]>(
-    []
-  );
+  const [searchResults, setSearchResults] = React.useState<SearchResult[]>([]);
 
   /**
    * Starts the planning phase of a travel plan. Sets the end location.

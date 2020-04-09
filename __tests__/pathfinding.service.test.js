@@ -1,7 +1,7 @@
 import * as testData from "./__testData__/pathfinding.data";
 import { POIInfo, buildingFloors } from "../src/constants";
 import * as constants from "../src/constants";
-import { BuildingId, POICategory } from "../src/types/main";
+import { POICategory } from "../src/types/main";
 import PathFindingService from "../src/services/pathfinding.service";
 
 describe("Find the shortest path between two locations/POI's", () => {
@@ -10,9 +10,9 @@ describe("Find the shortest path between two locations/POI's", () => {
     findPathBetweenPOIs,
   } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
-    const travelNodes = buildingFloors.find(
-      (floor) => floor.buildingId === BuildingId.H && floor.level === 8
-    ).travelNodes;
+    const { travelNodes } = buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 8
+    );
     const shortest = findPathOnFloor(
       travelNodes,
       POIInfo.filter(({ displayName }) => displayName === "H851.03")[0]
@@ -23,9 +23,9 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return the shortest path between two given locations on H 9th floor", () => {
-    const travelNodes = buildingFloors.find(
-      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
-    ).travelNodes;
+    const { travelNodes } = buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 9
+    );
     const shortest = findPathOnFloor(
       travelNodes,
       POIInfo.filter(({ displayName }) => displayName === "H961-19")[0]
@@ -48,9 +48,9 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return one line only between two locations next to each other", () => {
-    const travelNodes = buildingFloors.find(
-      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
-    ).travelNodes;
+    const { travelNodes } = buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 9
+    );
     const shortest = findPathOnFloor(
       travelNodes,
       POIInfo.filter(({ displayName }) => displayName === "H923")[0].location,
@@ -61,9 +61,9 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return one line only between two locations near the edges of a line", () => {
-    const travelNodes = buildingFloors.find(
-      (floor) => floor.buildingId === BuildingId.H && floor.level === 9
-    ).travelNodes;
+    const { travelNodes } = buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 9
+    );
     const shortest = findPathOnFloor(
       travelNodes,
       POIInfo.filter(({ displayName }) => displayName === "H961-19")[0]
@@ -97,9 +97,7 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
-          buildingId === BuildingId.MB &&
-          displayName === "Men's Bathroom" &&
-          level === 1
+          buildingId === "MB" && displayName === "Men's Bathroom" && level === 1
       )
     );
     expect(path.length).toBe(3);

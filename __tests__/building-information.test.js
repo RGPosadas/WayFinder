@@ -2,7 +2,6 @@ import React from "react";
 import BuildingInformation from "../src/components/building-information/building-information.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import { BuildingId } from "../src/types/main";
 import { Buildings } from "../src/constants";
 
 describe("BuildingInformation component", () => {
@@ -13,10 +12,7 @@ describe("BuildingInformation component", () => {
 
   it("should check if clicking department links is functional", () => {
     const wrapper = shallow(
-      <BuildingInformation
-        tappedBuilding={BuildingId.H}
-        showBuildingInfo={true}
-      />
+      <BuildingInformation tappedBuilding={"H"} showBuildingInfo={true} />
     );
     for (let i = 0; i < Buildings[0].departments.length; i++) {
       const departmentLink = wrapper.find({ nativeID: "departments" }).at(i);
@@ -29,10 +25,7 @@ describe("BuildingInformation component", () => {
 
   it("should check if clicking service links is functional", () => {
     const wrapper = shallow(
-      <BuildingInformation
-        tappedBuilding={BuildingId.H}
-        showBuildingInfo={true}
-      />
+      <BuildingInformation tappedBuilding={"H"} showBuildingInfo={true} />
     );
     for (let i = 0; i < Buildings[0].departments.length; i++) {
       const serviceLink = wrapper.find({ nativeID: "services" }).at(i);
@@ -45,7 +38,7 @@ describe("BuildingInformation component", () => {
     mockOnClosePanel = jest.fn();
     const wrapper = shallow(
       <BuildingInformation
-        tappedBuilding={BuildingId.H}
+        tappedBuilding={"H"}
         showBuildingInfo={true}
         onClosePanel={mockOnClosePanel}
       />

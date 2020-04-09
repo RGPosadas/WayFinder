@@ -1,59 +1,59 @@
 import { Platform } from "react-native";
 import DynamicStylingService from "../src/services/dynamic-styling.service";
 
-describe("Auto-complete-height-service", () => {
+describe("DynamicStylingService", () => {
   const {
     getOmniboxAutoCompleteHeight,
     getSearchBarAutoCompleteHeight,
   } = DynamicStylingService.getInstance();
 
   it("should get the correct height of the AutoComplete component", () => {
-    let startSearchResultValues: any[];
+    let startLocationSearchResults: any[];
     let startLocationInputValue: string;
     let endLocationSearchResults: any[];
     let showTimePicker: boolean = false;
     let endLocationInputValue: string = null;
 
     let autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
       startLocationInputValue,
+      endLocationInputValue,
+      startLocationSearchResults,
       endLocationSearchResults,
-      showTimePicker,
-      endLocationInputValue
+      showTimePicker
     );
     expect(autoComplete).toBe(260);
 
-    startSearchResultValues = ["1"];
+    startLocationSearchResults = ["1"];
     startLocationInputValue = "test";
     endLocationSearchResults = null;
     showTimePicker = false;
     endLocationInputValue = null;
 
     autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
       startLocationInputValue,
+      endLocationInputValue,
+      startLocationSearchResults,
       endLocationSearchResults,
-      showTimePicker,
-      endLocationInputValue
+      showTimePicker
     );
     expect(autoComplete).toBe(310);
 
-    startSearchResultValues = [];
+    startLocationSearchResults = [];
     startLocationInputValue = "";
     endLocationSearchResults = ["1"];
     showTimePicker = false;
     endLocationInputValue = "test";
 
     autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
       startLocationInputValue,
+      endLocationInputValue,
+      startLocationSearchResults,
       endLocationSearchResults,
-      showTimePicker,
-      endLocationInputValue
+      showTimePicker
     );
     expect(autoComplete).toBe(310);
 
-    startSearchResultValues = [];
+    startLocationSearchResults = [];
     startLocationInputValue = null;
     endLocationSearchResults = null;
     showTimePicker = true;
@@ -62,11 +62,11 @@ describe("Auto-complete-height-service", () => {
     Platform.OS = "ios";
 
     autoComplete = getOmniboxAutoCompleteHeight(
-      startSearchResultValues,
       startLocationInputValue,
+      endLocationInputValue,
+      startLocationSearchResults,
       endLocationSearchResults,
-      showTimePicker,
-      endLocationInputValue
+      showTimePicker
     );
     expect(autoComplete).toBe(235);
   });

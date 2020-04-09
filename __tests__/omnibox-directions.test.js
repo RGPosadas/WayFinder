@@ -2,7 +2,7 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import OmniboxDirections from "../src/components/search/omnibox-directions.component";
-import { BuildingId, POICategory, TravelState } from "../src/types/main";
+import { POICategory, TravelState } from "../src/types/main";
 
 const mockPOIs = [
   {
@@ -13,7 +13,7 @@ const mockPOIs = [
       latitude: 45.497482,
       longitude: -73.579034,
     },
-    buildingId: BuildingId.H,
+    buildingId: "H",
     level: 8,
     category: POICategory.Washroom,
   },
@@ -25,7 +25,7 @@ const mockPOIs = [
       latitude: 45.497253,
       longitude: -73.579251,
     },
-    buildingId: BuildingId.H,
+    buildingId: "H",
     level: 8,
     category: POICategory.Washroom,
   },

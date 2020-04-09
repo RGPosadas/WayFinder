@@ -26,8 +26,8 @@ interface IProps {
   zoomLevel: ZoomLevel;
   indoorInformation: IndoorInformation;
   onPOIMarkerPress: (poi: POI) => void;
-  startLocation: MarkerLocation | Building;
-  endLocation: MarkerLocation | Building;
+  startLocation: MarkerLocation;
+  endLocation: MarkerLocation;
   travelState: TravelState;
 }
 
@@ -91,7 +91,7 @@ const MapOverlays = ({
                 onPress={() => {
                   onBuildingTap(building);
                 }}
-                testID={`polygon${BuildingId[building.id]}`}
+                testID={`polygon${building.id}`}
               />
             )
           )}
@@ -104,7 +104,7 @@ const MapOverlays = ({
         ? Buildings.map((building, index) => (
             <React.Fragment key={index}>
               <CustomMarker
-                testID={`marker${BuildingId[building.id]}`}
+                testID={`marker${building.id}`}
                 markerType="building"
                 key={building.id}
                 location={building.location}
@@ -113,7 +113,7 @@ const MapOverlays = ({
                 }}
                 text={
                   zoomLevel === ZoomLevel.OUTDOOR
-                    ? BuildingId[building.id]
+                    ? building.id
                     : building.displayName
                 }
               />
