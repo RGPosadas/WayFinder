@@ -8,10 +8,12 @@ export interface Region extends Location {
   longitudeDelta: number;
 }
 
-export interface Building extends POI {
+export interface Building {
   id: BuildingId;
   campusId: CampusId;
+  displayName: string;
   address: string;
+  location: Location;
   departments: LinkItem[];
   services: LinkItem[];
   boundingBox: Location[];

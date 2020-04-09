@@ -54,6 +54,7 @@ const MapScreen = () => {
     }
   );
 
+  const [floorLevel, setFloorLevel] = useState<number>(8);
   const [endLocation, setEndLocation] = useState<MarkerLocation>();
   const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
@@ -151,6 +152,7 @@ const MapScreen = () => {
    * @param index Index of the active floor
    */
   const onFloorPickerButtonPress = (index: number) => {
+    setFloorLevel(9 - index);
     (mapRef.current as any).setIndoorActiveLevelIndex(index);
     setIndoorInformation({
       currentFloor: indoorInformation.floors.filter(
@@ -316,7 +318,11 @@ const MapScreen = () => {
             travelState={travelState}
           />
           {travelState === TravelState.TRAVELLING && (
-            <TravelRoute start={getAllPOI()[1]} end={getAllPOI()[125]} />
+            <TravelRoute
+              end={getAllPOI()[3]}
+              start={getAllPOI()[111]}
+              chosenFloorLevel={floorLevel}
+            />
           )}
         </MapView>
 

@@ -9,9 +9,17 @@ import { CONCORDIA_RED } from "../../styles";
 interface iProps {
   start: POI;
   end: POI;
+  chosenFloorLevel: number;
 }
 
-const TravelRoute = ({ start, end }: iProps) => {
+const TravelRoute = ({ start, end, chosenFloorLevel }: iProps) => {
+  const getPathPerFloor = (floorPath: FloorPath) => {
+    if (floorPath.buildingId === "H") {
+      return chosenFloorLevel === floorPath.level;
+    }
+    return true;
+  };
+
   const paths = PathFindingService.getInstance().findPathBetweenPOIs(
     start,
     end
@@ -19,6 +27,9 @@ const TravelRoute = ({ start, end }: iProps) => {
   return (
     <>
       {paths
+        .filter((floorPath) => {
+          return getPathPerFloor(floorPath);
+        })
         .map((floorPath) => floorPath.path)
         .map((lines) =>
           lines.map((line, index) => (
