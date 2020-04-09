@@ -65,6 +65,18 @@ export const POIInfo: POI[] = [
     category: POICategory.EscalatorDown,
   },
   {
+    id: "5454457b-debf-4511-9bd0-6bc61c9177a3",
+    displayName: "Exit",
+    description: "",
+    location: {
+      latitude: 45.49731,
+      longitude: -73.57901,
+    },
+    buildingId: BuildingId.H,
+    level: 8,
+    category: POICategory.Exit,
+  },
+  {
     id: "8c28ea3e-73ad-46d2-9031-5edec3c83187",
     displayName: "Stairs 1",
     description: "",
@@ -1527,8 +1539,8 @@ export const POIInfo: POI[] = [
 
     description: "",
     location: {
-      latitude: 45.497264,
-      longitude: -73.578806,
+      latitude: 45.497314,
+      longitude: -73.578751,
     },
     buildingId: BuildingId.H,
     level: 9,
@@ -1537,6 +1549,19 @@ export const POIInfo: POI[] = [
   // ------------------
   // LOYOLA CC1
   // ------------------
+  {
+    id: "2d23a027-4596-4b9c-8ce2-439e24b0c5bc",
+    displayName: "CC1 Exit",
+
+    description: "",
+    location: {
+      latitude: 45.458116,
+      longitude: -73.639914,
+    },
+    buildingId: BuildingId.CC,
+    level: 1,
+    category: POICategory.Exit,
+  },
   {
     id: "77f179c1-4347-47b5-a6b1-c37f5c66bcbd",
     displayName: "CC119",
@@ -1730,19 +1755,6 @@ export const POIInfo: POI[] = [
     location: {
       latitude: 45.49554740223838,
       longitude: -73.57927136202986,
-    },
-    buildingId: BuildingId.MB,
-    level: 1,
-    category: POICategory.Exit,
-  },
-  {
-    id: "7fc86bc6-bc8e-4d2e-a8b0-e6b08d0cdcd9",
-    displayName: "Police St. Exit",
-
-    description: "Exit/Entrance to JMSB and the corner of Police St. and Guy",
-    location: {
-      latitude: 45.495216991097614,
-      longitude: -73.5785603480603,
     },
     buildingId: BuildingId.MB,
     level: 1,

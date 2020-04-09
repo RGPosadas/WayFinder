@@ -49,14 +49,8 @@ export interface POI extends IndoorLocation {
   category: POICategory;
 }
 
-export interface Connector extends POI {
-  type: ConnectorType;
-  connections: Connection[];
-}
-
-export interface Connection {
-  level: number;
-  location: Location;
+export interface ConnectorPOI extends POI {
+  category: ConnectorPOICategory;
 }
 
 export interface BuildingFloor {
@@ -88,6 +82,20 @@ export interface Range {
   min: number;
   max: number;
 }
+
+export type FloorPath = {
+  buildingId: BuildingId;
+  level: number;
+  path: Line[];
+  connectorType?: ConnectorPOICategory;
+};
+
+export type ConnectorPOICategory =
+  | POICategory.Elevator
+  | POICategory.EscalatorDown
+  | POICategory.EscalatorUp
+  | POICategory.Stairs
+  | POICategory.Exit;
 
 export type PQItem = { id: number; parent: number; g: number };
 
@@ -188,6 +196,7 @@ export enum POICategory {
   Restaurant,
   Association,
   Elevator,
+  Escalator,
   EscalatorUp,
   EscalatorDown,
   Stairs,

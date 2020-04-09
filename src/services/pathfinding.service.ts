@@ -1,7 +1,18 @@
 import { getDistanceFromLine, getDistance } from "geolib";
 import PriorityQueue from "ts-priority-queue";
 import _ from "lodash";
-import { TravelEdge, Location, TravelNode, PQItem } from "../types/main";
+import {
+  TravelEdge,
+  Location,
+  TravelNode,
+  PQItem,
+  POI,
+  Line,
+  POICategory,
+  FloorPath,
+  ConnectorPOI,
+} from "../types/main";
+import { POIInfo, buildingFloors } from "../constants";
 
 class PathFindingService {
   private static instance = new PathFindingService();
@@ -15,19 +26,220 @@ class PathFindingService {
   }
 
   /**
+   * Returns a list of paths between two POI's.
+   *
+   * These POI's can be within the same building, or in two different buildings.
+   *
+   * @param start The start POI
+   * @param end The end POI
+   *
+   * @returns The list of paths to travese between the start and end POI's
+   */
+  public findPathBetweenPOIs = (start: POI, end: POI): FloorPath[] | null => {
+    if (start.buildingId === end.buildingId) {
+      return this.findBuildingPath(start, end);
+    }
+
+    const startBuildingExit = POIInfo.find(
+      ({ category, buildingId }) =>
+        category === POICategory.Exit && buildingId === start.buildingId
+    ) as ConnectorPOI;
+    const endBuildingExit = POIInfo.find(
+      ({ category, buildingId }) =>
+        category === POICategory.Exit && buildingId === end.buildingId
+    ) as ConnectorPOI;
+
+    // TODO: connect these paths to the outdoor path.
+    return this.findBuildingPath(start, startBuildingExit).concat(
+      this.findBuildingPath(end, endBuildingExit)
+    );
+  };
+
+  /**
+   * Returns a list of paths between two POI's within the same building
+   *
+   * @param start The start POI
+   * @param end The end POI
+   *
+   * @returns The list of paths to travese between the start and end POI's
+   */
+  private findBuildingPath = (start: POI, end: POI): FloorPath[] | null => {
+    // Get travel nodes for the floors of the start and end of path
+    const startFloorNodes = buildingFloors.find(
+      (floor) =>
+        floor.buildingId === start.buildingId && floor.level === start.level
+    ).travelNodes;
+    const endFloorNodes = buildingFloors.find(
+      (floor) =>
+        floor.buildingId === end.buildingId && floor.level === end.level
+    ).travelNodes;
+
+    if (start.level === end.level) {
+      return [
+        {
+          path: this.findPathOnFloor(
+            startFloorNodes,
+            start.location,
+            end.location
+          ),
+          buildingId: start.buildingId,
+          level: start.level,
+        },
+      ];
+    }
+
+    const escalatorDirection =
+      start.level < end.level
+        ? POICategory.EscalatorUp
+        : POICategory.EscalatorDown;
+
+    const startFloorConnectors: ConnectorPOI[] = this.findReachableConnectorsFromPOI(
+      start,
+      escalatorDirection
+    );
+    const endFloorConnectors: ConnectorPOI[] = this.findReachableConnectorsFromPOI(
+      end,
+      escalatorDirection
+    );
+
+    const pathsFromStartToConnectors = this.getPathsBetweenPOIAndConnectors(
+      start,
+      startFloorConnectors,
+      startFloorNodes
+    );
+    const pathsFromEndToConnectors = this.getPathsBetweenPOIAndConnectors(
+      end,
+      endFloorConnectors,
+      endFloorNodes
+    );
+
+    return this.getShortestPathThroughBuilding(
+      pathsFromStartToConnectors,
+      pathsFromEndToConnectors
+    );
+  };
+
+  /**
+   * Returns all connector POI's which are in the same floor and building as the given POI.
+   *
+   * @param poi POI whose building/floor is searched for conenctors
+   * @param escalatorDirection Accepted escalator direction for current travel plan
+   *
+   * @returns A list of connectorPOI's
+   */
+  private findReachableConnectorsFromPOI = (
+    poi: POI,
+    escalatorDirection: POICategory
+  ): ConnectorPOI[] => {
+    const connectors = POIInfo.filter(
+      ({ category, level, buildingId }) =>
+        poi.level === level &&
+        poi.buildingId === buildingId &&
+        (category === POICategory.Exit ||
+          category === POICategory.Stairs ||
+          category === escalatorDirection ||
+          category === POICategory.Elevator)
+    ) as ConnectorPOI[];
+    return connectors;
+  };
+
+  /**
+   * Returns the path distance
+   *
+   * @param path path for which to calculate distance
+   *
+   * @returns The distance traversed by the path
+   */
+  private getPathDistance = (path: Line[]): number => {
+    let distance = 0;
+    path.forEach((line) => {
+      distance += getDistance(line[0], line[1]);
+    });
+    return distance;
+  };
+
+  /**
+   * Returns a list of valid paths between a POI and all the other connectors on the same building/floor
+   *
+   * @param poi POI which serves as the start point for per-floor navigation
+   * @param connectors List of reachable connectors. These POI's must be on the
+   * same building/floor as the starting POI
+   * @param nodes Travel nodes for the given floor
+   *
+   * @returns List of valid paths
+   */
+  private getPathsBetweenPOIAndConnectors = (
+    poi: POI,
+    connectors: ConnectorPOI[],
+    nodes: TravelNode[]
+  ): FloorPath[] => {
+    const pathsToConnectors: FloorPath[] = [];
+
+    connectors.forEach((connector) => {
+      pathsToConnectors.push({
+        buildingId: connector.buildingId,
+        level: connector.level,
+        connectorType: connector.category,
+        path: this.findPathOnFloor(nodes, poi.location, connector.location),
+      });
+    });
+
+    return pathsToConnectors;
+  };
+
+  /**
+   * Searches through valid paths between start and end POI to find the shortest one.
+   *
+   * @param startFloorPathsToConnectors List of all paths from the start POI to a connector on the same floor
+   * @param endFloorPathsToConnectors List of all paths from the end POI to a connector on the same floor
+   *
+   * @returns The shortest FloorPath
+   */
+  private getShortestPathThroughBuilding = (
+    startFloorPathsToConnectors: FloorPath[],
+    endFloorPathsToConnectors: FloorPath[]
+  ): FloorPath[] | null => {
+    const shortestPath: [FloorPath, FloorPath] = [null, null];
+    let minDistance = Number.MAX_SAFE_INTEGER;
+
+    startFloorPathsToConnectors.forEach((startFloorPath) => {
+      // for each start floor path, find the connected end floor path
+      const endFloorPath = endFloorPathsToConnectors.find(
+        ({ connectorType: category }) =>
+          category === startFloorPath.connectorType
+      );
+
+      if (endFloorPath === undefined) {
+        return;
+      }
+      const distance =
+        this.getPathDistance(startFloorPath.path) +
+        this.getPathDistance(endFloorPath.path);
+      if (distance < minDistance) {
+        minDistance = distance;
+        shortestPath[0] = startFloorPath;
+        shortestPath[1] = endFloorPath;
+      }
+    });
+    return shortestPath;
+  };
+
+  /**
    * Find the shortest path between two locations on a given floor.
    * Returns an array of lines if the path is found.
    * Returns null if no path is found.
+   *
    * @param travelNodes the travel nodes to traverse
-   * @param start
-   * @param end
+   * @param start start location
+   * @param end end location
+   *
    * @returns A list of TravelEdges
    */
   public findPathOnFloor = (
     travelNodes: TravelNode[],
     start: Location,
     end: Location
-  ): TravelEdge[] | null => {
+  ): Line[] | null => {
     const nodes = _.cloneDeep(travelNodes);
 
     const edges: TravelEdge[] = this.traverseNodes(nodes);
@@ -82,7 +294,7 @@ class PathFindingService {
       shortestPath.push([nodes[id], nodes[parentId]]);
       id = parentId;
     }
-    return shortestPath;
+    return shortestPath.map((edge) => [edge[0].location, edge[1].location]);
   };
 
   /**
@@ -90,7 +302,7 @@ class PathFindingService {
    *
    * This function takes in a floorId, and will return all lines which correspond to
    * connections between nodes.
-   * @param travelNodes
+   * @param travelNodes List of travel nodes for a building floor
    * @returns A list of TravelEdges
    */
   public traverseNodes = (travelNodes: TravelNode[]): TravelEdge[] => {
@@ -108,22 +320,13 @@ class PathFindingService {
   };
 
   /**
-   * Returns a list of lines equivalent to a list of TravelNodes
-   * @param travelPath List of TravelEdges
-   * @returns List of equivalent Lines
-   */
-  public travelPathToLinePath = (travelPath: TravelEdge[]) => {
-    return travelPath.map((edge) => [edge[0].location, edge[1].location]);
-  };
-
-  /**
    * A* implementation for indoor pathfinding
-   * @param nodes
-   * @param initial
-   * @param goal
+   * @param nodes List of travel nodes
+   * @param initial Start travel node
+   * @param goal End travel node
    * @returns A hashmap of the nodes in the closed and their parents.
    */
-  public search = (
+  private search = (
     nodes: TravelNode[],
     initial: TravelNode,
     goal: TravelNode
@@ -171,7 +374,7 @@ class PathFindingService {
    * @param g g(n)
    * @returns The f(n) score of a given node
    */
-  public f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
+  private f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
     return getDistance(goal.location, travelNode.location) + g;
   };
 
@@ -181,7 +384,7 @@ class PathFindingService {
    * @param point
    * @returns the line closest to the point
    */
-  public findClosestLine = (
+  private findClosestLine = (
     lines: TravelEdge[],
     point: Location
   ): TravelEdge => {
