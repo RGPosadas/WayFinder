@@ -30,6 +30,18 @@ export const POIToSearchResult = (poi: POI): SearchResult => {
   };
 };
 
+export const MarkerToSearchResult = (
+  markerLocation: MarkerLocation
+): SearchResult => {
+  return {
+    id: markerLocation.id,
+    displayName: markerLocation.displayName,
+    location: markerLocation.location,
+    searchName: markerLocation.displayName,
+    extraInformation: "",
+  };
+};
+
 /**
  * Get all Points of Interest
  */

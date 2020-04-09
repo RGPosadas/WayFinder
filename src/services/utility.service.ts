@@ -1,10 +1,35 @@
-import { Range, ZoomLevel, SearchResult } from "../types/main";
+import {
+  Range,
+  ZoomLevel,
+  SearchResult,
+  Location,
+  MarkerLocation,
+} from "../types/main";
 import {
   Buildings,
   POIToSearchResult,
   buildingToSearchResult,
   POIInfo,
 } from "../constants";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../styles";
+
+/**
+ * Converts a given MarkerLocation into a search result.
+ *
+ * A search result is a representation of a MarkerLocation used for the
+ * autocomplete component, and can be a building, POI or campus.
+ *
+ * @param markerLocation MarkLocation to be converted
+ */
+const MarkerToSearchResult = (markerLocation: MarkerLocation): SearchResult => {
+  return {
+    id: markerLocation.id,
+    displayName: markerLocation.displayName,
+    location: markerLocation.location,
+    searchName: markerLocation.displayName,
+    extraInformation: "",
+  };
+};
 
 class UtilityService {
   private indoorRange: Range = {
@@ -64,17 +89,25 @@ class UtilityService {
   public updateSearchResults = (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
-    setLocationDisplay: (display: string) => void
+    setLocationDisplay: (display: string) => void,
+    currentLocation: Location
   ) => {
-    const locations: SearchResult[] = this.locationsToSearch.filter(
-      (location) => {
-        return (
-          location.searchName.toLowerCase().search(inputText.toLowerCase()) !==
-          -1
-        );
-      }
-    );
+    let locations: SearchResult[] = [];
+    locations = this.locationsToSearch.filter((location) => {
+      return (
+        location.searchName.toLowerCase().search(inputText.toLowerCase()) !== -1
+      );
+    });
 
+    if (currentLocation) {
+      const currentMarkerLocation: MarkerLocation = {
+        id: CURRENT_LOCATION_DISPLAY_TEXT,
+        displayName: CURRENT_LOCATION_DISPLAY_TEXT,
+        location: currentLocation,
+      };
+      const SearchResultMarker = MarkerToSearchResult(currentMarkerLocation);
+      locations.unshift(SearchResultMarker);
+    }
     const narrowedLocations: SearchResult[] =
       inputText === "" ? [] : locations.slice(0, 5);
 

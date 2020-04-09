@@ -53,7 +53,8 @@ export interface OmniboxDirectionsProps {
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
-    setDisplayValue: (text: string) => void
+    setDisplayValue: (text: string) => void,
+    currentLocation: Location
   ) => void;
   startLocationDisplay: string;
   setStartLocationDisplay: (displayName: string) => void;
@@ -122,7 +123,7 @@ const OmniboxDirections = ({
     if (currentLocation && !startLocation) {
       setStartLocation({
         id: CURRENT_LOCATION_DISPLAY_TEXT,
-        displayName: CURRENT_LOCATION_DISPLAY_TEXT,
+        displayName: startLocationDisplay,
         location: currentLocation,
       });
     }
@@ -184,7 +185,8 @@ const OmniboxDirections = ({
                   updateSearchResults(
                     inputText,
                     setStartLocationSearchResults,
-                    setStartLocationDisplay
+                    setStartLocationDisplay,
+                    currentLocation
                   )
                 }
                 value={startLocationDisplay}
@@ -206,7 +208,8 @@ const OmniboxDirections = ({
                   updateSearchResults(
                     inputText,
                     setEndLocationSearchResults,
-                    setEndLocationDisplay
+                    setEndLocationDisplay,
+                    null
                   )
                 }
                 onFocus={() => setEndLocationFocused(true)}

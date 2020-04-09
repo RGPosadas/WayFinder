@@ -6,6 +6,7 @@ import {
   POI,
   TravelState,
   Building,
+  Location,
   MarkerLocation,
   SearchResult,
 } from "../../types/main";
@@ -28,7 +29,8 @@ interface IProps {
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
-    setDisplayValue: (text: string) => void
+    setDisplayValue: (text: string) => void,
+    currentLocation: Location
   ) => void;
 }
 
@@ -82,7 +84,7 @@ const Search = ({
               testID="searchInput"
               style={styles.input}
               onChangeText={(text) =>
-                updateSearchResults(text, setSearchResults, onChangeText)
+                updateSearchResults(text, setSearchResults, onChangeText, null)
               }
               value={value}
             />

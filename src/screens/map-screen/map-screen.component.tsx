@@ -19,7 +19,6 @@ import {
   IndoorInformation,
   ZoomLevel,
   IndoorFloor,
-  CampusId,
   POI,
   MarkerLocation,
   TravelState,
@@ -144,6 +143,7 @@ const MapScreen = () => {
         Buildings.forEach((building) => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
             onBuildingTap(building);
+            setStartLocationDisplay(building.displayName);
           }
         });
       })
