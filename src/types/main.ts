@@ -46,9 +46,13 @@ export interface POI extends MarkerLocation {
   category: POICategory;
 }
 
+export interface ConnectorPOI extends POI {
+  category: ConnectorPOICategory;
+}
+
 export interface SearchResult extends MarkerLocation {
-  searchString: string;
-  extraString: string;
+  searchName: string;
+  extraInformation: string;
 }
 
 export interface Connector extends POI {

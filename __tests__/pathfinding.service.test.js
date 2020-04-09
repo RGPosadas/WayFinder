@@ -97,9 +97,7 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
-          buildingId === BuildingId.MB &&
-          displayName === "Men's Bathroom" &&
-          level === 1
+          buildingId === "MB" && displayName === "Men's Bathroom" && level === 1
       )
     );
     expect(path.length).toBe(3);

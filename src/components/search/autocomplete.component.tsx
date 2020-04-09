@@ -47,8 +47,8 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
             style={styles.list}
           >
             <View>
-              <Text style={styles.text}>{item.searchString}</Text>
-              <Text style={styles.text}>{item.extraString}</Text>
+              <Text style={styles.text}>{item.searchName}</Text>
+              <Text style={styles.text}>{item.extraInformation}</Text>
             </View>
             <Entypo name="chevron-thin-right" size={24} color="#454F63" />
           </TouchableOpacity>

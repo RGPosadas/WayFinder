@@ -1,5 +1,36 @@
 import { Campus, CampusId, MarkerLocation } from "../types/main";
 
+/**
+ * Converts a given campus to a marker location.
+ *
+ * MarkerLocation is used for the start and end locations for a travel plan,
+ * and can be a building, POI or campus.
+ *
+ * @param campus Campus object to convert to a marker location
+ */
+export const campusToMarker = (campus: Campus): MarkerLocation => {
+  return {
+    id: `campus-${campus.id}`,
+    displayName: campus.id,
+    location: campus.region,
+  };
+};
+
+/**
+ * Get Campus by id.
+ * @param id Id of the campus
+ */
+export const getCampusById = (id: CampusId): Campus => {
+  return Campuses.filter((campus) => campus.id === id)[0];
+};
+
+/**
+ * Get All campuses
+ */
+export const getAllCampuses = (): Campus[] => {
+  return Campuses;
+};
+
 const Campuses: Campus[] = [
   {
     id: "SGW",
@@ -92,26 +123,3 @@ const Campuses: Campus[] = [
     ],
   },
 ];
-
-export const campusToMarker = (campus: Campus): MarkerLocation => {
-  return {
-    id: `campus-${campus.id}`,
-    displayName: campus.id,
-    location: campus.region,
-  };
-};
-
-/**
- * Get Campus by id.
- * @param id Id of the campus
- */
-export const getCampusById = (id: CampusId): Campus => {
-  return Campuses.filter((campus) => campus.id === id)[0];
-};
-
-/**
- * Get All campuses
- */
-export const getAllCampuses = (): Campus[] => {
-  return Campuses;
-};

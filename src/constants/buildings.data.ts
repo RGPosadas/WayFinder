@@ -5,6 +5,14 @@ import {
   SearchResult,
 } from "../types/main";
 
+/**
+ * Converts a given Building object into a Marker Location.
+ *
+ * MarkerLocation is used for the start and end locations for a travel plan,
+ * and can be a building, POI or campus.
+ *
+ * @param building Building object to be converted
+ */
 export const buildingToMarker = (building: Building): MarkerLocation => {
   return {
     id: building.id,
@@ -13,13 +21,21 @@ export const buildingToMarker = (building: Building): MarkerLocation => {
   };
 };
 
+/**
+ * Converts a given Building object into a Search Result.
+ *
+ * A search result is a representation of a MarkerLocation used for the
+ * autocomplete component, and can be a building, POI or campus.
+ *
+ * @param building Building object to be converted
+ */
 export const buildingToSearchResult = (building: Building): SearchResult => {
   return {
     id: building.id,
     displayName: building.id,
     location: building.location,
-    searchString: `${building.id}: ${building.displayName}`,
-    extraString: `Campus: ${building.campusId}`,
+    searchName: `${building.id}: ${building.displayName}`,
+    extraInformation: `Campus: ${building.campusId}`,
   };
 };
 

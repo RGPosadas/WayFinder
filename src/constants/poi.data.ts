@@ -1,16 +1,32 @@
 import { POI, POICategory, MarkerLocation, SearchResult } from "../types/main";
 
+/**
+ * Converts a given POI into a Marker Location
+ *
+ * MarkerLocation is used for the start and end locations for a travel plan,
+ * and can be a building, POI or campus.
+ *
+ * @param poi POI to be converted
+ */
 export const POIToMarker = (poi: POI): MarkerLocation => {
   return poi;
 };
 
+/**
+ * Converts a given POI into a search result.
+ *
+ * A search result is a representation of a MarkerLocation used for the
+ * autocomplete component, and can be a building, POI or campus.
+ *
+ * @param poi POI to be converted
+ */
 export const POIToSearchResult = (poi: POI): SearchResult => {
   return {
     id: poi.id,
     displayName: poi.displayName,
     location: poi.location,
-    searchString: poi.displayName,
-    extraString: `Building: ${poi.buildingId} Level: ${poi.level}`,
+    searchName: poi.displayName,
+    extraInformation: `Building: ${poi.buildingId} Level: ${poi.level}`,
   };
 };
 
@@ -93,7 +109,7 @@ export const POIInfo: POI[] = [
       latitude: 45.49731,
       longitude: -73.57901,
     },
-    buildingId: BuildingId.H,
+    buildingId: "H",
     level: 8,
     category: POICategory.Exit,
   },
@@ -1579,7 +1595,7 @@ export const POIInfo: POI[] = [
       latitude: 45.458116,
       longitude: -73.639914,
     },
-    buildingId: BuildingId.CC,
+    buildingId: "CC",
     level: 1,
     category: POICategory.Exit,
   },

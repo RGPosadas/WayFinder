@@ -69,9 +69,8 @@ class UtilityService {
     const locations: SearchResult[] = this.locationsToSearch.filter(
       (location) => {
         return (
-          location.searchString
-            .toLowerCase()
-            .search(inputText.toLowerCase()) !== -1
+          location.searchName.toLowerCase().search(inputText.toLowerCase()) !==
+          -1
         );
       }
     );

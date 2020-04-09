@@ -349,7 +349,7 @@ export const brokenGraph: TravelNode[] = [
 
 export const h96117toMBMensBathroom = [
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 7,
     level: 9,
     path: [
@@ -376,7 +376,7 @@ export const h96117toMBMensBathroom = [
     ],
   },
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 7,
     level: 8,
     path: [
@@ -387,7 +387,7 @@ export const h96117toMBMensBathroom = [
     ],
   },
   {
-    buildingId: 21,
+    buildingId: "MB",
     level: 1,
     path: [
       [
@@ -412,7 +412,7 @@ export const h96117toMBMensBathroom = [
 
 export const h96117toH9MensBathroom = [
   {
-    buildingId: 15,
+    buildingId: "H",
     level: 9,
     path: [
       [
@@ -445,7 +445,7 @@ export const h96117toH9MensBathroom = [
 
 export const h9117toH8WomensBathroom = [
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 7,
     level: 9,
     path: [
@@ -472,7 +472,7 @@ export const h9117toH8WomensBathroom = [
     ],
   },
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 7,
     level: 8,
     path: [
@@ -498,7 +498,7 @@ export const h9117toH8WomensBathroom = [
 
 export const h8WomensBathroomToH9117 = [
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 6,
     level: 8,
     path: [
@@ -517,7 +517,7 @@ export const h8WomensBathroomToH9117 = [
     ],
   },
   {
-    buildingId: 15,
+    buildingId: "H",
     connectorType: 6,
     level: 9,
     path: [
@@ -549,14 +549,14 @@ export const h3rdFloorMock = {
     latitude: 45.497354,
     longitude: -73.578713,
   },
-  buildingId: BuildingId.H,
+  buildingId: "H",
   level: 3,
   category: POICategory.Stairs,
 };
 
 export const h3rdFloorPoiMock = {
   id: 3,
-  buildingId: BuildingId.H,
+  buildingId: "H",
   level: 3,
   bounds: null,
   image: null,
