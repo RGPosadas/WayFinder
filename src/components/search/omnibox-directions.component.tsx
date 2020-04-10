@@ -121,11 +121,12 @@ const OmniboxDirections = ({
 
   useEffect(() => {
     if (currentLocation && !startLocation) {
-      setStartLocation({
-        id: CURRENT_LOCATION_DISPLAY_TEXT,
-        displayName: startLocationDisplay,
-        location: currentLocation,
-      });
+      const currentMarkerLocation = UtilityService.getInstance().locationToSearchResult(
+        CURRENT_LOCATION_DISPLAY_TEXT,
+        CURRENT_LOCATION_DISPLAY_TEXT,
+        currentLocation
+      );
+      setStartLocation(currentMarkerLocation);
     }
   }, [currentLocation]);
 

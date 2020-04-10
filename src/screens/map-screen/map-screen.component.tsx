@@ -9,7 +9,7 @@ import OmniboxDirections from "../../components/search/omnibox-directions.compon
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings, getCampusById } from "../../constants";
+import { Buildings, getCampusById, buildingToMarker } from "../../constants";
 import LocationButton from "../../components/location-button/location-button.component";
 
 import {
@@ -25,7 +25,10 @@ import {
   Building,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
-import { FETCHING_CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles";
+import {
+  FETCHING_CURRENT_LOCATION_DISPLAY_TEXT,
+  CURRENT_LOCATION_DISPLAY_TEXT,
+} from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
 
@@ -143,7 +146,7 @@ const MapScreen = () => {
         Buildings.forEach((building) => {
           if (isPointInPolygon(response.coords, building.boundingBox)) {
             onBuildingTap(building);
-            setStartLocationDisplay(building.displayName);
+            setStartLocation(buildingToMarker(building));
           }
         });
       })

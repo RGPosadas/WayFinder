@@ -1,5 +1,6 @@
 import UtilityService from "../src/services/utility.service";
 import { ZoomLevel } from "../src/types/main";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../src/styles";
 
 describe("UtilityService", () => {
   const utilityService = UtilityService.getInstance();
@@ -19,18 +20,51 @@ describe("UtilityService", () => {
   });
 
   describe("updateSearchResults", () => {
-    it("should call provided functions", () => {
+    it("should call provided functions and return expected objects", () => {
+      const mockCurrentLocation = {
+        latitude: 45.497237,
+        longitude: -73.578913,
+      };
+
+      const mockCurrentMarkerLocation = {
+        id: CURRENT_LOCATION_DISPLAY_TEXT,
+        displayName: CURRENT_LOCATION_DISPLAY_TEXT,
+        location: mockCurrentLocation,
+        searchName: CURRENT_LOCATION_DISPLAY_TEXT,
+        extraInformation: "",
+      };
+
+      let mockSetSearchResults = jest.fn();
+      let mockSetDisplayValue = jest.fn();
+
+      utilityService.updateSearchResults(
+        "test input",
+        mockSetSearchResults,
+        mockSetDisplayValue,
+        mockCurrentLocation
+      );
+
+      expect(mockSetSearchResults).toHaveBeenCalledTimes(1);
+      expect(mockSetDisplayValue).toHaveBeenCalledTimes(1);
+      expect(mockSetSearchResults.mock.calls[0][0][0]).toEqual(
+        mockCurrentMarkerLocation
+      );
+    });
+
+    it("should call provided functions and return expected objects when no input and current location are provided", () => {
       let mockSetSearchResults = jest.fn();
       let mockSetDisplayValue = jest.fn();
 
       utilityService.updateSearchResults(
         "",
         mockSetSearchResults,
-        mockSetDisplayValue
+        mockSetDisplayValue,
+        null
       );
 
       expect(mockSetSearchResults).toHaveBeenCalledTimes(1);
       expect(mockSetDisplayValue).toHaveBeenCalledTimes(1);
+      expect(mockSetSearchResults.mock.calls[0][0]).toEqual([]);
     });
   });
 
