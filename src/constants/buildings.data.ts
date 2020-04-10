@@ -16,7 +16,7 @@ import {
 export const buildingToMarker = (building: Building): MarkerLocation => {
   return {
     id: building.id,
-    displayName: building.id,
+    displayName: building.displayName,
     location: building.location,
   };
 };
@@ -32,7 +32,7 @@ export const buildingToMarker = (building: Building): MarkerLocation => {
 export const buildingToSearchResult = (building: Building): SearchResult => {
   return {
     id: building.id,
-    displayName: building.id,
+    displayName: building.displayName,
     location: building.location,
     searchName: `${building.id}: ${building.displayName}`,
     extraInformation: `Campus: ${building.campusId}`,
