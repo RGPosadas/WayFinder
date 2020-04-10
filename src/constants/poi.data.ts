@@ -1558,13 +1558,52 @@ export const POIInfo: POI[] = [
     category: POICategory.EscalatorDown,
   },
   {
-    id: "a15f5890-eb65-4a05-a578-08d4cabe254d",
-    displayName: "Stairs",
+    id: "5d0f9dd5-35ec-4d95-a478-0dd0b6454693",
+    displayName: "Stairs 1",
 
     description: "",
     location: {
-      latitude: 45.49706,
-      longitude: -73.578846,
+      latitude: 45.497354,
+      longitude: -73.578713,
+    },
+    buildingId: "H",
+    level: 9,
+    category: POICategory.Stairs,
+  },
+  {
+    id: "363649b3-61ea-4138-b8bb-b116412bcabb",
+    displayName: "Stairs 2",
+
+    description: "",
+    location: {
+      latitude: 45.497438,
+      longitude: -73.578964,
+    },
+    buildingId: "H",
+    level: 9,
+    category: POICategory.Stairs,
+  },
+  {
+    id: "17aeeb25-3760-412d-ae0e-978f560c9cde",
+    displayName: "Stairs 3",
+
+    description: "",
+    location: {
+      latitude: 45.497211,
+      longitude: -73.579182,
+    },
+    buildingId: "H",
+    level: 9,
+    category: POICategory.Stairs,
+  },
+  {
+    id: "a15f5890-eb65-4a05-a578-08d4cabe254d",
+    displayName: "Stairs 4",
+
+    description: "",
+    location: {
+      latitude: 45.497055,
+      longitude: -73.578849,
     },
     buildingId: "H",
     level: 9,
