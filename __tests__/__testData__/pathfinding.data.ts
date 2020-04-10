@@ -446,23 +446,11 @@ export const h96117toH9MensBathroom = [
 export const h9117toH8WomensBathroom = [
   {
     buildingId: "H",
-    connectorType: 7,
+    connectorType: 8,
     level: 9,
     path: [
       [
-        { latitude: 45.497269, longitude: -73.578862 },
-        { latitude: 45.497223, longitude: -73.578861 },
-      ],
-      [
-        { latitude: 45.497223, longitude: -73.578861 },
-        { latitude: 45.497322, longitude: -73.579066 },
-      ],
-      [
-        { latitude: 45.497322, longitude: -73.579066 },
-        { latitude: 45.49739, longitude: -73.579014 },
-      ],
-      [
-        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497438, longitude: -73.578964 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
@@ -473,29 +461,28 @@ export const h9117toH8WomensBathroom = [
   },
   {
     buildingId: "H",
-    connectorType: 7,
+    connectorType: 8,
     level: 8,
     path: [
       [
-        { latitude: 45.49731, longitude: -73.57901 },
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+        { latitude: 45.497354, longitude: -73.578713 },
+        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
       ],
       [
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
-        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
+        { latitude: 45.49741149279668, longitude: -73.57868966217494 },
       ],
       [
-        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
-        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+        { latitude: 45.49741149279668, longitude: -73.57868966217494 },
+        { latitude: 45.497348275354476, longitude: -73.57855018730616 },
       ],
       [
-        { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+        { latitude: 45.497348275354476, longitude: -73.57855018730616 },
         { latitude: 45.497239, longitude: -73.578674 },
       ],
     ],
   },
 ];
-
 export const h8WomensBathroomToH9117 = [
   {
     buildingId: "H",
