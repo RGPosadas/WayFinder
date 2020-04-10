@@ -26,7 +26,7 @@ import {
   Building,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
-import { CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles";
+import { FETCHING_CURRENT_LOCATION_DISPLAY_TEXT } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
 
@@ -227,7 +227,7 @@ const MapScreen = () => {
     if (!currentLocation) {
       LocationService.getInstance()
         .getCurrentLocationAsync(() => {
-          setStartLocationDisplay(CURRENT_LOCATION_DISPLAY_TEXT);
+          setStartLocationDisplay(FETCHING_CURRENT_LOCATION_DISPLAY_TEXT);
         })
         .then((location) => {
           setCurrentLocation(location.coords);
