@@ -1,5 +1,3 @@
-import { Marker } from "react-native-maps";
-
 export interface Location {
   latitude: number;
   longitude: number;
