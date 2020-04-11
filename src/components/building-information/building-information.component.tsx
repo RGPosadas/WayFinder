@@ -53,7 +53,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
       showBuildingInfo,
       onBuildingStartTravelPlan,
     } = this.props;
-    const draggableRange = { top: screenHeight / 2, bottom: 105 };
+    const draggableRange = { top: screenHeight / 2, bottom: 113 };
     const { allowDragging } = this.state;
     const building = getBuildingById(tappedBuilding);
     return (
@@ -76,14 +76,32 @@ class BuildingInformation extends React.Component<IProps, IState> {
                 this._panel.hide();
               }}
             >
-              <Feather name="x" size={40} color="white" />
+              <Feather name="x" size={35} color="white" />
             </TouchableOpacity>
 
             <View testID="panel" style={styles.panelContent}>
-              <AntDesign name="up" size={44} />
-              <Text testID="panelDisplayName" style={styles.buildingName}>
+              <View style={styles.uparrow}>
+                <AntDesign name="up" size={40} />
+              </View>
+              <Text
+                testID="panelDisplayName"
+                style={{
+                  ...styles.buildingName,
+                  fontSize: building.displayName.length > 30 ? 18 : 24,
+                }}
+              >
                 {building.displayName}
               </Text>
+
+              <TouchableOpacity
+                style={styles.travelButton}
+                testID="building-info-start-travel"
+                onPressOut={() => {
+                  onBuildingStartTravelPlan(building);
+                }}
+              >
+                <Text style={styles.travelButtonText}>Travel Here!</Text>
+              </TouchableOpacity>
 
               <ScrollView
                 testID="scrollView"
@@ -93,15 +111,6 @@ class BuildingInformation extends React.Component<IProps, IState> {
                 style={{ width: "100%" }}
                 contentContainerStyle={styles.buildingInformation}
               >
-                <TouchableOpacity
-                  style={styles.travelButton}
-                  testID="building-info-start-travel"
-                  onPressOut={() => {
-                    onBuildingStartTravelPlan(building);
-                  }}
-                >
-                  <Text style={{ color: "white" }}>Travel Here!</Text>
-                </TouchableOpacity>
                 <Text style={styles.headerText}>Address: </Text>
                 <Text testID="panelAddress" style={styles.normalText}>
                   {building.address}
@@ -145,26 +154,28 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   uparrow: {
-    justifyContent: "center",
-    alignContent: "center",
-    alignItems: "center",
-    flex: 5,
+    marginBottom: -7,
   },
   buildingName: {
-    fontSize: 22,
     fontWeight: "bold",
-    marginLeft: 20,
-    marginRight: 20,
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 5,
     textAlign: "center",
-    height: 65,
   },
   travelButton: {
     backgroundColor: CONCORDIA_RED,
     alignSelf: "center",
     alignItems: "center",
-    padding: 10,
-    width: "50%",
+    padding: 7,
+    marginBottom: 15,
+    width: "40%",
     borderRadius: 100,
+  },
+  travelButtonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
   },
   xButton: {
     position: "absolute",
