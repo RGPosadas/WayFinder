@@ -32,7 +32,7 @@ import {
   INACTIVE_TEXT_COLOR,
   INACTIVE_ICON_COLOR,
   screenWidth,
-  CURRENT_LOCATION_DISPLAY_TEXT,
+  FETCHING_CURRENT_LOCATION_DISPLAY_TEXT,
 } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
@@ -53,7 +53,8 @@ export interface OmniboxDirectionsProps {
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
-    setDisplayValue: (text: string) => void
+    setDisplayValue: (text: string) => void,
+    currentLocation: Location
   ) => void;
   startLocationDisplay: string;
   setStartLocationDisplay: (displayName: string) => void;
@@ -103,7 +104,9 @@ const OmniboxDirections = ({
   useEffect(() => {
     if (startLocation) {
       setStartLocationDisplay(startLocation.displayName);
-    } else {
+    } else if (
+      startLocationDisplay !== FETCHING_CURRENT_LOCATION_DISPLAY_TEXT
+    ) {
       setStartLocationDisplay("");
     }
     setStartLocationSearchResults(null);
@@ -117,16 +120,6 @@ const OmniboxDirections = ({
     }
     setEndLocationSearchResults(null);
   }, [endLocation]);
-
-  useEffect(() => {
-    if (currentLocation && !startLocation) {
-      setStartLocation({
-        id: CURRENT_LOCATION_DISPLAY_TEXT,
-        displayName: CURRENT_LOCATION_DISPLAY_TEXT,
-        location: currentLocation,
-      });
-    }
-  }, [currentLocation]);
 
   /**
    * Change the value of the departure time
@@ -184,7 +177,8 @@ const OmniboxDirections = ({
                   updateSearchResults(
                     inputText,
                     setStartLocationSearchResults,
-                    setStartLocationDisplay
+                    setStartLocationDisplay,
+                    currentLocation
                   )
                 }
                 value={startLocationDisplay}
@@ -206,7 +200,8 @@ const OmniboxDirections = ({
                   updateSearchResults(
                     inputText,
                     setEndLocationSearchResults,
-                    setEndLocationDisplay
+                    setEndLocationDisplay,
+                    null
                   )
                 }
                 onFocus={() => setEndLocationFocused(true)}

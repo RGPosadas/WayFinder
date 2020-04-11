@@ -25,7 +25,7 @@ export const buildingToMarker = (building: Building): MarkerLocation => {
  * Converts a given Building object into a Search Result.
  *
  * A search result is a representation of a MarkerLocation used for the
- * autocomplete component, and can be a building, POI or campus.
+ * autocomplete component, and can be a building, POI, Location or Campus.
  *
  * @param building Building object to be converted
  */

@@ -1,10 +1,11 @@
-import { Range, ZoomLevel, SearchResult } from "../types/main";
+import { Range, ZoomLevel, SearchResult, Location } from "../types/main";
 import {
   Buildings,
   POIToSearchResult,
   buildingToSearchResult,
   POIInfo,
 } from "../constants";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../styles";
 
 class UtilityService {
   private indoorRange: Range = {
@@ -38,6 +39,34 @@ class UtilityService {
   }
 
   /**
+   * Converts a given Location into a search result.
+   *
+   * A search result is a representation of a Location used for the
+   * autocomplete component, and can be a Building, POI, Location or Campus.
+   *
+   * @param id ID of Location
+   * @param displayName Name that is displayed
+   * @param location Location (Latitude and Longitude)
+   * @param searchName String used for search, by default it is the value of displayName
+   * @param extraInformation Additional Information about the location, by default it is an empty string
+   */
+  public locationToSearchResult = (
+    id: string,
+    displayName: string,
+    location: Location,
+    searchName: string = displayName,
+    extraInformation: string = ""
+  ): SearchResult => {
+    return {
+      id,
+      displayName,
+      location,
+      searchName,
+      extraInformation,
+    };
+  };
+
+  /**
    *Converts a time to a string by using the current or specified locale.
    * @param date
    * @param dateIsNow
@@ -57,6 +86,7 @@ class UtilityService {
    * @param inputText Input text for search
    * @param setSearchResults Function for setting state of search results
    * @param setDisplayValue Function for setting display text of search
+   * @param currentLocation Current location of User
    *
    * TODO: Add current location as a searchable element by passing it as
    * a parameter and including it in the search.
@@ -64,7 +94,8 @@ class UtilityService {
   public updateSearchResults = (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
-    setLocationDisplay: (display: string) => void
+    setLocationDisplay: (display: string) => void,
+    currentLocation: Location
   ) => {
     const locations: SearchResult[] = this.locationsToSearch.filter(
       (location) => {
@@ -75,6 +106,15 @@ class UtilityService {
       }
     );
 
+    if (currentLocation) {
+      const SearchResultMarker = this.locationToSearchResult(
+        CURRENT_LOCATION_DISPLAY_TEXT,
+        CURRENT_LOCATION_DISPLAY_TEXT,
+        currentLocation
+      );
+
+      locations.unshift(SearchResultMarker);
+    }
     const narrowedLocations: SearchResult[] =
       inputText === "" ? [] : locations.slice(0, 5);
 

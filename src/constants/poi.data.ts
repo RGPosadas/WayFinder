@@ -16,7 +16,7 @@ export const POIToMarker = (poi: POI): MarkerLocation => {
  * Converts a given POI into a search result.
  *
  * A search result is a representation of a MarkerLocation used for the
- * autocomplete component, and can be a building, POI or campus.
+ * autocomplete component, and can be a building, POI, Location or Campus.
  *
  * @param poi POI to be converted
  */
