@@ -224,4 +224,3 @@ export enum TravelState {
   PLANNING,
   TRAVELLING,
 }
-

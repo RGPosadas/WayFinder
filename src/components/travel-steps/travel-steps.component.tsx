@@ -73,7 +73,7 @@ class TravelSteps extends React.Component<IProps, IState> {
               </View>
               <View style={styles.flexTextContainer}>
                 <Text testID="travelSteos" style={styles.headerText}>
-                  {"Travel Steps"}
+                  Travel Steps
                 </Text>
               </View>
             </View>

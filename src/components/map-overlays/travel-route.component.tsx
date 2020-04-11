@@ -92,7 +92,7 @@ const TravelRoute = ({
       {pathLines.map((lines) =>
         lines.map((polyline, index) => (
           <Polyline
-            testID={"polylinePath" + index}
+            testID={`polylinePath${  index}`}
             coordinates={polyline}
             fillColor={CONCORDIA_RED}
             key={index}
