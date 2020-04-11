@@ -14,9 +14,11 @@ import {
   WHITE_BACKGROUND_COLOR,
   screenHeight,
 } from "../../styles";
+import { POICategory, FloorPath } from "../../types/main";
 
 interface IProps {
   onCloseTravelSteps: () => void;
+  floorPaths: FloorPath[];
 }
 
 interface IState {
@@ -42,7 +44,7 @@ class TravelSteps extends React.Component<IProps, IState> {
   }
 
   render() {
-    const { onCloseTravelSteps } = this.props;
+    const { onCloseTravelSteps, floorPaths } = this.props;
     const draggableRange = { top: screenHeight / 2, bottom: 105 };
     const { allowDragging } = this.state;
     return (
@@ -85,14 +87,18 @@ class TravelSteps extends React.Component<IProps, IState> {
               onTouchEnd={() => this.setState({ allowDragging: true })}
               onTouchCancel={() => this.setState({ allowDragging: true })}
             >
-              {/* {floorPaths
+              {floorPaths
                 ? floorPaths.map((path, index) => (
-                    <Text key={index}>
-                      ${index + 1}. Go to ${path.connectorType} on floor $
-                      {path.level} in the ${path.buildingId} building
+                    <Text testID={`Steps${index}`} key={index}>
+                      {"\n"}
+                      {index + 1}. Take the{" "}
+                      {path.connectorType
+                        ? POICategory[path.connectorType]
+                        : "entrance"}{" "}
+                      on floor {path.level} in the {path.buildingId} building
                     </Text>
                   ))
-                : null} */}
+                : null}
             </ScrollView>
           </View>
         </View>

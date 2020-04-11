@@ -13,6 +13,7 @@ import { CONCORDIA_RED } from "../../styles";
 import { getAllPOI } from "../../constants";
 
 interface iProps {
+  floorPaths: FloorPath[];
   start: MarkerLocation;
   end: MarkerLocation;
   chosenFloorLevel: number;
@@ -28,6 +29,7 @@ const TravelRoute = ({
   end,
   chosenFloorLevel,
   animateToStartLocation,
+  floorPaths,
 }: iProps) => {
   useEffect(() => {
     animateToStartLocation({
@@ -40,24 +42,6 @@ const TravelRoute = ({
 
   /**
    *
-   * @param object
-   */
-  const getPOI = (object: MarkerLocation) => {
-    let poi: POI;
-    poi = getAllPOI().find((poi) => poi.id === object.id);
-
-    if (poi === undefined) {
-      poi = getAllPOI().find(
-        (poi) =>
-          poi.buildingId === object.id && poi.category === POICategory.Exit
-      );
-    }
-    // TODO Current Location
-    return poi;
-  };
-
-  /**
-   *
    * @param floorPath
    */
   const getPathPerFloor = (floorPath: FloorPath) => {
@@ -66,14 +50,6 @@ const TravelRoute = ({
     }
     return true;
   };
-
-  /**
-   *
-   */
-  const floorPaths: FloorPath[] = PathFindingService.getInstance().findPathBetweenPOIs(
-    getPOI(start),
-    getPOI(end)
-  );
 
   /**
    *
@@ -92,7 +68,7 @@ const TravelRoute = ({
       {pathLines.map((lines) =>
         lines.map((polyline, index) => (
           <Polyline
-            testID={`polylinePath${  index}`}
+            testID={`polylinePath${index}`}
             coordinates={polyline}
             fillColor={CONCORDIA_RED}
             key={index}

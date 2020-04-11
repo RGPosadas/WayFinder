@@ -53,6 +53,7 @@ export interface OmniboxDirectionsProps {
   setEndLocationFocused: (bool: boolean) => void;
   setTravelState: (state: TravelState) => void;
   setStartLocationDisplay: (displayName: string) => void;
+  updateFloorPaths: () => void;
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
@@ -87,6 +88,7 @@ const OmniboxDirections = ({
   startLocationDisplay,
   setStartLocationDisplay,
   travelState,
+  updateFloorPaths,
 }: OmniboxDirectionsProps) => {
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
     endLocation.displayName
@@ -289,13 +291,12 @@ const OmniboxDirections = ({
           />
         )}
       </SafeAreaView>
-      {startLocation &&
-        endLocation &&
-        endLocationDisplay !== "" &&
-        startLocationDisplay !== "" &&
-        travelState === TravelState.PLANNING && (
-          <StartTravel setTravelState={setTravelState} />
-        )}
+      {startLocation && endLocation && travelState === TravelState.PLANNING && (
+        <StartTravel
+          setTravelState={setTravelState}
+          updateFloorPaths={updateFloorPaths}
+        />
+      )}
     </>
   );
 };

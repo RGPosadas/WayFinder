@@ -23,6 +23,8 @@ import {
   MarkerLocation,
   TravelState,
   Building,
+  FloorPath,
+  POICategory,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import {
@@ -33,6 +35,7 @@ import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
 import TravelRoute from "../../components/map-overlays/travel-route.component";
 import TravelSteps from "../../components/travel-steps/travel-steps.component";
+import PathFindingService from "../../services/pathfinding.service";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -54,7 +57,7 @@ const MapScreen = () => {
       floors: [],
     }
   );
-
+  const [floorPaths, setFloorPaths] = useState<FloorPath[]>(null);
   const [floorLevel, setFloorLevel] = useState<number>(8);
   const [endLocation, setEndLocation] = useState<MarkerLocation>();
   const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
@@ -63,7 +66,6 @@ const MapScreen = () => {
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
     string
   >("");
-
   /**
    * Creates a reference to the MapView Component that is rendered.
    * Allows to access component methods.
@@ -265,6 +267,33 @@ const MapScreen = () => {
       });
   };
 
+  /**
+   *
+   * @param object
+   */
+  const getPOI = (object: MarkerLocation) => {
+    let poi: POI;
+    poi = getAllPOI().find((poi) => poi.id === object.id);
+
+    if (poi === undefined) {
+      poi = getAllPOI().find(
+        (poi) =>
+          poi.buildingId === object.id && poi.category === POICategory.Exit
+      );
+    }
+    // TODO Current Location
+    return poi;
+  };
+
+  const updateFloorPaths = () => {
+    setFloorPaths(
+      PathFindingService.getInstance().findPathBetweenPOIs(
+        getPOI(startLocation),
+        getPOI(endLocation)
+      )
+    );
+  };
+
   const isTravelling = (): boolean => {
     return travelState === TravelState.TRAVELLING;
   };
@@ -292,6 +321,7 @@ const MapScreen = () => {
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
         travelState={travelState}
+        updateFloorPaths={updateFloorPaths}
       />
     );
   } else if (isNotTravelling()) {
@@ -336,6 +366,7 @@ const MapScreen = () => {
           />
           {isTravelling() && (
             <TravelRoute
+              floorPaths={floorPaths}
               animateToStartLocation={animateRegion}
               start={startLocation}
               end={endLocation}
@@ -362,7 +393,10 @@ const MapScreen = () => {
         />
 
         {isTravelling() && (
-          <TravelSteps onCloseTravelSteps={onCloseTravelSteps} />
+          <TravelSteps
+            floorPaths={floorPaths}
+            onCloseTravelSteps={onCloseTravelSteps}
+          />
         )}
 
         {isNotTravelling() && (
