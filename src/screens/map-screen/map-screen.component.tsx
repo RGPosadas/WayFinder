@@ -32,6 +32,7 @@ import {
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
 import TravelRoute from "../../components/map-overlays/travel-route.component";
+import TravelSteps from "../../components/travel-steps/travel-steps.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -112,10 +113,17 @@ const MapScreen = () => {
   };
 
   /**
-   * This functions handles the campus toggle event
+   * Handles closes the travel step slider
+   */
+  const onCloseTravelSteps = () => {
+    setTravelState(TravelState.PLANNING);
+  };
+
+  /**
+   * This functions handles animating to region
    * @param region The region to animate to
    */
-  const onCampusToggle = (region: Region) => {
+  const animateRegion = (region: Region) => {
     mapRef.current.animateToRegion(region);
   };
 
@@ -257,11 +265,19 @@ const MapScreen = () => {
       });
   };
 
+  const isTravelling = (): boolean => {
+    return travelState === TravelState.TRAVELLING;
+  };
+  const isPlanning = (): boolean => {
+    return travelState === TravelState.PLANNING;
+  };
+
+  const isNotTravelling = (): boolean => {
+    return travelState === TravelState.NONE;
+  };
+
   let search;
-  if (
-    travelState === TravelState.PLANNING
-    // || travelState === TravelState.TRAVELLING
-  ) {
+  if (isPlanning()) {
     search = (
       <OmniboxDirections
         endLocation={endLocation}
@@ -275,9 +291,10 @@ const MapScreen = () => {
         updateSearchResults={UtilityService.getInstance().updateSearchResults}
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
+        travelState={travelState}
       />
     );
-  } else {
+  } else if (isNotTravelling()) {
     search = (
       <Search
         setUserCurrentLocation={setUserCurrentLocation}
@@ -317,24 +334,24 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
-          {travelState === TravelState.TRAVELLING && (
+          {isTravelling() && (
             <TravelRoute
-              end={getAllPOI()[3]}
-              start={getAllPOI()[111]}
+              animateToStartLocation={animateRegion}
+              start={startLocation}
+              end={endLocation}
               chosenFloorLevel={floorLevel}
             />
           )}
         </MapView>
 
-        {travelState === TravelState.NONE && (
-          <CampusToggle onCampusToggle={onCampusToggle} />
-        )}
-
-        {travelState === TravelState.NONE && (
-          <LocationButton
-            setUserCurrentLocation={setUserCurrentLocation}
-            animateToCurrentLocation={animateToCurrentLocation}
-          />
+        {isNotTravelling() && (
+          <>
+            <CampusToggle onCampusToggle={animateRegion} />
+            <LocationButton
+                setUserCurrentLocation={setUserCurrentLocation}
+                animateToCurrentLocation={animateToCurrentLocation}
+            />
+          </>
         )}
 
         <FloorPicker
@@ -344,7 +361,11 @@ const MapScreen = () => {
           zoomLevel={zoomLevel}
         />
 
-        {travelState === TravelState.NONE && (
+        {isTravelling() && (
+          <TravelSteps onCloseTravelSteps={onCloseTravelSteps} />
+        )}
+
+        {isNotTravelling() && (
           <BuildingInformation
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}
