@@ -11,11 +11,7 @@ import {
   SearchResult,
 } from "../../types/main";
 import SeparatorSVG from "../../../assets/line-separator.svg";
-import {
-  CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR,
-  screenWidth,
-} from "../../styles";
+import { CONCORDIA_RED, screenWidth } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 
 /**
@@ -121,7 +117,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: CONCORDIA_RED,
     height: 48,
-    backgroundColor: WHITE_BACKGROUND_COLOR,
+    backgroundColor: "white",
     flexDirection: "row",
     alignItems: "center",
     paddingLeft: 16,

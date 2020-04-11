@@ -7,7 +7,6 @@ export const INPUT_BORDER_COLOR = "#DEDEDE";
 export const LIST_BACKGROUND_COLOR = "#F7F7FA";
 export const LIST_ITEM_BORDER_COLOR = "rgba(120, 132, 158, 0.08)";
 export const LIST_ITEM_TEXT_COLOR = "#454F63";
-export const WHITE_BACKGROUND_COLOR = "white";
 export const INACTIVE_TEXT_COLOR = "#717171";
 export const INACTIVE_ICON_COLOR = "#C76969";
 export const CUSTOM_MARKER_COLOR = "#f0f0f0";

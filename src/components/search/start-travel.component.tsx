@@ -2,12 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { AntDesign } from "@expo/vector-icons";
-import {
-  CONCORDIA_RED,
-  WHITE_BACKGROUND_COLOR,
-  START_TRAVEL_HEIGHT,
-  Circle,
-} from "../../styles";
+import { CONCORDIA_RED, START_TRAVEL_HEIGHT, Circle } from "../../styles";
 import { TravelState } from "../../types/main";
 
 interface IProps {
@@ -58,7 +53,7 @@ const styles = StyleSheet.create({
     left: 0,
     position: "absolute",
   },
-  arrowIcon: { color: WHITE_BACKGROUND_COLOR },
+  arrowIcon: { color: "white" },
 });
 
 export default StartTravel;
