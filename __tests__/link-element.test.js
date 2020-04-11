@@ -1,7 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import LinkElement from "../src/components/building-information/list-element.component";
+import LinkElement from "../src/components/building-information/link-element.component";
 
 const mockLinkItem = {
   id: 1,
@@ -17,12 +17,27 @@ describe("LinkItem component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should check if clicking department links is functional", () => {
+  it("should check if link has proper title", () => {
     const wrapper = shallow(<LinkElement linkItem={mockLinkItem} />);
 
     const link = wrapper.find({ testID: "linkItem.title" });
 
     expect(link.props().children).toEqual(mockLinkItem.title);
+  });
+
+  it("should check if clicking department links is functional", () => {
+    const wrapper = shallow(<LinkElement linkItem={mockLinkItem} />);
+    const mockOpenURL = jest.fn();
+    jest.mock("react-native/Libraries/Linking/Linking", () => {
+      return {
+        openURL: mockOpenURL,
+      };
+    });
+
+    const link = wrapper.find({ testID: "linkItem.title" });
+
     link.simulate("press");
+    expect(mockOpenURL).toHaveBeenCalledTimes(1);
+    expect(mockOpenURL).toBeCalledWith(mockLinkItem.link);
   });
 });

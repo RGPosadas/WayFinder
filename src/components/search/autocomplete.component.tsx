@@ -37,7 +37,7 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             testID="touchableList"
-            onPress={() => setLocation(item)}
+            onPressOut={() => setLocation(item)}
             key={item.displayName}
             style={styles.list}
           >

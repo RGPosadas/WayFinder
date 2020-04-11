@@ -2,7 +2,7 @@ import React from "react";
 import BuildingInformation from "../src/components/building-information/building-information.component";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import { Buildings } from "../src/constants";
+import { getBuildingById } from "../src/constants";
 
 describe("BuildingInformation component", () => {
   it("should match snapshot", () => {
@@ -25,14 +25,14 @@ describe("BuildingInformation component", () => {
     // button.simulate("press");
   });
 
-  it("should call onBuildingStartTravelPlan on start travel button press", () => {
-    const mockOnBuildingStartTravelPlan = jest.fn();
+  it("should call startBuildingTravelPlan on start travel button press", () => {
+    const mockStartBuildingTravelPlan = jest.fn();
     const wrapper = shallow(
       <BuildingInformation
         tappedBuilding={"H"}
         showBuildingInfo={true}
         onClosePanel={null}
-        onBuildingStartTravelPlan={mockOnBuildingStartTravelPlan}
+        startBuildingTravelPlan={mockStartBuildingTravelPlan}
       />
     );
     wrapper
@@ -41,6 +41,9 @@ describe("BuildingInformation component", () => {
       .props()
       .onPressOut();
 
-    expect(mockOnBuildingStartTravelPlan).toHaveBeenCalledTimes(1);
+    expect(mockStartBuildingTravelPlan).toHaveBeenCalledTimes(1);
+    expect(mockStartBuildingTravelPlan).toHaveBeenCalledWith(
+      getBuildingById("H")
+    );
   });
 });

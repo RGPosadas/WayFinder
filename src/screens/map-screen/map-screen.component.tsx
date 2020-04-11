@@ -193,7 +193,7 @@ const MapScreen = () => {
    *
    * @param building Building to start the travel plan for
    */
-  const onBuildingStartTravelPlan = (building: Building) => {
+  const startBuildingTravelPlan = (building: Building) => {
     setEndLocation(buildingToMarker(building));
     setTravelState(TravelState.PLANNING);
     setUserCurrentLocation();
@@ -339,7 +339,7 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}
             onClosePanel={onClosePanel}
-            onBuildingStartTravelPlan={onBuildingStartTravelPlan}
+            startBuildingTravelPlan={startBuildingTravelPlan}
           />
         )}
       </View>

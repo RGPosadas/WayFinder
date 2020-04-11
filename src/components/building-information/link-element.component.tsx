@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Linking } from "react-native";
 import { LinkItem } from "../../types/main";
+import { LINK_COLOR } from "../../styles";
 
 interface IProps {
   linkItem: LinkItem;
@@ -43,7 +44,7 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 16,
-    color: "blue",
+    color: LINK_COLOR,
     textDecorationLine: "underline",
   },
 });

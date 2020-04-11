@@ -5,7 +5,6 @@ import {
   Text,
   ScrollView,
   StyleSheet,
-  Linking,
   Animated,
 } from "react-native";
 import SlidingUpPanel from "rn-sliding-up-panel";
@@ -16,14 +15,15 @@ import {
   CONCORDIA_RED,
   screenHeight,
   WHITE_BACKGROUND_COLOR,
+  WHITE_FOREGROUND_COLOR,
 } from "../../styles";
-import LinkItem from "./list-element.component";
+import LinkItem from "./link-element.component";
 
 interface IProps {
   tappedBuilding: BuildingId;
   showBuildingInfo: boolean;
   onClosePanel: () => void;
-  onBuildingStartTravelPlan: (Building) => void;
+  startBuildingTravelPlan: (Building) => void;
 }
 
 interface IState {
@@ -51,7 +51,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
       tappedBuilding,
       onClosePanel,
       showBuildingInfo,
-      onBuildingStartTravelPlan,
+      startBuildingTravelPlan,
     } = this.props;
     const draggableRange = { top: screenHeight / 2, bottom: 113 };
     const { allowDragging } = this.state;
@@ -76,7 +76,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                 this._panel.hide();
               }}
             >
-              <Feather name="x" size={35} color="white" />
+              <Feather name="x" size={35} color={WHITE_FOREGROUND_COLOR} />
             </TouchableOpacity>
 
             <View testID="panel" style={styles.panelContent}>
@@ -85,10 +85,10 @@ class BuildingInformation extends React.Component<IProps, IState> {
               </View>
               <Text
                 testID="panelDisplayName"
-                style={{
-                  ...styles.buildingName,
-                  fontSize: building.displayName.length > 30 ? 18 : 24,
-                }}
+                style={StyleSheet.flatten([
+                  styles.buildingName,
+                  { fontSize: building.displayName.length > 30 ? 18 : 24 },
+                ])}
               >
                 {building.displayName}
               </Text>
@@ -97,7 +97,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
                 style={styles.travelButton}
                 testID="building-info-start-travel"
                 onPressOut={() => {
-                  onBuildingStartTravelPlan(building);
+                  startBuildingTravelPlan(building);
                 }}
               >
                 <Text style={styles.travelButtonText}>Travel Here!</Text>
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   travelButtonText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "white",
+    color: WHITE_FOREGROUND_COLOR,
   },
   xButton: {
     position: "absolute",
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   xButtonText: {
-    color: "white",
+    color: WHITE_FOREGROUND_COLOR,
     fontSize: 20,
   },
   headerText: {
