@@ -1,5 +1,5 @@
 import { by, device, expect, element, waitFor } from "detox";
-import { exec } from "child_process";
+import { setLocation } from "./e2e-helper";
 
 const { reloadApp } = require("detox-expo-helpers");
 
@@ -7,22 +7,13 @@ beforeEach(async () => {
   await reloadApp();
 });
 
-// iOS only:
-// Detox's device.setLocation() is not useable right now since it relies
-// on a deprecated binary called fbsimctl, which has been moved to fb/idb.
-// Detox has yet to make that transition, therefore this is the current workaround.
-// Source: https://github.com/wix/Detox/issues/1371
-const setLocation = async (latitude: number, longitude: number) => {
-  // @ts-ignore
-  exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
-};
-
 describe("US-3: Location Services", () => {
   it("should indicate that user is not in a building", async () => {
     await setLocation(45.495674, -73.657242);
 
     await element(by.id("locationButton")).tap();
     await element(by.text("Allow")).tap();
+    await element(by.id("locationButton")).tap();
 
     await expect(element(by.id("panel"))).toBeNotVisible();
 

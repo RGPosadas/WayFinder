@@ -37,6 +37,9 @@ describe("US-14: Indoor Points of Interest", () => {
   });
 
   it("should show POI markers on Hall 9th floor", async () => {
+    await waitFor(element(by.id("floorButton9")))
+      .toExist()
+      .withTimeout(5000);
     await element(by.id("floorButton9")).tap();
 
     for (let i = 37; i < Object.keys(selectHall9POI).length / 2; i += 1) {
