@@ -6,13 +6,17 @@ interface IProps {
   linkItem: LinkItem;
 }
 
-const ListItem = ({ linkItem }: IProps) => {
+/**
+ * This component display a single link item, with a starting bullet point.
+ *
+ * @param linkItem The link item to display
+ */
+const LinkElement = ({ linkItem }: IProps) => {
   return (
     <View style={styles.container}>
       <Text style={styles.normalText}>{"\u2022  "}</Text>
       <Text
-        testID={linkItem.title}
-        nativeID="services"
+        testID="linkItem.title"
         style={styles.linkText}
         onPress={() => {
           if (linkItem.link) {
@@ -26,7 +30,7 @@ const ListItem = ({ linkItem }: IProps) => {
   );
 };
 
-export default ListItem;
+export default LinkElement;
 
 const styles = StyleSheet.create({
   container: {

@@ -10,32 +10,8 @@ describe("BuildingInformation component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should check if clicking department links is functional", () => {
-    const wrapper = shallow(
-      <BuildingInformation tappedBuilding={"H"} showBuildingInfo={true} />
-    );
-    for (let i = 0; i < Buildings[0].departments.length; i++) {
-      const departmentLink = wrapper.find({ nativeID: "departments" }).at(i);
-      expect(departmentLink.prop("children")).toBe(
-        Buildings[0].departments[i].title
-      );
-      departmentLink.simulate("press");
-    }
-  });
-
-  it("should check if clicking service links is functional", () => {
-    const wrapper = shallow(
-      <BuildingInformation tappedBuilding={"H"} showBuildingInfo={true} />
-    );
-    for (let i = 0; i < Buildings[0].departments.length; i++) {
-      const serviceLink = wrapper.find({ nativeID: "services" }).at(i);
-      expect(serviceLink.prop("children")).toBe(Buildings[0].services[i].title);
-      serviceLink.simulate("press");
-    }
-  });
-
   it("should call onClosePanel on 'x' button press", () => {
-    mockOnClosePanel = jest.fn();
+    const mockOnClosePanel = jest.fn();
     const wrapper = shallow(
       <BuildingInformation
         tappedBuilding={"H"}
@@ -47,5 +23,24 @@ describe("BuildingInformation component", () => {
     // NOTE: Cannot currently test
     // Waiting for answer: https://github.com/octopitus/rn-sliding-up-panel/issues/165
     // button.simulate("press");
+  });
+
+  it("should call onBuildingStartTravelPlan on start travel button press", () => {
+    const mockOnBuildingStartTravelPlan = jest.fn();
+    const wrapper = shallow(
+      <BuildingInformation
+        tappedBuilding={"H"}
+        showBuildingInfo={true}
+        onClosePanel={null}
+        onBuildingStartTravelPlan={mockOnBuildingStartTravelPlan}
+      />
+    );
+    wrapper
+      .find({ testID: "building-info-start-travel" })
+      .first()
+      .props()
+      .onPressOut();
+
+    expect(mockOnBuildingStartTravelPlan).toHaveBeenCalledTimes(1);
   });
 });

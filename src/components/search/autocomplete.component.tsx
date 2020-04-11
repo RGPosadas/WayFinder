@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  FlatList,
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { FlatList, StyleSheet, View, Text } from "react-native";
 import { Entypo } from "@expo/vector-icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { MarkerLocation, SearchResult } from "../../types/main";
 import {
   LIST_BACKGROUND_COLOR,
@@ -42,7 +37,7 @@ const AutoComplete = ({ searchResults, style, setLocation }: IProps) => {
         renderItem={({ item }) => (
           <TouchableOpacity
             testID="touchableList"
-            onPressOut={() => setLocation(item)}
+            onPress={() => setLocation(item)}
             key={item.displayName}
             style={styles.list}
           >
@@ -75,7 +70,7 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     borderBottomColor: LIST_ITEM_BORDER_COLOR,
     borderBottomWidth: 1.4,
-    zIndex: 4,
+    zIndex: 10,
   },
   text: {
     fontSize: 16,

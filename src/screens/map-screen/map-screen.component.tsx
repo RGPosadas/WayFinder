@@ -188,6 +188,18 @@ const MapScreen = () => {
   };
 
   /**
+   * Handles the event where the user presses the start travel button
+   * on the building information panel.
+   *
+   * @param building Building to start the travel plan for
+   */
+  const onBuildingStartTravelPlan = (building: Building) => {
+    setEndLocation(buildingToMarker(building));
+    setTravelState(TravelState.PLANNING);
+    setUserCurrentLocation();
+  };
+
+  /**
    * Set the users current location if location services is on.
    */
   const setUserCurrentLocation = () => {
@@ -327,6 +339,7 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}
             onClosePanel={onClosePanel}
+            onBuildingStartTravelPlan={onBuildingStartTravelPlan}
           />
         )}
       </View>

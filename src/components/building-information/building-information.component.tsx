@@ -11,14 +11,19 @@ import {
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { getBuildingById } from "../../constants";
-import { BuildingId } from "../../types/main";
-import { CONCORDIA_RED, screenHeight } from "../../styles";
-import LinkItem from "./list-item.component";
+import { BuildingId, Building } from "../../types/main";
+import {
+  CONCORDIA_RED,
+  screenHeight,
+  WHITE_BACKGROUND_COLOR,
+} from "../../styles";
+import LinkItem from "./list-element.component";
 
 interface IProps {
   tappedBuilding: BuildingId;
   showBuildingInfo: boolean;
   onClosePanel: () => void;
+  onBuildingStartTravelPlan: (Building) => void;
 }
 
 interface IState {
@@ -42,7 +47,12 @@ class BuildingInformation extends React.Component<IProps, IState> {
   }
 
   render() {
-    const { tappedBuilding, onClosePanel, showBuildingInfo } = this.props;
+    const {
+      tappedBuilding,
+      onClosePanel,
+      showBuildingInfo,
+      onBuildingStartTravelPlan,
+    } = this.props;
     const draggableRange = { top: screenHeight / 2, bottom: 105 };
     const { allowDragging } = this.state;
     const building = getBuildingById(tappedBuilding);
@@ -83,6 +93,15 @@ class BuildingInformation extends React.Component<IProps, IState> {
                 style={{ width: "100%" }}
                 contentContainerStyle={styles.buildingInformation}
               >
+                <TouchableOpacity
+                  style={styles.travelButton}
+                  testID="building-info-start-travel"
+                  onPressOut={() => {
+                    onBuildingStartTravelPlan(building);
+                  }}
+                >
+                  <Text style={{ color: "white" }}>Travel Here!</Text>
+                </TouchableOpacity>
                 <Text style={styles.headerText}>Address: </Text>
                 <Text testID="panelAddress" style={styles.normalText}>
                   {building.address}
@@ -118,7 +137,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: WHITE_BACKGROUND_COLOR,
   },
   panelContent: {
     height: screenHeight / 2,
@@ -137,7 +156,15 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     textAlign: "center",
-    height: 60,
+    height: 65,
+  },
+  travelButton: {
+    backgroundColor: CONCORDIA_RED,
+    alignSelf: "center",
+    alignItems: "center",
+    padding: 10,
+    width: "50%",
+    borderRadius: 100,
   },
   xButton: {
     position: "absolute",

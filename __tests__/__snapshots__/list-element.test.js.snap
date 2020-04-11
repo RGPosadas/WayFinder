@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkItem component should match snapshot 1`] = `
+<View
+  style={
+    Object {
+      "display": "flex",
+      "flexDirection": "row",
+      "marginLeft": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 16,
+      }
+    }
+  >
+    •  
+  </Text>
+  <Text
+    onPress={[Function]}
+    style={
+      Object {
+        "color": "blue",
+        "fontSize": 16,
+        "textDecorationLine": "underline",
+      }
+    }
+    testID="linkItem.title"
+  >
+    Engineering and Computer Science Association
+  </Text>
+</View>
+`;
