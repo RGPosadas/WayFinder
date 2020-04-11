@@ -17,7 +17,7 @@ exports[`CustomMarker component should match snapshot 1`] = `
         "position": "absolute",
       },
       Object {
-        "zIndex": undefined,
+        "zIndex": 1,
       },
     ]
   }

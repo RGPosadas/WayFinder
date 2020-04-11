@@ -74,7 +74,10 @@ describe("MapOverlays component", () => {
     const endLocationMarker = wrapper.find({ testID: "endLocation" }).props();
 
     expect(startLocationMarker).toHaveProperty("text", mockStartLocation.id);
-    expect(endLocationMarker).toHaveProperty("text", mockEndLocation.id);
+    expect(endLocationMarker).toHaveProperty(
+      "text",
+      mockEndLocation.displayName
+    );
   });
 
   it("should check for startLocation and endLocation marker texts when user has started a travel plan in INDOOR view", () => {

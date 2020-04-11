@@ -17,7 +17,6 @@ interface IProps {
   text: string;
   markerType: "campus" | "building" | "poi" | "startLocation" | "endLocation";
   testID: string;
-  zIndex: number;
 }
 let backgroundColor: string = CONCORDIA_RED;
 
@@ -29,7 +28,6 @@ let backgroundColor: string = CONCORDIA_RED;
  * @param text text of the marker
  * @param markerType type of the marker
  * @param testID unique ID for e2e tests
- * @param zIndex the zIndex of the markers
  */
 const CustomMarker = ({
   location,
@@ -37,7 +35,6 @@ const CustomMarker = ({
   text,
   markerType,
   testID,
-  zIndex,
 }: IProps) => {
   switch (markerType) {
     case "poi":
@@ -63,7 +60,9 @@ const CustomMarker = ({
       onPress={onPress}
       tracksViewChanges={false}
       tracksInfoWindowChanges={false}
-      style={{ zIndex }}
+      style={{
+        zIndex: ["endLocation", "startLocation"].includes(markerType) ? 2 : 1,
+      }}
     >
       <View style={styles.container}>
         <View

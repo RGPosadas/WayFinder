@@ -22,7 +22,7 @@ export const POIToMarker = (poi: POI): MarkerLocation => {
  */
 export const POIToSearchResult = (poi: POI): SearchResult => {
   return {
-    id: poi.displayName, // Not a mistake, needed for startLocation/endLocation marker texts
+    id: poi.id, // I get that it was intentional, but it might cause bugs
     displayName: poi.displayName,
     location: poi.location,
     searchName: poi.displayName,

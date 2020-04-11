@@ -70,10 +70,10 @@ const MapOverlays = ({
               text={campus.displayName}
               onPress={() => {}}
               testID={`marker${campus.id}`}
-              zIndex={1}
             />
           ))
         : null}
+
       {/**
        * Adds a polygon for each building
        */}
@@ -99,6 +99,7 @@ const MapOverlays = ({
           )}
         </>
       ) : null}
+
       {/**
        * Adds a marker for each building
        */}
@@ -118,13 +119,13 @@ const MapOverlays = ({
                     ? building.id
                     : building.displayName
                 }
-                zIndex={1}
               />
             </React.Fragment>
           ))
         : null}
+
       {/**
-       * Adds a marker for each POI
+       * Adds a floor plan for each Building
        */}
       {zoomLevel === ZoomLevel.INDOOR ? (
         <>
@@ -139,6 +140,10 @@ const MapOverlays = ({
             ))}
         </>
       ) : null}
+
+      {/**
+       * Adds a marker for each POI
+       */}
       {zoomLevel === ZoomLevel.INDOOR &&
       travelState !== TravelState.TRAVELLING ? (
         <>
@@ -159,23 +164,21 @@ const MapOverlays = ({
                 onPress={() => {
                   onPOIMarkerPress(poi);
                 }}
-                zIndex={1}
               />
             ))}
         </>
       ) : null}
+
       {travelState === TravelState.TRAVELLING
         ? [startLocation, endLocation].map((marker, index) => (
             <CustomMarker
               testID={index === 0 ? "startLocation" : "endLocation"}
               markerType={index === 0 ? "startLocation" : "endLocation"}
               location={marker.location}
-              text={
-                zoomLevel === ZoomLevel.INDOOR ? marker.displayName : marker.id
-              }
+              // Temporary. Setting id to be the displayname would cause bugs.
+              text={marker.displayName}
               onPress={() => {}}
               key={index}
-              zIndex={2}
             />
           ))
         : null}
