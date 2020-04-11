@@ -59,31 +59,10 @@ describe("MapOverlays component", () => {
     expect(mockOnBuildingTap.mock.calls[0][0]).toBe(Buildings[0]);
   });
 
-  it("should check for startLocation and endLocation marker texts when user has started a travel plan in OUTDOOR view", () => {
+  it("should check for startLocation and endLocation marker texts when user has started a travel plan", () => {
     const wrapper = shallow(
       <MapOverlays
         zoomLevel={ZoomLevel.OUTDOOR}
-        startLocation={mockStartLocation}
-        endLocation={mockEndLocation}
-        travelState={TravelState.TRAVELLING}
-      />
-    );
-    const startLocationMarker = wrapper
-      .find({ testID: "startLocation" })
-      .props();
-    const endLocationMarker = wrapper.find({ testID: "endLocation" }).props();
-
-    expect(startLocationMarker).toHaveProperty("text", mockStartLocation.id);
-    expect(endLocationMarker).toHaveProperty(
-      "text",
-      mockEndLocation.displayName
-    );
-  });
-
-  it("should check for startLocation and endLocation marker texts when user has started a travel plan in INDOOR view", () => {
-    const wrapper = shallow(
-      <MapOverlays
-        zoomLevel={ZoomLevel.INDOOR}
         startLocation={mockStartLocation}
         endLocation={mockEndLocation}
         travelState={TravelState.TRAVELLING}

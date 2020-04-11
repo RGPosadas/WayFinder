@@ -169,6 +169,9 @@ const MapOverlays = ({
         </>
       ) : null}
 
+      {/**
+       * Adds a marker for startLocation and endLocation
+       */}
       {travelState === TravelState.TRAVELLING
         ? [startLocation, endLocation].map((marker, index) => (
             <CustomMarker
