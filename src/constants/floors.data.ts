@@ -155,7 +155,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
-    disableUnfriendly: [],
+    disableFriendly: [],
   },
   {
     id: 2,
@@ -317,7 +317,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
-    disableUnfriendly: [],
+    disableFriendly: [],
   },
   {
     id: 3,
@@ -450,7 +450,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [7, 10, 13],
       },
     ],
-    disableUnfriendly: [[7, 12]],
+    disableFriendly: [13],
   },
   {
     id: 4,
@@ -503,6 +503,6 @@ export const buildingFloors: BuildingFloor[] = [
         children: [3],
       },
     ],
-    disableUnfriendly: [],
+    disableFriendly: [],
   },
 ];

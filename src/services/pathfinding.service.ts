@@ -306,7 +306,16 @@ class PathFindingService {
       (c) => endEdge[0].id !== c
     );
 
-    const searchPath = this.search(nodes, initial, goal);
+    let searchPath;
+    if (accessibilityMode) {
+      const { disableFriendly } = buildingFloors.find(
+        (floor) =>
+          floor.buildingId === start.buildingId && floor.level === start.level
+      );
+      searchPath = this.search(nodes, initial, goal, disableFriendly);
+    } else {
+      searchPath = this.search(nodes, initial, goal, undefined);
+    }
 
     if (searchPath === null) return null;
 
@@ -352,14 +361,18 @@ class PathFindingService {
   private search = (
     nodes: TravelNode[],
     initial: TravelNode,
-    goal: TravelNode
+    goal: TravelNode,
+    disableFriendly: number[]
   ): {
     [id: number]: number;
   } | null => {
     const closed = {};
     const open: PriorityQueue<PQItem> = new PriorityQueue<PQItem>({
       comparator: (a, b) => {
-        return this.f(nodes[a.id], goal, a.g) - this.f(nodes[b.id], goal, b.g);
+        return (
+          this.f(nodes[a.id], goal, a.g, disableFriendly) -
+          this.f(nodes[b.id], goal, b.g, disableFriendly)
+        );
       },
     });
     open.queue({ id: initial.id, parent: -1, g: 0 } as PQItem);
@@ -397,7 +410,17 @@ class PathFindingService {
    * @param g g(n)
    * @returns The f(n) score of a given node
    */
-  private f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
+  private f = (
+    travelNode: TravelNode,
+    goal: TravelNode,
+    g: number,
+    disableFriendly: number[]
+  ): number => {
+    if (
+      disableFriendly !== undefined &&
+      disableFriendly.includes(travelNode.id)
+    )
+      return g;
     return getDistance(goal.location, travelNode.location) + g;
   };
 

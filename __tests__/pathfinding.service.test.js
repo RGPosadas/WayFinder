@@ -14,10 +14,9 @@ describe("Find the shortest path between two locations/POI's", () => {
       (floor) => floor.buildingId === "H" && floor.level === 8
     );
     const shortest = findPathOnFloor(
-      travelNodes,
-      POIInfo.filter(({ displayName }) => displayName === "H851.03")[0]
-        .location,
-      POIInfo.filter(({ displayName }) => displayName === "H815")[0].location
+      POIInfo.filter(({ displayName }) => displayName === "H851.03")[0],
+      POIInfo.filter(({ displayName }) => displayName === "H815")[0],
+      false
     );
     expect(shortest).toEqual(testData.h85103toH815);
   });
@@ -27,24 +26,11 @@ describe("Find the shortest path between two locations/POI's", () => {
       (floor) => floor.buildingId === "H" && floor.level === 9
     );
     const shortest = findPathOnFloor(
-      travelNodes,
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0]
-        .location,
-      POIInfo.filter(({ displayName }) => displayName === "H911")[0].location
+      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
+      POIInfo.filter(({ displayName }) => displayName === "H911")[0],
+      false
     );
     expect(shortest).toEqual(testData.h96119toH911);
-  });
-
-  it("should return null when no path is found", () => {
-    const travelNodes = testData.brokenGraph;
-    const shortest = findPathOnFloor(
-      travelNodes,
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0]
-        .location,
-      POIInfo.filter(({ displayName }) => displayName === "H911")[0].location
-    );
-
-    expect(shortest).toBeNull();
   });
 
   it("should return one line only between two locations next to each other", () => {
@@ -52,9 +38,9 @@ describe("Find the shortest path between two locations/POI's", () => {
       (floor) => floor.buildingId === "H" && floor.level === 9
     );
     const shortest = findPathOnFloor(
-      travelNodes,
-      POIInfo.filter(({ displayName }) => displayName === "H923")[0].location,
-      POIInfo.filter(({ displayName }) => displayName === "H921")[0].location
+      POIInfo.filter(({ displayName }) => displayName === "H923")[0],
+      POIInfo.filter(({ displayName }) => displayName === "H921")[0],
+      false
     );
     expect(shortest.length).toBe(1);
     expect(shortest).toEqual(testData.h923toH921);
@@ -65,10 +51,9 @@ describe("Find the shortest path between two locations/POI's", () => {
       (floor) => floor.buildingId === "H" && floor.level === 9
     );
     const shortest = findPathOnFloor(
-      travelNodes,
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0]
-        .location,
-      POIInfo.filter(({ displayName }) => displayName === "H961-9")[0].location
+      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
+      POIInfo.filter(({ displayName }) => displayName === "H961-9")[0],
+      false
     );
     expect(shortest.length).toBe(1);
     expect(shortest).toEqual(testData.h96119toH9619);
@@ -82,7 +67,8 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(({ displayName, level }) => displayName === "H961-17"),
       POIInfo.find(
         ({ displayName, level }) => displayName === "Stairs 1" && level === 3
-      )
+      ),
+      false
     );
 
     constants.buildingFloors.pop();
@@ -98,7 +84,8 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
           buildingId === "MB" && displayName === "Men's Bathroom" && level === 1
-      )
+      ),
+      false
     );
     expect(path.length).toBe(3);
     expect(path).toEqual(testData.h96117toMBMensBathroom);
@@ -110,7 +97,8 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(
         ({ displayName, level }) =>
           displayName === "Men's Bathroom" && level === 9
-      )
+      ),
+      false
     );
     expect(path.length).toBe(1);
     expect(path).toEqual(testData.h96117toH9MensBathroom);
@@ -122,7 +110,8 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
           displayName === "Women's Bathroom" && level === 8
-      )
+      ),
+      false
     );
     expect(path.length).toBe(2);
     expect(path).toEqual(testData.h9117toH8WomensBathroom);
@@ -134,9 +123,23 @@ describe("Find the shortest path between two locations/POI's", () => {
         ({ buildingId, displayName, level }) =>
           displayName === "Women's Bathroom" && level === 8
       ),
-      POIInfo.find(({ displayName }) => displayName === "H961-17")
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      false
     );
     expect(path.length).toBe(2);
     expect(path).toEqual(testData.h8WomensBathroomToH9117);
+  });
+
+  it("should return null when no path is found", () => {
+    constants.buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 9
+    ).travelNodes = testData.brokenGraph;
+    const shortest = findPathOnFloor(
+      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
+      POIInfo.filter(({ displayName }) => displayName === "H911")[0],
+      false
+    );
+
+    expect(shortest).toBeNull();
   });
 });

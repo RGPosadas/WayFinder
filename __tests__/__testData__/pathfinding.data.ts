@@ -565,4 +565,5 @@ export const h3rdFloorPoiMock = {
       children: [0],
     },
   ],
+  disableFriendly: [],
 };

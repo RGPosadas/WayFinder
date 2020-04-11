@@ -72,7 +72,7 @@ export interface BuildingFloor {
   bounds: [Coordinate, Coordinate] | null;
   image: any;
   travelNodes: TravelNode[];
-  disableUnfriendly: number[][]
+  disableFriendly: number[];
 }
 
 export interface TravelNode {
