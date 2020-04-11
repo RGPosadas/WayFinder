@@ -155,6 +155,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
+    disableUnfriendly: [],
   },
   {
     id: 2,
@@ -316,6 +317,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
+    disableUnfriendly: [],
   },
   {
     id: 3,
@@ -423,7 +425,32 @@ export const buildingFloors: BuildingFloor[] = [
         },
         children: [1, 2],
       },
+      {
+        id: 12,
+        location: {
+          latitude: 45.495291,
+          longitude: -73.578866,
+        },
+        children: [6, 7, 13],
+      },
+      {
+        id: 13,
+        location: {
+          latitude: 45.495319,
+          longitude: -73.578834,
+        },
+        children: [12, 14],
+      },
+      {
+        id: 14,
+        location: {
+          latitude: 45.495197,
+          longitude: -73.578708,
+        },
+        children: [7, 10, 13],
+      },
     ],
+    disableUnfriendly: [[7, 12]],
   },
   {
     id: 4,
@@ -476,5 +503,6 @@ export const buildingFloors: BuildingFloor[] = [
         children: [3],
       },
     ],
+    disableUnfriendly: [],
   },
 ];
