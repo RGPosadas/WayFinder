@@ -29,9 +29,7 @@ class LocationService {
    *  });
    * @param onGranted
    */
-  public getCurrentLocationAsync = async (
-    onGranted: () => void
-  ): Promise<Location.LocationData> => {
+  public getCurrentLocationAsync = async (): Promise<Location.LocationData> => {
     if (Platform.OS === "android" && !Constants.isDevice) {
       throw new Error(
         "Location services aren't available on Android Emulators."
@@ -43,7 +41,7 @@ class LocationService {
     if (status !== "granted") {
       throw new Error("Location Permission Denied");
     }
-    onGranted();
+
     return Location.getCurrentPositionAsync({});
   };
 }

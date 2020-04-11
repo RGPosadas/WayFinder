@@ -20,7 +20,7 @@ describe("UtilityService", () => {
   });
 
   describe("updateSearchResults", () => {
-    it("should call provided functions and return expected objects", () => {
+    it("Should show search results and display value should be called once and Search results should contain the mocked value", () => {
       const mockCurrentLocation = {
         latitude: 45.497237,
         longitude: -73.578913,
@@ -51,7 +51,7 @@ describe("UtilityService", () => {
       );
     });
 
-    it("should call provided functions and return expected objects when no input and current location are provided", () => {
+    it("should show search results and display value should be called once and the mocked value of search results should be empty", () => {
       let mockSetSearchResults = jest.fn();
       let mockSetDisplayValue = jest.fn();
 

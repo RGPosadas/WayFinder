@@ -9,13 +9,18 @@ describe("LocationButton component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should call LocationButton after button press", () => {
-    const mockOnLocationButtonPress = jest.fn();
+  it("should call SetUserCurrentLocations and AnimateToCurrentLocation after button is pressed ", () => {
+    const mockSetUserCurrentLocations = jest.fn();
+    const mockAnimateToCurrentLocation = jest.fn();
     const wrapper = shallow(
-      <LocationButton onLocationButtonPress={mockOnLocationButtonPress} />
+      <LocationButton
+        setUserCurrentLocation={mockSetUserCurrentLocations}
+        animateToCurrentLocation={mockAnimateToCurrentLocation}
+      />
     );
     const button = wrapper.find("View TouchableOpacity");
     button.simulate("press");
-    expect(mockOnLocationButtonPress).toHaveBeenCalledTimes(1);
+    expect(mockSetUserCurrentLocations).toHaveBeenCalledTimes(1);
+    expect(mockAnimateToCurrentLocation).toHaveBeenCalledTimes(1);
   });
 });

@@ -8,34 +8,6 @@ import {
 import { CURRENT_LOCATION_DISPLAY_TEXT } from "../styles";
 
 class UtilityService {
-  /**
-   * Converts a given Location into a search result.
-   *
-   * A search result is a representation of a Location used for the
-   * autocomplete component, and can be a Building, POI, Location or Campus.
-   *
-   * @param id ID of Location
-   * @param displayName Name that is displayed
-   * @param location Location (Latitude and Longitude)
-   * @param searchName String used for search, by default it is the value of displayName
-   * @param extraInformation Additional Information about the location, by default it is an empty string
-   */
-  public locationToSearchResult = (
-    id: string,
-    displayName: string,
-    location: Location,
-    searchName: string = displayName,
-    extraInformation: string = ""
-  ): SearchResult => {
-    return {
-      id,
-      displayName,
-      location,
-      searchName,
-      extraInformation,
-    };
-  };
-
   private indoorRange: Range = {
     min: 0,
     max: 0.0025,
@@ -65,6 +37,34 @@ class UtilityService {
   public static getInstance() {
     return UtilityService.instance;
   }
+
+  /**
+   * Converts a given Location into a search result.
+   *
+   * A search result is a representation of a Location used for the
+   * autocomplete component, and can be a Building, POI, Location or Campus.
+   *
+   * @param id ID of Location
+   * @param displayName Name that is displayed
+   * @param location Location (Latitude and Longitude)
+   * @param searchName String used for search, by default it is the value of displayName
+   * @param extraInformation Additional Information about the location, by default it is an empty string
+   */
+  public locationToSearchResult = (
+    id: string,
+    displayName: string,
+    location: Location,
+    searchName: string = displayName,
+    extraInformation: string = ""
+  ): SearchResult => {
+    return {
+      id,
+      displayName,
+      location,
+      searchName,
+      extraInformation,
+    };
+  };
 
   /**
    *Converts a time to a string by using the current or specified locale.
@@ -97,12 +97,14 @@ class UtilityService {
     setLocationDisplay: (display: string) => void,
     currentLocation: Location
   ) => {
-    let locations: SearchResult[] = [];
-    locations = this.locationsToSearch.filter((location) => {
-      return (
-        location.searchName.toLowerCase().search(inputText.toLowerCase()) !== -1
-      );
-    });
+    const locations: SearchResult[] = this.locationsToSearch.filter(
+      (location) => {
+        return (
+          location.searchName.toLowerCase().search(inputText.toLowerCase()) !==
+          -1
+        );
+      }
+    );
 
     if (currentLocation) {
       const SearchResultMarker = this.locationToSearchResult(

@@ -32,7 +32,7 @@ import {
   INACTIVE_TEXT_COLOR,
   INACTIVE_ICON_COLOR,
   screenWidth,
-  CURRENT_LOCATION_DISPLAY_TEXT,
+  FETCHING_CURRENT_LOCATION_DISPLAY_TEXT,
 } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
@@ -104,7 +104,9 @@ const OmniboxDirections = ({
   useEffect(() => {
     if (startLocation) {
       setStartLocationDisplay(startLocation.displayName);
-    } else {
+    } else if (
+      startLocationDisplay !== FETCHING_CURRENT_LOCATION_DISPLAY_TEXT
+    ) {
       setStartLocationDisplay("");
     }
     setStartLocationSearchResults(null);
@@ -118,17 +120,6 @@ const OmniboxDirections = ({
     }
     setEndLocationSearchResults(null);
   }, [endLocation]);
-
-  useEffect(() => {
-    if (currentLocation && !startLocation) {
-      const currentMarkerLocation = UtilityService.getInstance().locationToSearchResult(
-        CURRENT_LOCATION_DISPLAY_TEXT,
-        CURRENT_LOCATION_DISPLAY_TEXT,
-        currentLocation
-      );
-      setStartLocation(currentMarkerLocation);
-    }
-  }, [currentLocation]);
 
   /**
    * Change the value of the departure time

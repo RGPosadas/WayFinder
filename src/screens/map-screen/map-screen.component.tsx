@@ -117,42 +117,6 @@ const MapScreen = () => {
     mapRef.current.animateToRegion(region);
   };
 
-  /*
-   * Handles the event when the user pressed on the Building Location Button
-   *
-   * Sets the current location to whereever the user currently is, and then
-   * perform point-polygon collision detection to find which building the
-   * user is in.
-   */
-  const onLocationButtonPress = (): void => {
-    LocationService.getInstance()
-      .getCurrentLocationAsync(() => {})
-      .then((response) => {
-        // Set current location
-        setCurrentLocation({
-          latitude: response.coords.latitude,
-          longitude: response.coords.longitude,
-        });
-
-        // Relocate view
-        mapRef.current.animateToRegion({
-          latitude: response.coords.latitude,
-          longitude: response.coords.longitude,
-          latitudeDelta: currentRegion.latitudeDelta,
-          longitudeDelta: currentRegion.longitudeDelta,
-        });
-
-        // Attempt to find the building the user is in.
-        Buildings.forEach((building) => {
-          if (isPointInPolygon(response.coords, building.boundingBox)) {
-            onBuildingTap(building);
-            setStartLocation(buildingToMarker(building));
-          }
-        });
-      })
-      .catch((error) => {});
-  };
-
   /**
    * Handles react-native-maps events for indoor floors.
    *
@@ -227,18 +191,55 @@ const MapScreen = () => {
    * Set the users current location if location services is on.
    */
   const setUserCurrentLocation = () => {
-    if (!currentLocation) {
-      LocationService.getInstance()
-        .getCurrentLocationAsync(() => {
-          setStartLocationDisplay(FETCHING_CURRENT_LOCATION_DISPLAY_TEXT);
-        })
-        .then((location) => {
-          setCurrentLocation(location.coords);
-        })
-        .catch((error) => {
-          setStartLocationDisplay(null);
-        });
+    setStartLocationDisplay(FETCHING_CURRENT_LOCATION_DISPLAY_TEXT);
+    LocationService.getInstance()
+      .getCurrentLocationAsync()
+      .then((response) => {
+        // Set current location
+        setCurrentLocation(response.coords);
+        setStartLocationBuilding(response.coords);
+      })
+      .catch((error) => {
+        setStartLocationDisplay("");
+      });
+  };
+
+  /**
+   * Checks if the user is in a building. If the user is in a building the start location is set to the building
+   * Otherwise, the user's current location is set as the start location
+   *
+   * @param coordinates Latitude and longitude of the user's location
+   */
+  const setStartLocationBuilding = (coordinates: Location) => {
+    // Attempt to find the building the user is in.
+    const isInBuilding = Buildings.find((building) =>
+      isPointInPolygon(coordinates, building.boundingBox)
+    );
+    if (isInBuilding) {
+      onBuildingTap(isInBuilding);
+      setStartLocation(buildingToMarker(isInBuilding));
+    } else {
+      setStartLocation(
+        UtilityService.getInstance().locationToSearchResult(
+          CURRENT_LOCATION_DISPLAY_TEXT,
+          CURRENT_LOCATION_DISPLAY_TEXT,
+          coordinates
+        )
+      );
     }
+  };
+
+  /**
+   * Animates the map to the user's current location
+   */
+  const animateToCurrentLocation = () => {
+    if (currentLocation)
+      mapRef.current.animateToRegion({
+        latitude: currentLocation.latitude,
+        longitude: currentLocation.longitude,
+        latitudeDelta: currentRegion.latitudeDelta,
+        longitudeDelta: currentRegion.longitudeDelta,
+      });
   };
 
   let search;
@@ -308,7 +309,10 @@ const MapScreen = () => {
         )}
 
         {travelState === TravelState.NONE && (
-          <LocationButton onLocationButtonPress={onLocationButtonPress} />
+          <LocationButton
+            setUserCurrentLocation={setUserCurrentLocation}
+            animateToCurrentLocation={animateToCurrentLocation}
+          />
         )}
 
         <FloorPicker
