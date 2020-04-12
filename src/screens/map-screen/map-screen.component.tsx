@@ -80,9 +80,9 @@ const MapScreen = () => {
    */
   const onBuildingTap = (tappedBuilding: Building) => {
     if (travelState === TravelState.NONE) {
+      setTappedBuilding(tappedBuilding.id);
       setShowBuildingInfo(true);
     }
-    setTappedBuilding(tappedBuilding.id);
     setBuildingMarkerLocation(tappedBuilding);
   };
 
@@ -224,12 +224,12 @@ const MapScreen = () => {
    */
   const setStartLocationBuilding = (coordinates: Location) => {
     // Attempt to find the building the user is in.
-    const isInBuilding = Buildings.find((building) =>
+    const building = Buildings.find((building) =>
       isPointInPolygon(coordinates, building.boundingBox)
     );
-    if (isInBuilding) {
-      onBuildingTap(isInBuilding);
-      setStartLocation(buildingToMarker(isInBuilding));
+    if (building) {
+      onBuildingTap(building);
+      setStartLocation(buildingToMarker(building));
     } else {
       setStartLocation(
         UtilityService.getInstance().locationToSearchResult(
