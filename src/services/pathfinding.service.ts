@@ -306,17 +306,19 @@ class PathFindingService {
       (c) => endEdge[0].id !== c
     );
 
-    let searchPath;
     if (accessibilityMode) {
-      const { disableFriendly } = buildingFloors.find(
+      const { disableUnfriendly } = buildingFloors.find(
         (floor) =>
           floor.buildingId === start.buildingId && floor.level === start.level
       );
-      searchPath = this.search(nodes, initial, goal, disableFriendly);
-    } else {
-      searchPath = this.search(nodes, initial, goal, undefined);
+      disableUnfriendly.forEach((nodeId) => {
+        nodes[nodeId].children = nodes[nodeId].children.filter(
+          (c) => !disableUnfriendly.includes(c)
+        );
+      });
     }
 
+    const searchPath = this.search(nodes, initial, goal);
     if (searchPath === null) return null;
 
     const shortestPath: TravelEdge[] = [];
@@ -361,18 +363,14 @@ class PathFindingService {
   private search = (
     nodes: TravelNode[],
     initial: TravelNode,
-    goal: TravelNode,
-    disableFriendly: number[]
+    goal: TravelNode
   ): {
     [id: number]: number;
   } | null => {
     const closed = {};
     const open: PriorityQueue<PQItem> = new PriorityQueue<PQItem>({
       comparator: (a, b) => {
-        return (
-          this.f(nodes[a.id], goal, a.g, disableFriendly) -
-          this.f(nodes[b.id], goal, b.g, disableFriendly)
-        );
+        return this.f(nodes[a.id], goal, a.g) - this.f(nodes[b.id], goal, b.g);
       },
     });
     open.queue({ id: initial.id, parent: -1, g: 0 } as PQItem);
@@ -410,17 +408,7 @@ class PathFindingService {
    * @param g g(n)
    * @returns The f(n) score of a given node
    */
-  private f = (
-    travelNode: TravelNode,
-    goal: TravelNode,
-    g: number,
-    disableFriendly: number[]
-  ): number => {
-    if (
-      disableFriendly !== undefined &&
-      disableFriendly.includes(travelNode.id)
-    )
-      return g;
+  private f = (travelNode: TravelNode, goal: TravelNode, g: number): number => {
     return getDistance(goal.location, travelNode.location) + g;
   };
 

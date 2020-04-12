@@ -155,7 +155,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
-    disableFriendly: [],
+    disableUnfriendly: [],
   },
   {
     id: 2,
@@ -317,7 +317,7 @@ export const buildingFloors: BuildingFloor[] = [
         children: [17],
       },
     ],
-    disableFriendly: [],
+    disableUnfriendly: [],
   },
   {
     id: 3,
@@ -383,7 +383,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49536913015795,
           longitude: -73.57889883220196,
         },
-        children: [3, 7],
+        children: [3, 12],
       },
       {
         id: 7,
@@ -391,7 +391,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49522388917384,
           longitude: -73.57863295823336,
         },
-        children: [6, 8, 9, 10],
+        children: [8, 9, 14, 16],
       },
       {
         id: 8,
@@ -428,16 +428,16 @@ export const buildingFloors: BuildingFloor[] = [
       {
         id: 12,
         location: {
-          latitude: 45.495291,
-          longitude: -73.578866,
+          latitude: 45.495319,
+          longitude: -73.578834,
         },
-        children: [6, 7, 13],
+        children: [6, 13, 15],
       },
       {
         id: 13,
         location: {
-          latitude: 45.495319,
-          longitude: -73.578834,
+          latitude: 45.495291,
+          longitude: -73.578866,
         },
         children: [12, 14],
       },
@@ -449,8 +449,25 @@ export const buildingFloors: BuildingFloor[] = [
         },
         children: [7, 10, 13],
       },
+      {
+        id: 15,
+        location: {
+          latitude: 45.495319,
+          longitude: -73.578834,
+        },
+
+        children: [12, 16],
+      },
+      {
+        id: 16,
+        location: {
+          latitude: 45.49522388917384,
+          longitude: -73.57863295823336,
+        },
+        children: [7, 15],
+      },
     ],
-    disableFriendly: [13],
+    disableUnfriendly: [15, 16],
   },
   {
     id: 4,
@@ -503,6 +520,6 @@ export const buildingFloors: BuildingFloor[] = [
         children: [3],
       },
     ],
-    disableFriendly: [],
+    disableUnfriendly: [],
   },
 ];

@@ -10,36 +10,27 @@ describe("Find the shortest path between two locations/POI's", () => {
     findPathBetweenPOIs,
   } = PathFindingService.getInstance();
   it("should return the shortest path between two given locations on H 8th floor", () => {
-    const { travelNodes } = buildingFloors.find(
-      (floor) => floor.buildingId === "H" && floor.level === 8
-    );
     const shortest = findPathOnFloor(
-      POIInfo.filter(({ displayName }) => displayName === "H851.03")[0],
-      POIInfo.filter(({ displayName }) => displayName === "H815")[0],
+      POIInfo.find(({ displayName }) => displayName === "H851.03"),
+      POIInfo.find(({ displayName }) => displayName === "H815"),
       false
     );
     expect(shortest).toEqual(testData.h85103toH815);
   });
 
   it("should return the shortest path between two given locations on H 9th floor", () => {
-    const { travelNodes } = buildingFloors.find(
-      (floor) => floor.buildingId === "H" && floor.level === 9
-    );
     const shortest = findPathOnFloor(
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
-      POIInfo.filter(({ displayName }) => displayName === "H911")[0],
+      POIInfo.find(({ displayName }) => displayName === "H961-19"),
+      POIInfo.find(({ displayName }) => displayName === "H911"),
       false
     );
     expect(shortest).toEqual(testData.h96119toH911);
   });
 
   it("should return one line only between two locations next to each other", () => {
-    const { travelNodes } = buildingFloors.find(
-      (floor) => floor.buildingId === "H" && floor.level === 9
-    );
     const shortest = findPathOnFloor(
-      POIInfo.filter(({ displayName }) => displayName === "H923")[0],
-      POIInfo.filter(({ displayName }) => displayName === "H921")[0],
+      POIInfo.find(({ displayName }) => displayName === "H923"),
+      POIInfo.find(({ displayName }) => displayName === "H921"),
       false
     );
     expect(shortest.length).toBe(1);
@@ -47,12 +38,9 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return one line only between two locations near the edges of a line", () => {
-    const { travelNodes } = buildingFloors.find(
-      (floor) => floor.buildingId === "H" && floor.level === 9
-    );
     const shortest = findPathOnFloor(
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
-      POIInfo.filter(({ displayName }) => displayName === "H961-9")[0],
+      POIInfo.find(({ displayName }) => displayName === "H961-19"),
+      POIInfo.find(({ displayName }) => displayName === "H961-9"),
       false
     );
     expect(shortest.length).toBe(1);
@@ -64,7 +52,7 @@ describe("Find the shortest path between two locations/POI's", () => {
     constants.POIInfo.push(testData.h3rdFloorMock);
 
     const path = findPathBetweenPOIs(
-      POIInfo.find(({ displayName, level }) => displayName === "H961-17"),
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
         ({ displayName, level }) => displayName === "Stairs 1" && level === 3
       ),
@@ -91,12 +79,42 @@ describe("Find the shortest path between two locations/POI's", () => {
     expect(path).toEqual(testData.h96117toMBMensBathroom);
   });
 
+  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in Hall and JMSB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === "MB" &&
+          displayName === "Police St. Exit" &&
+          level === 1
+      ),
+      true
+    );
+    expect(path.length).toBe(3);
+    expect(path).toEqual(testData.accessibleH96117toPoliceStExit);
+  });
+
+  it("when accessibility mode is disabled, should return the shortest path between two given POI's in Hall and JMSB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === "MB" &&
+          displayName === "Police St. Exit" &&
+          level === 1
+      ),
+      false
+    );
+    expect(path.length).toBe(3);
+    expect(path).toEqual(testData.h96117toPoliceStExit);
+  });
+
   it("should return the shortest path between two given POIs on H 9th floor", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
-        ({ displayName, level }) =>
-          displayName === "Men's Bathroom" && level === 9
+        ({ displayName, level, buildingId }) =>
+          displayName === "Men's Bathroom" && level === 9 && buildingId === "H"
       ),
       false
     );
@@ -109,7 +127,9 @@ describe("Find the shortest path between two locations/POI's", () => {
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
-          displayName === "Women's Bathroom" && level === 8
+          displayName === "Women's Bathroom" &&
+          level === 8 &&
+          buildingId === "H"
       ),
       false
     );
@@ -121,7 +141,9 @@ describe("Find the shortest path between two locations/POI's", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(
         ({ buildingId, displayName, level }) =>
-          displayName === "Women's Bathroom" && level === 8
+          displayName === "Women's Bathroom" &&
+          level === 8 &&
+          buildingId === "H"
       ),
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       false
@@ -135,8 +157,8 @@ describe("Find the shortest path between two locations/POI's", () => {
       (floor) => floor.buildingId === "H" && floor.level === 9
     ).travelNodes = testData.brokenGraph;
     const shortest = findPathOnFloor(
-      POIInfo.filter(({ displayName }) => displayName === "H961-19")[0],
-      POIInfo.filter(({ displayName }) => displayName === "H911")[0],
+      POIInfo.find(({ displayName }) => displayName === "H961-19"),
+      POIInfo.find(({ displayName }) => displayName === "H911"),
       false
     );
 
