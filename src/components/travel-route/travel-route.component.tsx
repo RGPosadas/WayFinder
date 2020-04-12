@@ -1,19 +1,11 @@
 import React, { useEffect } from "react";
 import { Platform } from "react-native";
 import { Polyline, Region } from "react-native-maps";
-import PathFindingService from "../../services/pathfinding.service";
-import {
-  POI,
-  FloorPath,
-  Line,
-  MarkerLocation,
-  POICategory,
-} from "../../types/main";
+import { MarkerLocation } from "../../types/main";
 import { CONCORDIA_RED } from "../../styles";
-import { getAllPOI } from "../../constants";
+import TempService from "../../services/path-planning.service";
 
 interface iProps {
-  floorPaths: FloorPath[];
   start: MarkerLocation;
   end: MarkerLocation;
   chosenFloorLevel: number;
@@ -22,14 +14,16 @@ interface iProps {
 
 /**
  *
- * @param param0
+ * @param start
+ * @param end
+ * @param chosenFloorLevel
+ * @param animateToStartLocation
  */
 const TravelRoute = ({
   start,
   end,
   chosenFloorLevel,
   animateToStartLocation,
-  floorPaths,
 }: iProps) => {
   useEffect(() => {
     animateToStartLocation({
@@ -40,28 +34,11 @@ const TravelRoute = ({
     });
   }, [start]);
 
-  /**
-   *
-   * @param floorPath
-   */
-  const getPathPerFloor = (floorPath: FloorPath) => {
-    if (floorPath.buildingId === "H") {
-      return chosenFloorLevel === floorPath.level;
-    }
-    return true;
-  };
-
-  /**
-   *
-   */
-  const pathPerFloor = floorPaths.filter((floorPath) => {
-    return getPathPerFloor(floorPath);
-  });
-
-  /**
-   *
-   */
-  const pathLines: Line[][] = pathPerFloor.map((floorPath) => floorPath.path);
+  const pathLines = TempService.getInstance().getPathLines(
+    start,
+    end,
+    chosenFloorLevel
+  );
 
   return (
     <>

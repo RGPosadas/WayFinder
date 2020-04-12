@@ -9,7 +9,7 @@ import OmniboxDirections from "../../components/search/omnibox-directions.compon
 import CampusToggle from "../../components/campus-toggle/campus-toggle.component";
 import MapOverlays from "../../components/map-overlays/map-overlays.component";
 import BuildingInformation from "../../components/building-information/building-information.component";
-import { Buildings, getCampusById,  getAllPOI ,buildingToMarker } from "../../constants";
+import { Buildings, getCampusById, buildingToMarker } from "../../constants";
 import LocationButton from "../../components/location-button/location-button.component";
 
 import {
@@ -24,7 +24,6 @@ import {
   TravelState,
   Building,
   FloorPath,
-  POICategory,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import {
@@ -33,9 +32,9 @@ import {
 } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
-import TravelRoute from "../../components/map-overlays/travel-route.component";
-import TravelSteps from "../../components/travel-steps/travel-steps.component";
-import PathFindingService from "../../services/pathfinding.service";
+import TempService from "../../services/path-planning.service";
+import TravelRoute from "../../components/travel-route/travel-route.component";
+import TravelSteps from "../../components/travel-route/travel-steps.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -259,9 +258,8 @@ const MapScreen = () => {
    */
   const animateToCurrentLocation = () => {
     if (currentLocation)
-      mapRef.current.animateToRegion({
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
+      animateRegion({
+        ...currentLocation,
         latitudeDelta: currentRegion.latitudeDelta,
         longitudeDelta: currentRegion.longitudeDelta,
       });
@@ -269,28 +267,10 @@ const MapScreen = () => {
 
   /**
    *
-   * @param object
    */
-  const getPOI = (object: MarkerLocation) => {
-    let poi: POI;
-    poi = getAllPOI().find((poi) => poi.id === object.id);
-
-    if (poi === undefined) {
-      poi = getAllPOI().find(
-        (poi) =>
-          poi.buildingId === object.id && poi.category === POICategory.Exit
-      );
-    }
-    // TODO Current Location
-    return poi;
-  };
-
   const updateFloorPaths = () => {
     setFloorPaths(
-      PathFindingService.getInstance().findPathBetweenPOIs(
-        getPOI(startLocation),
-        getPOI(endLocation)
-      )
+      TempService.getInstance().updateFloorPaths(startLocation, endLocation)
     );
   };
 
@@ -366,7 +346,6 @@ const MapScreen = () => {
           />
           {isTravelling() && (
             <TravelRoute
-              floorPaths={floorPaths}
               animateToStartLocation={animateRegion}
               start={startLocation}
               end={endLocation}
@@ -379,8 +358,8 @@ const MapScreen = () => {
           <>
             <CampusToggle onCampusToggle={animateRegion} />
             <LocationButton
-                setUserCurrentLocation={setUserCurrentLocation}
-                animateToCurrentLocation={animateToCurrentLocation}
+              setUserCurrentLocation={setUserCurrentLocation}
+              animateToCurrentLocation={animateToCurrentLocation}
             />
           </>
         )}

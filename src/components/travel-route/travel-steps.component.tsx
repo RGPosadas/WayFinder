@@ -94,7 +94,7 @@ class TravelSteps extends React.Component<IProps, IState> {
                       {index + 1}. Take the{" "}
                       {path.connectorType
                         ? POICategory[path.connectorType]
-                        : "entrance"}{" "}
+                        : "entrance/exit"}{" "}
                       on floor {path.level} in the {path.buildingId} building
                     </Text>
                   ))
