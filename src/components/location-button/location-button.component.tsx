@@ -15,8 +15,8 @@ export interface IProps {
 }
 
 /**
- * Touchable component which triggers the onLocationButtonPress
- * method for locating the user within the campus
+ * Touchable component which triggers the setUserCurrentLocation and animateToCurrentLocation
+ * methods for locating the user within the campus
  *
  * @param setUserCurrentLocation Function used to get current user location and check if they are in a building.
  * @param animateToCurrentLocation Function called to animate on the user's current location.

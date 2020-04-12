@@ -178,7 +178,6 @@ const MapOverlays = ({
               testID={index === 0 ? "startLocation" : "endLocation"}
               markerType={index === 0 ? "startLocation" : "endLocation"}
               location={marker.location}
-              // Temporary. Setting id to be the displayname would cause bugs.
               text={marker.displayName}
               onPress={() => {}}
               key={index}

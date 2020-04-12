@@ -41,14 +41,14 @@ const CustomMarker = ({
     case "campus":
       backgroundColor = CONCORDIA_RED;
       break;
-    case "endLocation":
-      backgroundColor = END_LOCATION_COLOR;
-      break;
     case "building":
       backgroundColor = BUILDING_MARKER_COLOR;
       break;
     case "startLocation":
       backgroundColor = START_LOCATION_COLOR;
+      break;
+    case "endLocation":
+      backgroundColor = END_LOCATION_COLOR;
       break;
     default:
   }

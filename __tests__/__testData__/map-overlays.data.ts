@@ -11,7 +11,7 @@ export const mockStartLocation: SearchResult = {
   extraInformation: "Building: H, Level: 8",
 };
 
-export const mockEndLocation = {
+export const mockEndLocation: SearchResult = {
   id: "MB",
   displayName: "John Molson School of Business",
   location: {
