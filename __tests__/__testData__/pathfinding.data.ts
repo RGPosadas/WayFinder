@@ -350,23 +350,11 @@ export const brokenGraph: TravelNode[] = [
 export const h96117toMBMensBathroom = [
   {
     buildingId: "H",
-    connectorType: 4,
+    connectorType: 8,
     level: 9,
     path: [
       [
-        { latitude: 45.497314, longitude: -73.578751 },
-        { latitude: 45.497223, longitude: -73.578861 },
-      ],
-      [
-        { latitude: 45.497223, longitude: -73.578861 },
-        { latitude: 45.497322, longitude: -73.579066 },
-      ],
-      [
-        { latitude: 45.497322, longitude: -73.579066 },
-        { latitude: 45.49739, longitude: -73.579014 },
-      ],
-      [
-        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497438, longitude: -73.578964 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
@@ -377,11 +365,11 @@ export const h96117toMBMensBathroom = [
   },
   {
     buildingId: "H",
-    connectorType: 4,
+    connectorType: 8,
     level: 8,
     path: [
       [
-        { latitude: 45.497314, longitude: -73.578751 },
+        { latitude: 45.497354, longitude: -73.578713 },
         { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
@@ -483,6 +471,7 @@ export const h9117toH8WomensBathroom = [
     ],
   },
 ];
+
 export const h8WomensBathroomToH9117 = [
   {
     buildingId: "H",
@@ -565,7 +554,7 @@ export const h3rdFloorPoiMock = {
       children: [0],
     },
   ],
-  disableFriendly: [],
+  disabledFriendly: [],
 };
 
 export const accessibleH96117toPoliceStExit = [
@@ -646,23 +635,11 @@ export const accessibleH96117toPoliceStExit = [
 export const h96117toPoliceStExit = [
   {
     buildingId: "H",
-    connectorType: 4,
+    connectorType: 8,
     level: 9,
     path: [
       [
-        { latitude: 45.497314, longitude: -73.578751 },
-        { latitude: 45.497223, longitude: -73.578861 },
-      ],
-      [
-        { latitude: 45.497223, longitude: -73.578861 },
-        { latitude: 45.497322, longitude: -73.579066 },
-      ],
-      [
-        { latitude: 45.497322, longitude: -73.579066 },
-        { latitude: 45.49739, longitude: -73.579014 },
-      ],
-      [
-        { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497438, longitude: -73.578964 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
@@ -673,11 +650,11 @@ export const h96117toPoliceStExit = [
   },
   {
     buildingId: "H",
-    connectorType: 4,
+    connectorType: 8,
     level: 8,
     path: [
       [
-        { latitude: 45.497314, longitude: -73.578751 },
+        { latitude: 45.497354, longitude: -73.578713 },
         { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
@@ -713,6 +690,65 @@ export const h96117toPoliceStExit = [
       [
         { latitude: 45.49522388917384, longitude: -73.57863295823336 },
         { latitude: 45.495216991097614, longitude: -73.5785603480603 },
+      ],
+    ],
+  },
+];
+
+export const mbStairsToS1ToCC119 = [
+  {
+    buildingId: "CC",
+    level: 1,
+    path: [
+      [
+        { latitude: 45.458116, longitude: -73.639914 },
+        { latitude: 45.458161806440636, longitude: -73.63997407257557 },
+      ],
+      [
+        { latitude: 45.458161806440636, longitude: -73.63997407257557 },
+        { latitude: 45.45825399406411, longitude: -73.64020708948374 },
+      ],
+      [
+        { latitude: 45.45825399406411, longitude: -73.64020708948374 },
+        { latitude: 45.45836076219479, longitude: -73.64047598093748 },
+      ],
+      [
+        { latitude: 45.45836076219479, longitude: -73.64047598093748 },
+        { latitude: 45.458403, longitude: -73.640648 },
+      ],
+    ],
+  },
+  {
+    buildingId: "MB",
+    level: 1,
+    path: [
+      [
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+      ],
+      [
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+      ],
+      [
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+        { latitude: 45.495319, longitude: -73.578834 },
+      ],
+      [
+        { latitude: 45.495319, longitude: -73.578834 },
+        { latitude: 45.495291, longitude: -73.578866 },
+      ],
+      [
+        { latitude: 45.495291, longitude: -73.578866 },
+        { latitude: 45.495197, longitude: -73.578708 },
+      ],
+      [
+        { latitude: 45.495197, longitude: -73.578708 },
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+      ],
+      [
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+        { latitude: 45.495277037243376, longitude: -73.57859236859093 },
       ],
     ],
   },

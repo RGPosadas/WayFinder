@@ -1,3 +1,4 @@
+import _ from "lodash";
 import * as testData from "./__testData__/pathfinding.data";
 import { POIInfo, buildingFloors } from "../src/constants";
 import * as constants from "../src/constants";
@@ -79,36 +80,6 @@ describe("Find the shortest path between two locations/POI's", () => {
     expect(path).toEqual(testData.h96117toMBMensBathroom);
   });
 
-  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in Hall and JMSB", () => {
-    const path = findPathBetweenPOIs(
-      POIInfo.find(({ displayName }) => displayName === "H961-17"),
-      POIInfo.find(
-        ({ buildingId, displayName, level }) =>
-          buildingId === "MB" &&
-          displayName === "Police St. Exit" &&
-          level === 1
-      ),
-      true
-    );
-    expect(path.length).toBe(3);
-    expect(path).toEqual(testData.accessibleH96117toPoliceStExit);
-  });
-
-  it("when accessibility mode is disabled, should return the shortest path between two given POI's in Hall and JMSB", () => {
-    const path = findPathBetweenPOIs(
-      POIInfo.find(({ displayName }) => displayName === "H961-17"),
-      POIInfo.find(
-        ({ buildingId, displayName, level }) =>
-          buildingId === "MB" &&
-          displayName === "Police St. Exit" &&
-          level === 1
-      ),
-      false
-    );
-    expect(path.length).toBe(3);
-    expect(path).toEqual(testData.h96117toPoliceStExit);
-  });
-
   it("should return the shortest path between two given POIs on H 9th floor", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
@@ -153,6 +124,12 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return null when no path is found", () => {
+    // store the initial nodes
+    const initialNodes = _.cloneDeep(
+      constants.buildingFloors.find(
+        (floor) => floor.buildingId === "H" && floor.level === 9
+      ).travelNodes
+    );
     constants.buildingFloors.find(
       (floor) => floor.buildingId === "H" && floor.level === 9
     ).travelNodes = testData.brokenGraph;
@@ -163,5 +140,52 @@ describe("Find the shortest path between two locations/POI's", () => {
     );
 
     expect(shortest).toBeNull();
+    // reset the initial nodes
+    constants.buildingFloors.find(
+      (floor) => floor.buildingId === "H" && floor.level === 9
+    ).travelNodes = initialNodes;
+  });
+
+  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in Hall and JMSB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === "MB" &&
+          displayName === "Police St. Exit" &&
+          level === 1
+      ),
+      true
+    );
+    expect(path.length).toBe(3);
+    expect(path).toEqual(testData.accessibleH96117toPoliceStExit);
+  });
+
+  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in CC and MB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "CC119"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === "MB" && displayName === "Stairs to S1" && level === 1
+      ),
+      true
+    );
+    expect(path.length).toBe(2);
+    expect(path).toEqual(testData.mbStairsToS1ToCC119);
+  });
+
+  it("when accessibility mode is disabled, should return the shortest path between two given POI's in Hall and JMSB", () => {
+    const path = findPathBetweenPOIs(
+      POIInfo.find(({ displayName }) => displayName === "H961-17"),
+      POIInfo.find(
+        ({ buildingId, displayName, level }) =>
+          buildingId === "MB" &&
+          displayName === "Police St. Exit" &&
+          level === 1
+      ),
+      false
+    );
+    expect(path.length).toBe(3);
+    expect(path).toEqual(testData.h96117toPoliceStExit);
   });
 });

@@ -307,13 +307,13 @@ class PathFindingService {
     );
 
     if (accessibilityMode) {
-      const { disableUnfriendly } = buildingFloors.find(
+      const { disabledUnfriendly } = buildingFloors.find(
         (floor) =>
           floor.buildingId === start.buildingId && floor.level === start.level
       );
-      disableUnfriendly.forEach((nodeId) => {
+      disabledUnfriendly.forEach((nodeId) => {
         nodes[nodeId].children = nodes[nodeId].children.filter(
-          (c) => !disableUnfriendly.includes(c)
+          (child) => !disabledUnfriendly.includes(child)
         );
       });
     }
