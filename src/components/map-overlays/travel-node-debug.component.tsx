@@ -9,22 +9,30 @@ interface IProps {
 }
 
 const TravelNodeDebug = ({ id }: IProps) => {
+  const floorPaths = [];
+  let lines = [];
+  floorPaths.forEach((floorPath) => {
+    lines = lines.concat(floorPath.path);
+  });
   return (
     <>
-      {buildingFloors
-        .filter((buildingFloor) => buildingFloor.id === id)
-        .map((buildingFloor) => (
+      {lines.map((line, index) => (
+        <Polyline key={index} coordinates={line} />
+      ))}
+      {/* {buildingFloors
+        .filter(buildingFloor => buildingFloor.id === id)
+        .map(buildingFloor => (
           <>
             {PathFindingService.getInstance()
               .traverseNodes(buildingFloor.travelNodes)
-              .map((line) => (
+              .map(line => (
                 <>
-                  <Polyline coordinates={line.map((edge) => edge.location)} />
+                  <Polyline coordinates={line.map(edge => edge.location)} />
                 </>
               ))}
             {PathFindingService.getInstance()
               .traverseNodes(buildingFloor.travelNodes)
-              .map((line) => (
+              .map(line => (
                 <>
                   <Marker coordinate={line[0].location}>
                     <Text>{line[0].id}</Text>
@@ -35,7 +43,7 @@ const TravelNodeDebug = ({ id }: IProps) => {
                 </>
               ))}
           </>
-        ))}
+        ))} */}
     </>
   );
 };

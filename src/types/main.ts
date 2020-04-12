@@ -100,7 +100,7 @@ export type FloorPath = {
   buildingId: BuildingId;
   level: number;
   path: Line[];
-  connectorType?: ConnectorPOICategory;
+  connector?: POI;
 };
 
 export type ConnectorPOICategory =

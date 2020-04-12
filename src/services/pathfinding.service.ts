@@ -69,12 +69,12 @@ class PathFindingService {
    * @Returns the exit of a building
    */
   private findPOI = (
-    POICategory: POICategory,
+    categorization: POICategory,
     building: BuildingId
   ): ConnectorPOI => {
     return POIInfo.find(
       ({ category, buildingId }) =>
-        category === POICategory && buildingId === building
+        category === categorization && buildingId === building
     ) as ConnectorPOI;
   };
 
@@ -110,7 +110,6 @@ class PathFindingService {
           ? POICategory.EscalatorUp
           : POICategory.EscalatorDown;
       POIcategories = [
-        POICategory.Exit,
         POICategory.Stairs,
         escalatorDirection,
         POICategory.Elevator,
@@ -195,12 +194,12 @@ class PathFindingService {
   ): FloorPath[] => {
     const pathsToConnectors: FloorPath[] = [];
 
-    connectors.forEach((connector) => {
+    connectors.forEach((connection) => {
       pathsToConnectors.push({
-        buildingId: connector.buildingId,
-        level: connector.level,
-        connectorType: connector.category,
-        path: this.findPathOnFloor(poi, connector, accessibilityMode),
+        buildingId: connection.buildingId,
+        level: connection.level,
+        connector: connection,
+        path: this.findPathOnFloor(poi, connection, accessibilityMode),
       });
     });
 
@@ -224,14 +223,31 @@ class PathFindingService {
 
     startFloorPathsToConnectors.forEach((startFloorPath) => {
       // for each start floor path, find the connected end floor path
-      const endFloorPath = endFloorPathsToConnectors.find(
-        ({ connectorType: category }) =>
-          category === startFloorPath.connectorType
+      const paths = endFloorPathsToConnectors.filter(
+        ({ connector }) =>
+          connector.category === startFloorPath.connector.category
       );
-
-      if (endFloorPath === undefined) {
+      if (paths.length < 1) {
         return;
       }
+
+      let endFloorPath: FloorPath;
+      let minDistanceBtweenConnectors = Number.MAX_SAFE_INTEGER;
+      if (paths.length > 1) {
+        paths.forEach((path) => {
+          const distanceBetweenConnectors = getDistance(
+            startFloorPath.connector.location,
+            path.connector.location
+          );
+          if (distanceBetweenConnectors < minDistanceBtweenConnectors) {
+            endFloorPath = path;
+            minDistanceBtweenConnectors = distanceBetweenConnectors;
+          }
+        });
+      } else {
+        [endFloorPath] = paths;
+      }
+
       const distance =
         this.getPathDistance(startFloorPath.path) +
         this.getPathDistance(endFloorPath.path);

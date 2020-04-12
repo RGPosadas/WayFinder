@@ -350,11 +350,31 @@ export const brokenGraph: TravelNode[] = [
 export const h96117toMBMensBathroom = [
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd",
+      level: 9,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 9,
     path: [
       [
-        { latitude: 45.497438, longitude: -73.578964 },
+        { latitude: 45.497314, longitude: -73.578751 },
+        { latitude: 45.497223, longitude: -73.578861 },
+      ],
+      [
+        { latitude: 45.497223, longitude: -73.578861 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
@@ -365,11 +385,19 @@ export const h96117toMBMensBathroom = [
   },
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "058086ab-58be-4174-a34d-d0dd7e80014f",
+      level: 8,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 8,
     path: [
       [
-        { latitude: 45.497354, longitude: -73.578713 },
+        { latitude: 45.497314, longitude: -73.578751 },
         { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
@@ -434,7 +462,15 @@ export const h96117toH9MensBathroom = [
 export const h9117toH8WomensBathroom = [
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 8,
+      description: "",
+      displayName: "Stairs 2",
+      id: "363649b3-61ea-4138-b8bb-b116412bcabb",
+      level: 9,
+      location: { latitude: 45.497438, longitude: -73.578964 },
+    },
     level: 9,
     path: [
       [
@@ -449,15 +485,23 @@ export const h9117toH8WomensBathroom = [
   },
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 8,
+      description: "",
+      displayName: "Stairs 2",
+      id: "c4541028-739d-4651-b9f5-dc4d54054807",
+      level: 8,
+      location: { latitude: 45.497482, longitude: -73.579034 },
+    },
     level: 8,
     path: [
       [
-        { latitude: 45.497354, longitude: -73.578713 },
-        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
+        { latitude: 45.497482, longitude: -73.579034 },
+        { latitude: 45.49756354338001, longitude: -73.57899677510714 },
       ],
       [
-        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
+        { latitude: 45.49756354338001, longitude: -73.57899677510714 },
         { latitude: 45.49741149279668, longitude: -73.57868966217494 },
       ],
       [
@@ -475,7 +519,15 @@ export const h9117toH8WomensBathroom = [
 export const h8WomensBathroomToH9117 = [
   {
     buildingId: "H",
-    connectorType: 6,
+    connector: {
+      buildingId: "H",
+      category: 6,
+      description: "",
+      displayName: "Escalators Up",
+      id: "07366816-4ca4-47b5-808f-ba034508bd10",
+      level: 8,
+      location: { latitude: 45.497267, longitude: -73.578869 },
+    },
     level: 8,
     path: [
       [
@@ -494,7 +546,15 @@ export const h8WomensBathroomToH9117 = [
   },
   {
     buildingId: "H",
-    connectorType: 6,
+    connector: {
+      buildingId: "H",
+      category: 6,
+      description: "",
+      displayName: "Escalators Up",
+      id: "f45af436-f9bb-40b8-97c5-8526ad68ac55",
+      level: 9,
+      location: { latitude: 45.497317, longitude: -73.57901 },
+    },
     level: 9,
     path: [
       [
@@ -560,7 +620,15 @@ export const h3rdFloorPoiMock = {
 export const accessibleH96117toPoliceStExit = [
   {
     buildingId: "H",
-    connectorType: 4,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd",
+      level: 9,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 9,
     path: [
       [
@@ -587,7 +655,15 @@ export const accessibleH96117toPoliceStExit = [
   },
   {
     buildingId: "H",
-    connectorType: 4,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "058086ab-58be-4174-a34d-d0dd7e80014f",
+      level: 8,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 8,
     path: [
       [
@@ -635,11 +711,31 @@ export const accessibleH96117toPoliceStExit = [
 export const h96117toPoliceStExit = [
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "37f6e5b8-0b86-4fed-9d3a-9f5e3a4231bd",
+      level: 9,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 9,
     path: [
       [
-        { latitude: 45.497438, longitude: -73.578964 },
+        { latitude: 45.497314, longitude: -73.578751 },
+        { latitude: 45.497223, longitude: -73.578861 },
+      ],
+      [
+        { latitude: 45.497223, longitude: -73.578861 },
+        { latitude: 45.497322, longitude: -73.579066 },
+      ],
+      [
+        { latitude: 45.497322, longitude: -73.579066 },
+        { latitude: 45.49739, longitude: -73.579014 },
+      ],
+      [
+        { latitude: 45.49739, longitude: -73.579014 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
@@ -650,11 +746,19 @@ export const h96117toPoliceStExit = [
   },
   {
     buildingId: "H",
-    connectorType: 8,
+    connector: {
+      buildingId: "H",
+      category: 4,
+      description: "",
+      displayName: "Elevator",
+      id: "058086ab-58be-4174-a34d-d0dd7e80014f",
+      level: 8,
+      location: { latitude: 45.497314, longitude: -73.578751 },
+    },
     level: 8,
     path: [
       [
-        { latitude: 45.497354, longitude: -73.578713 },
+        { latitude: 45.497314, longitude: -73.578751 },
         { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
@@ -677,14 +781,6 @@ export const h96117toPoliceStExit = [
       ],
       [
         { latitude: 45.495319, longitude: -73.578834 },
-        { latitude: 45.495319, longitude: -73.578834 },
-      ],
-      [
-        { latitude: 45.495319, longitude: -73.578834 },
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
-      ],
-      [
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
         { latitude: 45.49522388917384, longitude: -73.57863295823336 },
       ],
       [
@@ -695,7 +791,7 @@ export const h96117toPoliceStExit = [
   },
 ];
 
-export const mbStairsToS1ToCC119 = [
+export const accessibleMbStairsToS1ToCC119 = [
   {
     buildingId: "CC",
     level: 1,
