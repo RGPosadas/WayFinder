@@ -28,7 +28,7 @@ exports[`LinkItem component should match snapshot 1`] = `
         "textDecorationLine": "underline",
       }
     }
-    testID="linkItem.title"
+    testID="Engineering and Computer Science Association"
   >
     Engineering and Computer Science Association
   </Text>

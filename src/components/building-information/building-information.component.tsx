@@ -95,7 +95,7 @@ class BuildingInformation extends React.Component<IProps, IState> {
 
               <TouchableOpacity
                 style={styles.travelButton}
-                testID="building-info-start-travel"
+                testID="travelHereButton"
                 onPressOut={() => {
                   startBuildingTravelPlan(building);
                 }}

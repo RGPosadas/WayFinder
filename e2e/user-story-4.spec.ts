@@ -14,7 +14,9 @@ describe("US-4: Additional Campus Building Information", () => {
       .withTimeout(2000);
 
     await expect(element(by.id("panelDisplayName"))).toBeVisible();
-    await expect(element(by.id("panelAddress"))).toBeVisible();
+    await expect(element(by.id("travelHereButton"))).toBeVisible();
+    await expect(element(by.id("scrollDepartments"))).toBeNotVisible();
+    await expect(element(by.id("scrollServices"))).toBeNotVisible();
 
     await element(by.id("panelCloseButton")).tap();
   });

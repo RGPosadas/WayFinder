@@ -17,7 +17,7 @@ const LinkElement = ({ linkItem }: IProps) => {
     <View style={styles.container}>
       <Text style={styles.normalText}>{"\u2022  "}</Text>
       <Text
-        testID="linkItem.title"
+        testID={linkItem.title}
         style={styles.linkText}
         onPress={() => {
           if (linkItem.link) {

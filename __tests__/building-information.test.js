@@ -35,11 +35,7 @@ describe("BuildingInformation component", () => {
         startBuildingTravelPlan={mockStartBuildingTravelPlan}
       />
     );
-    wrapper
-      .find({ testID: "building-info-start-travel" })
-      .first()
-      .props()
-      .onPressOut();
+    wrapper.find({ testID: "travelHereButton" }).first().props().onPressOut();
 
     expect(mockStartBuildingTravelPlan).toHaveBeenCalledTimes(1);
     expect(mockStartBuildingTravelPlan).toHaveBeenCalledWith(

@@ -20,7 +20,9 @@ describe("LinkItem component", () => {
   it("should check if link has proper title", () => {
     const wrapper = shallow(<LinkElement linkItem={mockLinkItem} />);
 
-    const link = wrapper.find({ testID: "linkItem.title" });
+    const link = wrapper.find({
+      testID: "Engineering and Computer Science Association",
+    });
 
     expect(link.props().children).toEqual(mockLinkItem.title);
   });
@@ -34,7 +36,9 @@ describe("LinkItem component", () => {
       };
     });
 
-    const link = wrapper.find({ testID: "linkItem.title" });
+    const link = wrapper.find({
+      testID: "Engineering and Computer Science Association",
+    });
 
     link.simulate("press");
     expect(mockOpenURL).toHaveBeenCalledTimes(1);
