@@ -16,7 +16,9 @@ exports[`CustomMarker component should match snapshot 1`] = `
         "backgroundColor": "transparent",
         "position": "absolute",
       },
-      undefined,
+      Object {
+        "zIndex": 1,
+      },
     ]
   }
   tracksInfoWindowChanges={false}
@@ -47,6 +49,7 @@ exports[`CustomMarker component should match snapshot 1`] = `
         style={
           Object {
             "color": "#f0f0f0",
+            "fontSize": 16,
           }
         }
       >

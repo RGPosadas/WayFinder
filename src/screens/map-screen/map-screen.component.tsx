@@ -278,11 +278,10 @@ const MapScreen = () => {
         {search}
         <MapView
           testID="mapView"
-          accessibilityLabel="mapView"
           ref={mapRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
-          showsCompass
+          showsCompass={false}
           showsBuildings
           showsUserLocation
           initialRegion={currentRegion}
@@ -291,6 +290,7 @@ const MapScreen = () => {
           onIndoorBuildingFocused={(event) => onIndoorViewEntry(event)}
           showsIndoorLevelPicker={false}
           toolbarEnabled={false}
+          showsMyLocationButton={false}
         >
           <MapOverlays
             onBuildingTap={onBuildingTap}
@@ -350,11 +350,6 @@ const styles = StyleSheet.create({
   },
   marker: {
     backgroundColor: "red",
-  },
-  flashMessageIOS: {
-    marginTop: 100,
-    height: 1,
-    zIndex: 0,
   },
 });
 

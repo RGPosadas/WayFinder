@@ -1,21 +1,11 @@
 import { by, device, expect, element, waitFor } from "detox";
-import { exec } from "child_process";
+import { setLocation } from "./e2e-helper";
 
 const { reloadApp } = require("detox-expo-helpers");
 
 beforeEach(async () => {
   await reloadApp();
 });
-
-// iOS only:
-// Detox's device.setLocation() is not useable right now since it relies
-// on a deprecated binary called fbsimctl, which has been moved to fb/idb.
-// Detox has yet to make that transition, therefore this is the current workaround.
-// Source: https://github.com/wix/Detox/issues/1371
-const setLocation = async (latitude, longitude) => {
-  // @ts-ignore
-  exec(`idb set-location --udid ${device._deviceId} ${latitude} ${longitude}`);
-};
 
 describe("US-11: Search Start and Destination Room", () => {
   it("should bring up autocomplete POI list in search mode for both start and destination locations with location services off", async () => {

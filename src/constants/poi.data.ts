@@ -26,7 +26,7 @@ export const POIToSearchResult = (poi: POI): SearchResult => {
     displayName: poi.displayName,
     location: poi.location,
     searchName: poi.displayName,
-    extraInformation: `Building: ${poi.buildingId} Level: ${poi.level}`,
+    extraInformation: `Building: ${poi.buildingId}, Level: ${poi.level}`,
   };
 };
 

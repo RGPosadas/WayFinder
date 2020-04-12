@@ -7,6 +7,8 @@ import {
   BUILDING_MARKER_COLOR,
   CUSTOM_MARKER_COLOR,
   ARROW_MARKER,
+  END_LOCATION_COLOR,
+  START_LOCATION_COLOR,
 } from "../../styles";
 
 interface IProps {
@@ -35,12 +37,18 @@ const CustomMarker = ({
   testID,
 }: IProps) => {
   switch (markerType) {
-    case "campus":
     case "poi":
+    case "campus":
       backgroundColor = CONCORDIA_RED;
       break;
     case "building":
       backgroundColor = BUILDING_MARKER_COLOR;
+      break;
+    case "startLocation":
+      backgroundColor = START_LOCATION_COLOR;
+      break;
+    case "endLocation":
+      backgroundColor = END_LOCATION_COLOR;
       break;
     default:
   }
@@ -52,6 +60,9 @@ const CustomMarker = ({
       onPress={onPress}
       tracksViewChanges={false}
       tracksInfoWindowChanges={false}
+      style={{
+        zIndex: ["endLocation", "startLocation"].includes(markerType) ? 2 : 1,
+      }}
     >
       <View style={styles.container}>
         <View
@@ -93,6 +104,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: CUSTOM_MARKER_COLOR,
+    fontSize: 16,
   },
   arrow: {
     ...ARROW_MARKER,

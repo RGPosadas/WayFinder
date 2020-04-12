@@ -3,7 +3,11 @@ import { Buildings } from "../src/constants";
 import renderer from "react-test-renderer";
 import React from "react";
 import { shallow } from "enzyme";
-import { BUILDING_MARKER_COLOR } from "../src/styles";
+import {
+  BUILDING_MARKER_COLOR,
+  START_LOCATION_COLOR,
+  END_LOCATION_COLOR,
+} from "../src/styles";
 
 describe("CustomMarker component", () => {
   it("should match snapshot", () => {
@@ -54,6 +58,55 @@ describe("CustomMarker component", () => {
     expect(bubble).toHaveProperty(
       ["style", "backgroundColor"],
       BUILDING_MARKER_COLOR
+    );
+  });
+
+  it("should be blue with zIndex: 2 if it is a startLocation marker", () => {
+    const building = Buildings[0];
+    const wrapper = shallow(
+      <CustomMarker
+        location={building.location}
+        markerType={"startLocation"}
+        text={"H"}
+        onPress={() => {}}
+        testID={"startLocation"}
+        zIndex={2}
+      />
+    );
+
+    const marker = wrapper.find({ testID: "startLocation" }).at(0).props();
+    expect(marker).toHaveProperty(["style", "zIndex"], 2);
+
+    const bubble = wrapper
+      .find({ testID: "startLocationBubble" })
+      .at(0)
+      .props();
+    expect(bubble).toHaveProperty(
+      ["style", "backgroundColor"],
+      START_LOCATION_COLOR
+    );
+  });
+
+  it("should be green with zIndex: 2 if it is an endLocation marker", () => {
+    const building = Buildings[0];
+    const wrapper = shallow(
+      <CustomMarker
+        location={building.location}
+        markerType={"endLocation"}
+        text={"H"}
+        onPress={() => {}}
+        testID={"endLocation"}
+        zIndex={2}
+      />
+    );
+
+    const marker = wrapper.find({ testID: "endLocation" }).at(0).props();
+    expect(marker).toHaveProperty(["style", "zIndex"], 2);
+
+    const bubble = wrapper.find({ testID: "endLocationBubble" }).at(0).props();
+    expect(bubble).toHaveProperty(
+      ["style", "backgroundColor"],
+      END_LOCATION_COLOR
     );
   });
 });

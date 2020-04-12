@@ -629,7 +629,7 @@ export const Buildings: Building[] = [
   {
     id: "MB",
     campusId: "SGW",
-    displayName: "John Molson School of Buisness",
+    displayName: "John Molson School of Business",
     address: "1450 Guy St, Montreal, Quebec H3H 0A1",
     departments: [
       {
