@@ -49,8 +49,10 @@ describe("Find the shortest path between two locations/POI's", () => {
   });
 
   it("should return a path that uses stairs as connectors", () => {
-    constants.buildingFloors = buildingFloors.push(testData.h3rdFloorPoiMock);
-    constants.POIInfo.push(testData.h3rdFloorMock);
+    constants.buildingFloors = buildingFloors.push(
+      testData.h3rdBuildingFloorMock
+    );
+    constants.POIInfo.push(testData.h3rdPoiMock);
 
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
@@ -146,7 +148,7 @@ describe("Find the shortest path between two locations/POI's", () => {
     ).travelNodes = initialNodes;
   });
 
-  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in Hall and JMSB. Should take the ramp in MB.", () => {
+  it("should return the most accessible path between two given POI's in Hall and JMSB when accessibility mode is enabled. Should take the ramp in MB.", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(
@@ -161,7 +163,7 @@ describe("Find the shortest path between two locations/POI's", () => {
     expect(path).toEqual(testData.accessibleH96117toPoliceStExit);
   });
 
-  it("when accessibility mode is enabled, should return the most accessible path between two given POI's in CC and MB. Should take the ramp in MB.", () => {
+  it("should return the most accessible path between two given POI's in CC and MB when accessibility mode is enabled. Should take the ramp in MB.", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "CC119"),
       POIInfo.find(
@@ -174,7 +176,7 @@ describe("Find the shortest path between two locations/POI's", () => {
     expect(path).toEqual(testData.accessibleMbStairsToS1ToCC119);
   });
 
-  it("when accessibility mode is disabled, should return the shortest path between two given POI's in Hall and JMSB. Should not take the ramp in MB.", () => {
+  it("should return the shortest path between two given POI's in Hall and JMSB when accessibility mode is disabled. Should not take the ramp in MB.", () => {
     const path = findPathBetweenPOIs(
       POIInfo.find(({ displayName }) => displayName === "H961-17"),
       POIInfo.find(

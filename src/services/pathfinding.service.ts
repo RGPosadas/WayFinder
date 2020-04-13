@@ -33,7 +33,7 @@ class PathFindingService {
    *
    * @param start The start POI
    * @param end The end POI
-   *
+   * @param accessibilityMode a boolean indicating if the accessibility mode is enabled
    * @returns The list of paths to travese between the start and end POI's
    */
   public findPathBetweenPOIs = (
@@ -54,28 +54,29 @@ class PathFindingService {
       accessibilityMode
     );
     const endBuildingPath = this.findBuildingPath(
-      end,
       endBuildingExit,
+      end,
       accessibilityMode
     );
     return startBuildingPath.concat(endBuildingPath);
   };
 
   /**
-   * Finds the exit of a building
+   * Finds a POI by category and buidingId
    *
-   * @param start The start POI
+   * @param categorization the category of POI
+   * @param building the id of the buiding
    *
-   * @Returns the exit of a building
+   * @Returns the POI that satisfies the category and buildingId constraints
    */
   private findPOI = (
     categorization: POICategory,
     building: BuildingId
-  ): ConnectorPOI => {
+  ): POI => {
     return POIInfo.find(
       ({ category, buildingId }) =>
         category === categorization && buildingId === building
-    ) as ConnectorPOI;
+    );
   };
 
   /**
@@ -83,7 +84,7 @@ class PathFindingService {
    *
    * @param start The start POI
    * @param end The end POI
-   *
+   * @param accessibilityMode a boolean indicating if the accessibility mode is enabled
    * @returns The list of paths to travese between the start and end POI's
    */
   private findBuildingPath = (
@@ -101,7 +102,7 @@ class PathFindingService {
       ];
     }
 
-    let POIcategories;
+    let POIcategories: POICategory[];
     if (accessibilityMode) {
       POIcategories = [POICategory.Elevator];
     } else {
@@ -146,7 +147,7 @@ class PathFindingService {
    * Returns all connector POI's which are in the same floor and building as the given POI.
    *
    * @param poi POI whose building/floor is searched for conenctors
-   * @param escalatorDirection Accepted escalator direction for current travel plan
+   * @param POICategories the categories of connector POI
    *
    * @returns A list of connectorPOI's
    */
@@ -184,7 +185,7 @@ class PathFindingService {
    * @param poi POI which serves as the start point for per-floor navigation
    * @param connectors List of reachable connectors. These POI's must be on the
    * same building/floor as the starting POI
-   *
+   * @param accessibilityMode a boolean indicating if the accessibility mode is enabled
    * @returns List of valid paths
    */
   private getPathsBetweenPOIAndConnectors = (
@@ -261,14 +262,14 @@ class PathFindingService {
   };
 
   /**
-   * Find the shortest path between two locations on a given floor.
+   * Find the shortest path between two POI's on a given floor.
    * Returns an array of lines if the path is found.
    * Returns null if no path is found.
    *
-   * @param start start location
-   * @param end end location
-   *
-   * @returns A list of TravelEdges
+   * @param start start POI
+   * @param end end POI
+   * @param accessibilityMode a boolean indicating if the accessibility mode is enabled
+   * @returns A list of Line or null
    */
   public findPathOnFloor = (
     start: POI,
@@ -323,13 +324,13 @@ class PathFindingService {
     );
 
     if (accessibilityMode) {
-      const { disabledUnfriendly } = buildingFloors.find(
+      const { unfriendlyConnections } = buildingFloors.find(
         (floor) =>
           floor.buildingId === start.buildingId && floor.level === start.level
       );
-      disabledUnfriendly.forEach((nodeId) => {
+      unfriendlyConnections.forEach((nodeId) => {
         nodes[nodeId].children = nodes[nodeId].children.filter(
-          (child) => !disabledUnfriendly.includes(child)
+          (child) => !unfriendlyConnections.includes(child)
         );
       });
     }

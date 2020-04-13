@@ -1,8 +1,10 @@
 import {
   TravelNode,
   Line,
-  BuildingId,
   POICategory,
+  FloorPath,
+  POI,
+  BuildingFloor,
 } from "../../src/types/main";
 
 /**
@@ -347,7 +349,7 @@ export const brokenGraph: TravelNode[] = [
   },
 ];
 
-export const h96117toMBMensBathroom = [
+export const h96117toMBMensBathroom: FloorPath[] = [
   {
     buildingId: "H",
     connector: {
@@ -407,26 +409,26 @@ export const h96117toMBMensBathroom = [
     level: 1,
     path: [
       [
-        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
-        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
-      ],
-      [
-        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
-        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
-      ],
-      [
-        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
-        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
-      ],
-      [
-        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
         { latitude: 45.49533465172625, longitude: -73.57934289831273 },
+        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
+      ],
+      [
+        { latitude: 45.49538722650027, longitude: -73.57932228595018 },
+        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
+      ],
+      [
+        { latitude: 45.495454035943894, longitude: -73.57927702759403 },
+        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
+      ],
+      [
+        { latitude: 45.495498624635324, longitude: -73.57925221323967 },
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
       ],
     ],
   },
 ];
 
-export const h96117toH9MensBathroom = [
+export const h96117toH9MensBathroom: FloorPath[] = [
   {
     buildingId: "H",
     level: 9,
@@ -459,7 +461,7 @@ export const h96117toH9MensBathroom = [
   },
 ];
 
-export const h9117toH8WomensBathroom = [
+export const h9117toH8WomensBathroom: FloorPath[] = [
   {
     buildingId: "H",
     connector: {
@@ -516,7 +518,7 @@ export const h9117toH8WomensBathroom = [
   },
 ];
 
-export const h8WomensBathroomToH9117 = [
+export const h8WomensBathroomToH9117: FloorPath[] = [
   {
     buildingId: "H",
     connector: {
@@ -577,7 +579,7 @@ export const h8WomensBathroomToH9117 = [
   },
 ];
 
-export const h3rdFloorMock = {
+export const h3rdPoiMock: POI = {
   id: "8dd47eee-23b4-437c-bd74-aad3876f83dc",
   displayName: "Stairs 1",
   description: "",
@@ -590,7 +592,7 @@ export const h3rdFloorMock = {
   category: POICategory.Stairs,
 };
 
-export const h3rdFloorPoiMock = {
+export const h3rdBuildingFloorMock: BuildingFloor = {
   id: 3,
   buildingId: "H",
   level: 3,
@@ -614,10 +616,10 @@ export const h3rdFloorPoiMock = {
       children: [0],
     },
   ],
-  disabledFriendly: [],
+  unfriendlyConnections: [],
 };
 
-export const accessibleH96117toPoliceStExit = [
+export const accessibleH96117toPoliceStExit: FloorPath[] = [
   {
     buildingId: "H",
     connector: {
@@ -677,38 +679,38 @@ export const accessibleH96117toPoliceStExit = [
     level: 1,
     path: [
       [
-        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-      ],
-      [
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-      ],
-      [
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-        { latitude: 45.495319, longitude: -73.578834 },
-      ],
-      [
-        { latitude: 45.495319, longitude: -73.578834 },
-        { latitude: 45.495291, longitude: -73.578866 },
-      ],
-      [
-        { latitude: 45.495291, longitude: -73.578866 },
-        { latitude: 45.495197, longitude: -73.578708 },
-      ],
-      [
-        { latitude: 45.495197, longitude: -73.578708 },
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
-      ],
-      [
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
         { latitude: 45.495216991097614, longitude: -73.5785603480603 },
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+      ],
+      [
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+        { latitude: 45.495197, longitude: -73.578708 },
+      ],
+      [
+        { latitude: 45.495197, longitude: -73.578708 },
+        { latitude: 45.495291, longitude: -73.578866 },
+      ],
+      [
+        { latitude: 45.495291, longitude: -73.578866 },
+        { latitude: 45.495319, longitude: -73.578834 },
+      ],
+      [
+        { latitude: 45.495319, longitude: -73.578834 },
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+      ],
+      [
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+      ],
+      [
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
       ],
     ],
   },
 ];
 
-export const h96117toPoliceStExit = [
+export const h96117toPoliceStExit: FloorPath[] = [
   {
     buildingId: "H",
     connector: {
@@ -768,30 +770,30 @@ export const h96117toPoliceStExit = [
     level: 1,
     path: [
       [
-        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-      ],
-      [
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-      ],
-      [
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-        { latitude: 45.495319, longitude: -73.578834 },
-      ],
-      [
-        { latitude: 45.495319, longitude: -73.578834 },
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
-      ],
-      [
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
         { latitude: 45.495216991097614, longitude: -73.5785603480603 },
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+      ],
+      [
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+        { latitude: 45.495319, longitude: -73.578834 },
+      ],
+      [
+        { latitude: 45.495319, longitude: -73.578834 },
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+      ],
+      [
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+      ],
+      [
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
       ],
     ],
   },
 ];
 
-export const accessibleMbStairsToS1ToCC119 = [
+export const accessibleMbStairsToS1ToCC119: FloorPath[] = [
   {
     buildingId: "CC",
     level: 1,
@@ -819,32 +821,32 @@ export const accessibleMbStairsToS1ToCC119 = [
     level: 1,
     path: [
       [
-        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-      ],
-      [
-        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-      ],
-      [
-        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
-        { latitude: 45.495319, longitude: -73.578834 },
-      ],
-      [
-        { latitude: 45.495319, longitude: -73.578834 },
-        { latitude: 45.495291, longitude: -73.578866 },
-      ],
-      [
-        { latitude: 45.495291, longitude: -73.578866 },
-        { latitude: 45.495197, longitude: -73.578708 },
-      ],
-      [
-        { latitude: 45.495197, longitude: -73.578708 },
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
-      ],
-      [
-        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
         { latitude: 45.495277037243376, longitude: -73.57859236859093 },
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+      ],
+      [
+        { latitude: 45.49522388917384, longitude: -73.57863295823336 },
+        { latitude: 45.495197, longitude: -73.578708 },
+      ],
+      [
+        { latitude: 45.495197, longitude: -73.578708 },
+        { latitude: 45.495291, longitude: -73.578866 },
+      ],
+      [
+        { latitude: 45.495291, longitude: -73.578866 },
+        { latitude: 45.495319, longitude: -73.578834 },
+      ],
+      [
+        { latitude: 45.495319, longitude: -73.578834 },
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+      ],
+      [
+        { latitude: 45.49536913015795, longitude: -73.57889883220196 },
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+      ],
+      [
+        { latitude: 45.49536466482581, longitude: -73.57903562486172 },
+        { latitude: 45.49554740223838, longitude: -73.57927136202986 },
       ],
     ],
   },
