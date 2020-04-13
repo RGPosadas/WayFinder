@@ -4,23 +4,20 @@ import {
   POI,
   POICategory,
   MarkerLocation,
-  Building,
+  BuildingId,
 } from "../types/main";
 import { getAllPOI, getBuildingById } from "../constants";
 import PathFindingService from "./pathfinding.service";
 
-/**
- *
- */
-class PathPlanningService {
-  private static instance = new PathPlanningService();
+class IndoorPathPlanningService {
+  private static instance = new IndoorPathPlanningService();
 
   private constructor() {
     // noop
   }
 
   public static getInstance() {
-    return PathPlanningService.instance;
+    return IndoorPathPlanningService.instance;
   }
 
   /**
@@ -43,10 +40,7 @@ class PathPlanningService {
     }
 
     if (startPOI === null) {
-      startPOI = getAllPOI().find(
-        ({ buildingId, category }) =>
-          buildingId === endPOI.buildingId && category === POICategory.Exit
-      );
+      startPOI = this.getEndBuildingExit(endPOI);
     }
 
     return PathFindingService.getInstance().findPathBetweenPOIs(
@@ -75,7 +69,6 @@ class PathPlanningService {
 
   /**
    * Steps to the destion to be displayed in the slider pannel
-   * Only for indoors
    * @param floorPaths all the paths on every floor
    */
   public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
@@ -103,19 +96,23 @@ class PathPlanningService {
     return directionsText;
   };
 
-  public isBuildingWithFloorPlan = (location: MarkerLocation) => {
+  /*****************
+   * Helper Methods
+   ****************/
+
+  /**
+   * Check if building has floor plans
+   * @param location which to check for floor plans
+   */
+  private isBuildingWithFloorPlan = (location: MarkerLocation) => {
     if (
-      getBuildingById(location.id) !== undefined &&
+      getBuildingById(location.id as BuildingId) !== undefined &&
       (location.id === "H" || location.id === "MB" || location.id === "CC")
     ) {
       return true;
     }
     return false;
   };
-
-  /** **************
-   * Helper Methods
-   ************** */
 
   /**
    * Searches and return either the POI, building, User Location or undefined
@@ -127,13 +124,25 @@ class PathPlanningService {
 
     if (poi === undefined) {
       if (!this.isBuildingWithFloorPlan(object)) return null;
+
       poi = getAllPOI().find(
         (poi) =>
-          poi.buildingId === object.id && poi.category === POICategory.Exit // needs an exit for the building
+          poi.buildingId === object.id && poi.category === POICategory.Exit
       );
     }
 
     return poi;
+  };
+
+  /**
+   * returns the exit/entrance of the building where the destination
+   * is located
+   */
+  private getEndBuildingExit = (endPOI: POI) => {
+    return getAllPOI().find(
+      ({ buildingId, category }) =>
+        buildingId === endPOI.buildingId && category === POICategory.Exit
+    );
   };
 
   /**
@@ -165,4 +174,4 @@ class PathPlanningService {
   };
 }
 
-export default PathPlanningService;
+export default IndoorPathPlanningService;

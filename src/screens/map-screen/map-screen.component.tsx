@@ -32,9 +32,9 @@ import {
 } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
-import PathPlanningService from "../../services/path-planning.service";
-import TravelRoute from "../../components/travel-route/travel-route.component";
-import DirectionsText from "../../components/travel-route/indoor-directions-steps.component";
+import IndoorPathPlanningService from "../../services/indoor-path-planning.service";
+import IndoorTravelRoute from "../../components/travel-route/indoor-travel-route.component";
+import IndoorDirectionSteps from "../../components/travel-route/indoor-directions-steps.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -82,7 +82,7 @@ const MapScreen = () => {
 
   useEffect(() => {
     if (floorPaths !== null) {
-      animateRegion({
+      animateToRegion({
         latitude: startLocation.location.latitude,
         longitude: startLocation.location.longitude,
         latitudeDelta: 0.0005,
@@ -129,7 +129,7 @@ const MapScreen = () => {
   };
 
   /**
-   * Handles closes the travel step slider
+   * Handles closing the Direction steps slider
    */
   const onCloseTravelSteps = () => {
     setTravelState(TravelState.PLANNING);
@@ -139,7 +139,7 @@ const MapScreen = () => {
    * This functions handles animating to region
    * @param region The region to animate to
    */
-  const animateRegion = (region: Region) => {
+  const animateToRegion = (region: Region) => {
     mapRef.current.animateToRegion(region);
   };
 
@@ -273,7 +273,7 @@ const MapScreen = () => {
    */
   const animateToCurrentLocation = () => {
     if (currentLocation)
-      animateRegion({
+      animateToRegion({
         ...currentLocation,
         latitudeDelta: currentRegion.latitudeDelta,
         longitudeDelta: currentRegion.longitudeDelta,
@@ -281,11 +281,11 @@ const MapScreen = () => {
   };
 
   /**
-   * Goes to the start location and set the route
+   * Sets the indoor route so steps can be displayed
    */
   const onStartTravelPlan = () => {
     setFloorPaths(
-      PathPlanningService.getInstance().updateFloorPaths(
+      IndoorPathPlanningService.getInstance().updateFloorPaths(
         startLocation,
         endLocation
       )
@@ -363,7 +363,7 @@ const MapScreen = () => {
             travelState={travelState}
           />
           {isTravelling() && (
-            <TravelRoute
+            <IndoorTravelRoute
               start={startLocation}
               end={endLocation}
               chosenFloorLevel={floorLevel}
@@ -374,7 +374,7 @@ const MapScreen = () => {
 
         {isTravelStateNone() && (
           <>
-            <CampusToggle onCampusToggle={animateRegion} />
+            <CampusToggle onCampusToggle={animateToRegion} />
             <LocationButton
               setUserCurrentLocation={setUserCurrentLocation}
               animateToCurrentLocation={animateToCurrentLocation}
@@ -390,7 +390,7 @@ const MapScreen = () => {
         />
 
         {isTravelling() && (
-          <DirectionsText
+          <IndoorDirectionSteps
             floorPaths={floorPaths}
             onCloseTravelSteps={onCloseTravelSteps}
           />

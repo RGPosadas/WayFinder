@@ -1,10 +1,9 @@
 import React from "react";
 import { Platform, Alert } from "react-native";
 import { Polyline } from "react-native-maps";
-import { MarkerLocation, BuildingId, TravelState } from "../../types/main";
+import { MarkerLocation, TravelState } from "../../types/main";
 import { CONCORDIA_RED } from "../../styles";
-import PathPlanningService from "../../services/path-planning.service";
-import { getBuildingById } from "../../constants/buildings.data";
+import IndoorPathPlanningService from "../../services/indoor-path-planning.service";
 
 interface iProps {
   start: MarkerLocation;
@@ -15,22 +14,24 @@ interface iProps {
 
 /**
  * Draw the shortest path lines from the starting location to the destination
- * only for indoors
  * @param start
  * @param end
  * @param chosenFloorLevel
  * @param animateToStartLocation
  */
-const TravelRoute = ({
+const IndoorTravelRoute = ({
   start,
   end,
   chosenFloorLevel,
   setTravelState,
 }: iProps) => {
-  const { getPathLines } = PathPlanningService.getInstance();
+  const { getPathLines } = IndoorPathPlanningService.getInstance();
 
   const pathLines = getPathLines(start, end, chosenFloorLevel);
 
+  /**
+   * Alerts the user that the indoor map is not yet implemented
+   */
   const alertUser = () => {
     setTravelState(TravelState.PLANNING);
     Alert.alert(
@@ -53,7 +54,7 @@ const TravelRoute = ({
                 coordinates={polyline}
                 fillColor={CONCORDIA_RED}
                 key={index}
-                lineDashPattern={Platform.OS === "ios" ? [0.5, 0.5] : [0.5, 7]}
+                lineDashPattern={Platform.OS == "ios" ? [0.5, 0.5] : [0.5, 7]}
                 strokeWidth={5}
                 strokeColor={CONCORDIA_RED}
               />
@@ -64,4 +65,4 @@ const TravelRoute = ({
   );
 };
 
-export default TravelRoute;
+export default IndoorTravelRoute;

@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indoor Directions Text component should match indoor travel directions steps snapshot 1`] = `
+<View
+  disableScrollViewPanResponder={true}
+  onMoveShouldSetResponder={[Function]}
+  onMoveShouldSetResponderCapture={[Function]}
+  onResponderEnd={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderReject={[Function]}
+  onResponderRelease={[Function]}
+  onResponderStart={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  onStartShouldSetResponderCapture={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "alignSelf": "stretch",
+      "bottom": -1292,
+      "flex": 1,
+      "height": 1292,
+      "left": 0,
+      "position": "absolute",
+      "right": 0,
+      "transform": Array [
+        Object {
+          "translateY": -113,
+        },
+      ],
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "white",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={false}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#AA2B45",
+          "display": "flex",
+          "justifyContent": "center",
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+          "zIndex": 1,
+        }
+      }
+      testID="panelCloseButton"
+    >
+      <Text />
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 667,
+          "justifyContent": "center",
+        }
+      }
+      testID="panel"
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": -7,
+          }
+        }
+      >
+        <Text />
+      </View>
+      <Text
+        style={
+          Object {
+            "fontSize": 24,
+            "fontWeight": "bold",
+            "marginBottom": 5,
+            "marginLeft": 5,
+            "marginRight": 5,
+            "textAlign": "center",
+          }
+        }
+        testID="panelDisplayName"
+      >
+        Indoor Directions
+      </Text>
+      <RCTScrollView
+        contentContainerStyle={
+          Object {
+            "paddingBottom": 20,
+            "paddingLeft": 20,
+            "paddingRight": 20,
+            "width": "100%",
+          }
+        }
+        onTouchCancel={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+        testID="scrollView"
+      >
+        <View>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "marginTop": 10,
+              }
+            }
+            testID="Steps0"
+          >
+            1
+            . 
+            Take the entrance/exit on floor 8 in the H building.
+          </Text>
+          <Text
+            style={
+              Object {
+                "fontSize": 16,
+                "marginTop": 10,
+              }
+            }
+            testID="Steps1"
+          >
+            2
+            . 
+            Go to your Destination.
+          </Text>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</View>
+`;

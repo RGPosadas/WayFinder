@@ -44,7 +44,7 @@ export const buildingToSearchResult = (building: Building): SearchResult => {
  *
  * @param id id of the Building
  */
-export const getBuildingById = (id: string): Building => {
+export const getBuildingById = (id: BuildingId): Building => {
   return Buildings.find((building) => building.id === id);
 };
 

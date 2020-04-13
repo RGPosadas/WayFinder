@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Indoor Travel Route component should match indoor travel route snapshot 1`] = `
+Array [
+  <AIRMapPolyline
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.497253,
+          "longitude": -73.579251,
+        },
+        Object {
+          "latitude": 45.49730597420072,
+          "longitude": -73.57923445639382,
+        },
+      ]
+    }
+    fillColor="#AA2B45"
+    lineCap="round"
+    lineDashPattern={
+      Array [
+        0.5,
+        0.5,
+      ]
+    }
+    lineJoin="round"
+    strokeColor="#AA2B45"
+    strokeWidth={5}
+    testID="polylinePath0"
+  />,
+  <AIRMapPolyline
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.49730597420072,
+          "longitude": -73.57923445639382,
+        },
+        Object {
+          "latitude": 45.49735509062119,
+          "longitude": -73.57918419446206,
+        },
+      ]
+    }
+    fillColor="#AA2B45"
+    lineCap="round"
+    lineDashPattern={
+      Array [
+        0.5,
+        0.5,
+      ]
+    }
+    lineJoin="round"
+    strokeColor="#AA2B45"
+    strokeWidth={5}
+    testID="polylinePath1"
+  />,
+  <AIRMapPolyline
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.49735509062119,
+          "longitude": -73.57918419446206,
+        },
+        Object {
+          "latitude": 45.49743264359791,
+          "longitude": -73.57911244537091,
+        },
+      ]
+    }
+    fillColor="#AA2B45"
+    lineCap="round"
+    lineDashPattern={
+      Array [
+        0.5,
+        0.5,
+      ]
+    }
+    lineJoin="round"
+    strokeColor="#AA2B45"
+    strokeWidth={5}
+    testID="polylinePath2"
+  />,
+  <AIRMapPolyline
+    coordinates={
+      Array [
+        Object {
+          "latitude": 45.49743264359791,
+          "longitude": -73.57911244537091,
+        },
+        Object {
+          "latitude": 45.497482,
+          "longitude": -73.579034,
+        },
+      ]
+    }
+    fillColor="#AA2B45"
+    lineCap="round"
+    lineDashPattern={
+      Array [
+        0.5,
+        0.5,
+      ]
+    }
+    lineJoin="round"
+    strokeColor="#AA2B45"
+    strokeWidth={5}
+    testID="polylinePath3"
+  />,
+]
+`;

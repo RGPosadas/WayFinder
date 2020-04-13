@@ -15,7 +15,7 @@ import {
   screenHeight,
   WHITE_BACKGROUND_COLOR,
 } from "../../styles";
-import PathPlanningService from "../../services/path-planning.service";
+import IndoorPathPlanningService from "../../services/indoor-path-planning.service";
 
 interface IProps {
   floorPaths: FloorPath[];
@@ -28,9 +28,8 @@ interface IState {
 
 /**
  * A sliding panel that shows the steps to the destination
- * Only for indoor directions
  */
-class Directions extends React.Component<IProps, IState> {
+class IndoorDirectionSteps extends React.Component<IProps, IState> {
   _panel: SlidingUpPanel;
 
   _draggedValue: Animated.Value;
@@ -86,7 +85,7 @@ class Directions extends React.Component<IProps, IState> {
                 style={{ width: "100%" }}
                 contentContainerStyle={styles.directions}
               >
-                {PathPlanningService.getInstance()
+                {IndoorPathPlanningService.getInstance()
                   .getDirectionsText(floorPaths)
                   .map((direction, index) => (
                     <Text
@@ -152,4 +151,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Directions;
+export default IndoorDirectionSteps;
