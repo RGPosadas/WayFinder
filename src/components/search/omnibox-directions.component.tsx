@@ -22,6 +22,7 @@ import {
   MarkerLocation,
   TravelState,
   SearchResult,
+  TravelMode,
 } from "../../types/main";
 import Autocomplete from "./autocomplete.component";
 import StartTravel from "./start-travel.component";
@@ -33,6 +34,7 @@ import {
   INACTIVE_ICON_COLOR,
   screenWidth,
   FETCHING_CURRENT_LOCATION_DISPLAY_TEXT,
+  ACTIVE_TRAVEL_MODE,
 } from "../../styles";
 import DynamicStylingService from "../../services/dynamic-styling.service";
 import UtilityService from "../../services/utility.service";
@@ -48,12 +50,14 @@ export interface OmniboxDirectionsProps {
   endLocationFocused: boolean;
   startLocationDisplay: string;
   travelState: TravelState;
+  travelMode: TravelMode;
   setStartLocation: (location: MarkerLocation) => void;
   setEndLocation: (location: MarkerLocation) => void;
   setEndLocationFocused: (bool: boolean) => void;
   setTravelState: (state: TravelState) => void;
   setStartLocationDisplay: (displayName: string) => void;
   onStartTravelPlan: () => void;
+  setTravelMode: (travelMode: TravelMode) => void;
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
@@ -88,6 +92,8 @@ const OmniboxDirections = ({
   startLocationDisplay,
   setStartLocationDisplay,
   travelState,
+  travelMode,
+  setTravelMode,
   onStartTravelPlan,
 }: OmniboxDirectionsProps) => {
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
@@ -251,14 +257,32 @@ const OmniboxDirections = ({
             <TouchableOpacity>
               <FontAwesome name="car" size={24} style={styles.travelModeIcon} />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              style={
+                travelMode === TravelMode.ACCESSIBLE
+                  ? styles.travelModeButtonSelected
+                  : null
+              }
+              onPressOut={() => {
+                setTravelMode(TravelMode.ACCESSIBLE);
+              }}
+            >
               <FontAwesome
                 name="wheelchair"
                 size={24}
                 style={styles.travelModeIcon}
               />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              style={
+                travelMode === TravelMode.WALKING
+                  ? styles.travelModeButtonSelected
+                  : null
+              }
+              onPressOut={() => {
+                setTravelMode(TravelMode.WALKING);
+              }}
+            >
               <MaterialIcons
                 name="directions-walk"
                 size={28}
@@ -352,7 +376,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  travelModeIcon: { marginLeft: 15 },
+  travelModeButtonSelected: {
+    backgroundColor: ACTIVE_TRAVEL_MODE,
+    borderRadius: 8,
+  },
+  travelModeIcon: { flex: 1, marginLeft: 15 },
   shuttleIcon: { height: 26, resizeMode: "contain" },
   autocomplete: {
     top: 260,

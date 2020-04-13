@@ -224,3 +224,12 @@ export enum TravelState {
   PLANNING,
   TRAVELLING,
 }
+
+export enum TravelMode {
+  SHUTTLE,
+  ACCESSIBLE,
+  DRIVING,
+  BICYCLE,
+  WALKING,
+  TRANSIT,
+}

@@ -17,3 +17,4 @@ export const LOCATION_BUTTON_COLOR = "#fff";
 export const DEFAULT_STACK_NAVIGATOR_COLOR = "#9f1d35";
 export const END_LOCATION_COLOR = "#44aa2b";
 export const START_LOCATION_COLOR = "#2b5eaa";
+export const ACTIVE_TRAVEL_MODE = "#FBD9D9";

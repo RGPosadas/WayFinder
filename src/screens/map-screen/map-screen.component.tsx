@@ -24,6 +24,7 @@ import {
   TravelState,
   Building,
   FloorPath,
+  TravelMode,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import {
@@ -57,7 +58,7 @@ const MapScreen = () => {
   const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
-
+  const [travelMode, setTravelMode] = useState<TravelMode>(TravelMode.WALKING);
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
     string
   >("");
@@ -67,6 +68,7 @@ const MapScreen = () => {
       floors: [],
     }
   );
+
   /**
    * Creates a reference to the MapView Component that is rendered.
    * Allows to access component methods.
@@ -287,7 +289,8 @@ const MapScreen = () => {
     setFloorPaths(
       IndoorPathPlanningService.getInstance().updateFloorPaths(
         startLocation,
-        endLocation
+        endLocation,
+        travelMode === TravelMode.ACCESSIBLE
       )
     );
   };
@@ -319,6 +322,8 @@ const MapScreen = () => {
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
         travelState={travelState}
+        travelMode={travelMode}
+        setTravelMode={setTravelMode}
         onStartTravelPlan={onStartTravelPlan}
       />
     );
@@ -364,6 +369,7 @@ const MapScreen = () => {
           />
           {isTravelling() && (
             <IndoorTravelRoute
+              travelMode={travelMode}
               start={startLocation}
               end={endLocation}
               chosenFloorLevel={floorLevel}

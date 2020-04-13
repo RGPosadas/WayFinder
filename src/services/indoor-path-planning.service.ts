@@ -30,7 +30,8 @@ class IndoorPathPlanningService {
    */
   public updateFloorPaths = (
     startLocation: MarkerLocation,
-    endLocation: MarkerLocation
+    endLocation: MarkerLocation,
+    accessible: boolean
   ): FloorPath[] => {
     let startPOI = this.getPOI(startLocation);
     const endPOI = this.getPOI(endLocation);
@@ -46,7 +47,7 @@ class IndoorPathPlanningService {
     return PathFindingService.getInstance().findPathBetweenPOIs(
       startPOI,
       endPOI,
-      false
+      accessible
     );
   };
 
@@ -59,9 +60,14 @@ class IndoorPathPlanningService {
   public getPathLines = (
     startLocation: MarkerLocation,
     endLocation: MarkerLocation,
+    accessible: boolean,
     chosenFloorLevel: number
   ): Line[][] => {
-    const floorPaths = this.updateFloorPaths(startLocation, endLocation);
+    const floorPaths = this.updateFloorPaths(
+      startLocation,
+      endLocation,
+      accessible
+    );
     if (floorPaths === null) return null;
     return this.filterPaths(floorPaths, chosenFloorLevel).map(
       (floorPath) => floorPath.path
@@ -75,17 +81,13 @@ class IndoorPathPlanningService {
   public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
     const directionsText: string[] = [];
     floorPaths.forEach((floorPath, index) => {
-      if (floorPaths.length > 1) {
-        directionsText.push(
-          `Take the ${
-            "connector" in floorPath
-              ? POICategory[floorPath.connector.category]
-              : "entrance/exit"
-          } on floor ${floorPath.level} in the ${
-            floorPath.buildingId
-          } building.`
-        );
-      }
+      directionsText.push(
+        `Take the ${
+          "connector" in floorPath
+            ? POICategory[floorPath.connector.category]
+            : "entrance/exit"
+        } on floor ${floorPath.level} in the ${floorPath.buildingId} building.`
+      );
 
       if (
         index + 1 !== floorPaths.length &&

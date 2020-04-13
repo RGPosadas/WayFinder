@@ -1,11 +1,12 @@
 import React from "react";
 import { Platform, Alert } from "react-native";
 import { Polyline } from "react-native-maps";
-import { MarkerLocation, TravelState } from "../../types/main";
+import { MarkerLocation, TravelState, TravelMode } from "../../types/main";
 import { CONCORDIA_RED } from "../../styles";
 import IndoorPathPlanningService from "../../services/indoor-path-planning.service";
 
 interface iProps {
+  travelMode: TravelMode;
   start: MarkerLocation;
   end: MarkerLocation;
   chosenFloorLevel: number;
@@ -20,6 +21,7 @@ interface iProps {
  * @param animateToStartLocation
  */
 const IndoorTravelRoute = ({
+  travelMode,
   start,
   end,
   chosenFloorLevel,
@@ -27,7 +29,12 @@ const IndoorTravelRoute = ({
 }: iProps) => {
   const { getPathLines } = IndoorPathPlanningService.getInstance();
 
-  const pathLines = getPathLines(start, end, chosenFloorLevel);
+  const pathLines = getPathLines(
+    start,
+    end,
+    travelMode === TravelMode.ACCESSIBLE,
+    chosenFloorLevel
+  );
 
   /**
    * Alerts the user that the indoor map is not yet implemented
