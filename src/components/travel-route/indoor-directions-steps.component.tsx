@@ -27,7 +27,8 @@ interface IState {
 }
 
 /**
- * Component for additional information panel
+ * A sliding panel that shows the steps to the destination
+ * Only for indoor directions
  */
 class Directions extends React.Component<IProps, IState> {
   _panel: SlidingUpPanel;
@@ -46,60 +47,62 @@ class Directions extends React.Component<IProps, IState> {
     const { floorPaths, onCloseTravelSteps } = this.props;
     const draggableRange = { top: screenHeight / 2, bottom: 113 };
     const { allowDragging } = this.state;
-    return (
-      <SlidingUpPanel
-        allowDragging={allowDragging}
-        draggableRange={draggableRange}
-        animatedValue={this._draggedValue}
-        showBackdrop={false}
-        ref={(c) => (this._panel = c)}
-        // Speed of the panel
-        friction={0.8}
-      >
-        <View style={styles.container}>
-          <TouchableOpacity
-            testID="panelCloseButton"
-            style={styles.xButton}
-            onPressOut={() => {
-              onCloseTravelSteps();
-              this._panel.hide();
-            }}
-          >
-            <Feather name="x" size={35} color="white" />
-          </TouchableOpacity>
-
-          <View testID="panel" style={styles.panelContent}>
-            <View style={styles.uparrow}>
-              <AntDesign name="up" size={40} />
-            </View>
-            <Text testID="panelDisplayName" style={styles.header}>
-              Indoor Directions
-            </Text>
-
-            <ScrollView
-              testID="scrollView"
-              onTouchStart={() => this.setState({ allowDragging: false })}
-              onTouchEnd={() => this.setState({ allowDragging: true })}
-              onTouchCancel={() => this.setState({ allowDragging: true })}
-              style={{ width: "100%" }}
-              contentContainerStyle={styles.directions}
+    if (floorPaths)
+      return (
+        <SlidingUpPanel
+          allowDragging={allowDragging}
+          draggableRange={draggableRange}
+          animatedValue={this._draggedValue}
+          showBackdrop={false}
+          ref={(c) => (this._panel = c)}
+          // Speed of the panel
+          friction={0.8}
+        >
+          <View style={styles.container}>
+            <TouchableOpacity
+              testID="panelCloseButton"
+              style={styles.xButton}
+              onPressOut={() => {
+                onCloseTravelSteps();
+                this._panel.hide();
+              }}
             >
-              {PathPlanningService.getInstance()
-                .getDirectionsText(floorPaths)
-                .map((direction, index) => (
-                  <Text
-                    testID={`Steps${index}`}
-                    key={index}
-                    style={styles.directionText}
-                  >
-                    {index + 1}. {direction}
-                  </Text>
-                ))}
-            </ScrollView>
+              <Feather name="x" size={35} color="white" />
+            </TouchableOpacity>
+
+            <View testID="panel" style={styles.panelContent}>
+              <View style={styles.uparrow}>
+                <AntDesign name="up" size={40} />
+              </View>
+              <Text testID="panelDisplayName" style={styles.header}>
+                Indoor Directions
+              </Text>
+
+              <ScrollView
+                testID="scrollView"
+                onTouchStart={() => this.setState({ allowDragging: false })}
+                onTouchEnd={() => this.setState({ allowDragging: true })}
+                onTouchCancel={() => this.setState({ allowDragging: true })}
+                style={{ width: "100%" }}
+                contentContainerStyle={styles.directions}
+              >
+                {PathPlanningService.getInstance()
+                  .getDirectionsText(floorPaths)
+                  .map((direction, index) => (
+                    <Text
+                      testID={`Steps${index}`}
+                      key={index}
+                      style={styles.directionText}
+                    >
+                      {index + 1}. {direction}
+                    </Text>
+                  ))}
+              </ScrollView>
+            </View>
           </View>
-        </View>
-      </SlidingUpPanel>
-    );
+        </SlidingUpPanel>
+      );
+    return null;
   }
 }
 

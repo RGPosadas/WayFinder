@@ -46,25 +46,27 @@ const MapScreen = () => {
     latitudeDelta: 0,
     longitudeDelta: 0,
   });
+
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId | null>(null);
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.CAMPUS);
-  const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
-    {
-      currentFloor: null,
-      floors: [],
-    }
-  );
   const [floorPaths, setFloorPaths] = useState<FloorPath[]>(null);
   const [floorLevel, setFloorLevel] = useState<number>(8);
   const [endLocation, setEndLocation] = useState<MarkerLocation>();
   const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
   const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
   const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
+
   const [startLocationDisplay, setStartLocationDisplay] = React.useState<
     string
   >("");
+  const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
+    {
+      currentFloor: null,
+      floors: [],
+    }
+  );
   /**
    * Creates a reference to the MapView Component that is rendered.
    * Allows to access component methods.
@@ -271,22 +273,24 @@ const MapScreen = () => {
   };
 
   /**
-   *
+   * Goes to the start location and set the route
    */
   const onStartTravelPlan = () => {
-    animateRegion({
-      latitude: startLocation.location.latitude,
-      longitude: startLocation.location.longitude,
-      latitudeDelta: 0.0005,
-      longitudeDelta: 0.0002,
-    });
+    if (isTravelling()) {
+      animateRegion({
+        latitude: startLocation.location.latitude,
+        longitude: startLocation.location.longitude,
+        latitudeDelta: 0.0005,
+        longitudeDelta: 0.0002,
+      });
 
-    setFloorPaths(
-      PathPlanningService.getInstance().updateFloorPaths(
-        startLocation,
-        endLocation
-      )
-    );
+      setFloorPaths(
+        PathPlanningService.getInstance().updateFloorPaths(
+          startLocation,
+          endLocation
+        )
+      );
+    }
   };
 
   const isTravelling = (): boolean => {
@@ -296,7 +300,7 @@ const MapScreen = () => {
     return travelState === TravelState.PLANNING;
   };
 
-  const isNotTravelling = (): boolean => {
+  const isTravelStateNone = (): boolean => {
     return travelState === TravelState.NONE;
   };
 
@@ -319,7 +323,7 @@ const MapScreen = () => {
         onStartTravelPlan={onStartTravelPlan}
       />
     );
-  } else if (isNotTravelling()) {
+  } else if (isTravelStateNone()) {
     search = (
       <Search
         setUserCurrentLocation={setUserCurrentLocation}
@@ -364,11 +368,12 @@ const MapScreen = () => {
               start={startLocation}
               end={endLocation}
               chosenFloorLevel={floorLevel}
+              setTravelState={setTravelState}
             />
           )}
         </MapView>
 
-        {isNotTravelling() && (
+        {isTravelStateNone() && (
           <>
             <CampusToggle onCampusToggle={animateRegion} />
             <LocationButton
@@ -392,7 +397,7 @@ const MapScreen = () => {
           />
         )}
 
-        {isNotTravelling() && (
+        {isTravelStateNone() && (
           <BuildingInformation
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}
