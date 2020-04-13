@@ -12,21 +12,21 @@ import { TravelState } from "../../types/main";
 
 interface IProps {
   setTravelState: (state: TravelState) => void;
-  updateFloorPaths: () => void;
+  onStartTravelPlan: () => void;
 }
 
 /**
  * Component for controlling indoor floors when in the indoor view.
  * @param onFloorPickerButtonPress Function that handles floorpicker press event
  */
-const StartTravel = ({ setTravelState, updateFloorPaths }: IProps) => {
+const StartTravel = ({ setTravelState, onStartTravelPlan }: IProps) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         testID="startTravel"
         onPress={() => {
           setTravelState(TravelState.TRAVELLING);
-          updateFloorPaths();
+          onStartTravelPlan();
         }}
         style={styles.touchable}
       >

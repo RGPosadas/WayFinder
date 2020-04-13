@@ -53,7 +53,7 @@ export interface OmniboxDirectionsProps {
   setEndLocationFocused: (bool: boolean) => void;
   setTravelState: (state: TravelState) => void;
   setStartLocationDisplay: (displayName: string) => void;
-  updateFloorPaths: () => void;
+  onStartTravelPlan: () => void;
   updateSearchResults: (
     inputText: string,
     setSearchResults: (locations: SearchResult[]) => void,
@@ -88,7 +88,7 @@ const OmniboxDirections = ({
   startLocationDisplay,
   setStartLocationDisplay,
   travelState,
-  updateFloorPaths,
+  onStartTravelPlan,
 }: OmniboxDirectionsProps) => {
   const [endLocationDisplay, setEndLocationDisplay] = React.useState<string>(
     endLocation.displayName
@@ -294,7 +294,7 @@ const OmniboxDirections = ({
       {startLocation && endLocation && travelState === TravelState.PLANNING && (
         <StartTravel
           setTravelState={setTravelState}
-          updateFloorPaths={updateFloorPaths}
+          onStartTravelPlan={onStartTravelPlan}
         />
       )}
     </>

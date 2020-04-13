@@ -32,9 +32,9 @@ import {
 } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
-import TempService from "../../services/path-planning.service";
+import PathPlanningService from "../../services/path-planning.service";
 import TravelRoute from "../../components/travel-route/travel-route.component";
-import TravelSteps from "../../components/travel-route/travel-steps.component";
+import DirectionsText from "../../components/travel-route/indoor-directions-steps.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -77,6 +77,11 @@ const MapScreen = () => {
   useEffect(() => {
     setCurrentRegion(getCampusById("SGW").region);
   }, []);
+
+  useEffect(() => {
+    if (floorPaths && floorPaths[0].buildingId === "H")
+      onFloorPickerButtonPress(9 - floorPaths[0].level);
+  }, [floorPaths]);
 
   /**
    * Handle building tap event.
@@ -268,9 +273,19 @@ const MapScreen = () => {
   /**
    *
    */
-  const updateFloorPaths = () => {
+  const onStartTravelPlan = () => {
+    animateRegion({
+      latitude: startLocation.location.latitude,
+      longitude: startLocation.location.longitude,
+      latitudeDelta: 0.0005,
+      longitudeDelta: 0.0002,
+    });
+
     setFloorPaths(
-      TempService.getInstance().updateFloorPaths(startLocation, endLocation)
+      PathPlanningService.getInstance().updateFloorPaths(
+        startLocation,
+        endLocation
+      )
     );
   };
 
@@ -301,7 +316,7 @@ const MapScreen = () => {
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
         travelState={travelState}
-        updateFloorPaths={updateFloorPaths}
+        onStartTravelPlan={onStartTravelPlan}
       />
     );
   } else if (isNotTravelling()) {
@@ -346,7 +361,6 @@ const MapScreen = () => {
           />
           {isTravelling() && (
             <TravelRoute
-              animateToStartLocation={animateRegion}
               start={startLocation}
               end={endLocation}
               chosenFloorLevel={floorLevel}
@@ -372,7 +386,7 @@ const MapScreen = () => {
         />
 
         {isTravelling() && (
-          <TravelSteps
+          <DirectionsText
             floorPaths={floorPaths}
             onCloseTravelSteps={onCloseTravelSteps}
           />
