@@ -171,6 +171,7 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
           "alignItems": "center",
           "flexDirection": "row",
           "justifyContent": "space-between",
+          "marginLeft": 15,
           "marginTop": 20,
         }
       }

@@ -269,7 +269,7 @@ const OmniboxDirections = ({
             >
               <FontAwesome
                 name="wheelchair"
-                size={24}
+                size={26}
                 style={styles.travelModeIcon}
               />
             </TouchableOpacity>
@@ -371,6 +371,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   travelModeSwitcher: {
+    marginLeft: 15,
     marginTop: 20,
     flexDirection: "row",
     alignItems: "center",
@@ -379,8 +380,9 @@ const styles = StyleSheet.create({
   travelModeButtonSelected: {
     backgroundColor: ACTIVE_TRAVEL_MODE,
     borderRadius: 8,
+    alignItems: "center",
   },
-  travelModeIcon: { flex: 1, marginLeft: 15 },
+  travelModeIcon: { paddingHorizontal: 6, paddingVertical: 5 },
   shuttleIcon: { height: 26, resizeMode: "contain" },
   autocomplete: {
     top: 260,
