@@ -125,7 +125,11 @@ export const sameBuildingSameFloor = [
 export const differentBuildingSameCampus = [
   [
     [
-      { latitude: 45.49731, longitude: -73.57901 },
+      { latitude: 45.497314, longitude: -73.578751 },
+      { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+    ],
+    [
+      { latitude: 45.49720844470052, longitude: -73.57888278122401 },
       { latitude: 45.497301508502154, longitude: -73.57906181867575 },
     ],
     [
@@ -153,19 +157,19 @@ export const currentLocationAsStart = [
   [
     [
       { latitude: 45.497482, longitude: -73.579034 },
-      { latitude: 45.49743264359791, longitude: -73.57911244537091 },
+      { latitude: 45.49756354338001, longitude: -73.57899677510714 },
     ],
     [
-      { latitude: 45.49743264359791, longitude: -73.57911244537091 },
-      { latitude: 45.49735509062119, longitude: -73.57918419446206 },
+      { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+      { latitude: 45.49741149279668, longitude: -73.57868966217494 },
     ],
     [
-      { latitude: 45.49735509062119, longitude: -73.57918419446206 },
-      { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+      { latitude: 45.49741149279668, longitude: -73.57868966217494 },
+      { latitude: 45.49736449098771, longitude: -73.57873593028044 },
     ],
     [
-      { latitude: 45.497301508502154, longitude: -73.57906181867575 },
-      { latitude: 45.49731, longitude: -73.57901 },
+      { latitude: 45.49736449098771, longitude: -73.57873593028044 },
+      { latitude: 45.497314, longitude: -73.578751 },
     ],
   ],
 ];
@@ -191,26 +195,34 @@ export const differentCampus = [
   },
   {
     buildingId: "H",
-    connectorType: 6,
+    connector: {
+      buildingId: "H",
+      category: 6,
+      description: "",
+      displayName: "Escalators Up",
+      id: "07366816-4ca4-47b5-808f-ba034508bd10",
+      level: 8,
+      location: { latitude: 45.497267, longitude: -73.578869 },
+    },
     level: 8,
     path: [
       [
         { latitude: 45.497267, longitude: -73.578869 },
-        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
-      ],
-      [
-        { latitude: 45.49720844470052, longitude: -73.57888278122401 },
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
-      ],
-      [
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
-        { latitude: 45.49731, longitude: -73.57901 },
+        { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
   },
   {
     buildingId: "H",
-    connectorType: 6,
+    connector: {
+      buildingId: "H",
+      category: 6,
+      description: "",
+      displayName: "Escalators Up",
+      id: "f45af436-f9bb-40b8-97c5-8526ad68ac55",
+      level: 9,
+      location: { latitude: 45.497317, longitude: -73.57901 },
+    },
     level: 9,
     path: [
       [
@@ -238,7 +250,7 @@ export const expectedDirectionSteps = [
   "Go to the H building.",
   "Take the EscalatorUp on floor 8 in the H building.",
   "Take the EscalatorUp on floor 9 in the H building.",
-  "Go to your Destination.",
+  "Head to your Destination.",
 ];
 
 export const updatedFloorPaths = [
@@ -248,19 +260,19 @@ export const updatedFloorPaths = [
     path: [
       [
         { latitude: 45.497482, longitude: -73.579034 },
-        { latitude: 45.49743264359791, longitude: -73.57911244537091 },
+        { latitude: 45.49756354338001, longitude: -73.57899677510714 },
       ],
       [
-        { latitude: 45.49743264359791, longitude: -73.57911244537091 },
-        { latitude: 45.49735509062119, longitude: -73.57918419446206 },
+        { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+        { latitude: 45.49741149279668, longitude: -73.57868966217494 },
       ],
       [
-        { latitude: 45.49735509062119, longitude: -73.57918419446206 },
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+        { latitude: 45.49741149279668, longitude: -73.57868966217494 },
+        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
       ],
       [
-        { latitude: 45.497301508502154, longitude: -73.57906181867575 },
-        { latitude: 45.49731, longitude: -73.57901 },
+        { latitude: 45.49736449098771, longitude: -73.57873593028044 },
+        { latitude: 45.497314, longitude: -73.578751 },
       ],
     ],
   },

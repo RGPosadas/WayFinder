@@ -133,20 +133,7 @@ exports[`Indoor Directions Text component should match indoor travel directions 
           >
             1
             . 
-            Take the entrance/exit on floor 8 in the H building.
-          </Text>
-          <Text
-            style={
-              Object {
-                "fontSize": 16,
-                "marginTop": 10,
-              }
-            }
-            testID="Steps1"
-          >
-            2
-            . 
-            Go to your Destination.
+            Head to your Destination.
           </Text>
         </View>
       </RCTScrollView>

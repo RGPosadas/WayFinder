@@ -45,7 +45,8 @@ class IndoorPathPlanningService {
 
     return PathFindingService.getInstance().findPathBetweenPOIs(
       startPOI,
-      endPOI
+      endPOI,
+      false
     );
   };
 
@@ -74,13 +75,17 @@ class IndoorPathPlanningService {
   public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
     const directionsText: string[] = [];
     floorPaths.forEach((floorPath, index) => {
-      directionsText.push(
-        `Take the ${
-          floorPath.connectorType
-            ? POICategory[floorPath.connectorType]
-            : "entrance/exit"
-        } on floor ${floorPath.level} in the ${floorPath.buildingId} building.`
-      );
+      if (floorPaths.length > 1) {
+        directionsText.push(
+          `Take the ${
+            "connector" in floorPath
+              ? POICategory[floorPath.connector.category]
+              : "entrance/exit"
+          } on floor ${floorPath.level} in the ${
+            floorPath.buildingId
+          } building.`
+        );
+      }
 
       if (
         index + 1 !== floorPaths.length &&
@@ -91,14 +96,14 @@ class IndoorPathPlanningService {
         );
       }
     });
-    directionsText.push("Go to your Destination.");
+    directionsText.push("Head to your Destination.");
 
     return directionsText;
   };
 
-  /*****************
+  /** ***************
    * Helper Methods
-   ****************/
+   *************** */
 
   /**
    * Check if building has floor plans

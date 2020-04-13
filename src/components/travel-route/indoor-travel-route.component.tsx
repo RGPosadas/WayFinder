@@ -54,7 +54,7 @@ const IndoorTravelRoute = ({
                 coordinates={polyline}
                 fillColor={CONCORDIA_RED}
                 key={index}
-                lineDashPattern={Platform.OS == "ios" ? [0.5, 0.5] : [0.5, 7]}
+                lineDashPattern={Platform.OS === "ios" ? [0.5, 0.5] : [0.5, 7]}
                 strokeWidth={5}
                 strokeColor={CONCORDIA_RED}
               />
