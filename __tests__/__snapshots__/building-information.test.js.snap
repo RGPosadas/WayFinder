@@ -27,7 +27,7 @@ exports[`BuildingInformation component should match snapshot 1`] = `
       "right": 0,
       "transform": Array [
         Object {
-          "translateY": -105,
+          "translateY": -113,
         },
       ],
     }

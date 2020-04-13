@@ -80,9 +80,9 @@ const MapScreen = () => {
    */
   const onBuildingTap = (tappedBuilding: Building) => {
     if (travelState === TravelState.NONE) {
+      setTappedBuilding(tappedBuilding.id);
       setShowBuildingInfo(true);
     }
-    setTappedBuilding(tappedBuilding.id);
     setBuildingMarkerLocation(tappedBuilding);
   };
 
@@ -188,6 +188,18 @@ const MapScreen = () => {
   };
 
   /**
+   * Handles the event where the user presses the start travel button
+   * on the building information panel.
+   *
+   * @param building Building to start the travel plan for
+   */
+  const startBuildingTravelPlan = (building: Building) => {
+    setEndLocation(buildingToMarker(building));
+    setTravelState(TravelState.PLANNING);
+    setUserCurrentLocation();
+  };
+
+  /**
    * Set the users current location if location services is on.
    */
   const setUserCurrentLocation = () => {
@@ -212,12 +224,12 @@ const MapScreen = () => {
    */
   const setStartLocationBuilding = (coordinates: Location) => {
     // Attempt to find the building the user is in.
-    const isInBuilding = Buildings.find((building) =>
+    const building = Buildings.find((building) =>
       isPointInPolygon(coordinates, building.boundingBox)
     );
-    if (isInBuilding) {
-      onBuildingTap(isInBuilding);
-      setStartLocation(buildingToMarker(isInBuilding));
+    if (building) {
+      onBuildingTap(building);
+      setStartLocation(buildingToMarker(building));
     } else {
       setStartLocation(
         UtilityService.getInstance().locationToSearchResult(
@@ -327,6 +339,7 @@ const MapScreen = () => {
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}
             onClosePanel={onClosePanel}
+            startBuildingTravelPlan={startBuildingTravelPlan}
           />
         )}
       </View>
