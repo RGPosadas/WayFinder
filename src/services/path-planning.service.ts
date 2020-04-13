@@ -1,6 +1,7 @@
 import { FloorPath, Line, POI, POICategory } from "../types/main";
 import { getAllPOI } from "../constants";
 import PathFindingService from "./pathfinding.service";
+import { CURRENT_LOCATION_DISPLAY_TEXT } from "../styles";
 
 /**
  *
@@ -24,9 +25,18 @@ class PathPlanningService {
     startLocation: any,
     endLocation: any
   ): FloorPath[] => {
+    let startPOI = this.getPOI(startLocation);
+    const endPOI = this.getPOI(endLocation);
+    if (startPOI === undefined) {
+      startPOI = getAllPOI().find(
+        (poi) =>
+          poi.buildingId === endPOI.buildingId &&
+          poi.category === POICategory.Exit
+      );
+    }
     return PathFindingService.getInstance().findPathBetweenPOIs(
-      this.getPOI(startLocation),
-      this.getPOI(endLocation)
+      startPOI,
+      endPOI
     );
   };
 
@@ -84,6 +94,7 @@ class PathPlanningService {
           poi.buildingId === object.id && poi.category === POICategory.Exit
       );
     }
+
     // TODO Current Location
     return poi;
   };
