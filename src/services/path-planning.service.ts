@@ -5,15 +5,15 @@ import PathFindingService from "./pathfinding.service";
 /**
  *
  */
-class TempService {
-  private static instance = new TempService();
+class PathPlanningService {
+  private static instance = new PathPlanningService();
 
   private constructor() {
     // noop
   }
 
   public static getInstance() {
-    return TempService.instance;
+    return PathPlanningService.instance;
   }
 
   /**
@@ -42,6 +42,32 @@ class TempService {
       this.updateFloorPaths(startLocation, endLocation),
       chosenFloorLevel
     ).map((floorPath) => floorPath.path);
+  };
+
+  public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
+    const directionsText: string[] = [];
+    floorPaths.forEach((floorPath, index) => {
+      directionsText.push(
+        `Take the ${
+          floorPath.connectorType
+            ? POICategory[floorPath.connectorType]
+            : "entrance/exit"
+        } on floor ${floorPath.level} in the ${floorPath.buildingId} building`
+      );
+
+      if (
+        index + 1 !== floorPaths.length &&
+        floorPaths[index].buildingId !== floorPaths[index + 1].buildingId
+      ) {
+        directionsText.push(
+          `Go to the ${floorPaths[index + 1].buildingId} building.`
+        );
+      }
+    });
+
+    directionsText.push("Go to your Destination.");
+
+    return directionsText;
   };
 
   /**
@@ -88,4 +114,4 @@ class TempService {
   };
 }
 
-export default TempService;
+export default PathPlanningService;

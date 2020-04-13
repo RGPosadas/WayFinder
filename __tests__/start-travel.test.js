@@ -12,17 +12,17 @@ describe("StartTravel component", () => {
 
   it("should call provided function on press", () => {
     const mockSetTravelState = jest.fn();
-    const mockUpdateFloorPaths = jest.fn();
+    const mockOnStartTravelPlan = jest.fn();
     const wrapper = shallow(
       <StartTravel
         setTravelState={mockSetTravelState}
-        updateFloorPaths={mockUpdateFloorPaths}
+        onStartTravelPlan={mockOnStartTravelPlan}
       />
     );
     const touchableOpacity = wrapper.find("TouchableOpacity");
     touchableOpacity.simulate("press");
     expect(mockSetTravelState).toHaveBeenCalledTimes(1);
-    expect(mockUpdateFloorPaths).toHaveBeenCalledTimes(1);
+    expect(mockOnStartTravelPlan).toHaveBeenCalledTimes(1);
     expect(mockSetTravelState.mock.calls[0][0]).toBe(TravelState.TRAVELLING);
   });
 });
