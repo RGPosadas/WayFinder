@@ -72,6 +72,7 @@ export interface BuildingFloor {
   bounds: [Coordinate, Coordinate] | null;
   image: any;
   travelNodes: TravelNode[];
+  unfriendlyConnections: number[];
 }
 
 export interface TravelNode {
@@ -99,7 +100,7 @@ export type FloorPath = {
   buildingId: BuildingId;
   level: number;
   path: Line[];
-  connectorType?: ConnectorPOICategory;
+  connector?: POI;
 };
 
 export type ConnectorPOICategory =
