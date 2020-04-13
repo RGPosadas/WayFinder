@@ -27,16 +27,9 @@ const TravelRoute = ({
   chosenFloorLevel,
   setTravelState,
 }: iProps) => {
-  let pathLines = null;
+  const { getPathLines } = PathPlanningService.getInstance();
 
-  const {
-    isBuildingWithFloorPlan,
-    getPathLines,
-  } = PathPlanningService.getInstance();
-
-  if (isBuildingWithFloorPlan(start) && isBuildingWithFloorPlan(end)) {
-    pathLines = getPathLines(start, end, chosenFloorLevel);
-  }
+  const pathLines = getPathLines(start, end, chosenFloorLevel);
 
   const alertUser = () => {
     setTravelState(TravelState.PLANNING);

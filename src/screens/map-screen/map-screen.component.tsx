@@ -81,8 +81,16 @@ const MapScreen = () => {
   }, []);
 
   useEffect(() => {
-    if (floorPaths && floorPaths[0].buildingId === "H")
-      onFloorPickerButtonPress(9 - floorPaths[0].level);
+    if (floorPaths !== null) {
+      animateRegion({
+        latitude: startLocation.location.latitude,
+        longitude: startLocation.location.longitude,
+        latitudeDelta: 0.0005,
+        longitudeDelta: 0.0002,
+      });
+      if (floorPaths[0].buildingId === "H")
+        onFloorPickerButtonPress(9 - floorPaths[0].level);
+    }
   }, [floorPaths]);
 
   /**
@@ -276,21 +284,12 @@ const MapScreen = () => {
    * Goes to the start location and set the route
    */
   const onStartTravelPlan = () => {
-    if (isTravelling()) {
-      animateRegion({
-        latitude: startLocation.location.latitude,
-        longitude: startLocation.location.longitude,
-        latitudeDelta: 0.0005,
-        longitudeDelta: 0.0002,
-      });
-
-      setFloorPaths(
-        PathPlanningService.getInstance().updateFloorPaths(
-          startLocation,
-          endLocation
-        )
-      );
-    }
+    setFloorPaths(
+      PathPlanningService.getInstance().updateFloorPaths(
+        startLocation,
+        endLocation
+      )
+    );
   };
 
   const isTravelling = (): boolean => {

@@ -1,7 +1,13 @@
-import { FloorPath, Line, POI, POICategory } from "../types/main";
+import {
+  FloorPath,
+  Line,
+  POI,
+  POICategory,
+  MarkerLocation,
+  Building,
+} from "../types/main";
 import { getAllPOI, getBuildingById } from "../constants";
 import PathFindingService from "./pathfinding.service";
-import { CURRENT_LOCATION_DISPLAY_TEXT } from "../styles";
 
 /**
  *
@@ -26,26 +32,27 @@ class PathPlanningService {
    * @param endLocation
    */
   public updateFloorPaths = (
-    startLocation: any,
-    endLocation: any
+    startLocation: MarkerLocation,
+    endLocation: MarkerLocation
   ): FloorPath[] => {
     let startPOI = this.getPOI(startLocation);
     const endPOI = this.getPOI(endLocation);
 
-    if (
-      this.isBuildingWithFloorPlan(startLocation) &&
-      this.isBuildingWithFloorPlan(endLocation)
-    ) {
-      if (startPOI === undefined) {
-        startPOI = getAllPOI().find((poi) => this.isBuildingExit(poi, endPOI));
-      }
+    if (endPOI === null) {
+      return null;
+    }
 
-      return PathFindingService.getInstance().findPathBetweenPOIs(
-        startPOI,
-        endPOI
+    if (startPOI === null) {
+      startPOI = getAllPOI().find(
+        ({ buildingId, category }) =>
+          buildingId === endPOI.buildingId && category === POICategory.Exit
       );
     }
-    return null;
+
+    return PathFindingService.getInstance().findPathBetweenPOIs(
+      startPOI,
+      endPOI
+    );
   };
 
   /**
@@ -55,14 +62,15 @@ class PathPlanningService {
    * @param chosenFloorLevel the level which the user selects
    */
   public getPathLines = (
-    startLocation: any,
-    endLocation: any,
+    startLocation: MarkerLocation,
+    endLocation: MarkerLocation,
     chosenFloorLevel: number
   ): Line[][] => {
-    return this.filterPaths(
-      this.updateFloorPaths(startLocation, endLocation),
-      chosenFloorLevel
-    ).map((floorPath) => floorPath.path);
+    const floorPaths = this.updateFloorPaths(startLocation, endLocation);
+    if (floorPaths === null) return null;
+    return this.filterPaths(floorPaths, chosenFloorLevel).map(
+      (floorPath) => floorPath.path
+    );
   };
 
   /**
@@ -78,7 +86,7 @@ class PathPlanningService {
           floorPath.connectorType
             ? POICategory[floorPath.connectorType]
             : "entrance/exit"
-        } on floor ${floorPath.level} in the ${floorPath.buildingId} building`
+        } on floor ${floorPath.level} in the ${floorPath.buildingId} building.`
       );
 
       if (
@@ -95,10 +103,10 @@ class PathPlanningService {
     return directionsText;
   };
 
-  public isBuildingWithFloorPlan = (location) => {
+  public isBuildingWithFloorPlan = (location: MarkerLocation) => {
     if (
       getBuildingById(location.id) !== undefined &&
-      (location.id === "H" || "MB" || "CC")
+      (location.id === "H" || location.id === "MB" || location.id === "CC")
     ) {
       return true;
     }
@@ -110,26 +118,15 @@ class PathPlanningService {
    ************** */
 
   /**
-   * returns if the buidling has an exit
-   * @param marker
-   * @param building
-   */
-  private isBuildingExit = (marker, building): boolean => {
-    return (
-      marker.buildingId === building.buildingId &&
-      marker.category === POICategory.Exit
-    );
-  };
-
-  /**
    * Searches and return either the POI, building, User Location or undefined
    * @param object any time that has an id
    */
-  private getPOI = (object: any) => {
+  private getPOI = (object: MarkerLocation) => {
     let poi: POI;
     poi = getAllPOI().find((poi) => poi.id === object.id);
 
     if (poi === undefined) {
+      if (!this.isBuildingWithFloorPlan(object)) return null;
       poi = getAllPOI().find(
         (poi) =>
           poi.buildingId === object.id && poi.category === POICategory.Exit // needs an exit for the building
