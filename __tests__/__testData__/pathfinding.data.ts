@@ -14,183 +14,79 @@ import {
 
 export const h85103toH815: Line[] = [
   [
-    {
-      latitude: 45.496957,
-      longitude: -73.578855,
-    },
-    {
-      latitude: 45.49714193688946,
-      longitude: -73.57874800022101,
-    },
+    { latitude: 45.496957, longitude: -73.578855 },
+    { latitude: 45.496967, longitude: -73.578888 },
   ],
   [
-    {
-      latitude: 45.49714193688946,
-      longitude: -73.57874800022101,
-    },
-    {
-      latitude: 45.49720844470052,
-      longitude: -73.57888278122401,
-    },
+    { latitude: 45.496967, longitude: -73.578888 },
+    { latitude: 45.497046, longitude: -73.578829 },
   ],
   [
-    {
-      latitude: 45.49720844470052,
-      longitude: -73.57888278122401,
-    },
-    {
-      latitude: 45.497301508502154,
-      longitude: -73.57906181867575,
-    },
+    { latitude: 45.497046, longitude: -73.578829 },
+    { latitude: 45.49714193688946, longitude: -73.57874800022101 },
   ],
   [
-    {
-      latitude: 45.497301508502154,
-      longitude: -73.57906181867575,
-    },
-    {
-      latitude: 45.49735509062119,
-      longitude: -73.57918419446206,
-    },
+    { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+    { latitude: 45.49720844470052, longitude: -73.57888278122401 },
   ],
   [
-    {
-      latitude: 45.49735509062119,
-      longitude: -73.57918419446206,
-    },
-    {
-      latitude: 45.49743264359791,
-      longitude: -73.57911244537091,
-    },
+    { latitude: 45.49720844470052, longitude: -73.57888278122401 },
+    { latitude: 45.497301508502154, longitude: -73.57906181867575 },
   ],
   [
-    {
-      latitude: 45.49743264359791,
-      longitude: -73.57911244537091,
-    },
-    {
-      latitude: 45.49756354338001,
-      longitude: -73.57899677510714,
-    },
+    { latitude: 45.497301508502154, longitude: -73.57906181867575 },
+    { latitude: 45.49735509062119, longitude: -73.57918419446206 },
   ],
   [
-    {
-      latitude: 45.49756354338001,
-      longitude: -73.57899677510714,
-    },
-    {
-      latitude: 45.497613,
-      longitude: -73.57895,
-    },
+    { latitude: 45.49735509062119, longitude: -73.57918419446206 },
+    { latitude: 45.49743264359791, longitude: -73.57911244537091 },
+  ],
+  [
+    { latitude: 45.49743264359791, longitude: -73.57911244537091 },
+    { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+  ],
+  [
+    { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+    { latitude: 45.497613, longitude: -73.57895 },
   ],
 ];
 
 export const h96119toH911: Line[] = [
   [
-    {
-      latitude: 45.497064,
-      longitude: -73.578788,
-    },
-    {
-      latitude: 45.497154,
-      longitude: -73.578732,
-    },
+    { latitude: 45.497064, longitude: -73.578788 },
+    { latitude: 45.497154, longitude: -73.578732 },
   ],
   [
-    {
-      latitude: 45.497154,
-      longitude: -73.578732,
-    },
-    {
-      latitude: 45.497223,
-      longitude: -73.578861,
-    },
+    { latitude: 45.497154, longitude: -73.578732 },
+    { latitude: 45.497223, longitude: -73.578861 },
   ],
   [
-    {
-      latitude: 45.497223,
-      longitude: -73.578861,
-    },
-    {
-      latitude: 45.497322,
-      longitude: -73.579066,
-    },
+    { latitude: 45.497223, longitude: -73.578861 },
+    { latitude: 45.497322, longitude: -73.579066 },
   ],
   [
-    {
-      latitude: 45.497322,
-      longitude: -73.579066,
-    },
-    {
-      latitude: 45.49739,
-      longitude: -73.579014,
-    },
+    { latitude: 45.497322, longitude: -73.579066 },
+    { latitude: 45.49739, longitude: -73.579014 },
   ],
   [
-    {
-      latitude: 45.49739,
-      longitude: -73.579014,
-    },
-    {
-      latitude: 45.497454,
-      longitude: -73.579139,
-    },
+    { latitude: 45.49739, longitude: -73.579014 },
+    { latitude: 45.497454, longitude: -73.579139 },
   ],
   [
-    {
-      latitude: 45.497454,
-      longitude: -73.579139,
-    },
-    {
-      latitude: 45.497489,
-      longitude: -73.57917,
-    },
+    { latitude: 45.497454, longitude: -73.579139 },
+    { latitude: 45.497489, longitude: -73.57917 },
   ],
   [
-    {
-      latitude: 45.497489,
-      longitude: -73.57917,
-    },
-    {
-      latitude: 45.497651,
-      longitude: -73.579018,
-    },
+    { latitude: 45.497489, longitude: -73.57917 },
+    { latitude: 45.497572, longitude: -73.57909 },
   ],
   [
-    {
-      latitude: 45.497651,
-      longitude: -73.579018,
-    },
-    {
-      latitude: 45.497658,
-      longitude: -73.57901,
-    },
+    { latitude: 45.497572, longitude: -73.57909 },
+    { latitude: 45.497651, longitude: -73.579018 },
   ],
-];
-
-export const h923toH921: Line[] = [
   [
-    {
-      latitude: 45.49702,
-      longitude: -73.579009,
-    },
-    {
-      latitude: 45.497065,
-      longitude: -73.579094,
-    },
-  ],
-];
-
-export const h96119toH9619: Line[] = [
-  [
-    {
-      latitude: 45.497575,
-      longitude: -73.578849,
-    },
-    {
-      latitude: 45.497658,
-      longitude: -73.57901,
-    },
+    { latitude: 45.497651, longitude: -73.579018 },
+    { latitude: 45.497658, longitude: -73.57901 },
   ],
 ];
 
@@ -377,10 +273,22 @@ export const h96117toMBMensBathroom: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],
@@ -451,10 +359,22 @@ export const h96117toH9MensBathroom: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],
@@ -477,10 +397,22 @@ export const h9117toH8WomensBathroom: FloorPath[] = [
     path: [
       [
         { latitude: 45.497438, longitude: -73.578964 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],
@@ -504,14 +436,34 @@ export const h9117toH8WomensBathroom: FloorPath[] = [
       ],
       [
         { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+        { latitude: 45.497498, longitude: -73.578877 },
+      ],
+      [
+        { latitude: 45.497498, longitude: -73.578877 },
         { latitude: 45.49741149279668, longitude: -73.57868966217494 },
       ],
       [
         { latitude: 45.49741149279668, longitude: -73.57868966217494 },
+        { latitude: 45.497379, longitude: -73.578615 },
+      ],
+      [
+        { latitude: 45.497379, longitude: -73.578615 },
         { latitude: 45.497348275354476, longitude: -73.57855018730616 },
       ],
       [
         { latitude: 45.497348275354476, longitude: -73.57855018730616 },
+        { latitude: 45.497289, longitude: -73.578601 },
+      ],
+      [
+        { latitude: 45.497289, longitude: -73.578601 },
+        { latitude: 45.497275, longitude: -73.578609 },
+      ],
+      [
+        { latitude: 45.497275, longitude: -73.578609 },
+        { latitude: 45.497249, longitude: -73.578626 },
+      ],
+      [
+        { latitude: 45.497249, longitude: -73.578626 },
         { latitude: 45.497239, longitude: -73.578674 },
       ],
     ],
@@ -542,6 +494,10 @@ export const h8WomensBathroomToH9117: FloorPath[] = [
       ],
       [
         { latitude: 45.49714193688946, longitude: -73.57874800022101 },
+        { latitude: 45.49722, longitude: -73.578662 },
+      ],
+      [
+        { latitude: 45.49722, longitude: -73.578662 },
         { latitude: 45.497239, longitude: -73.578674 },
       ],
     ],
@@ -569,14 +525,44 @@ export const h8WomensBathroomToH9117: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],
   },
+];
+
+export const h96119toH9619: Line[] = [
+  [
+    { latitude: 45.497575, longitude: -73.578849 },
+    { latitude: 45.497606, longitude: -73.578922 },
+  ],
+  [
+    { latitude: 45.497606, longitude: -73.578922 },
+    { latitude: 45.497658, longitude: -73.57901 },
+  ],
+];
+
+export const h923toH921: Line[] = [
+  [
+    { latitude: 45.49702, longitude: -73.579009 },
+    { latitude: 45.497065, longitude: -73.579094 },
+  ],
 ];
 
 export const h3rdPoiMock: POI = {
@@ -647,10 +633,22 @@ export const accessibleH96117toPoliceStExit: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],
@@ -738,10 +736,22 @@ export const h96117toPoliceStExit: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497643, longitude: -73.578983 },
       ],
     ],

@@ -161,6 +161,10 @@ export const currentLocationAsStart: Line[][] = [
     ],
     [
       { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+      { latitude: 45.497498, longitude: -73.578877 },
+    ],
+    [
+      { latitude: 45.497498, longitude: -73.578877 },
       { latitude: 45.49741149279668, longitude: -73.57868966217494 },
     ],
     [
@@ -235,10 +239,22 @@ export const differentCampus: FloorPath[] = [
       ],
       [
         { latitude: 45.49739, longitude: -73.579014 },
+        { latitude: 45.497446, longitude: -73.578951 },
+      ],
+      [
+        { latitude: 45.497446, longitude: -73.578951 },
+        { latitude: 45.497496, longitude: -73.578903 },
+      ],
+      [
+        { latitude: 45.497496, longitude: -73.578903 },
         { latitude: 45.497563, longitude: -73.578837 },
       ],
       [
         { latitude: 45.497563, longitude: -73.578837 },
+        { latitude: 45.497606, longitude: -73.578922 },
+      ],
+      [
+        { latitude: 45.497606, longitude: -73.578922 },
         { latitude: 45.497612, longitude: -73.578921 },
       ],
     ],
@@ -263,6 +279,10 @@ export const updatedFloorPaths: FloorPath[] = [
       ],
       [
         { latitude: 45.49756354338001, longitude: -73.57899677510714 },
+        { latitude: 45.497498, longitude: -73.578877 },
+      ],
+      [
+        { latitude: 45.497498, longitude: -73.578877 },
         { latitude: 45.49741149279668, longitude: -73.57868966217494 },
       ],
       [
