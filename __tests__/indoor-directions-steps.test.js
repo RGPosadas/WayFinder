@@ -8,7 +8,8 @@ import * as testData from "./__testData__/indoor-travel-route";
 
 const mockFloorPath = PathFindingService.getInstance().findPathBetweenPOIs(
   testData.mockPOIs[0],
-  testData.mockPOIs[1]
+  testData.mockPOIs[1],
+  false
 );
 
 describe("Indoor Directions Text component", () => {

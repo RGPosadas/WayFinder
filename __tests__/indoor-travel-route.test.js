@@ -1,8 +1,7 @@
 import React from "react";
 import IndoorTravelRoute from "../src/components/travel-route/indoor-travel-route.component";
 import renderer from "react-test-renderer";
-import { shallow, mount } from "enzyme";
-import { Alert } from "react-native";
+import { shallow } from "enzyme";
 import * as testData from "./__testData__/indoor-travel-route";
 
 describe("Indoor Travel Route component", () => {
@@ -20,7 +19,7 @@ describe("Indoor Travel Route component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("it should alert the user if theirs no indoor floor plans", () => {
+  it("should alert the user if theirs no indoor floor plans", () => {
     const mockSetTravelState = jest.fn();
     const wrapper = shallow(
       <IndoorTravelRoute

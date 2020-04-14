@@ -1,6 +1,6 @@
-import { POICategory } from "../../src/types/main";
+import { POICategory, Line, FloorPath } from "../../src/types/main";
 
-export const mockPOIs = [
+export const mockPOIs: any[] = [
   {
     id: "c4541028-739d-4651-b9f5-dc4d54054807",
     displayName: "H803",
@@ -74,7 +74,7 @@ export const mockPOIs = [
   },
 ];
 
-export const mockBuilding = [
+export const mockBuilding: any[] = [
   {
     id: "GN",
     campusId: "SGW",
@@ -101,7 +101,7 @@ export const mockBuilding = [
   },
 ];
 
-export const sameBuildingSameFloor = [
+export const sameBuildingSameFloor: Line[][] = [
   [
     [
       { latitude: 45.497482, longitude: -73.579034 },
@@ -122,7 +122,7 @@ export const sameBuildingSameFloor = [
   ],
 ];
 
-export const differentBuildingSameCampus = [
+export const differentBuildingSameCampus: Line[][] = [
   [
     [
       { latitude: 45.497314, longitude: -73.578751 },
@@ -153,7 +153,7 @@ export const differentBuildingSameCampus = [
   ],
 ];
 
-export const currentLocationAsStart = [
+export const currentLocationAsStart: Line[][] = [
   [
     [
       { latitude: 45.497482, longitude: -73.579034 },
@@ -174,7 +174,7 @@ export const currentLocationAsStart = [
   ],
 ];
 
-export const differentCampus = [
+export const differentCampus: FloorPath[] = [
   {
     buildingId: "CC",
     level: 1,
@@ -245,15 +245,14 @@ export const differentCampus = [
   },
 ];
 
-export const expectedDirectionSteps = [
+export const expectedDirectionSteps: string[] = [
   "Take the entrance/exit on floor 1 in the CC building.",
   "Go to the H building.",
-  "Take the EscalatorUp on floor 8 in the H building.",
-  "Take the EscalatorUp on floor 9 in the H building.",
+  "Take the EscalatorUp on floor 8 to floor 9 in the H building.",
   "Head to your Destination.",
 ];
 
-export const updatedFloorPaths = [
+export const updatedFloorPaths: FloorPath[] = [
   {
     buildingId: "H",
     level: 8,
