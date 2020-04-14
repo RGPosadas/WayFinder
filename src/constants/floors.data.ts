@@ -46,7 +46,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49756354338001,
           longitude: -73.57899677510714,
         },
-        children: [2, 5, 9],
+        children: [2, 5, 26],
       },
       {
         id: 5,
@@ -62,7 +62,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497348275354476,
           longitude: -73.57855018730616,
         },
-        children: [7, 9],
+        children: [20, 23, 24],
       },
       {
         id: 7,
@@ -70,7 +70,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49714193688946,
           longitude: -73.57874800022101,
         },
-        children: [6, 8, 10, 11],
+        children: [8, 10, 19, 25],
       },
       {
         id: 8,
@@ -86,7 +86,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49741149279668,
           longitude: -73.57868966217494,
         },
-        children: [4, 6, 13],
+        children: [13, 23, 26],
       },
       {
         id: 10,
@@ -99,15 +99,15 @@ export const buildingFloors: BuildingFloor[] = [
       {
         id: 11,
         location: {
-          latitude: 45.496983774888996,
-          longitude: -73.57889082785105,
+          latitude: 45.496967,
+          longitude: -73.578888,
         },
-        children: [7, 12],
+        children: [19, 21, 27],
       },
       {
         id: 12,
         location: { latitude: 45.49719904430793, longitude: -73.579332051234 },
-        children: [11, 17],
+        children: [17, 21],
       },
       {
         id: 13,
@@ -154,6 +154,86 @@ export const buildingFloors: BuildingFloor[] = [
         },
         children: [17],
       },
+      {
+        id: 19,
+        location: {
+          latitude: 45.497046,
+          longitude: -73.578829,
+        },
+        children: [7, 11],
+      },
+      {
+        id: 20,
+        location: {
+          latitude: 45.497358,
+          longitude: -73.578506,
+        },
+        children: [6],
+      },
+      {
+        id: 21,
+        location: {
+          latitude: 45.497071,
+          longitude: -73.579079,
+        },
+        children: [11, 12],
+      },
+      {
+        id: 22,
+        location: {
+          latitude: 45.497249,
+          longitude: -73.578626,
+        },
+        children: [25, 28],
+      },
+      {
+        id: 23,
+        location: {
+          latitude: 45.497379,
+          longitude: -73.578615,
+        },
+        children: [6, 9],
+      },
+      {
+        id: 24,
+        location: {
+          latitude: 45.497289,
+          longitude: -73.578601,
+        },
+        children: [6, 28],
+      },
+      {
+        id: 25,
+        location: {
+          latitude: 45.49722,
+          longitude: -73.578662,
+        },
+        children: [7, 22],
+      },
+      {
+        id: 26,
+        location: {
+          latitude: 45.497498,
+          longitude: -73.578877,
+        },
+        children: [4, 9],
+      },
+      {
+        id: 27,
+        location: {
+          latitude: 45.496951,
+          longitude: -73.578874,
+        },
+        children: [11],
+      },
+      {
+        id: 28,
+        location: {
+          latitude: 45.497275,
+          longitude: -73.578609,
+        },
+        children: [22, 24],
+      },
     ],
     unfriendlyConnections: [],
   },
@@ -170,7 +250,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497348,
           longitude: -73.578553,
         },
-        children: [1, 12],
+        children: [12, 23],
       },
       {
         id: 1,
@@ -178,7 +258,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497154,
           longitude: -73.578732,
         },
-        children: [2, 11],
+        children: [11, 21, 23],
       },
       {
         id: 2,
@@ -186,7 +266,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.496979,
           longitude: -73.578896,
         },
-        children: [1, 3],
+        children: [3, 21],
       },
       {
         id: 3,
@@ -194,7 +274,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497081,
           longitude: -73.579109,
         },
-        children: [2, 4, 5],
+        children: [2, 4, 24],
       },
       {
         id: 4,
@@ -210,7 +290,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497146,
           longitude: -73.579202,
         },
-        children: [3, 6, 9],
+        children: [6, 9, 24],
       },
       {
         id: 6,
@@ -274,7 +354,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.49739,
           longitude: -73.579014,
         },
-        children: [10, 14, 17],
+        children: [10, 14, 22],
       },
       {
         id: 14,
@@ -290,7 +370,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497489,
           longitude: -73.57917,
         },
-        children: [14, 16],
+        children: [14, 20],
       },
       {
         id: 16,
@@ -298,7 +378,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497651,
           longitude: -73.579018,
         },
-        children: [15, 17],
+        children: [19, 20],
       },
       {
         id: 17,
@@ -306,7 +386,7 @@ export const buildingFloors: BuildingFloor[] = [
           latitude: 45.497563,
           longitude: -73.578837,
         },
-        children: [13, 16, 18],
+        children: [18, 19, 25],
       },
       {
         id: 18,
@@ -315,6 +395,62 @@ export const buildingFloors: BuildingFloor[] = [
           longitude: -73.578713,
         },
         children: [17],
+      },
+      {
+        id: 19,
+        location: {
+          latitude: 45.497606,
+          longitude: -73.578922,
+        },
+        children: [16, 17],
+      },
+      {
+        id: 20,
+        location: {
+          latitude: 45.497572,
+          longitude: -73.57909,
+        },
+        children: [15, 16],
+      },
+      {
+        id: 21,
+        location: {
+          latitude: 45.497054,
+          longitude: -73.578821,
+        },
+        children: [1, 2],
+      },
+      {
+        id: 22,
+        location: {
+          latitude: 45.497446,
+          longitude: -73.578951,
+        },
+        children: [13, 25],
+      },
+      {
+        id: 23,
+        location: {
+          latitude: 45.497206,
+          longitude: -73.578686,
+        },
+        children: [0, 1],
+      },
+      {
+        id: 24,
+        location: {
+          latitude: 45.497121,
+          longitude: -73.579139,
+        },
+        children: [3, 5],
+      },
+      {
+        id: 25,
+        location: {
+          latitude: 45.497496,
+          longitude: -73.578903,
+        },
+        children: [17, 22],
       },
     ],
     unfriendlyConnections: [],

@@ -28,6 +28,15 @@ describe("Find the shortest path between two locations/POI's", () => {
     expect(shortest).toEqual(testData.h96119toH911);
   });
 
+  it("should return the shortest path between two given locations on H 9th floor", () => {
+    const shortest = findPathOnFloor(
+      POIInfo.find(({ displayName }) => displayName === "H961-19"),
+      POIInfo.find(({ displayName }) => displayName === "H961-9"),
+      false
+    );
+    expect(shortest).toEqual(testData.h96119toH9619);
+  });
+
   it("should return one line only between two locations next to each other", () => {
     const shortest = findPathOnFloor(
       POIInfo.find(({ displayName }) => displayName === "H923"),
@@ -36,16 +45,6 @@ describe("Find the shortest path between two locations/POI's", () => {
     );
     expect(shortest.length).toBe(1);
     expect(shortest).toEqual(testData.h923toH921);
-  });
-
-  it("should return one line only between two locations near the edges of a line", () => {
-    const shortest = findPathOnFloor(
-      POIInfo.find(({ displayName }) => displayName === "H961-19"),
-      POIInfo.find(({ displayName }) => displayName === "H961-9"),
-      false
-    );
-    expect(shortest.length).toBe(1);
-    expect(shortest).toEqual(testData.h96119toH9619);
   });
 
   it("should return a path that uses stairs as connectors", () => {
