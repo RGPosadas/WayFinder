@@ -10,7 +10,7 @@ import {
 import SlidingUpPanel from "rn-sliding-up-panel";
 import { AntDesign, Feather } from "@expo/vector-icons";
 import { getBuildingById } from "../../constants";
-import { BuildingId, Building } from "../../types/main";
+import { BuildingId } from "../../types/main";
 import {
   CONCORDIA_RED,
   screenHeight,

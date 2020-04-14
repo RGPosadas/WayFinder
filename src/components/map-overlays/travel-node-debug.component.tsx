@@ -1,8 +1,6 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { Polyline, Marker } from "react-native-maps";
-import { buildingFloors } from "../../constants";
-import PathFindingService from "../../services/pathfinding.service";
+import { StyleSheet } from "react-native";
+import { Polyline } from "react-native-maps";
 
 interface IProps {
   id: number;
