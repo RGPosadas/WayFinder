@@ -80,14 +80,40 @@ class IndoorPathPlanningService {
    */
   public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
     const directionsText: string[] = [];
+    let skip: number;
     floorPaths.forEach((floorPath, index) => {
-      directionsText.push(
-        `Take the ${
-          "connector" in floorPath
-            ? POICategory[floorPath.connector.category]
-            : "entrance/exit"
-        } on floor ${floorPath.level} in the ${floorPath.buildingId} building.`
-      );
+      if (skip === index) {
+        return;
+      }
+
+      if (
+        index + 1 !== floorPaths.length &&
+        "connector" in floorPath &&
+        "connector" in floorPaths[index + 1] &&
+        floorPath.connector.category ===
+          floorPaths[index + 1].connector.category
+      ) {
+        skip = index + 1;
+        directionsText.push(
+          `Take the ${
+            "connector" in floorPath
+              ? POICategory[floorPath.connector.category]
+              : "entrance/exit"
+          } on floor ${floorPath.level} to floor ${
+            floorPaths[index + 1].level
+          } in the ${floorPath.buildingId} building.`
+        );
+      } else {
+        directionsText.push(
+          `Take the ${
+            "connector" in floorPath
+              ? POICategory[floorPath.connector.category]
+              : "entrance/exit"
+          } on floor ${floorPath.level} in the ${
+            floorPath.buildingId
+          } building.`
+        );
+      }
 
       if (
         index + 1 !== floorPaths.length &&
@@ -98,6 +124,7 @@ class IndoorPathPlanningService {
         );
       }
     });
+
     directionsText.push("Head to your Destination.");
 
     return directionsText;
