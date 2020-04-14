@@ -65,6 +65,7 @@ const IndoorTravelRoute = ({
                 lineDashPattern={Platform.OS === "ios" ? [0.5, 0.5] : [0.5, 7]}
                 strokeWidth={5}
                 strokeColor={CONCORDIA_RED}
+                style={{ zIndex: 2 }}
               />
             ))
           )

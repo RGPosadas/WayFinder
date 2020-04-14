@@ -262,6 +262,7 @@ const OmniboxDirections = ({
               <FontAwesome name="car" size={24} style={styles.travelModeIcon} />
             </TouchableOpacity>
             <TouchableOpacity
+              testID="accessibilityButton"
               style={
                 travelMode === TravelMode.ACCESSIBLE
                   ? styles.travelModeButtonSelected

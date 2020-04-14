@@ -1,5 +1,10 @@
 module.exports = {
-  ignorePatterns: ["node_modules/*", "user-story-2.spec.ts"],
+  ignorePatterns: [
+    "node_modules/*",
+    "user-story-2.spec.ts",
+    "user-story-12.spec.ts",
+    "user-story-13.spec.ts",
+  ],
   root: true,
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint"],

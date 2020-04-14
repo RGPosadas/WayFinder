@@ -26,6 +26,11 @@ Array [
     lineJoin="round"
     strokeColor="#AA2B45"
     strokeWidth={5}
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
     testID="polylinePath0"
   />,
   <AIRMapPolyline
@@ -52,6 +57,11 @@ Array [
     lineJoin="round"
     strokeColor="#AA2B45"
     strokeWidth={5}
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
     testID="polylinePath1"
   />,
   <AIRMapPolyline
@@ -78,6 +88,11 @@ Array [
     lineJoin="round"
     strokeColor="#AA2B45"
     strokeWidth={5}
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
     testID="polylinePath2"
   />,
   <AIRMapPolyline
@@ -104,6 +119,11 @@ Array [
     lineJoin="round"
     strokeColor="#AA2B45"
     strokeWidth={5}
+    style={
+      Object {
+        "zIndex": 2,
+      }
+    }
     testID="polylinePath3"
   />,
 ]

@@ -17,13 +17,9 @@ describe("US-5: Start Building For Travel Plan", () => {
     await element(by.id("searchInputInitialLocation")).typeText("John Molson");
     await element(by.id("touchableList")).atIndex(0).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputInitialLocation"))).toHaveText(
       "John Molson School of Business"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should tap on a building to set as startLocation with location services off", async () => {
@@ -35,13 +31,9 @@ describe("US-5: Start Building For Travel Plan", () => {
     await element(by.id("searchInputInitialLocation")).tap();
     await element(by.id("mapView")).tapAtPoint({ x: 154, y: 308 });
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputInitialLocation"))).toHaveText(
       "Henry F. Hall Building"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should automatically set startLocation as the building the user is currently in", async () => {
@@ -51,13 +43,9 @@ describe("US-5: Start Building For Travel Plan", () => {
     await element(by.id("touchableList")).atIndex(0).tap();
     await element(by.text("Allow")).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputInitialLocation"))).toHaveText(
       "Henry F. Hall Building"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should automatically set startLocation as user's current location", async () => {
@@ -66,13 +54,9 @@ describe("US-5: Start Building For Travel Plan", () => {
     await element(by.id("searchInput")).typeText("FB");
     await element(by.id("touchableList")).atIndex(0).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputInitialLocation"))).toHaveText(
       "Current Location"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should manually set startLocation as user's current location", async () => {
@@ -84,12 +68,8 @@ describe("US-5: Start Building For Travel Plan", () => {
     await element(by.id("searchInputInitialLocation")).typeText("MB");
     await element(by.id("touchableList")).atIndex(4).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputInitialLocation"))).toHaveText(
       "Current Location"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 });

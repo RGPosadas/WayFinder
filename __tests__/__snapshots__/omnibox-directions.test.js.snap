@@ -211,6 +211,7 @@ exports[`OmniboxDirections component should match snapshot 1`] = `
             "opacity": 1,
           }
         }
+        testID="accessibilityButton"
       >
         <Text />
       </View>

@@ -64,7 +64,7 @@ exports[`Indoor Directions Text component should match snapshot 1`] = `
           "zIndex": 1,
         }
       }
-      testID="panelCloseButton"
+      testID="dirPanelCloseButton"
     >
       <Text />
     </View>
@@ -76,7 +76,7 @@ exports[`Indoor Directions Text component should match snapshot 1`] = `
           "justifyContent": "center",
         }
       }
-      testID="panel"
+      testID="dirPanel"
     >
       <View
         style={
@@ -98,7 +98,7 @@ exports[`Indoor Directions Text component should match snapshot 1`] = `
             "textAlign": "center",
           }
         }
-        testID="panelDisplayName"
+        testID="dirPanelDisplayName"
       >
         Indoor Directions
       </Text>
@@ -119,7 +119,7 @@ exports[`Indoor Directions Text component should match snapshot 1`] = `
             "width": "100%",
           }
         }
-        testID="scrollView"
+        testID="dirScrollView"
       >
         <View>
           <Text
@@ -129,7 +129,7 @@ exports[`Indoor Directions Text component should match snapshot 1`] = `
                 "marginTop": 10,
               }
             }
-            testID="Steps0"
+            testID="stepNumber0"
           >
             1
             . 

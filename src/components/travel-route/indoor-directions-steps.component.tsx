@@ -59,7 +59,7 @@ class IndoorDirectionSteps extends React.Component<IProps, IState> {
         >
           <View style={styles.container}>
             <TouchableOpacity
-              testID="panelCloseButton"
+              testID="dirPanelCloseButton"
               style={styles.xButton}
               onPressOut={() => {
                 onCloseTravelSteps();
@@ -69,16 +69,16 @@ class IndoorDirectionSteps extends React.Component<IProps, IState> {
               <Feather name="x" size={35} color="white" />
             </TouchableOpacity>
 
-            <View testID="panel" style={styles.panelContent}>
+            <View testID="dirPanel" style={styles.panelContent}>
               <View style={styles.uparrow}>
                 <AntDesign name="up" size={40} />
               </View>
-              <Text testID="panelDisplayName" style={styles.header}>
+              <Text testID="dirPanelDisplayName" style={styles.header}>
                 Indoor Directions
               </Text>
 
               <ScrollView
-                testID="scrollView"
+                testID="dirScrollView"
                 onTouchStart={() => this.setState({ allowDragging: false })}
                 onTouchEnd={() => this.setState({ allowDragging: true })}
                 onTouchCancel={() => this.setState({ allowDragging: true })}
@@ -89,7 +89,7 @@ class IndoorDirectionSteps extends React.Component<IProps, IState> {
                   .getDirectionsText(floorPaths)
                   .map((direction, index) => (
                     <Text
-                      testID={`Steps${index}`}
+                      testID={`stepNumber${index}`}
                       key={index}
                       style={styles.directionText}
                     >
