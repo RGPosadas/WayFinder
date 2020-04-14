@@ -156,19 +156,19 @@ class IndoorPathPlanningService {
    * @param object any time that has an id
    */
   private getPOI = (object: MarkerLocation) => {
-    let poi: POI;
-    poi = getAllPOI().find((poi) => poi.id === object.id);
+    let marker: POI;
+    marker = getAllPOI().find((poi) => poi.id === object.id);
 
-    if (poi === undefined) {
+    if (marker === undefined) {
       if (!this.isBuildingWithFloorPlan(object)) return null;
 
-      poi = getAllPOI().find(
+      marker = getAllPOI().find(
         (poi) =>
           poi.buildingId === object.id && poi.category === POICategory.Exit
       );
     }
 
-    return poi;
+    return marker;
   };
 
   /**
