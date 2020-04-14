@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Indoor Directions Text component should match indoor travel directions steps snapshot 1`] = `
+exports[`Indoor Directions Text component should match snapshot 1`] = `
 <View
   disableScrollViewPanResponder={true}
   onMoveShouldSetResponder={[Function]}

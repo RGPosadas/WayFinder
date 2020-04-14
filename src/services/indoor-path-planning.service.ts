@@ -55,6 +55,7 @@ class IndoorPathPlanningService {
    * Returns all the lines to render
    * @param startLocation
    * @param endLocation
+   * @param accessible boolean to enable accessibility mode
    * @param chosenFloorLevel the level which the user selects
    */
   public getPathLines = (

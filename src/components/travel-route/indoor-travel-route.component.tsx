@@ -15,10 +15,11 @@ interface iProps {
 
 /**
  * Draw the shortest path lines from the starting location to the destination
- * @param start
- * @param end
- * @param chosenFloorLevel
- * @param animateToStartLocation
+ * @param travelMode Chosen Travel Mode
+ * @param start Start MarkerLocatiom
+ * @param end End MarkerLocation
+ * @param chosenFloorLevel floor that is currently picked
+ * @param animateToStartLocation function that animates to a region
  */
 const IndoorTravelRoute = ({
   travelMode,

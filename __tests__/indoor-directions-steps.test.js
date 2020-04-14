@@ -13,7 +13,7 @@ const mockFloorPath = PathFindingService.getInstance().findPathBetweenPOIs(
 );
 
 describe("Indoor Directions Text component", () => {
-  it("should match indoor travel directions steps snapshot", () => {
+  it("should match snapshot", () => {
     const mockOnCloseTravelSteps = jest.fn();
     const tree = renderer
       .create(

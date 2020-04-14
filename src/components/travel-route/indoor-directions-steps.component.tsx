@@ -82,7 +82,7 @@ class IndoorDirectionSteps extends React.Component<IProps, IState> {
                 onTouchStart={() => this.setState({ allowDragging: false })}
                 onTouchEnd={() => this.setState({ allowDragging: true })}
                 onTouchCancel={() => this.setState({ allowDragging: true })}
-                style={{ width: "100%" }}
+                style={styles.scrollView}
                 contentContainerStyle={styles.directions}
               >
                 {IndoorPathPlanningService.getInstance()
@@ -149,6 +149,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     width: "100%",
   },
+  scrollView: { width: "100%" },
 });
 
 export default IndoorDirectionSteps;

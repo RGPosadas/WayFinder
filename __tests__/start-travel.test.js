@@ -10,7 +10,7 @@ describe("StartTravel component", () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it("should call provided function on press", () => {
+  it("should start the travel plan by animating to the start and set the floor of the current building if applicable", () => {
     const mockSetTravelState = jest.fn();
     const mockOnStartTravelPlan = jest.fn();
     const wrapper = shallow(

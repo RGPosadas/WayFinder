@@ -100,7 +100,7 @@ const MapScreen = () => {
    * @param tappedBuilding The tapped building
    */
   const onBuildingTap = (tappedBuilding: Building) => {
-    if (travelState === TravelState.NONE) {
+    if (isTravelStateNone()) {
       setTappedBuilding(tappedBuilding.id);
       setShowBuildingInfo(true);
     }
@@ -113,7 +113,7 @@ const MapScreen = () => {
    * @param building
    */
   const setBuildingMarkerLocation = (building: Building | null) => {
-    if (travelState === TravelState.PLANNING) {
+    if (isPlanning()) {
       if (endLocationFocused) {
         setEndLocation(building);
       } else {
@@ -207,7 +207,7 @@ const MapScreen = () => {
   const onPOIMarkerPress = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
-      if (travelState === TravelState.NONE) {
+      if (isTravelStateNone()) {
         setUserCurrentLocation();
       }
       setEndLocation(poi);

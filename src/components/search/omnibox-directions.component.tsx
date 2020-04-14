@@ -78,6 +78,10 @@ export interface OmniboxDirectionsProps {
  * @param endLocationFocused
  * @param setTravelState
  * @param updateSearchResults
+ * @param travelState
+ * @param travelMode
+ * @param setTravelMode
+ * @param onStartTravelPlan
  */
 const OmniboxDirections = ({
   currentLocation,

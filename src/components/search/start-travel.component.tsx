@@ -17,7 +17,7 @@ interface IProps {
 
 /**
  * Component for controlling indoor floors when in the indoor view.
- * @param onFloorPickerButtonPress Function that handles floorpicker press event
+ * @param onStartTravelPlan Function that handles the onPress event of startTravel
  */
 const StartTravel = ({ setTravelState, onStartTravelPlan }: IProps) => {
   return (
