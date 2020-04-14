@@ -81,50 +81,52 @@ class IndoorPathPlanningService {
   public getDirectionsText = (floorPaths: FloorPath[]): string[] => {
     const directionsText: string[] = [];
     let skip: number;
-    floorPaths.forEach((floorPath, index) => {
-      if (skip === index) {
-        return;
-      }
 
-      if (
-        index + 1 !== floorPaths.length &&
-        "connector" in floorPath &&
-        "connector" in floorPaths[index + 1] &&
-        floorPath.connector.category ===
-          floorPaths[index + 1].connector.category
-      ) {
-        skip = index + 1;
-        directionsText.push(
-          `Take the ${
-            "connector" in floorPath
-              ? POICategory[floorPath.connector.category]
-              : "entrance/exit"
-          } on floor ${floorPath.level} to floor ${
-            floorPaths[index + 1].level
-          } in the ${floorPath.buildingId} building.`
-        );
-      } else {
-        directionsText.push(
-          `Take the ${
-            "connector" in floorPath
-              ? POICategory[floorPath.connector.category]
-              : "entrance/exit"
-          } on floor ${floorPath.level} in the ${
-            floorPath.buildingId
-          } building.`
-        );
-      }
+    if (floorPaths.length !== 1) {
+      floorPaths.forEach((floorPath, index) => {
+        if (skip === index) {
+          return;
+        }
 
-      if (
-        index + 1 !== floorPaths.length &&
-        floorPaths[index].buildingId !== floorPaths[index + 1].buildingId
-      ) {
-        directionsText.push(
-          `Go to the ${floorPaths[index + 1].buildingId} building.`
-        );
-      }
-    });
+        if (
+          index + 1 !== floorPaths.length &&
+          "connector" in floorPath &&
+          "connector" in floorPaths[index + 1] &&
+          floorPath.connector.category ===
+            floorPaths[index + 1].connector.category
+        ) {
+          skip = index + 1;
+          directionsText.push(
+            `Take the ${
+              "connector" in floorPath
+                ? POICategory[floorPath.connector.category]
+                : "entrance/exit"
+            } on floor ${floorPath.level} to floor ${
+              floorPaths[index + 1].level
+            } in the ${floorPath.buildingId} building.`
+          );
+        } else {
+          directionsText.push(
+            `Take the ${
+              "connector" in floorPath
+                ? POICategory[floorPath.connector.category]
+                : "entrance/exit"
+            } on floor ${floorPath.level} in the ${
+              floorPath.buildingId
+            } building.`
+          );
+        }
 
+        if (
+          index + 1 !== floorPaths.length &&
+          floorPaths[index].buildingId !== floorPaths[index + 1].buildingId
+        ) {
+          directionsText.push(
+            `Go to the ${floorPaths[index + 1].buildingId} building.`
+          );
+        }
+      });
+    }
     directionsText.push("Head to your Destination.");
 
     return directionsText;
