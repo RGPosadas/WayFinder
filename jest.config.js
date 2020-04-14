@@ -33,6 +33,7 @@ module.exports = {
   coveragePathIgnorePatterns: [
     "<rootDir>/src/services/location.service.ts",
     "<rootDir>/src/services/firebase.service.ts",
+    "<rootDir>/src/components/map-overlays/travel-node-debug.component.tsx",
   ],
 
   // A list of reporter names that Jest uses when writing coverage reports
