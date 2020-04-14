@@ -23,6 +23,8 @@ import {
   MarkerLocation,
   TravelState,
   Building,
+  FloorPath,
+  TravelMode,
 } from "../../types/main";
 import FloorPicker from "../../components/floor-picker/floor-picker.component";
 import {
@@ -31,6 +33,9 @@ import {
 } from "../../styles";
 import UtilityService from "../../services/utility.service";
 import LocationService from "../../services/location.service";
+import IndoorPathPlanningService from "../../services/indoor-path-planning.service";
+import IndoorTravelRoute from "../../components/travel-route/indoor-travel-route.component";
+import IndoorDirectionSteps from "../../components/travel-route/indoor-directions-steps.component";
 
 /**
  * Screen for the Map and its related buttons and components
@@ -42,24 +47,27 @@ const MapScreen = () => {
     latitudeDelta: 0,
     longitudeDelta: 0,
   });
+
   const [showBuildingInfo, setShowBuildingInfo] = useState<boolean>(false);
   const [tappedBuilding, setTappedBuilding] = useState<BuildingId | null>(null);
   const [currentLocation, setCurrentLocation] = useState<Location | null>(null);
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>(ZoomLevel.CAMPUS);
+  const [floorPaths, setFloorPaths] = useState<FloorPath[]>(null);
+  const [floorLevel, setFloorLevel] = useState<number>(8);
+  const [endLocation, setEndLocation] = useState<MarkerLocation>();
+  const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
+  const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
+  const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
+  const [travelMode, setTravelMode] = useState<TravelMode>(TravelMode.WALKING);
+  const [startLocationDisplay, setStartLocationDisplay] = React.useState<
+    string
+  >("");
   const [indoorInformation, setIndoorInformation] = useState<IndoorInformation>(
     {
       currentFloor: null,
       floors: [],
     }
   );
-
-  const [endLocation, setEndLocation] = useState<MarkerLocation>();
-  const [startLocation, setStartLocation] = useState<MarkerLocation>(null);
-  const [endLocationFocused, setEndLocationFocused] = useState<boolean>(true);
-  const [travelState, setTravelState] = useState<TravelState>(TravelState.NONE);
-  const [startLocationDisplay, setStartLocationDisplay] = React.useState<
-    string
-  >("");
 
   /**
    * Creates a reference to the MapView Component that is rendered.
@@ -74,12 +82,25 @@ const MapScreen = () => {
     setCurrentRegion(getCampusById("SGW").region);
   }, []);
 
+  useEffect(() => {
+    if (floorPaths !== null) {
+      animateToRegion({
+        latitude: startLocation.location.latitude,
+        longitude: startLocation.location.longitude,
+        latitudeDelta: 0.0005,
+        longitudeDelta: 0.0002,
+      });
+      if (floorPaths[0].buildingId === "H")
+        onFloorPickerButtonPress(9 - floorPaths[0].level);
+    }
+  }, [floorPaths]);
+
   /**
    * Handle building tap event.
    * @param tappedBuilding The tapped building
    */
   const onBuildingTap = (tappedBuilding: Building) => {
-    if (travelState === TravelState.NONE) {
+    if (isTravelStateNone()) {
       setTappedBuilding(tappedBuilding.id);
       setShowBuildingInfo(true);
     }
@@ -92,7 +113,7 @@ const MapScreen = () => {
    * @param building
    */
   const setBuildingMarkerLocation = (building: Building | null) => {
-    if (travelState === TravelState.PLANNING) {
+    if (isPlanning()) {
       if (endLocationFocused) {
         setEndLocation(building);
       } else {
@@ -110,10 +131,17 @@ const MapScreen = () => {
   };
 
   /**
-   * This functions handles the campus toggle event
+   * Handles closing the Direction steps slider
+   */
+  const onCloseTravelSteps = () => {
+    setTravelState(TravelState.PLANNING);
+  };
+
+  /**
+   * This functions handles animating to region
    * @param region The region to animate to
    */
-  const onCampusToggle = (region: Region) => {
+  const animateToRegion = (region: Region) => {
     mapRef.current.animateToRegion(region);
   };
 
@@ -150,6 +178,7 @@ const MapScreen = () => {
    * @param index Index of the active floor
    */
   const onFloorPickerButtonPress = (index: number) => {
+    setFloorLevel(9 - index);
     (mapRef.current as any).setIndoorActiveLevelIndex(index);
     setIndoorInformation({
       currentFloor: indoorInformation.floors.filter(
@@ -178,7 +207,7 @@ const MapScreen = () => {
   const onPOIMarkerPress = (poi: POI | null) => {
     if (endLocationFocused) {
       setTravelState(TravelState.PLANNING);
-      if (travelState === TravelState.NONE) {
+      if (isTravelStateNone()) {
         setUserCurrentLocation();
       }
       setEndLocation(poi);
@@ -246,19 +275,39 @@ const MapScreen = () => {
    */
   const animateToCurrentLocation = () => {
     if (currentLocation)
-      mapRef.current.animateToRegion({
-        latitude: currentLocation.latitude,
-        longitude: currentLocation.longitude,
+      animateToRegion({
+        ...currentLocation,
         latitudeDelta: currentRegion.latitudeDelta,
         longitudeDelta: currentRegion.longitudeDelta,
       });
   };
 
+  /**
+   * Sets the indoor route so steps can be displayed
+   */
+  const onStartTravelPlan = () => {
+    setFloorPaths(
+      IndoorPathPlanningService.getInstance().updateFloorPaths(
+        startLocation,
+        endLocation,
+        travelMode === TravelMode.ACCESSIBLE
+      )
+    );
+  };
+
+  const isTravelling = (): boolean => {
+    return travelState === TravelState.TRAVELLING;
+  };
+  const isPlanning = (): boolean => {
+    return travelState === TravelState.PLANNING;
+  };
+
+  const isTravelStateNone = (): boolean => {
+    return travelState === TravelState.NONE;
+  };
+
   let search;
-  if (
-    travelState === TravelState.PLANNING ||
-    travelState === TravelState.TRAVELLING
-  ) {
+  if (isPlanning()) {
     search = (
       <OmniboxDirections
         endLocation={endLocation}
@@ -272,9 +321,13 @@ const MapScreen = () => {
         updateSearchResults={UtilityService.getInstance().updateSearchResults}
         startLocationDisplay={startLocationDisplay}
         setStartLocationDisplay={setStartLocationDisplay}
+        travelState={travelState}
+        travelMode={travelMode}
+        setTravelMode={setTravelMode}
+        onStartTravelPlan={onStartTravelPlan}
       />
     );
-  } else if (travelState === TravelState.NONE) {
+  } else if (isTravelStateNone()) {
     search = (
       <Search
         setUserCurrentLocation={setUserCurrentLocation}
@@ -314,17 +367,25 @@ const MapScreen = () => {
             startLocation={startLocation}
             travelState={travelState}
           />
+          {isTravelling() && (
+            <IndoorTravelRoute
+              travelMode={travelMode}
+              start={startLocation}
+              end={endLocation}
+              chosenFloorLevel={floorLevel}
+              setTravelState={setTravelState}
+            />
+          )}
         </MapView>
 
-        {travelState === TravelState.NONE && (
-          <CampusToggle onCampusToggle={onCampusToggle} />
-        )}
-
-        {travelState === TravelState.NONE && (
-          <LocationButton
-            setUserCurrentLocation={setUserCurrentLocation}
-            animateToCurrentLocation={animateToCurrentLocation}
-          />
+        {isTravelStateNone() && (
+          <>
+            <CampusToggle onCampusToggle={animateToRegion} />
+            <LocationButton
+              setUserCurrentLocation={setUserCurrentLocation}
+              animateToCurrentLocation={animateToCurrentLocation}
+            />
+          </>
         )}
 
         <FloorPicker
@@ -334,7 +395,14 @@ const MapScreen = () => {
           zoomLevel={zoomLevel}
         />
 
-        {travelState === TravelState.NONE && (
+        {isTravelling() && (
+          <IndoorDirectionSteps
+            floorPaths={floorPaths}
+            onCloseTravelSteps={onCloseTravelSteps}
+          />
+        )}
+
+        {isTravelStateNone() && (
           <BuildingInformation
             tappedBuilding={tappedBuilding}
             showBuildingInfo={showBuildingInfo}

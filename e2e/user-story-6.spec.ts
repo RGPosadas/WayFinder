@@ -15,13 +15,9 @@ describe("US-6: Destination Building for Travel Plan", () => {
     await element(by.id("touchableList")).atIndex(0).tap();
     await element(by.text("Allow")).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputDestinationLocation"))).toHaveText(
       "Faubourg Sainte-Catherine Building"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should tap on a building to set as destination location on omnibox focus", async () => {
@@ -32,13 +28,9 @@ describe("US-6: Destination Building for Travel Plan", () => {
     await element(by.id("searchInputDestinationLocation")).tap();
     await element(by.id("mapView")).tapAtPoint({ x: 154, y: 405 });
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputDestinationLocation"))).toHaveText(
       "Guy-De Mainsonneuve Building"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should search for a building to set as destination location on omnibox focus", async () => {
@@ -52,13 +44,9 @@ describe("US-6: Destination Building for Travel Plan", () => {
       .withTimeout(2000);
     await element(by.id("touchableList")).atIndex(0).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputDestinationLocation"))).toHaveText(
       "Engineering, CS and VA Integrated Complex"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 
   it("should tap on a building and tap on 'Travel Here!'", async () => {
@@ -68,12 +56,8 @@ describe("US-6: Destination Building for Travel Plan", () => {
       .withTimeout(5000);
     await element(by.id("travelHereButton")).tap();
 
-    await element(by.id("startTravel")).tap();
-
     await expect(element(by.id("searchInputDestinationLocation"))).toHaveText(
       "Guy-De Mainsonneuve Building"
     );
-    await expect(element(by.id("startLocation"))).toExist();
-    await expect(element(by.id("endLocation"))).toExist();
   });
 });
